@@ -17,6 +17,8 @@ const Filter = () => {
 	const t = useTranslations('Main');
 	const filters = getFilters({ section, data });
 
+	console.log(filter);
+
 	const onChange = (name: string, value: number | string | undefined) => {
 		if(value) {
 			setFilter(prev => ({ ...prev, [name]: value}));
@@ -25,6 +27,7 @@ const Filter = () => {
 
 	const handleClick = (value: Section) => {
 		const newOpenState = !(section === value && isOpen);
+		setSection(value);
 		setOpen(newOpenState);
 	};
 

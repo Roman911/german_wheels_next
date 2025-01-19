@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import type { BaseDataProps, CarModelProps, KitTyreSize, KitDiskSize, ManufModels } from '@/models/baseData';
+// import type { BaseDataProps, CarModelProps, KitTyreSize, KitDiskSize, ManufModels } from '@/models/baseData';
+import type { BaseDataProps } from '@/models/baseData';
 import type { SettingsProps } from '@/models/settings';
 import type { ProductsProps } from '@/models/products';
 // import type { ProductProps } from '../models/product';
