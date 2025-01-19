@@ -9,7 +9,7 @@ import type { ProductsProps } from '@/models/products';
 // import type { OrdersParamProps } from '../models/ordersParam';
 // import type { Banner } from '../models/banners';
 // import { FeatureParamsProps } from '../models/featureParams';
-// import type { AliasAll } from '../models/alias';
+import type { AliasAll } from '@/models/alias';
 
 export const baseDataAPI = createApi({
 	reducerPath: 'dataAPI',
@@ -67,16 +67,16 @@ export const baseDataAPI = createApi({
 		// 		url: `/api/getManufModels/${id}`,
 		// 	}),
 		// }),
-		// fetchStatiAliasAll: build.query<AliasAll, string>({
-		// 	query: () => ({
-		// 		url: `/baseData/StatiAlias`,
-		// 	}),
-		// }),
-		// fetchStatiAlias: build.query({
-		// 	query: (id) => ({
-		// 		url: `/baseData/StatiAlias/${id}`,
-		// 	}),
-		// }),
+		fetchStatiAliasAll: build.query<AliasAll, string>({
+			query: () => ({
+				url: `/baseData/StatiAlias`,
+			}),
+		}),
+		fetchStatiAlias: build.query({
+			query: (id) => ({
+				url: `/baseData/StatiAlias/${id}`,
+			}),
+		}),
 		fetchProducts: build.query<ProductsProps | undefined, {id: string, start?: number, length?: number}>({
 			query: ({ id, start = 0, length = 10 }) => ({
 				url: `/api/getProducts${id}`,

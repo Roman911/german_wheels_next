@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import localFont from 'next/font/local'
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 import StoreProvider from '@/app/StoreProvider';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const gilroy = localFont({
 	src: [
@@ -76,6 +77,7 @@ export default async function RootLayout(
 			<NextIntlClientProvider messages={ messages }>
 				<Header locale={ locale } />
 				{ children }
+				<Footer locale={ locale } />
 			</NextIntlClientProvider>
 		</StoreProvider>
 		</body>

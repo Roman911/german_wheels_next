@@ -7,6 +7,15 @@ const nextConfig: NextConfig = {
 	sassOptions: {
 		additionalData: `$var: red;`,
 	},
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'opt.tyreclub.com.ua',
+				pathname: '/api/public/img/user/**',
+			},
+		],
+	},
 };
 
 export default withNextIntl(nextConfig);

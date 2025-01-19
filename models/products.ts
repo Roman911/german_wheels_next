@@ -19,6 +19,7 @@ export interface Product {
 	full_name: string
 	default_photo: string
 	group: number
+	sku: number
 	product_id: number
 	trc_id: number
 	min_price: number

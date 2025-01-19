@@ -42,7 +42,7 @@ const Contacts: FC<Props> = ({ isInfo }) => {
 				>
 					{ item.logo && <Image
 						src={ phoneLogos[item.logo] }
-						alt="Next.js logo"
+						alt={ item.logo }
 						width={ 20 }
 						height={ 20 }
 						priority

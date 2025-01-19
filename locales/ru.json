@@ -1,10 +1,12 @@
 {
   "Main": {
     "about us": "О нас",
+    "buy": "Купить",
     "cardiscs": "Автодиски",
     "cartires": "Автошины",
     "contacts": "Контакты",
     "disks": "Диски",
+    "from": "От",
     "selection by car": "Подбор за авто",
     "tire calculator": "Шинный калькулятор",
     "tires": "Шины"
@@ -42,6 +44,16 @@
     "height": "Высота",
     "width": "Ширина"
   },
+  "Footer": {
+    "brands": "Бренды",
+    "contacts": "Контакты",
+    "delivery": "Доставка",
+    "delivery points": "Пункты выдачи",
+    "disks": "Диски",
+    "information": "Информация",
+    "tire calculator": "Шинный калькулятор",
+    "tires": "Шины"
+  },
 
 
   "add all": "добавить все",
@@ -52,7 +64,6 @@
   "battery": "аккумуляторы",
   "body type": "тип корпусу",
   "brand": "бренд",
-  "brands": "бренды",
 
   "by car": "по авто",
 
@@ -62,7 +73,6 @@
   "by price": "по цене",
 
 
-  "buy": "купить",
   "buy here": "купить здесь",
   "capacity": "емкость",
   "car": "автомобилей",
@@ -81,8 +91,7 @@
   "comparison": "сравнение",
   "country": "страна",
   "credit": "кредит",
-  "delivery": "доставка",
-  "delivery points": "пункты выдачи",
+
   "department": "отделение",
   "departure": "вылет",
   "description": "описание",
@@ -93,7 +102,7 @@
   "delivery calculation": "расчет доставки",
   "expensive at first": "сначала дорогие",
   "guarantee and refund": "гарантия и возврат",
-  "information": "информация",
+
   "installment plan": "онлайн рассрочка",
 
   "load index": "индекс нагрузки",
@@ -105,7 +114,6 @@
   "filters": "фильтры",
 
   "free": "бесплатный",
-  "from": "от",
 
   "high-voltage": "напряжение",
   "homologation": "омологация",

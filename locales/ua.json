@@ -1,10 +1,12 @@
 {
   "Main": {
     "about us": "Про нас",
+    "buy": "Купити",
     "cardiscs": "Автодиски",
     "cartires": "Автошини",
     "contacts": "Контакти",
     "disks": "Диски",
+    "from": "Від",
     "selection by car": "Підбір за авто",
     "tire calculator": "Шинний калькулятор",
     "tires": "Шини"
@@ -42,6 +44,16 @@
     "height": "Висота",
     "width": "Ширина"
   },
+  "Footer": {
+    "brands": "Бренди",
+    "contacts": "Контакти",
+    "delivery": "Доставка",
+    "delivery points": "Пункти видачі",
+    "disks": "Диски",
+    "information": "Інформація",
+    "tire calculator": "Шинний калькулятор",
+    "tires": "Шини"
+  },
 
 
   "add all": "додати всі",
@@ -52,7 +64,6 @@
   "battery": "акумулятори",
   "body type": "тип корпусу",
   "brand": "бренд",
-  "brands": "бренди",
 
   "by car": "за авто",
 
@@ -61,7 +72,6 @@
   "by popularity": "за популярністю",
   "by price": "за ціною",
 
-  "buy": "купити",
   "buy here": "купити тут",
   "capacity": "ємність",
   "car": "автомобілів",
@@ -80,8 +90,7 @@
   "comparison": "порівняння",
   "country": "країна",
   "credit": "кредит",
-  "delivery": "доставка",
-  "delivery points": "пункти видачі",
+
   "department": "відділення",
   "departure": "виліт",
   "description": "опис",
@@ -93,7 +102,7 @@
   "expensive at first": "спочатку дорогі",
   "graduation year": "рік випуску",
   "guarantee and refund": "гарантія та повернення",
-  "information": "інформація",
+
   "installment plan": "онлайн розстрочка",
 
   "load index": "індекс навантаження",
@@ -104,7 +113,6 @@
   "filters": "фільтри",
 
   "free": "безкоштовний",
-  "from": "від",
 
   "high-voltage": "напруга",
   "homologation": "омологація",
