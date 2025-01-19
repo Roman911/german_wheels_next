@@ -16,7 +16,6 @@ export { default as HomeIcon } from './HomeIcon';
 export { default as InfoIcon } from './InfoIcon';
 export { default as LibraIcon } from './LibraIcon';
 export { default as MailIcon } from './MailIcon';
-export { default as MarkerIcon } from './MarkerIcon';
 export { default as MenuIcon } from './MenuIcon';
 export { default as MotorcyclesIcon } from './MotorcyclesIcon';
 export { default as PaymentIcon } from './PaymentIcon';
