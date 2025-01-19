@@ -1,5 +1,5 @@
 import { Section } from '@/models/section';
-import { BaseDataProps } from '@/models/baseData';
+import { BaseDataProps, Options } from '@/models/baseData';
 
 interface Props {
 	section: Section
@@ -10,11 +10,7 @@ interface FilterConfigs {
 	label: string
 	name: string
 	focusValue: string
-	options: {
-		value: string
-		label: string
-		p?: string
-	}[] | undefined
+	options: Options[] | undefined
 }
 
 export const getFilters = ({ section, data }: Props) => {

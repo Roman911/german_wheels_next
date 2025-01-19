@@ -1,6 +1,6 @@
 import { FC, useCallback, useRef } from 'react';
 import dynamic from 'next/dynamic'
-import { GroupBase, SelectInstance, SingleValue, StylesConfig } from 'react-select';
+import { GroupBase, SelectInstance, StylesConfig } from 'react-select';
 import type { Options } from '@/models/baseData';
 
 const DynamicSelect = dynamic(() => import('react-select'), {
@@ -19,7 +19,7 @@ interface SelectProps {
 
 type IsMulti = false;
 
-const colourStyles: StylesConfig<Options | undefined, IsMulti> = {
+const colourStyles: StylesConfig<unknown, IsMulti> = {
 	control: (styles) => ({
 		...styles,
 		padding: '5px 4px 5px 16px',
@@ -29,7 +29,6 @@ const colourStyles: StylesConfig<Options | undefined, IsMulti> = {
 			borderColor: '#8CC9FF',
 			boxShadow: '0 0 0 1px #8CC9FF',
 		},
-
 	}),
 	input: (styles) => ({
 		...styles,
@@ -43,7 +42,7 @@ const colourStyles: StylesConfig<Options | undefined, IsMulti> = {
 		fontWeight: 500,
 		color: '#181818',
 	}),
-	placeholder: (styles, { isDisabled}) => ({
+	placeholder: (styles, { isDisabled }) => ({
 		...styles,
 		fontSize: 18,
 		fontWeight: 500,
@@ -51,9 +50,9 @@ const colourStyles: StylesConfig<Options | undefined, IsMulti> = {
 	}),
 	indicatorSeparator: (styles) => ({
 		...styles,
-		display: 'none'
+		display: 'none',
 	}),
-	dropdownIndicator: (styles, { isDisabled}) => ({
+	dropdownIndicator: (styles, { isDisabled }) => ({
 		...styles,
 		color: isDisabled ? '#18181899' : '#181818',
 		':hover': {
@@ -67,28 +66,26 @@ const colourStyles: StylesConfig<Options | undefined, IsMulti> = {
 			color: '#181818',
 		},
 	}),
-	menuList: (provided) => {
-		return {
-			...provided,
-			'::-webkit-scrollbar': {
-				width: '10px',
-				borderRadius: '6px',
-				backgroundColor: '#E4E4E5',
-			},
-			'::-webkit-scrollbar-thumb': {
-				backgroundColor: '#ABAFB2',
-				border: '2px solid #E4E4E5',
-				borderRadius: '6px',
-			}
-		};
-	},
+	menuList: (provided) => ({
+		...provided,
+		'::-webkit-scrollbar': {
+			width: '10px',
+			borderRadius: '6px',
+			backgroundColor: '#E4E4E5',
+		},
+		'::-webkit-scrollbar-thumb': {
+			backgroundColor: '#ABAFB2',
+			border: '2px solid #E4E4E5',
+			borderRadius: '6px',
+		},
+	}),
 };
 
-const MySelect: FC<SelectProps> = ({ name, label, options = [], focusValue, isDisabled = false, onChange }) => {
+const MySelect: FC<SelectProps> = ({ label, options = [], focusValue, isDisabled = false }) => {
 	const ref = useRef<SelectInstance<Options, IsMulti, GroupBase<Options>> | null>(null);
 
-	const onMenuOpen = useCallback( () => {
-		if (focusValue) {
+	const onMenuOpen = useCallback(() => {
+		if(focusValue) {
 			setTimeout(() => {
 				const selectedEl = ref.current?.menuListRef;
 				const cont = selectedEl?.querySelectorAll('.MyDropdown__option') || [];
@@ -96,17 +93,17 @@ const MySelect: FC<SelectProps> = ({ name, label, options = [], focusValue, isDi
 				// Find the index of the element with the matching textContent
 				const elIndex = Array.from(cont).findIndex(el => el.textContent === focusValue);
 
-				if (elIndex !== -1) {
+				if(elIndex !== -1) {
 					// Scroll to the found option
 					selectedEl?.scroll(0, elIndex * 40);
 				}
 			}, 15);  // Adjusted delay
 		}
-	}, [focusValue]);
+	}, [ focusValue ]);
 
-	const handleChange = (value: SingleValue<Options | undefined>) => {
-		onChange(name, value?.value);
-	}
+	// const handleChange = (value: SingleValue<Options | undefined>) => {
+	// 	onChange(name, value?.value);
+	// }
 
 	return <DynamicSelect
 		options={ options }
@@ -116,7 +113,7 @@ const MySelect: FC<SelectProps> = ({ name, label, options = [], focusValue, isDi
 		placeholder={ label }
 		isClearable={ true }
 		isDisabled={ isDisabled }
-		onChange={ handleChange }
+		onChange={ (value) => console.log(value) }
 		className='MyDropdown'
 		classNamePrefix='MyDropdown'
 		// noOptionsMessage={ () => lang === Language.UA ? 'Збігів не знайдено' : 'Совпадений не найдено' }
