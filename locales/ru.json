@@ -1,0 +1,159 @@
+{
+  "Main": {
+    "about us": "О нас",
+    "cardiscs": "Автодиски",
+    "cartires": "Автошины",
+    "contacts": "Контакты",
+    "disks": "Диски",
+    "selection by car": "Подбор за авто",
+    "tire calculator": "Шинный калькулятор",
+    "tires": "Шины"
+  },
+  "HeaderFilter": {
+    "all car brands": "Все марки",
+    "all brands": "Все бренды",
+    "all season": "Всесезонные",
+    "by brands": "По брендам",
+    "by car brands": "По маркам авто",
+    "by car type": "По типу авто",
+    "by diameter": "По диаметру",
+    "by disk type": "По типу диска",
+    "by season": "По сезону",
+    "cast": "Литые",
+    "forged": "Кованые",
+    "off-Road 4x4": "Off-Road 4x4",
+    "spiked": "Шипованные",
+    "steel": "Стальные",
+    "summer": "Летние",
+    "winter": "Зимние"
+  },
+  "CarType": {
+    "buses": "Бусы",
+    "cargo": "Грузовые",
+    "light": "Легковые",
+    "motorcycles": "Мотоциклы",
+    "special equipment": "Спецтехника",
+    "suvs": "Внедорожники"
+  },
+  "Filters": {
+    "choose disks": "Подобрать диски",
+    "choose tires": "Подобрать шины",
+    "diameter": "Диаметр",
+    "height": "Высота",
+    "width": "Ширина"
+  },
+
+
+  "add all": "добавить все",
+  "accumulators": "аккумуляторы",
+
+  "appointment": "назначение",
+  "auto goods": "автотовары",
+  "battery": "аккумуляторы",
+  "body type": "тип корпусу",
+  "brand": "бренд",
+  "brands": "бренды",
+
+  "by car": "по авто",
+
+  "by number of offers": "по количеству предложений",
+  "by parameters": "по параметрам",
+  "by popularity": "по популярности",
+  "by price": "по цене",
+
+
+  "buy": "купить",
+  "buy here": "купить здесь",
+  "capacity": "емкость",
+  "car": "автомобилей",
+  "car brand": "марка авто",
+  "car type": "тип автомобиля",
+
+  "cargo tires": "грузовые шины",
+  "cars": "автомобили",
+  "cart": "корзина",
+
+  "cheap at first": "сначала дешевые",
+
+  "city": "город",
+  "color": "цвет",
+
+  "comparison": "сравнение",
+  "country": "страна",
+  "credit": "кредит",
+  "delivery": "доставка",
+  "delivery points": "пункты выдачи",
+  "department": "отделение",
+  "departure": "вылет",
+  "description": "описание",
+
+  "disc": "дисков",
+
+  "disks by parameters": "диски по параметрам",
+  "delivery calculation": "расчет доставки",
+  "expensive at first": "сначала дорогие",
+  "guarantee and refund": "гарантия и возврат",
+  "information": "информация",
+  "installment plan": "онлайн рассрочка",
+
+  "load index": "индекс нагрузки",
+  "graduation year": "год выпуска",
+  "quick order": "быстрый заказ",
+  "factory": "заводские",
+  "fasteners": "крепеж",
+  "favorites": "избранное",
+  "filters": "фильтры",
+
+  "free": "бесплатный",
+  "from": "от",
+
+  "high-voltage": "напряжение",
+  "homologation": "омологация",
+  "main characteristics": "основные характеристики",
+  "manufacturers": "производители",
+  "model": "модель",
+  "modification": "модификация",
+
+  "motorcycle tires": "мотошины",
+  "other": "другое",
+  "our advantages": "наши преимущества",
+  "payment": "оплата",
+  "pick up": "подобрать",
+  "placing an order": "оформление заказа",
+  "phones": "телефоны",
+  "polarity": "полярность",
+  "price": "цена",
+  "price range": "диапазон цен",
+  "profile": "профиль",
+  "profile height": "высота профиля",
+  "public offer agreement": "договор публичной оферты",
+  "recently viewed": "похожие товары",
+  "reset everything": "сбросить все",
+  "reviews": "отзывы",
+  "similar products": "недавно просмотрены",
+  "search": "поиск",
+
+  "selection of tires and wheels": "подбор шин и дисков",
+  "services": "услуги",
+  "show all": "показать все",
+  "sorting": "сортировка",
+  "speed index": "индекс скорости",
+
+
+  "starting current": "пусковой ток",
+
+  "strengthening": "усиление",
+  "sun": "вс",
+
+  "tire comparison": "сравнение шин",
+
+  "tires by parameters": "шини за параметрами",
+  "to apply": "применить",
+  "type": "тип",
+  "type of electrolyte": "тип электролита",
+  "type size": "типоразмер",
+  "tyre": "шин",
+  "warranty and returns": "гарантія та повернення",
+
+  "year": "год"
+}

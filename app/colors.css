@@ -1,0 +1,19 @@
+:root {
+    --g-color-fill-light: #ffffff;
+    --g-color-dark: #181818;
+
+    --g-color-grey-100: #F6F8FB;
+    --g-color-grey-500: #707680;
+    --g-color-grey-600: #424242;
+    --g-color-grey-700: #303233;
+    --g-color-grey-800: #232323;
+    --g-color-grey-900: #1E2121;
+
+    --g-color-teal-300: #6EECD7;
+    --g-color-teal-400: #26DEBF;
+
+    --g-color-background: #F6F8FB;
+
+    --foreground: var(--g-color-dark);
+    --background: var(--g-color-grey-100);
+}

@@ -1,0 +1,159 @@
+{
+  "Main": {
+    "about us": "Про нас",
+    "cardiscs": "Автодиски",
+    "cartires": "Автошини",
+    "contacts": "Контакти",
+    "disks": "Диски",
+    "selection by car": "Підбір за авто",
+    "tire calculator": "Шинний калькулятор",
+    "tires": "Шини"
+  },
+  "HeaderFilter": {
+    "all car brands": "Всі марки",
+    "all brands": "Всі бренди",
+    "all season": "Всесезонні",
+    "by brands": "За брендами",
+    "by car brands": "За марками авто",
+    "by car type": "За типом авто",
+    "by diameter": "За діаметром",
+    "by disk type": "За типом диска",
+    "by season": "За сезоном",
+    "cast": "Литі",
+    "forged": "Ковані",
+    "off-Road 4x4": "Off-Road 4x4",
+    "spiked": "Шиповані",
+    "steel": "Стальні",
+    "summer": "Літні",
+    "winter": "Зимові"
+  },
+  "CarType": {
+    "buses": "Буси",
+    "cargo": "Вантажні",
+    "light": "Легкові",
+    "motorcycles": "Мотоцикли",
+    "special equipment": "Спецтехніка",
+    "suvs": "Позашляховики"
+  },
+  "Filters": {
+    "choose disks": "Підібрати диски",
+    "choose tires": "Підібрати шини",
+    "diameter": "Діаметр",
+    "height": "Висота",
+    "width": "Ширина"
+  },
+
+
+  "add all": "додати всі",
+  "accumulators": "акумулятори",
+
+  "appointment": "призначення",
+  "auto goods": "автотовари",
+  "battery": "акумулятори",
+  "body type": "тип корпусу",
+  "brand": "бренд",
+  "brands": "бренди",
+
+  "by car": "за авто",
+
+  "by number of offers": "за кількістю пропозицій",
+  "by parameters": "за параметрами",
+  "by popularity": "за популярністю",
+  "by price": "за ціною",
+
+  "buy": "купити",
+  "buy here": "купити тут",
+  "capacity": "ємність",
+  "car": "автомобілів",
+  "car brand": "марка авто",
+  "car type": "тип автомобіля",
+
+  "cargo tires": "вантажні шини",
+  "cars": "автомобілі",
+  "cart": "кошик",
+
+  "cheap at first": "спочатку дешеві",
+
+  "city": "місто",
+  "color": "колір",
+
+  "comparison": "порівняння",
+  "country": "країна",
+  "credit": "кредит",
+  "delivery": "доставка",
+  "delivery points": "пункти видачі",
+  "department": "відділення",
+  "departure": "виліт",
+  "description": "опис",
+
+  "disc": "дисків",
+
+  "disks by parameters": "диски за параметрами",
+  "delivery calculation": "розрахунок доставки",
+  "expensive at first": "спочатку дорогі",
+  "graduation year": "рік випуску",
+  "guarantee and refund": "гарантія та повернення",
+  "information": "інформація",
+  "installment plan": "онлайн розстрочка",
+
+  "load index": "індекс навантаження",
+  "quick order": "швидке замовлення",
+  "factory": "заводські",
+  "fasteners": "кріплення",
+  "favorites": "обране",
+  "filters": "фільтри",
+
+  "free": "безкоштовний",
+  "from": "від",
+
+  "high-voltage": "напруга",
+  "homologation": "омологація",
+  "main characteristics": "основні характеристики",
+  "manufacturers": "виробники",
+  "model": "модель",
+  "modification": "модифікація",
+
+  "motorcycle tires": "мотошини",
+  "other": "інше",
+  "our advantages": "наші переваги",
+  "payment": "оплата",
+  "pick up": "підібрати",
+  "placing an order": "оформлення замовлення",
+  "phones": "телефони",
+  "polarity": "полярність",
+  "price": "ціна",
+  "price range": "діапазон цін",
+  "profile": "профіль",
+  "profile height": "висота профілю",
+  "public offer agreement": "договір публічної оферти",
+  "recently viewed": "нещодавно переглянуті",
+  "reset everything": "скинути все",
+  "reviews": "відгуки",
+  "similar products": "схожі товари",
+  "search": "пошук",
+
+  "selection of tires and wheels": "підбір шин та дисків",
+  "services": "послуги",
+  "show all": "показати всі",
+  "sorting": "сортування",
+  "speed index": "індекс швидкості",
+
+
+  "starting current": "пусковий струм",
+
+  "strengthening": "посилення",
+  "sun": "нд",
+
+  "tire comparison": "порівняння шин",
+
+  "tires by parameters": "шини за параметрами",
+  "to apply": "застосувати",
+  "type": "тип",
+  "type of electrolyte": "тип електроліту",
+  "type size": "типорозмір",
+  "tyre": "шин",
+  "warranty and returns": "гарантія та повернення",
+
+
+  "year": "рік"
+}
