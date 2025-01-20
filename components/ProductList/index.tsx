@@ -3,13 +3,14 @@ import ProductCard from './ProductCard';
 import type { Data } from '@/models/products';
 
 interface Props {
+	locale: string
 	classnames?: string
-	data: Data | undefined
+	data: Data
 }
 
-const ProductList: FC<Props> = ({ classnames, data }) => {
-	const products = data?.products.map(item => {
-		return <ProductCard key={ item.group } item={ item } />
+const ProductList: FC<Props> = ({ locale, classnames, data }) => {
+	const products = data.products.map(item => {
+		return <ProductCard key={ item.group } locale={ locale } item={ item } />
 	})
 
 	return (

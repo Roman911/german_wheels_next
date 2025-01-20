@@ -1,11 +1,9 @@
-import { FC, MouseEvent } from 'react';
+import { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
-import { useLanguages } from '@/hooks/language';
 import * as Icons from '@/components/Lib/Icons';
-import Rating from '@/components/Lib/Rating';
 import type { Product } from '@/models/products';
 import { Language } from '@/models/language';
 import noPhoto from '@/public/images/no-photo.jpg';
@@ -20,20 +18,19 @@ const icons = {
 };
 
 interface Props {
+	locale: string
 	item: Product
 }
 
-const ProductCard: FC<Props> = ({ item }) => {
-	const lang = useLanguages();
+const ProductCard: FC<Props> = ({ locale, item }) => {
 	const t = useTranslations('Main');
 	const { default_photo, full_name, sku, min_price, season, vehicle_type, page_url } = item;
 	const seasonIcon = season === '1' ? 'sun' : season === '2' ? 'snow' : season === '3' ? 'all-season' : undefined;
 	const vehicle_type_number = vehicle_type as unknown as keyof typeof icons;
 	const Icon = icons[vehicle_type_number] || null;
 
-	const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-		event.preventDefault();
-		console.log('click')
+	// const handleClick = () => {
+	// 	console.log('click')
 		// onAddToCart(item, t(section, true), 1);
 		// if(!cartStorage?.find((item: { id: number, quantity: number }) => item.id === best_offer.id)) {
 		// 	const cart = [ ...cartStorage, { id: best_offer.id, section: dopServices ? dopServicesSection : sectionNew, quantity: 1 }];
@@ -41,11 +38,11 @@ const ProductCard: FC<Props> = ({ item }) => {
 		// 	addToStorage('reducerCart', cart);
 		// }
 		// navigate( lang === Language.UA ?'/cart' : '/ru/cart');
-	};
+	// };
 
 	return (
 		<Link
-			href={ page_url }
+			href={ `/${locale}/${page_url}` }
 			className='product-card bg-white rounded-sm border-inherit p-7 hover:shadow-lg hover:cursor-pointer transition group'
 		>
 			<div className='relative min-h-72 sm:min-h-52'>
@@ -70,7 +67,7 @@ const ProductCard: FC<Props> = ({ item }) => {
 					{/*</button>*/}
 				</div>
 				<Image
-					src={ default_photo || (lang === Language.UA ? noPhoto : noPhotoRu) }
+					src={ default_photo || (locale === Language.UA ? noPhoto : noPhotoRu) }
 					alt={ full_name }
 					width={ 220 }
 					height={ 220 }
@@ -80,14 +77,14 @@ const ProductCard: FC<Props> = ({ item }) => {
 			<div className='text-sm text-gray-500 my-2.5 text-center'>
 				<span>Артикул: </span><span>{ sku }</span>
 			</div>
-			<Rating commentsCount={ undefined } commentsAvgRate={ 0 }/>
+			{/*<Rating commentsCount={ undefined } commentsAvgRate={ 0 }/>*/}
 			<div className='flex items-end justify-center mt-2.5 mb-4'>
 				<div className='text-sm font-medium mb-0.5 mr-1'>{ t('from') }</div>
 				<div className='text-2xl font-bold'>{ min_price } ₴</div>
 			</div>
-			<button onClick={ (event) => handleClick(event) } className='btn primary w-full uppercase'>
-				{ t('buy') }
-			</button>
+			{/*<button onClick={ handleClick } className='btn primary w-full uppercase'>*/}
+			{/*	{ t('buy') }*/}
+			{/*</button>*/}
 		</Link>
 	)
 };
