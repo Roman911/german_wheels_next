@@ -4,7 +4,13 @@ import Filter from '@/components/Home/HomeFilter';
 import TextSeo from '@/components/Home/TextSeo';
 
 async function getSettings() {
-  const res = await fetch('https://admin.g-wheels.com.ua/baseData/settings', { method: 'GET' });
+  const res = await fetch('https://admin.g-wheels.com.ua/baseData/settings', {
+    method: 'GET',
+    headers: {
+      'Access-Control-Allow-Credentials': 'true',
+      'Access-Control-Allow-Origin': 'http://localhost:3000/',
+    }
+  });
   return await res.json();
 }
 
