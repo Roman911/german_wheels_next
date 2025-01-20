@@ -24,7 +24,6 @@ export default async function Home({ params, }: { params: Promise<{ locale: stri
     <main>
       <Filter />
       <div className="container mx-auto px-4 py-5 min-h-[70vh]">
-        <p>{ response.ua.config_address }</p>
         {/*<FeaturedProducts />*/}
         {/*<Banner />*/}
         <TextSeo description={response[locale].description} />
