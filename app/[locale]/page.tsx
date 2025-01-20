@@ -8,7 +8,6 @@ async function getSettings() {
     method: 'GET',
     headers: {
       'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Origin': 'http://localhost:3000/',
     }
   });
   return await res.json();
@@ -18,7 +17,7 @@ export default async function Home({ params, }: { params: Promise<{ locale: stri
   const locale = (await params).locale;
   const response = await getSettings();
 
-  console.log(locale, response);
+  // console.log(locale, response);
 
   return (
     <main>

@@ -13,6 +13,7 @@ import kievstarLogo from '@/public/icons/kievstar-logo.svg';
 import lifecellLogo from '@/public/icons/life-logo.svg';
 import Logo from '@/components/Logo';
 import Image from 'next/image';
+import { SettingsProps } from '@/models/settings';
 
 type IconType = 'telegram' | 'facebook' | 'viber';
 
@@ -22,12 +23,12 @@ const phoneLogos: Record<PhoneLogo, string> = {
 };
 
 interface Props {
-	locale: string;
+	locale: string
+	settings: SettingsProps
 }
 
-const Footer: FC<Props> = ({ locale }) => {
+const Footer: FC<Props> = ({ locale, settings }) => {
 	const t = useTranslations('Footer');
-	const { data: settings } = baseDataAPI.useFetchSettingsQuery('');
 	const { data } = baseDataAPI.useFetchStatiAliasAllQuery('');
 	const lang = locale === Language.UA ? Language.UA : Language.RU;
 

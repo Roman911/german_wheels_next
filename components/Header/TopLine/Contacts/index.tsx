@@ -1,12 +1,10 @@
-'use client'
 import { FC } from 'react';
 import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
-import { baseDataAPI } from '@/services/baseDataService';
 import type { PhoneLogo } from '@/models/config';
-
 import kievstarLogo from '@/public/icons/kievstar-logo.svg';
 import lifecellLogo from '@/public/icons/life-logo.svg';
+import { SettingsProps } from '@/models/settings';
 
 const phoneLogos: Record<PhoneLogo, string> = {
 	kievstar: kievstarLogo,
@@ -15,21 +13,18 @@ const phoneLogos: Record<PhoneLogo, string> = {
 
 interface Props {
 	isInfo?: boolean
+	settings: SettingsProps
 }
 
-const Contacts: FC<Props> = ({ isInfo }) => {
-	const { data, isLoading } = baseDataAPI.useFetchSettingsQuery('');
-
+const Contacts: FC<Props> = ({ isInfo, settings }) => {
 	const telephones: {
-		phone: string | undefined
-		url: string | undefined
-		logo: PhoneLogo | undefined
+		phone: string
+		url: string
+		logo: PhoneLogo
 	}[] = [
-		{ phone: data?.ua.config_telephone_kievstar, url: data?.ua.config_telephone_kievstar_url, logo: 'kievstar' },
-		{ phone: data?.ua.config_telephone_life, url: data?.ua.config_telephone_life_url, logo: 'lifecell' },
+		{ phone: settings.ua.config_telephone_kievstar, url: settings.ua.config_telephone_kievstar_url, logo: 'kievstar' },
+		{ phone: settings.ua.config_telephone_life, url: settings.ua.config_telephone_life_url, logo: 'lifecell' },
 	];
-
-	if(isLoading) return null;
 
 	return (
 		<div className={

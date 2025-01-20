@@ -5,6 +5,8 @@ import { getMessages } from 'next-intl/server';
 import StoreProvider from '@/app/StoreProvider';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import '../colors.css';
+import '../globals.css';
 
 const gilroy = localFont({
 	src: [
@@ -25,9 +27,6 @@ const gilroy = localFont({
 		},
 	],
 })
-
-import '../colors.css';
-import '../globals.css';
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -60,6 +59,16 @@ export const metadata: Metadata = {
 	]
 };
 
+async function getSettings() {
+	const res = await fetch('https://admin.g-wheels.com.ua/baseData/settings', {
+		method: 'GET',
+		headers: {
+			'Access-Control-Allow-Credentials': 'true',
+		}
+	});
+	return await res.json();
+}
+
 export default async function RootLayout(
 	{
 		children,
@@ -69,15 +78,16 @@ export default async function RootLayout(
 		params: { locale: string };
 	}>) {
 	const messages = await getMessages();
+	const response = await getSettings();
 
 	return (
 		<html lang={ locale }>
 		<body className={ gilroy.className }>
 		<StoreProvider>
 			<NextIntlClientProvider messages={ messages }>
-				<Header locale={ locale } />
+				<Header locale={ locale } settings={ response } />
 				{ children }
-				<Footer locale={ locale } />
+				<Footer locale={ locale } settings={ response } />
 			</NextIntlClientProvider>
 		</StoreProvider>
 		</body>
