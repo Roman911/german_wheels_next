@@ -1,12 +1,9 @@
-import { FC } from 'react';
 import Image from 'next/image';
-import { Language } from '@/models/language';
+import { useTranslations } from 'next-intl';
 
-interface Props {
-	locale: string;
-}
+const Banner = () => {
+	const t = useTranslations('Banner');
 
-const Banner: FC<Props> = ({ locale }) => {
 	return (
 		<div className='relative mt-24'>
 			<Image
@@ -17,9 +14,9 @@ const Banner: FC<Props> = ({ locale }) => {
 				height={ 600 }
 			/>
 			<div className='absolute top-1/2 -translate-y-1/2 text-4xl md:text-7xl font-bold uppercase text-white text-center w-full'>
-				<div>{ locale === Language.UA ? 'Шини та диски' : 'Шины и диски' }</div>
-				<div className='text-teal-300'>{ locale === Language.UA ? 'тільки з топовою' : 'только с топовой' }</div>
-				<div>{ locale === Language.UA ? 'репутацією.' : 'репутацией.' }</div>
+				<div>{ t('tires and disks') }</div>
+				<div className='text-teal-300'>{ t('only with top') }</div>
+				<div>{ t('reputation') }.</div>
 			</div>
 		</div>
 	)

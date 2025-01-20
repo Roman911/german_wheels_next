@@ -1,28 +1,30 @@
-'use client'
-import { FC } from 'react';
-import DOMPurify from 'isomorphic-dompurify';
-import { baseDataAPI } from '@/services/baseDataService';
-import { Language } from '@/models/language';
+// import DOMPurify from 'isomorphic-dompurify';
+// import { baseDataAPI } from '@/services/baseDataService';
+// import { useLanguages } from '@/hooks/language';
 
-interface Props {
-	locale: string;
+async function getSettings() {
+	const res = await fetch('https://admin.g-wheels.com.ua/baseData/settings', { method: 'GET' });
+	return await res.json();
 }
 
-const TextSeo: FC<Props> = ({ locale }) => {
-	const { data } = baseDataAPI.useFetchSettingsQuery('');
-	const lang = locale === Language.UA ? Language.UA : Language.RU;
+export async function TextSeo() {
+	const response = await getSettings();
 
-	const HtmlContent = ({ htmlString }: { htmlString: string }) => {
-		const sanitizedHtml = DOMPurify.sanitize(htmlString);
-		return (
-			<div
-				className="container mx-auto max-w-7xl mt-20 mb-24 px-2"
-				dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
-			/>
-		);
-	};
+	console.log(response);
 
-	return <HtmlContent htmlString={ data?.[lang].description || '' } />
-};
+	return <div>
+		TextSeo
+	</div>
 
-export default TextSeo;
+	// const HtmlContent = ({ htmlString }: { htmlString: string }) => {
+	// 	const sanitizedHtml = DOMPurify.sanitize(htmlString);
+	// 	return (
+	// 		<div
+	// 			className="container mx-auto max-w-7xl mt-20 mb-24 px-2"
+	// 			dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
+	// 		/>
+	// 	);
+	// };
+	//
+	// return <HtmlContent htmlString={ data?.[lang].description || '' } />
+}

@@ -54,6 +54,14 @@
     "tire calculator": "Шинный калькулятор",
     "tires": "Шины"
   },
+  "Banner": {
+    "tires and disks": "Шины и диски",
+    "only with top": "тільки з топовою",
+    "reputation": "репутацией"
+  },
+  "FeaturedProducts": {
+    "no result": "К сожалению, по заданным параметрам товаров не найдено"
+  },
 
 
   "add all": "добавить все",

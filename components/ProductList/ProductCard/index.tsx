@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
+import { useLanguages } from '@/hooks/language';
 import * as Icons from '@/components/Lib/Icons';
 import Rating from '@/components/Lib/Rating';
 import type { Product } from '@/models/products';
@@ -19,11 +20,11 @@ const icons = {
 };
 
 interface Props {
-	locale: string
 	item: Product
 }
 
-const ProductCard: FC<Props> = ({ locale, item }) => {
+const ProductCard: FC<Props> = ({ item }) => {
+	const lang = useLanguages();
 	const t = useTranslations('Main');
 	const { default_photo, full_name, sku, min_price, season, vehicle_type, page_url } = item;
 	const seasonIcon = season === '1' ? 'sun' : season === '2' ? 'snow' : season === '3' ? 'all-season' : undefined;
@@ -69,7 +70,7 @@ const ProductCard: FC<Props> = ({ locale, item }) => {
 					{/*</button>*/}
 				</div>
 				<Image
-					src={ default_photo || (locale === Language.UA ? noPhoto : noPhotoRu) }
+					src={ default_photo || (lang === Language.UA ? noPhoto : noPhotoRu) }
 					alt={ full_name }
 					width={ 220 }
 					height={ 220 }
