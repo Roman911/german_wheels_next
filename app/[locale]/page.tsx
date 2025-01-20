@@ -1,6 +1,6 @@
 import Filter from '@/components/Home/HomeFilter';
 // import FeaturedProducts from '@/components/Home/FeaturedProducts';
-// import Banner from '@/components/Home/Banner';
+import Banner from '@/components/Home/Banner';
 import TextSeo from '@/components/Home/TextSeo';
 
 async function getSettings() {
@@ -25,7 +25,7 @@ export default async function Home({ params, }: { params: Promise<{ locale: stri
       <Filter />
       <div className="container mx-auto px-4 py-5 min-h-[70vh]">
         {/*<FeaturedProducts />*/}
-        {/*<Banner />*/}
+        <Banner />
         <TextSeo description={response[locale].description} />
       </div>
     </main>

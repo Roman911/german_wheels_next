@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import DOMPurify from 'isomorphic-dompurify';
-// import { JSDOM } from "jsdom";
 
 interface Props {
 	description: string;
@@ -8,7 +7,6 @@ interface Props {
 
 const TextSeo: FC<Props> = ({ description })=> {
 	const HtmlContent = ({ htmlString }: { htmlString: string }) => {
-		// const sanitizedHtml = DOMPurify((new JSDOM("<!DOCTYPE html>")).window).sanitize(htmlString);
 		const sanitizedHtml = DOMPurify.sanitize(htmlString);
 		return (
 			<div
