@@ -1,4 +1,3 @@
-import { GetServerSidePropsContext } from 'next';
 import Filter from '@/components/Home/HomeFilter';
 // import FeaturedProducts from '@/components/Home/FeaturedProducts';
 // import Banner from '@/components/Home/Banner';
@@ -9,8 +8,8 @@ async function getSettings() {
   return await res.json();
 }
 
-export default async function Home({ params }: GetServerSidePropsContext) {
-  const locale = params?.locale as string;
+export default async function Home({ params, }: { params: Promise<{ locale: string }> }) {
+  const locale = (await params).locale;
   const response = await getSettings();
 
   console.log(locale, response);
