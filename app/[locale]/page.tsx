@@ -25,12 +25,12 @@ async function getProducts() {
   return await res.json();
 }
 
-export default async function Home({ params, }: { params: Promise<{ locale: string }> }) {
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const locale = (await params).locale;
   const response = await getSettings();
   const products = await getProducts();
 
-  console.log(locale, response, products);
+  // console.log(locale, response, products);
 
   return (
     <main>
