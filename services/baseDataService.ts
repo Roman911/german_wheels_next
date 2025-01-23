@@ -33,38 +33,38 @@ export const baseDataAPI = createApi({
 			}),
 		}),
 		// fildterData: build.query<BaseDataProps, string>({
-		// 	query: (id) => ({
-		// 		url: `/api/FildterData${id}`,
+		// 	query: ([section]) => ({
+		// 		url: `/api/FildterData${[section]}`,
 		// 	}),
 		// }),
 		// fetchAutoModel: build.query<CarModelProps[], string>({
-		// 	query: (id) => ({
-		// 		url: `/baseData/getAutoBrandModel/${id}`,
+		// 	query: ([section]) => ({
+		// 		url: `/baseData/getAutoBrandModel/${[section]}`,
 		// 	}),
 		// }),
 		// fetchAutoYear: build.query<number[], string>({
-		// 	query: (id) => ({
-		// 		url: `/baseData/getAutoBrandModelYear/${id}`,
+		// 	query: ([section]) => ({
+		// 		url: `/baseData/getAutoBrandModelYear/${[section]}`,
 		// 	}),
 		// }),
 		// fetchAutoModelKit: build.query<CarModelProps[], string>({
-		// 	query: (id) => ({
-		// 		url: `/baseData/getAutoBrandModelKit/${id}`,
+		// 	query: ([section]) => ({
+		// 		url: `/baseData/getAutoBrandModelKit/${[section]}`,
 		// 	}),
 		// }),
 		// fetchKitTyreSize: build.query<KitTyreSize[], string>({
-		// 	query: (id) => ({
-		// 		url: `/baseData/getKitTyreSize/${id}`,
+		// 	query: ([section]) => ({
+		// 		url: `/baseData/getKitTyreSize/${[section]}`,
 		// 	}),
 		// }),
 		// fetchKitDiskSize: build.query<KitDiskSize[], string>({
-		// 	query: (id) => ({
-		// 		url: `/baseData/getKitDiskSize/${id}`,
+		// 	query: ([section]) => ({
+		// 		url: `/baseData/getKitDiskSize/${[section]}`,
 		// 	}),
 		// }),
 		// fetchManufModels: build.query<ManufModels[], string>({
-		// 	query: (id) => ({
-		// 		url: `/api/getManufModels/${id}`,
+		// 	query: ([section]) => ({
+		// 		url: `/api/getManufModels/${[section]}`,
 		// 	}),
 		// }),
 		fetchStatiAliasAll: build.query<AliasAll, string>({
@@ -88,8 +88,8 @@ export const baseDataAPI = createApi({
 			}),
 		}),
 		// fetchProduct: build.query<ProductProps, string>({
-		// 	query: (id) => ({
-		// 		url: `/api/getProduct/${id}`,
+		// 	query: ([section]) => ({
+		// 		url: `/api/getProduct/${[section]}`,
 		// 	}),
 		// 	providesTags: () => ['Product']
 		// }),
@@ -99,13 +99,13 @@ export const baseDataAPI = createApi({
 		// 	}),
 		// }),
 		// fetchBrand: build.query({
-		// 	query: (id) => ({
-		// 		url: `/api/brand/${id}`,
+		// 	query: ([section]) => ({
+		// 		url: `/api/brand/${[section]}`,
 		// 	}),
 		// }),
 		// fetchModel: build.query({
-		// 	query: (id) => ({
-		// 		url: `/api/model/${id}`,
+		// 	query: ([section]) => ({
+		// 		url: `/api/model/${[section]}`,
 		// 	}),
 		// }),
 		// fetchBrands: build.query({
@@ -114,8 +114,8 @@ export const baseDataAPI = createApi({
 		// 	}),
 		// }),
 		// fetchBrandItems: build.query({
-		// 	query: ({ section, id }) => ({
-		// 		url: `/api/catalog-map/${section}/${id}`,
+		// 	query: ({ section, [section] }) => ({
+		// 		url: `/api/catalog-map/${section}/${[section]}`,
 		// 	}),
 		// }),
 		// createComment: build.mutation({

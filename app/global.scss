@@ -23,7 +23,7 @@ body {
   }
 
   .primary {
-    @apply bg-teal-300 text-black hover:bg-teal-400 transition disabled:bg-natural-300;
+    @apply bg-teal-300 text-black hover:bg-teal-400 transition disabled:bg-gray-300;
   }
 
   .secondary {
@@ -31,7 +31,7 @@ body {
   }
 
   .success {
-    @apply bg-black text-white hover:bg-natural-800;
+    @apply bg-black text-white hover:bg-gray-800;
   }
 
   .small {

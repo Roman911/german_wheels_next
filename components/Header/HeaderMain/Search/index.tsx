@@ -21,7 +21,7 @@
 // 	const [placeholder, setPlaceholder] = useState('');
 // 	const [value, setValue] = useState('');
 // 	const [currentPlaceholderIndex, setCurrentPlaceholderIndex] = useState(0);
-// 	const { data } = baseDataAPI.useFetchProductsQuery({ id: `?name=${value}` })
+// 	const { data } = baseDataAPI.useFetchProductsQuery({ [section]: `?name=${value}` })
 // 	const currentLetter = useRef(0);
 // 	const dispatch = useAppDispatch();
 //

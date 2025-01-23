@@ -24,3 +24,25 @@ export interface AliasAll {
 	footer: AliasItem[]
 	header: AliasItem[]
 }
+
+interface DescriptionContent {
+	title: string
+	content: string
+	meta_h1: string
+	meta_title: string
+	meta_description: string
+}
+
+interface Description {
+	ua: DescriptionContent
+	ru: DescriptionContent
+}
+
+interface Page {
+	description: Description
+	alias: string
+}
+
+export type Pages = {
+	[key: string]: Page
+}

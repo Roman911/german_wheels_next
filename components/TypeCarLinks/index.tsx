@@ -57,7 +57,7 @@ const LinkComponent: FC<ILinkComponent> = (
 	>
 		<IconComponent className={
 			twMerge(
-				'transition group-hover:fill-teal-300 fill-natural-500',
+				'transition group-hover:fill-teal-300 fill-gray-500',
 				!active && iconStyles,
 				active && iconStylesActive,
 				active && 'fill-teal-300 stroke-teal-300'
@@ -67,7 +67,7 @@ const LinkComponent: FC<ILinkComponent> = (
 			twMerge(
 				'transition group-hover:text-teal-300',
 				active && 'text-teal-300',
-				section === 'catalog' && 'text-sm font-bold text-natural-500',
+				section === 'catalog' && 'text-sm font-bold text-gray-500',
 				section === 'header' && 'group-hover:underline text-white'
 			)
 		}>

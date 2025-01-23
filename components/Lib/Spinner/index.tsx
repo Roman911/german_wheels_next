@@ -16,7 +16,7 @@ const Spinner: FC<SpinnerProps> = ({ children, height, size = 'medium', show }) 
 	};
 
 	const className = twMerge(
-		'text-natural-200 animate-spin dark:natural-gray-600 fill-teal-400',
+		'text-gray-200 animate-spin dark:gray-gray-600 fill-teal-400',
 		sizeClasses[size]
 	);
 

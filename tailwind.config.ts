@@ -20,8 +20,10 @@ export default {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         black: 'var(--g-color-dark)',
-        'natural': {
+        'gray': {
           100: 'var(--g-color-grey-100)',
+          200: 'var(--g-color-grey-200)',
+          400: 'var(--g-color-grey-400)',
           500: 'var(--g-color-grey-500)',
           600: 'var(--g-color-grey-600)',
           700: 'var(--g-color-grey-700)',
@@ -31,6 +33,7 @@ export default {
         'teal': {
           300: 'var(--g-color-teal-300)',
           400: 'var(--g-color-teal-400)',
+          600: 'var(--g-color-teal-600)',
         },
       },
     },

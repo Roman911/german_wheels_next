@@ -32,9 +32,9 @@ const ProductCard: FC<Props> = ({ locale, item }) => {
 	// const handleClick = () => {
 	// 	console.log('click')
 		// onAddToCart(item, t(section, true), 1);
-		// if(!cartStorage?.find((item: { id: number, quantity: number }) => item.id === best_offer.id)) {
-		// 	const cart = [ ...cartStorage, { id: best_offer.id, section: dopServices ? dopServicesSection : sectionNew, quantity: 1 }];
-		// 	dispatch(addCart({ id: best_offer.id, quantity: 1, section: dopServices ? dopServicesSection : sectionNew }));
+		// if(!cartStorage?.find((item: { [section]: number, quantity: number }) => item.[section] === best_offer.[section])) {
+		// 	const cart = [ ...cartStorage, { [section]: best_offer.[section], section: dopServices ? dopServicesSection : sectionNew, quantity: 1 }];
+		// 	dispatch(addCart({ [section]: best_offer.[section], quantity: 1, section: dopServices ? dopServicesSection : sectionNew }));
 		// 	addToStorage('reducerCart', cart);
 		// }
 		// navigate( lang === Language.UA ?'/cart' : '/ru/cart');
@@ -54,7 +54,7 @@ const ProductCard: FC<Props> = ({ locale, item }) => {
 						height={ 24 }
 						priority
 					/> }
-					{ Icon && <Icon className={ twMerge('fill-natural-500', vehicle_type === '2' && 'stroke-natural-500') }/> }
+					{ Icon && <Icon className={ twMerge('fill-gray-500', vehicle_type === '2' && 'stroke-gray-500') }/> }
 				</div>
 				<div className='absolute right-0 group-hover:visible flex flex-col'>
 					{/*<button onClick={ event => addToDefense(event, group) }>*/}

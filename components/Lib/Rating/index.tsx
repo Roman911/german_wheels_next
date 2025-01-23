@@ -41,7 +41,7 @@ const Rating: FC<RatingProps> = ({ commentsAvgRate, commentsCount, size = 'small
 					fill="currentColor"
 					aria-hidden="true"
 					className={
-					twMerge(sizeIcon, showRate < item.rate && 'text-natural-500',
+					twMerge(sizeIcon, showRate < item.rate && 'text-gray-500',
 						showRate >= item.rate && 'text-amber-400', !isCreateComment && 'pointer-events-none' )
 				}>
 					<path

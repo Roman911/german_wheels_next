@@ -2,7 +2,6 @@
 import { FC, JSX } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { config } from '@/app/config';
 import { baseDataAPI } from '@/services/baseDataService';
 import { linksCatalog } from './linksCatalog';
 import { PhoneLogo } from '@/models/config';
@@ -16,6 +15,14 @@ import Image from 'next/image';
 import { SettingsProps } from '@/models/settings';
 
 type IconType = 'telegram' | 'facebook' | 'viber';
+
+const social = {
+	links: [
+		{ link: 'https://t.me', logo: 'telegram' },
+		{ link: 'https://www.facebook.com', logo: 'facebook' },
+		{ link: 'https://www.viber.com', logo: 'viber' },
+	],
+}
 
 const phoneLogos: Record<PhoneLogo, string> = {
 	kievstar: kievstarLogo,
@@ -113,7 +120,7 @@ const Footer: FC<Props> = ({ locale, settings }) => {
 			</div>
 			<div>
 				<div className='flex gap-x-5'>
-					{ config.social.links.map((item, index) => {
+					{ social.links.map((item, index) => {
 						return <a
 							key={ index }
 							target='_blank'

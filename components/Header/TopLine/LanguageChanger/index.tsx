@@ -20,7 +20,7 @@ const LanguageChanger: FC<Props> = ({ locale }) => {
 	const path = pathname.replace(/^\/ru|^\/ua/, '');
 
 	return (
-		<div className='divide-x text-natural-500 divide-natural-500 font-semibold text-sm 2xl:text-base'>
+		<div className='divide-x text-gray-500 divide-gray-500 font-semibold text-sm 2xl:text-base'>
 			{ params.map((item, index) => {
 				return <Link
 					key={ index }
