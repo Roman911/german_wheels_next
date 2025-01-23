@@ -9,6 +9,7 @@ export default async function Catalog({ params }: { params: Promise<{ locale: st
 		{
 			id: 1,
 			title: slug,
+			translations: true,
 			url: `/catalog/${slug}/`,
 		},
 		// {
