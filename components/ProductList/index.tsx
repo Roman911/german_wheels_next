@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import ProductCard from './ProductCard';
+import ProductCard from './Card';
 import type { Data } from '@/models/products';
 
 interface Props {
@@ -14,7 +14,7 @@ const ProductList: FC<Props> = ({ locale, classnames, data }) => {
 	})
 
 	return (
-		<div className={`grid gap-1.5 ${classnames}`}>
+		<div className={`grid gap-3 ${classnames}`}>
 			{ products }
 		</div>
 	)

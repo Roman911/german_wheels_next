@@ -4,6 +4,9 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
+	env: {
+		SERVER_URL: process.env.SERVER_URL,
+	},
 	sassOptions: {
 		additionalData: `$var: red;`,
 	},

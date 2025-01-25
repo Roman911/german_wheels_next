@@ -1,6 +1,6 @@
 import { Section } from '@/models/filter';
 import { ProductProps } from '@/models/product';
-import Breadcrumbs from '@/components/Lib/Breadcrumbs';
+import Breadcrumbs from '@/components/UI/Breadcrumbs';
 import ProductComponent from '@/components/Product';
 
 async function getProduct(id: string): Promise<ProductProps> {
@@ -22,16 +22,14 @@ export default async function Product({ params }: { params: Promise<{ locale: st
 
 	const path = [
 		{
-			id: 1,
 			title: section,
 			translations: true,
-			url: `/catalog/${section}`
+			href: `/catalog/${section}`
 		},
 		{
-			id: 2,
 			title: productResponse?.data.full_name || '',
 			translations: false,
-			url: `/${section}`
+			href: `/${section}`
 		}
 	];
 

@@ -1,16 +1,23 @@
+import Layout from '@/components/Layout';
+import { Breadcrumbs } from '@/components/UI';
+import { Language } from '@/models/language';
 
-import Breadcrumbs from '@/components/Lib/Breadcrumbs';
 
+export default async function Catalog({ params }: { params: Promise<{ locale: Language, section: string, slug: string }> }) {
+	const { locale, section, slug } = await params;
 
-export default async function Catalog({ params }: { params: Promise<{ locale: string, slug: string }> }) {
-	const { locale, slug } = await params;
+	console.log( locale, section, slug );
 
 	const path = [
 		{
-			id: 1,
-			title: slug,
+			title: section || '',
 			translations: true,
-			url: `/catalog/${slug}/`,
+			href: `/catalog/${section}/`,
+		},
+		{
+			title: '',
+			translations: false,
+			href: `/catalog/`,
 		},
 		// {
 		// 	id: 2,
@@ -44,12 +51,10 @@ export default async function Catalog({ params }: { params: Promise<{ locale: st
 		// },
 	];
 
-	console.log(slug, locale);
-
 	return (
-		<div className='catalog container mx-auto py-3 px-4'>
+		<Layout>
 			<Breadcrumbs path={ path } />
 			123
-		</div>
+		</Layout>
 	)
 };

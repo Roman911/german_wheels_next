@@ -39,7 +39,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <Title title={ response[locale].h2_top }/>
         { products.result ? <ProductList
           locale={ locale }
-          classnames='grid-cols-1 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5'
+          classnames='grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
           data={ products.data }
         /> : <NoResult noResultText='no result' /> }
         <Banner />

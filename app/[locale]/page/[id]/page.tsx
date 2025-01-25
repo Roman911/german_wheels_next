@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import DOMPurify from 'isomorphic-dompurify';
 import Layout from '@/components/Layout';
-import Breadcrumbs from '@/components/Lib/Breadcrumbs';
+import { Breadcrumbs } from '@/components/UI';
 import Title from '@/components/Lib/Title';
 import type { Pages } from '@/models/alias';
 import { Language } from '@/models/language';
@@ -33,10 +33,8 @@ export default async function Pages({ params }: { params: Promise<{ locale: Lang
 
 	const path = [
 		{
-			id: 1,
-			title: alias[id].description[locale].title,
-			translations: false,
-			url: '/'
+			title: alias?.[id].description[locale].title,
+			href: alias?.[id].alias || '/',
 		}
 	];
 

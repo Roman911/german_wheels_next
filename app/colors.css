@@ -1,6 +1,7 @@
 :root {
     --g-color-fill-light: #ffffff;
     --g-color-dark: #181818;
+    --g-color-primary: var(--g-color-teal-300);
 
     --g-color-grey-100: #F6F8FB;
     --g-color-grey-200: #DEE2EB;

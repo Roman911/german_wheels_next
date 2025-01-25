@@ -1,8 +1,6 @@
 'use client'
 import { FC, useCallback, useEffect, useState } from 'react';
 import Iframe from 'react-iframe';
-import { useTranslations } from 'next-intl';
-import Title from '@/components/Lib/Title';
 import { Language } from '@/models/language';
 
 interface Props {
@@ -10,7 +8,6 @@ interface Props {
 }
 
 const TyreDiskSizeCalcComponent: FC<Props> = ({ locale }) => {
-	const t = useTranslations('Main');
 	const [ height, setHeight ] = useState('0px');
 
 	const changeHeight = useCallback(() => {
@@ -40,19 +37,16 @@ const TyreDiskSizeCalcComponent: FC<Props> = ({ locale }) => {
 	}, [ changeHeight ]);
 
 	return (
-		<div className='container mx-auto py-3 px-4'>
-			<Title title={ t('tire calculator') } />
-			<Iframe
-				url={ `/calc/kalkulator${ locale === Language.UA ? '_ua' : '' }.htm?background=2772E2` }
-				width="100%"
-				height={ height }
-				id="tireCalculator"
-				className=""
-				display="block"
-				loading='lazy'
-				position="relative"
-			/>
-		</div>
+		<Iframe
+			url={ `/calc/kalkulator${ locale === Language.UA ? '_ua' : '' }.htm?background=2772E2` }
+			width="100%"
+			height={ height }
+			id="tireCalculator"
+			className=""
+			display="block"
+			loading='lazy'
+			position="relative"
+		/>
 	)
 }
 

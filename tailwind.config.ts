@@ -1,3 +1,4 @@
+import { heroui } from '@heroui/theme';
 import type { Config } from "tailwindcss";
 
 export default {
@@ -5,9 +6,7 @@ export default {
     './app/**/*.{js,ts,jsx,tsx,mdx}', // Note the addition of the `app` directory.
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
-
-    // Or if using `src` directory:
-    './src/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     fontFamily: {
@@ -20,6 +19,7 @@ export default {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         black: 'var(--g-color-dark)',
+        primary: 'var(--g-color-primary)',
         'gray': {
           100: 'var(--g-color-grey-100)',
           200: 'var(--g-color-grey-200)',
@@ -38,5 +38,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [heroui()],
 } satisfies Config;
