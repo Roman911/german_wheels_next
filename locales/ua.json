@@ -63,9 +63,10 @@
     "no result": "На жаль, по заданих параметрах товарів не знайдено"
   },
   "Catalog": {
-
+    "by car": "За авто",
+    "by parameters": "За параметрами",
+    "search": "Пошук"
   },
-
 
   "add all": "додати всі",
   "accumulators": "акумулятори",
@@ -76,10 +77,8 @@
   "body type": "тип корпусу",
   "brand": "бренд",
 
-  "by car": "за авто",
-
   "by number of offers": "за кількістю пропозицій",
-  "by parameters": "за параметрами",
+
   "by popularity": "за популярністю",
   "by price": "за ціною",
 
@@ -149,7 +148,6 @@
   "reset everything": "скинути все",
   "reviews": "відгуки",
   "similar products": "схожі товари",
-  "search": "пошук",
 
   "selection of tires and wheels": "підбір шин та дисків",
   "services": "послуги",
@@ -172,7 +170,6 @@
   "type size": "типорозмір",
   "tyre": "шин",
   "warranty and returns": "гарантія та повернення",
-
 
   "year": "рік"
 }

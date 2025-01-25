@@ -23,6 +23,7 @@ export default {
         'gray': {
           100: 'var(--g-color-grey-100)',
           200: 'var(--g-color-grey-200)',
+          300: 'var(--g-color-grey-300)',
           400: 'var(--g-color-grey-400)',
           500: 'var(--g-color-grey-500)',
           600: 'var(--g-color-grey-600)',

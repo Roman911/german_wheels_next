@@ -1,12 +1,28 @@
 import Layout from '@/components/Layout';
 import { Breadcrumbs } from '@/components/UI';
 import { Language } from '@/models/language';
+import Title from '@/components/Lib/Title';
+import FilterAlt from '@/components/Catalog/FilterAlt';
+import { Section } from '@/models/filter';
+import { BaseDataProps } from '@/models/baseData';
 
+async function getFilterData(id: string): Promise<BaseDataProps> {
+	const res = await fetch(`https://admin.g-wheels.com.ua/api/FildterData/${id}`, {
+		method: 'GET',
+		headers: {
+			'Access-Control-Allow-Credentials': 'true',
+		}
+	});
+	return await res.json();
+}
 
 export default async function Catalog({ params }: { params: Promise<{ locale: Language, section: string, slug: string }> }) {
 	const { locale, section, slug } = await params;
+	const filterData = await getFilterData(`?typeproduct=${section === Section.Tires ? 1 : 3}`);
 
-	console.log( locale, section, slug );
+	console.log(filterData);
+
+	console.log( locale, section, slug, section === Section.Tires ? 1 : 3 );
 
 	const path = [
 		{
@@ -54,7 +70,14 @@ export default async function Catalog({ params }: { params: Promise<{ locale: La
 	return (
 		<Layout>
 			<Breadcrumbs path={ path } />
-			123
+			<Title isMain={ true } title={ 'qqqq' } className='mt-3 text-lg font-medium px-0 md:px-3 mb-3 md:mb-1' />
+			<div className='py-5 lg:flex'>
+				<FilterAlt filterData={ filterData } />
+				<div>
+					<div>123</div>
+					<div>123dsa</div>
+				</div>
+			</div>
 		</Layout>
 	)
 };

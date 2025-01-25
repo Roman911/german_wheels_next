@@ -63,9 +63,10 @@
     "no result": "К сожалению, по заданным параметрам товаров не найдено"
   },
   "Catalog": {
-
+    "by car": "По авто",
+    "by parameters": "По параметрам",
+    "search": "Поиск"
   },
-
 
   "add all": "добавить все",
   "accumulators": "аккумуляторы",
@@ -76,13 +77,10 @@
   "body type": "тип корпусу",
   "brand": "бренд",
 
-  "by car": "по авто",
-
   "by number of offers": "по количеству предложений",
-  "by parameters": "по параметрам",
+
   "by popularity": "по популярности",
   "by price": "по цене",
-
 
   "buy here": "купить здесь",
   "capacity": "емкость",
@@ -150,14 +148,12 @@
   "reset everything": "сбросить все",
   "reviews": "отзывы",
   "similar products": "недавно просмотрены",
-  "search": "поиск",
 
   "selection of tires and wheels": "подбор шин и дисков",
   "services": "услуги",
   "show all": "показать все",
   "sorting": "сортировка",
   "speed index": "индекс скорости",
-
 
   "starting current": "пусковой ток",
 

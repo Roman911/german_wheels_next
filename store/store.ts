@@ -4,7 +4,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 // import cartReducer from './reducers/cartSlice';
 // import comparisonReducer from './reducers/comparisonSlice';
 // import filterCarReducer from './reducers/filterCarSlice';
-// import filterReducer from './reducers/filterSlice';
+import filterReducer from './reducers/filterSlice';
 // import langReducer from './reducers/langSlice';
 // import orderReducer from './reducers/orderSlice';
 import settingsReducer from './slices/settingsSlice';
@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
 	// cartReducer,
 	// comparisonReducer,
 	// filterCarReducer,
-	// filterReducer,
+	filterReducer,
 	// langReducer,
 	// orderReducer,
 	settingsReducer,
