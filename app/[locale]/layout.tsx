@@ -81,16 +81,13 @@ export default async function RootLayout(
 
 	return (
 		<html lang={ locale }>
-		<head>
-			<title>{ response[locale].shablon_title }</title>
-			<meta name="description" content={ response[locale].shablon_title } />
-		</head>
 		<body className={ gilroy.className }>
-
 		<StoreProvider>
 			<NextIntlClientProvider messages={ messages }>
 				<Header locale={ locale } settings={ response } />
-				{ children }
+				<main>
+					{ children }
+				</main>
 				<Footer locale={ locale } settings={ response } />
 			</NextIntlClientProvider>
 		</StoreProvider>

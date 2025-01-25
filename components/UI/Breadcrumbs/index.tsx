@@ -17,8 +17,6 @@ interface Props {
 const MyBreadcrumbs: FC<Props> = ({ path }) => {
 	const t = useTranslations('Main');
 
-	console.log('render')
-
 	return (
 		<Breadcrumbs separator='/' className='text-gray-400 hover:text-teal-600'>
 			<BreadcrumbItem>

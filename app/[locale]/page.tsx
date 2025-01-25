@@ -1,9 +1,11 @@
+import type { Metadata } from 'next';
 import Filter from '@/components/Home/HomeFilter';
 import Banner from '@/components/Home/Banner';
 import TextSeo from '@/components/Home/TextSeo';
 import Title from '@/components/Lib/Title';
 import ProductList from '@/components/ProductList';
 import NoResult from '@/components/Lib/NoResult';
+import { Language } from '@/models/language';
 
 async function getSettings() {
   const res = await fetch('https://admin.g-wheels.com.ua/baseData/settings', {
@@ -25,12 +27,21 @@ async function getProducts() {
   return await res.json();
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: Language }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const response = await fetch('https://admin.g-wheels.com.ua/baseData/settings')
+    .then((res) => res.json());
+
+  return {
+    title: response[locale].shablon_title,
+    description: response[locale].shablon_title,
+  }
+}
+
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const locale = (await params).locale;
   const response = await getSettings();
   const products = await getProducts();
-
-  // console.log(locale, response, products);
 
   return (
     <main>

@@ -1,12 +1,17 @@
 {
   "Main": {
     "about us": "О нас",
+    "brands": "Бренды",
     "buy": "Купить",
     "cardiscs": "Автодиски",
     "cartires": "Автошины",
+    "cars": "Автомобили",
     "contacts": "Контакты",
     "disks": "Диски",
     "from": "От",
+    "manufacturers car": "Производители автомобилей",
+    "manufacturers disc": "Производители дисков",
+    "manufacturers tyre": "Производители шин",
     "selection by car": "Подбор за авто",
     "tire calculator": "Шинный калькулятор",
     "tires": "Шины"
@@ -89,7 +94,7 @@
   "car type": "тип автомобиля",
 
   "cargo tires": "грузовые шины",
-  "cars": "автомобили",
+
   "cart": "корзина",
 
   "cheap at first": "сначала дешевые",

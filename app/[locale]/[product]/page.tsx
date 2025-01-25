@@ -2,6 +2,7 @@ import { Section } from '@/models/filter';
 import { ProductProps } from '@/models/product';
 import Breadcrumbs from '@/components/UI/Breadcrumbs';
 import ProductComponent from '@/components/Product';
+import { Language } from '@/models/language';
 
 async function getProduct(id: string): Promise<ProductProps> {
 	const res = await fetch(`https://admin.g-wheels.com.ua/api/getProduct/${id}`, {
@@ -13,7 +14,7 @@ async function getProduct(id: string): Promise<ProductProps> {
 	return await res.json();
 }
 
-export default async function Product({ params }: { params: Promise<{ locale: string, product: string }> }) {
+export default async function Product({ params }: { params: Promise<{ locale: Language, product: string }> }) {
 	const { locale, product } = await params;
 	const productResponse = await getProduct('2964');
 	const section = /dia/.test(product) ? Section.Disks : Section.Tires;

@@ -1,12 +1,17 @@
 {
   "Main": {
     "about us": "Про нас",
+    "brands": "Бренди",
     "buy": "Купити",
     "cardiscs": "Автодиски",
     "cartires": "Автошини",
+    "cars": "Автомобілі",
     "contacts": "Контакти",
     "disks": "Диски",
     "from": "Від",
+    "manufacturers car": "Виробники автомобілів",
+    "manufacturers disc": "Виробники дисків",
+    "manufacturers tyre": "Виробники шин",
     "selection by car": "Підбір за авто",
     "tire calculator": "Шинний калькулятор",
     "tires": "Шини"
@@ -89,7 +94,6 @@
   "car type": "тип автомобіля",
 
   "cargo tires": "вантажні шини",
-  "cars": "автомобілі",
   "cart": "кошик",
 
   "cheap at first": "спочатку дешеві",
