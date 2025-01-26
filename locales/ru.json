@@ -43,11 +43,15 @@
     "suvs": "Внедорожники"
   },
   "Filters": {
+    "brand": "Бренд",
     "choose disks": "Подобрать диски",
     "choose tires": "Подобрать шины",
     "diameter": "Диаметр",
     "height": "Высота",
-    "width": "Ширина"
+    "season": "Сезон",
+    "type": "Тип",
+    "width": "Ширина",
+    "year": "Год"
   },
   "Footer": {
     "brands": "Бренды",
@@ -72,6 +76,9 @@
     "by parameters": "По параметрам",
     "search": "Поиск"
   },
+  "Select": {
+    "no options message": "ЗСовпадений не найдено"
+  },
 
   "add all": "добавить все",
   "accumulators": "аккумуляторы",
@@ -80,7 +87,6 @@
   "auto goods": "автотовары",
   "battery": "аккумуляторы",
   "body type": "тип корпусу",
-  "brand": "бренд",
 
   "by number of offers": "по количеству предложений",
 
@@ -169,11 +175,9 @@
 
   "tires by parameters": "шини за параметрами",
   "to apply": "применить",
-  "type": "тип",
+
   "type of electrolyte": "тип электролита",
   "type size": "типоразмер",
   "tyre": "шин",
-  "warranty and returns": "гарантія та повернення",
-
-  "year": "год"
+  "warranty and returns": "гарантія та повернення"
 }

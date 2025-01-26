@@ -2,7 +2,7 @@
 import { FC, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { setParams } from '@/store/reducers/filterSlice';
+import { setParams } from '@/store/slices/filterSlice';
 import SwitchTabs from './SwitchTabs';
 import SwitchTabsByParams from './SwitchTabsByParams';
 import Select from './Select';

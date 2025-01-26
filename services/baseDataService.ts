@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 // import type { BaseDataProps, CarModelProps, KitTyreSize, KitDiskSize, ManufModels } from '@/models/baseData';
-import type { BaseDataProps } from '@/models/baseData';
+import type { BaseDataProps, KitDiskSize, KitTyreSize, ManufModels } from '@/models/baseData';
 import type { SettingsProps } from '@/models/settings';
 import type { ProductsProps } from '@/models/products';
 // import type { ProductProps } from '../models/product';
@@ -52,21 +52,21 @@ export const baseDataAPI = createApi({
 		// 		url: `/baseData/getAutoBrandModelKit/${[section]}`,
 		// 	}),
 		// }),
-		// fetchKitTyreSize: build.query<KitTyreSize[], string>({
-		// 	query: ([section]) => ({
-		// 		url: `/baseData/getKitTyreSize/${[section]}`,
-		// 	}),
-		// }),
-		// fetchKitDiskSize: build.query<KitDiskSize[], string>({
-		// 	query: ([section]) => ({
-		// 		url: `/baseData/getKitDiskSize/${[section]}`,
-		// 	}),
-		// }),
-		// fetchManufModels: build.query<ManufModels[], string>({
-		// 	query: ([section]) => ({
-		// 		url: `/api/getManufModels/${[section]}`,
-		// 	}),
-		// }),
+		fetchKitTyreSize: build.query<KitTyreSize[], string>({
+			query: ([section]) => ({
+				url: `/baseData/getKitTyreSize/${[section]}`,
+			}),
+		}),
+		fetchKitDiskSize: build.query<KitDiskSize[], string>({
+			query: ([section]) => ({
+				url: `/baseData/getKitDiskSize/${[section]}`,
+			}),
+		}),
+		fetchManufModels: build.query<ManufModels[], string>({
+			query: ([section]) => ({
+				url: `/api/getManufModels/${[section]}`,
+			}),
+		}),
 		fetchStatiAliasAll: build.query<AliasAll, string>({
 			query: () => ({
 				url: `/baseData/StatiAlias`,

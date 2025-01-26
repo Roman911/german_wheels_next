@@ -8,6 +8,10 @@ import { BaseDataProps } from '@/models/baseData';
 import ProductList from '@/components/ProductList';
 import NoResult from '@/components/Lib/NoResult';
 import FilterByCar from '@/components/Catalog/FilterByCar';
+import { transformUrl } from './transformUrl';
+import SelectionByCar from '@/components/Catalog/SelectionByCar';
+import FilterActive from '@/components/Catalog/FilterActive';
+// import { useAppGetProductsForCatalog } from '@/hooks/getProductsForCatalog';
 
 async function getFilterData(id: string): Promise<BaseDataProps> {
 	const res = await fetch(`${process.env.SERVER_URL}/api/FildterData/${id}`, {
@@ -29,12 +33,12 @@ async function getProducts() {
 	return await res.json();
 }
 
-export default async function Catalog({ params }: { params: Promise<{ locale: Language, section: string, slug: string }> }) {
+export default async function Catalog({ params }: { params: Promise<{ locale: Language, section: Section, slug: string[] }> }) {
 	const { locale, section, slug } = await params;
 	const filterData = await getFilterData(`?typeproduct=${section === Section.Tires ? 1 : 3}`);
 	const products = await getProducts();
-
-	console.log( locale, section, slug, products);
+	const paramsUrl = transformUrl({ section, slug });
+	console.log(paramsUrl);
 
 	const path = [
 		{
@@ -87,6 +91,8 @@ export default async function Catalog({ params }: { params: Promise<{ locale: La
 				<FilterAlt filterData={ filterData } />
 				<div className='flex-1 lg:-mt-12'>
 					<FilterByCar locale={ locale } />
+					<SelectionByCar locale={ locale } />
+					<FilterActive locale={ locale } className='hidden lg:flex' slug={ slug } />
 					{ products.result ? <ProductList
 						locale={ locale }
 						classnames='grid-cols-1 md:grid-cols-2 lg:grid-cols-3'

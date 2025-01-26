@@ -3,8 +3,8 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 // import bookmarksReducer from './reducers/bookmarksSlice';
 // import cartReducer from './reducers/cartSlice';
 // import comparisonReducer from './reducers/comparisonSlice';
-// import filterCarReducer from './reducers/filterCarSlice';
-import filterReducer from './reducers/filterSlice';
+import filterCarReducer from './slices/filterCarSlice';
+import filterReducer from './slices/filterSlice';
 // import langReducer from './reducers/langSlice';
 // import orderReducer from './reducers/orderSlice';
 import settingsReducer from './slices/settingsSlice';
@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
 	// bookmarksReducer,
 	// cartReducer,
 	// comparisonReducer,
-	// filterCarReducer,
+	filterCarReducer,
 	filterReducer,
 	// langReducer,
 	// orderReducer,

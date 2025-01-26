@@ -8,20 +8,21 @@ import TiresFilter from './TiresFilter';
 import { getFilters } from './getFilters';
 import styles from './index.module.scss';
 import { Section } from '@/models/section';
+import { Language } from '@/models/language';
 
-const Filter = () => {
-	const [section, setSection] = useState(Section.Tires);
-	const [isOpen, setOpen] = useState(false);
-	const [filter, setFilter] = useState({});
+const Filter = ({ locale }: { locale: Language }) => {
+	const [ section, setSection ] = useState(Section.Tires);
+	const [ isOpen, setOpen ] = useState(false);
+	const [ filter, setFilter ] = useState({});
 	const { data } = baseDataAPI.useFetchBaseDataQuery('');
 	const t = useTranslations('Main');
-	const filters = getFilters({ section, data });
+	const filters = getFilters({ locale, section, data });
 
 	console.log(filter);
 
 	const onChange = (name: string, value: number | string | undefined) => {
 		if(value) {
-			setFilter(prev => ({ ...prev, [name]: value}));
+			setFilter(prev => ({ ...prev, [name]: value }));
 		}
 	}
 
@@ -47,7 +48,7 @@ const Filter = () => {
 			// case Section.Car:
 			// 	return <FilterByCar/>;
 			default:
-				return <TiresFilter filters={ filters } onChange={ onChange } onSubmit={ submit } />;
+				return <TiresFilter filters={ filters } onChange={ onChange } onSubmit={ submit }/>;
 		}
 	};
 

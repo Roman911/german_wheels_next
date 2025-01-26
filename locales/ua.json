@@ -43,11 +43,15 @@
     "suvs": "Позашляховики"
   },
   "Filters": {
+    "brand": "Бренд",
     "choose disks": "Підібрати диски",
     "choose tires": "Підібрати шини",
     "diameter": "Діаметр",
     "height": "Висота",
-    "width": "Ширина"
+    "season": "Сезон",
+    "type": "Тип",
+    "width": "Ширина",
+    "year": "Рік"
   },
   "Footer": {
     "brands": "Бренди",
@@ -72,6 +76,9 @@
     "by parameters": "За параметрами",
     "search": "Пошук"
   },
+  "Select": {
+    "no options message": "Збігів не знайдено"
+  },
 
   "add all": "додати всі",
   "accumulators": "акумулятори",
@@ -80,7 +87,6 @@
   "auto goods": "автотовари",
   "battery": "акумулятори",
   "body type": "тип корпусу",
-  "brand": "бренд",
 
   "by number of offers": "за кількістю пропозицій",
 
@@ -169,11 +175,9 @@
 
   "tires by parameters": "шини за параметрами",
   "to apply": "застосувати",
-  "type": "тип",
+
   "type of electrolyte": "тип електроліту",
   "type size": "типорозмір",
   "tyre": "шин",
-  "warranty and returns": "гарантія та повернення",
-
-  "year": "рік"
+  "warranty and returns": "гарантія та повернення"
 }

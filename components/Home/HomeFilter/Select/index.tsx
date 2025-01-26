@@ -1,6 +1,6 @@
 import { FC, useCallback, useRef } from 'react';
 import dynamic from 'next/dynamic'
-import { GroupBase, SelectInstance, StylesConfig } from 'react-select';
+import { GroupBase, SelectInstance, StylesConfig, SingleValue } from 'react-select';
 import type { Options } from '@/models/baseData';
 
 const DynamicSelect = dynamic(() => import('react-select'), {
@@ -81,7 +81,7 @@ const colourStyles: StylesConfig<unknown, IsMulti> = {
 	}),
 };
 
-const MySelect: FC<SelectProps> = ({ label, options = [], focusValue, isDisabled = false }) => {
+const MySelect: FC<SelectProps> = ({ name, label, options = [], focusValue, isDisabled = false, onChange }) => {
 	const ref = useRef<SelectInstance<Options, IsMulti, GroupBase<Options>> | null>(null);
 
 	const onMenuOpen = useCallback(() => {
@@ -101,9 +101,9 @@ const MySelect: FC<SelectProps> = ({ label, options = [], focusValue, isDisabled
 		}
 	}, [ focusValue ]);
 
-	// const handleChange = (value: SingleValue<Options | undefined>) => {
-	// 	onChange(name, value?.value);
-	// }
+	const handleChange = (value: SingleValue<Options | undefined>) => {
+		onChange(name, value?.value);
+	}
 
 	return <DynamicSelect
 		options={ options }
@@ -113,10 +113,9 @@ const MySelect: FC<SelectProps> = ({ label, options = [], focusValue, isDisabled
 		placeholder={ label }
 		isClearable={ true }
 		isDisabled={ isDisabled }
-		onChange={ (value) => console.log(value) }
+		onChange={ handleChange }
 		className='MyDropdown'
 		classNamePrefix='MyDropdown'
-		// noOptionsMessage={ () => lang === Language.UA ? 'Збігів не знайдено' : 'Совпадений не найдено' }
 		noOptionsMessage={ () => 'Збігів не знайдено' }
 	/>
 };

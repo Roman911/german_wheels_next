@@ -45,7 +45,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
   return (
     <main>
-      <Filter />
+      <Filter locale={ locale } />
       <div className="container mx-auto px-4 py-5 min-h-[70vh]">
         <Title title={ response[locale].h2_top }/>
         { products.result ? <ProductList

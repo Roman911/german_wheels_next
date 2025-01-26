@@ -43,7 +43,7 @@ const Select: FC<SelectProps> = (
 	const [ open, setOpen ] = useState(false);
 	const [ eventSearch, setEventSearch ] = useState('');
 	const ref = useRef<HTMLUListElement | null>(null);
-	const t = useTranslations('Filters');
+	const t = useTranslations('Select');
 
 	const handleClickOpen = useCallback(() => {
 		setOpen(prev => !prev);
