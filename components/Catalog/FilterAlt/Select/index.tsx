@@ -119,7 +119,7 @@ const Select: FC<SelectProps> = (
 								checked={ name === 'other' ? !!filterOther?.[item.value as keyof typeof filterOther] : filterValue === item.value }
 								id={ `${ name }-${ item.value }` }
 								type='checkbox'
-								className='peer relative h-7 w-7 bg-white appearance-none cursor-pointer rounded-sm border border-[#A9ACB2] transition-all checked:border-blue-300 checked:bg-blue-300 hover:border-blue-300'
+								className='peer relative h-7 w-7 bg-white appearance-none cursor-pointer rounded-sm border border-[#A9ACB2] transition-all checked:border-teal-300 checked:bg-teal-300 hover:border-teal-300'
 							/>
 							<div
 								className='pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white peer-checked:opacity-100'>
@@ -153,7 +153,7 @@ const Select: FC<SelectProps> = (
 							checked={ valueStudded == '1' }
 							id='studded'
 							type="checkbox"
-							className="peer relative h-7 w-7 bg-white appearance-none cursor-pointer rounded-sm border border-[#A9ACB2] transition-all checked:border-blue-500 checked:bg-blue-500 hover:border-blue-500"
+							className="peer relative h-7 w-7 bg-white appearance-none cursor-pointer rounded-sm border border-[#A9ACB2] transition-all checked:border-teal-400 checked:bg-teal-400 hover:border-teal-400"
 						/>
 						<div
 							className="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white peer-checked:opacity-100">

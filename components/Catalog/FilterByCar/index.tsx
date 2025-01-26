@@ -20,19 +20,23 @@ const options = [
 
 interface Props {
 	locale: Language
-	openFilter: () => void
-	handleClick: (param1: string, param2: string) => void
+	// openFilter: () => void
+	// handleClick: (param1: string, param2: string) => void
 }
 
-const FilterByCar: FC<Props> = ({ locale, openFilter, handleClick }) => {
+const FilterByCar: FC<Props> = ({ locale }) => {
 	const t = useTranslations();
 	const [ openSort, setOpenSort ] = useState(false);
-	const [ sort, setSort ] = useState('sorting');
+	// const [ sort, setSort ] = useState('sorting');
 
-	const onClick = (label: string, param1: string, param2: string) => {
-		setSort(label);
-		setOpenSort(false);
-		handleClick(param1, param2);
+	// const onClick = (label: string, param1: string, param2: string) => {
+	// 	setSort(label);
+	// 	setOpenSort(false);
+	// 	handleClick(param1, param2);
+	// }
+
+	const openFilter = () => {
+
 	}
 
 	return (
@@ -47,7 +51,7 @@ const FilterByCar: FC<Props> = ({ locale, openFilter, handleClick }) => {
 								className="w-56 xl:w-64 h-11 p-3 flex items-center justify-between bg-white text-xs uppercase font-bold border border-gray-200 rounded-sm"
 								id="menu-button" aria-expanded="true" aria-haspopup="true">
 					<div>{ 'sort' }</div>
-					<div>{ t(sort) }</div>
+					{/*<div>{ t(sort) }</div>*/}
 					<div className={ twMerge('transition-transform', openSort && 'rotate-180') }>
 						<Icons.ChevronDownIcon className='h-3.5 w-3.5'/>
 					</div>
@@ -63,7 +67,7 @@ const FilterByCar: FC<Props> = ({ locale, openFilter, handleClick }) => {
 							return <button
 								key={ index }
 								className={ twMerge('flex items-center', index !== 0 && 'mt-3') }
-								onClick={ () => onClick(item.label, item.param1, item.param2) }
+								// onClick={ () => onClick(item.label, item.param1, item.param2) }
 							>
 								{ t(item.title) }
 							</button>

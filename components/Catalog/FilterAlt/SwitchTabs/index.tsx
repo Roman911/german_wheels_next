@@ -2,22 +2,21 @@ import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
 import { Section } from '@/models/filter';
 import { useTranslations } from 'next-intl';
+import { Language } from '@/models/language';
 
-const section = Section.Tires;
-
-const SwitchTabs = () => {
+const SwitchTabs = ({ locale, section }: { locale: Language, section: Section }) => {
 	const t = useTranslations('Main');
 
 	const renderTab = (value: Section) => {
-		const url = `/catalog/${value}`;
+		const url = `/${ locale }/catalog/${ value }`;
 
 		return (
 			<Link
-				href={url}
-				className={twMerge(
+				href={ url }
+				className={ twMerge(
 					'text-sm font-bold uppercase py-3.5 rounded-t-sm border border-slate-200 border-b-0 text-center bg-white',
 					section !== value && 'bg-slate-200 text-gray-400'
-				)}
+				) }
 			>
 				{ t(value) }
 			</Link>
@@ -26,8 +25,8 @@ const SwitchTabs = () => {
 
 	return (
 		<div className='filter-tabs grid grid-cols-2 gap-2.5 -mb-0.5'>
-			{renderTab(Section.Tires)}
-			{renderTab(Section.Disks)}
+			{ renderTab(Section.Tires) }
+			{ renderTab(Section.Disks) }
 		</div>
 	)
 };

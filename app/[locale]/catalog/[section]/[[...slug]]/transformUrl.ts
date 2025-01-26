@@ -32,7 +32,5 @@ export const transformUrl = (
 		[Section.Car]: '',
 	};
 
-	// console.log('transformUrl', slug, sectionTypeMap, params)
-
 	return `${sectionTypeMap[section] || ''}${params.join('&')}`;
 };

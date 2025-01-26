@@ -7,7 +7,7 @@ import { Section } from '@/models/filter';
 import { BaseDataProps } from '@/models/baseData';
 import ProductList from '@/components/ProductList';
 import NoResult from '@/components/Lib/NoResult';
-// import FilterByCar from '@/components/Catalog/FilterByCar';
+import FilterByCar from '@/components/Catalog/FilterByCar';
 import { transformUrl } from './transformUrl';
 import SelectionByCar from '@/components/Catalog/SelectionByCar';
 import FilterActive from '@/components/Catalog/FilterActive';
@@ -23,8 +23,8 @@ async function getFilterData(id: string): Promise<BaseDataProps> {
 	return await res.json();
 }
 
-async function getProducts() {
-	const res = await fetch(`${process.env.SERVER_URL}/api/getProducts?vehicle_type=1&order[value]=popular&order[asc]=0`, {
+async function getProducts(params: string) {
+	const res = await fetch(`${process.env.SERVER_URL}/api/getProducts?${params}`, {
 		method: 'GET',
 		headers: {
 			'Access-Control-Allow-Credentials': 'true',
@@ -36,9 +36,8 @@ async function getProducts() {
 export default async function Catalog({ params }: { params: Promise<{ locale: Language, section: Section, slug: string[] }> }) {
 	const { locale, section, slug } = await params;
 	const filterData = await getFilterData(`?typeproduct=${section === Section.Tires ? 1 : 3}`);
-	const products = await getProducts();
 	const paramsUrl = transformUrl({ section, slug });
-	console.log(paramsUrl);
+	const products = await getProducts(paramsUrl);
 
 	const path = [
 		{
@@ -86,11 +85,11 @@ export default async function Catalog({ params }: { params: Promise<{ locale: La
 	return (
 		<Layout>
 			<Breadcrumbs path={ path } />
-			<Title isMain={ true } title={ 'qqqq' } className='mt-3 text-lg font-medium px-0 md:px-3 mb-3 md:mb-1' />
+			<Title isMain={ true } title={ section } translations={ true } className='mt-3 text-lg font-medium px-0 md:px-3 mb-3 md:mb-1' />
 			<div className='py-5 lg:flex lg:gap-10'>
-				<FilterAlt filterData={ filterData } />
+				<FilterAlt locale={ locale } filterData={ filterData } section={ section } />
 				<div className='flex-1 lg:-mt-12'>
-					{/*<FilterByCar locale={ locale } />*/}
+					<FilterByCar locale={ locale } />
 					<SelectionByCar locale={ locale } />
 					<FilterActive locale={ locale } className='hidden lg:flex' slug={ slug } />
 					{ products.result ? <ProductList

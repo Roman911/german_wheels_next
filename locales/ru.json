@@ -56,6 +56,7 @@
     "model": "Модель",
     "modification": "Модификация",
     "season": "Сезон",
+    "to apply": "Применить",
     "type": "Тип",
     "width": "Ширина",
     "year": "Год"
@@ -179,7 +180,6 @@
   "tire comparison": "сравнение шин",
 
   "tires by parameters": "шини за параметрами",
-  "to apply": "применить",
 
   "type of electrolyte": "тип электролита",
   "type size": "типоразмер",
