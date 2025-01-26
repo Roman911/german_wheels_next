@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
-// import bookmarksReducer from './reducers/bookmarksSlice';
-// import cartReducer from './reducers/cartSlice';
-// import comparisonReducer from './reducers/comparisonSlice';
+import bookmarksReducer from './slices/bookmarksSlice';
+import cartReducer from './slices/cartSlice';
+import comparisonReducer from './slices/comparisonSlice';
 import filterCarReducer from './slices/filterCarSlice';
 import filterReducer from './slices/filterSlice';
 // import langReducer from './reducers/langSlice';
@@ -14,9 +14,9 @@ import settingsReducer from './slices/settingsSlice';
 import { baseDataAPI } from '@/services/baseDataService';
 
 const rootReducer = combineReducers({
-	// bookmarksReducer,
-	// cartReducer,
-	// comparisonReducer,
+	bookmarksReducer,
+	cartReducer,
+	comparisonReducer,
 	filterCarReducer,
 	filterReducer,
 	// langReducer,
