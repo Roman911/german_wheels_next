@@ -101,7 +101,10 @@ const MySelect: FC<SelectProps> = ({ name, label, options = [], focusValue, isDi
 		}
 	}, [ focusValue ]);
 
-	const handleChange = (value: SingleValue<Options | undefined>) => {
+	const handleChange = (value: SingleValue<Options | unknown>) => {
+
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-expect-error
 		onChange(name, value?.value);
 	}
 
