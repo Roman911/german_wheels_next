@@ -24,7 +24,7 @@ const Icons = {
 };
 
 interface ILinkComponent extends LinkProps {
-	label: string;
+	label: string
 	section: 'header' | 'catalog'
 	icon: keyof typeof Icons
 	iconStyles?: string

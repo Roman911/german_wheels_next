@@ -4,11 +4,11 @@ import { useTranslations } from 'next-intl';
 import TypeCarLinks from '../../../TypeCarLinks';
 import LinkComponent from '../LinkComponent';
 import Title from '../Title';
-
+import { Language } from '@/models/language';
 import { brandsLinks, diameterLinks, seasonLinks } from './links';
 
 interface Props {
-	locale: string
+	locale: Language
 	setOpen: Dispatch<SetStateAction<boolean>>
 }
 
