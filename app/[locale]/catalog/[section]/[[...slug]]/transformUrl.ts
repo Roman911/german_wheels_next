@@ -1,50 +1,7 @@
-import { Language } from '@/models/language';
 import { IFilter, Section } from '@/models/filter';
-import { parseUrl } from '../../../../../lib/seo';
+import { parseUrl } from '@/lib/seo';
 
 const special = ['3','4','5','6','9','10','11'];
-
-const initialFilterState: IFilter = {
-	width: null,
-	height: null,
-	radius: null,
-	sezon: null,
-	brand: null,
-	model_id: null,
-	country: null,
-	year: null,
-	omolog: null,
-	krepeg: null,
-	typedisk: null,
-	colir: null,
-	jemnist: null,
-	puskovii_strum: null,
-	tip_elektrolitu: null,
-	tip_korpusu: null,
-	napruga: null,
-	poliarnist: null,
-	vehicle_type: null,
-	li: null,
-	si: null,
-	only_studded: null,
-	only_c: null,
-	only_xl: null,
-	only_owl: null,
-	only_run_flat: null,
-	only_off_road: null,
-	minPrice: null,
-	maxPrice: null,
-	etMin: null,
-	etMax: null,
-	diaMin: null,
-	diaMax: null,
-	minShirina: null,
-	maxShirina: null,
-	minVisota: null,
-	maxVisota: null,
-	minDovzina: null,
-	maxDovzina: null,
-}
 
 const paramKeys: Array<keyof IFilter> = [
 	'width', 'height', 'radius', 'sezon', 'brand', 'model_id', 'country', 'year', 'omolog',
