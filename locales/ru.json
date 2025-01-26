@@ -44,10 +44,17 @@
   },
   "Filters": {
     "brand": "Бренд",
+    "car brand": "Марка авто",
     "choose disks": "Подобрать диски",
     "choose tires": "Подобрать шины",
     "diameter": "Диаметр",
+    "fasteners": "Крепеж",
+    "graduation year": "Год выпуска",
     "height": "Высота",
+    "et from": "Вылет от",
+    "et to": "Вылет до",
+    "model": "Модель",
+    "modification": "Модификация",
     "season": "Сезон",
     "type": "Тип",
     "width": "Ширина",
@@ -96,7 +103,7 @@
   "buy here": "купить здесь",
   "capacity": "емкость",
   "car": "автомобилей",
-  "car brand": "марка авто",
+
   "car type": "тип автомобиля",
 
   "cargo tires": "грузовые шины",
@@ -126,10 +133,10 @@
   "installment plan": "онлайн рассрочка",
 
   "load index": "индекс нагрузки",
-  "graduation year": "год выпуска",
+
   "quick order": "быстрый заказ",
   "factory": "заводские",
-  "fasteners": "крепеж",
+
   "favorites": "избранное",
   "filters": "фильтры",
 
@@ -139,8 +146,6 @@
   "homologation": "омологация",
   "main characteristics": "основные характеристики",
   "manufacturers": "производители",
-  "model": "модель",
-  "modification": "модификация",
 
   "motorcycle tires": "мотошины",
   "other": "другое",

@@ -44,10 +44,17 @@
   },
   "Filters": {
     "brand": "Бренд",
+    "car brand": "Марка авто",
     "choose disks": "Підібрати диски",
     "choose tires": "Підібрати шини",
     "diameter": "Діаметр",
+    "fasteners": "Кріплення",
+    "graduation year": "Рік випуску",
     "height": "Висота",
+    "et from": "Виліт від",
+    "et to": "Виліт до",
+    "model": "Модель",
+    "modification": "Модифікація",
     "season": "Сезон",
     "type": "Тип",
     "width": "Ширина",
@@ -96,7 +103,7 @@
   "buy here": "купити тут",
   "capacity": "ємність",
   "car": "автомобілів",
-  "car brand": "марка авто",
+
   "car type": "тип автомобіля",
 
   "cargo tires": "вантажні шини",
@@ -120,7 +127,7 @@
   "disks by parameters": "диски за параметрами",
   "delivery calculation": "розрахунок доставки",
   "expensive at first": "спочатку дорогі",
-  "graduation year": "рік випуску",
+
   "guarantee and refund": "гарантія та повернення",
 
   "installment plan": "онлайн розстрочка",
@@ -128,7 +135,7 @@
   "load index": "індекс навантаження",
   "quick order": "швидке замовлення",
   "factory": "заводські",
-  "fasteners": "кріплення",
+
   "favorites": "обране",
   "filters": "фільтри",
 
@@ -138,8 +145,6 @@
   "homologation": "омологація",
   "main characteristics": "основні характеристики",
   "manufacturers": "виробники",
-  "model": "модель",
-  "modification": "модифікація",
 
   "motorcycle tires": "мотошини",
   "other": "інше",

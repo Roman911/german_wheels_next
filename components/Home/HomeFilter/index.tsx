@@ -1,24 +1,27 @@
 'use client'
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useTranslations } from 'next-intl';
 import { baseDataAPI } from '@/services/baseDataService';
 import Tab from './Tab';
+import FilterByCar from './FilterByCar';
+import DisksFilter from './DisksFilter';
 import TiresFilter from './TiresFilter';
 import { getFilters } from './getFilters';
 import styles from './index.module.scss';
 import { Section } from '@/models/section';
 import { Language } from '@/models/language';
+import { generateUrl } from '@/lib/seo';
 
 const Filter = ({ locale }: { locale: Language }) => {
+	const router = useRouter();
 	const [ section, setSection ] = useState(Section.Tires);
 	const [ isOpen, setOpen ] = useState(false);
 	const [ filter, setFilter ] = useState({});
 	const { data } = baseDataAPI.useFetchBaseDataQuery('');
 	const t = useTranslations('Main');
 	const filters = getFilters({ locale, section, data });
-
-	console.log(filter);
 
 	const onChange = (name: string, value: number | string | undefined) => {
 		if(value) {
@@ -33,20 +36,19 @@ const Filter = ({ locale }: { locale: Language }) => {
 	};
 
 	const submit = () => {
-		console.log(submit);
+		const searchUrl = generateUrl(filter);
+		const rout = `/catalog/${section}/`;
+		const newRout = `/${locale}${rout}`;
 
-		// const searchUrl = generateUrl(filter);
-		// const rout = `/catalog/${section}/`;
-		// const newRout = lang === Language.UA ? rout : `/ru${rout}`;
-		// navigate(newRout + searchUrl);
+		router.push(newRout + searchUrl);
 	}
 
 	const renderFilter = () => {
 		switch(section) {
-			// case Section.Disks:
-			// 	return <DisksFilter filters={data} onChange={ onChange } onSubmit={ submit } />;
-			// case Section.Car:
-			// 	return <FilterByCar/>;
+			case Section.Disks:
+				return <DisksFilter filters={ filters } onChange={ onChange } onSubmit={ submit } />;
+			case Section.Car:
+				return <FilterByCar locale={ locale } />;
 			default:
 				return <TiresFilter filters={ filters } onChange={ onChange } onSubmit={ submit }/>;
 		}

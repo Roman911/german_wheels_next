@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 // import type { BaseDataProps, CarModelProps, KitTyreSize, KitDiskSize, ManufModels } from '@/models/baseData';
-import type { BaseDataProps, KitDiskSize, KitTyreSize, ManufModels } from '@/models/baseData';
+import type { BaseDataProps, CarModelProps, KitDiskSize, KitTyreSize, ManufModels } from '@/models/baseData';
 import type { SettingsProps } from '@/models/settings';
 import type { ProductsProps } from '@/models/products';
 // import type { ProductProps } from '../models/product';
@@ -37,21 +37,21 @@ export const baseDataAPI = createApi({
 		// 		url: `/api/FildterData${[section]}`,
 		// 	}),
 		// }),
-		// fetchAutoModel: build.query<CarModelProps[], string>({
-		// 	query: ([section]) => ({
-		// 		url: `/baseData/getAutoBrandModel/${[section]}`,
-		// 	}),
-		// }),
-		// fetchAutoYear: build.query<number[], string>({
-		// 	query: ([section]) => ({
-		// 		url: `/baseData/getAutoBrandModelYear/${[section]}`,
-		// 	}),
-		// }),
-		// fetchAutoModelKit: build.query<CarModelProps[], string>({
-		// 	query: ([section]) => ({
-		// 		url: `/baseData/getAutoBrandModelKit/${[section]}`,
-		// 	}),
-		// }),
+		fetchAutoModel: build.query<CarModelProps[], string>({
+			query: ([section]) => ({
+				url: `/baseData/getAutoBrandModel/${[section]}`,
+			}),
+		}),
+		fetchAutoYear: build.query<number[], string>({
+			query: ([section]) => ({
+				url: `/baseData/getAutoBrandModelYear/${[section]}`,
+			}),
+		}),
+		fetchAutoModelKit: build.query<CarModelProps[], string>({
+			query: ([section]) => ({
+				url: `/baseData/getAutoBrandModelKit/${[section]}`,
+			}),
+		}),
 		fetchKitTyreSize: build.query<KitTyreSize[], string>({
 			query: ([section]) => ({
 				url: `/baseData/getKitTyreSize/${[section]}`,

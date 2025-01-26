@@ -111,6 +111,48 @@ export const getFilters = ({ locale, section, data }: Props) => {
 			focusValue: '',
 			options: data?.brand?.map(item => ({ value: item.value, label: item.label }))
 		});
+	} else if(section === Section.Disks) {
+		filterConfigs.push({
+			label: 'diameter',
+			name: 'radius',
+			focusValue: `R${14}`,
+			options: data?.disc_diameter?.map(item => ({ value: item.value, label: `R${item.value}`, p: item.p }))
+		});
+
+		filterConfigs.push({
+			label: 'fasteners',
+			name: 'krip',
+			focusValue: '',
+			options: data?.krip?.map(item => ({ value: item.value, label: item.value, p: item.p }))
+		});
+
+		filterConfigs.push({
+			label: 'et from',
+			name: 'et_from',
+			focusValue: '',
+			options: data?.et?.map(item => ({ value: item.value, label: item.value, p: item.p }))
+		});
+
+		filterConfigs.push({
+			label: 'et to',
+			name: 'et_to',
+			focusValue: '',
+			options: data?.et?.map(item => ({ value: item.value, label: item.value, p: item.p }))
+		});
+
+		filterConfigs.push({
+			label: 'brand',
+			name: 'brand',
+			focusValue: '',
+			options: data?.brand_disc?.map(item => ({ value: item.value, label: item.label }))
+		});
+
+		filterConfigs.push({
+			label: 'year',
+			name: 'year',
+			focusValue: '',
+			options: data?.tyre_year?.map(item => ({ value: item.value, label: item.label }))
+		});
 	}
 
 	return filterConfigs;
