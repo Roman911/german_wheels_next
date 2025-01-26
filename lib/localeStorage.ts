@@ -9,7 +9,10 @@ interface Value {
 }
 
 export const getFromStorage = (storageName: StorageName) => {
-	return localStorage[storageName] ? JSON.parse(localStorage[storageName]) : [];
+	if (typeof window !== 'undefined' && localStorage[storageName]) {
+		return JSON.parse(localStorage[storageName]);
+	}
+	return [];
 };
 
 export const addToStorage = (storageName: StorageName, value: Value[]) => {
