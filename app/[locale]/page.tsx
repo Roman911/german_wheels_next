@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   }
 }
 
-export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
+export default async function Home({ params }: { params: Promise<{ locale: Language }> }) {
   const locale = (await params).locale;
   const response = await getSettings();
   const products = await getProducts();
