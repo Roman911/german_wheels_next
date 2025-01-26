@@ -6,10 +6,11 @@ import { twMerge } from 'tailwind-merge';
 import { CarTireFilter } from '../CarTireFilter';
 import { CarDiskFilter } from '../CarDiskFilter';
 import * as Icons from '@/components/Lib/Icons';
+import { Language } from '@/models/language';
 import { links } from '../../links';
 
 interface Props {
-	locale: string
+	locale: Language
 }
 
 const Navbar: FC<Props> = ({ locale }) => {
