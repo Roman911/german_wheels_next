@@ -8,7 +8,7 @@ import NoResult from '@/components/Lib/NoResult';
 import { Language } from '@/models/language';
 
 async function getSettings() {
-  const res = await fetch('https://admin.g-wheels.com.ua/baseData/settings', {
+  const res = await fetch(`${process.env.SERVER_URL}/baseData/settings`, {
     method: 'GET',
     headers: {
       'Access-Control-Allow-Credentials': 'true',
@@ -18,7 +18,7 @@ async function getSettings() {
 }
 
 async function getProducts() {
-  const res = await fetch('https://admin.g-wheels.com.ua/api/getProducts?vehicle_type=1&order[value]=popular&order[asc]=0', {
+  const res = await fetch(`${process.env.SERVER_URL}/api/getProducts?vehicle_type=1&order[value]=popular&order[asc]=0`, {
     method: 'GET',
     headers: {
       'Access-Control-Allow-Credentials': 'true',
@@ -29,7 +29,7 @@ async function getProducts() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Language }> }): Promise<Metadata> {
   const { locale } = await params;
-  const response = await fetch('https://admin.g-wheels.com.ua/baseData/settings')
+  const response = await fetch(`${process.env.SERVER_URL}/baseData/settings`)
     .then((res) => res.json());
 
   return {

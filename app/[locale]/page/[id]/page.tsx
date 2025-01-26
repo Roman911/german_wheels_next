@@ -7,7 +7,7 @@ import type { Pages } from '@/models/alias';
 import { Language } from '@/models/language';
 
 async function getAlias(id: string): Promise<Pages> {
-	const res = await fetch(`https://admin.g-wheels.com.ua/baseData/StatiAlias/${id}`, {
+	const res = await fetch(`${process.env.SERVER_URL}/baseData/StatiAlias/${id}`, {
 		method: 'GET',
 		headers: {
 			'Access-Control-Allow-Credentials': 'true',
@@ -18,7 +18,7 @@ async function getAlias(id: string): Promise<Pages> {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Language, id: string }> }): Promise<Metadata> {
 	const { locale, id } = await params;
-	const alias = await fetch(`https://admin.g-wheels.com.ua/baseData/StatiAlias/${id}`)
+	const alias = await fetch(`${process.env.SERVER_URL}/baseData/StatiAlias/${id}`)
 		.then((res) => res.json());
 
 	return {

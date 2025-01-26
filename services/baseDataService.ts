@@ -14,10 +14,10 @@ import type { AliasAll } from '@/models/alias';
 export const baseDataAPI = createApi({
 	reducerPath: 'dataAPI',
 	baseQuery: fetchBaseQuery({
-		baseUrl: 'https://admin.g-wheels.com.ua',
+		baseUrl: process.env.SERVER_URL,
 		headers: {
 			'Access-Control-Allow-Credentials': 'true',
-			'Access-Control-Allow-Origin': 'http://localhost:3000/',
+			'Access-Control-Allow-Origin': process.env.ACCESS_ORIGIN || '',
 		},
 	}),
 	tagTypes: ['baseDataAPI', 'Product'],

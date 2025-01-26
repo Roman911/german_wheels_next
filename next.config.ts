@@ -6,6 +6,7 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig: NextConfig = {
 	env: {
 		SERVER_URL: process.env.SERVER_URL,
+		ACCESS_ORIGIN: process.env.ACCESS_ORIGIN,
 	},
 	sassOptions: {
 		additionalData: `$var: red;`,

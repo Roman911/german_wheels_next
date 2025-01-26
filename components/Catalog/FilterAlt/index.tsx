@@ -1,12 +1,14 @@
 'use client'
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { useAppSelector } from '@/hooks/redux';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { setParams } from '@/store/reducers/filterSlice';
 import SwitchTabs from './SwitchTabs';
 import SwitchTabsByParams from './SwitchTabsByParams';
 import Select from './Select';
 import { Section, Subsection } from '@/models/filter';
 import type { BaseDataProps, Options } from '@/models/baseData';
+import { SubmitFloat } from '@/components/Catalog/FilterAlt/SubmitFloat';
 
 const section = Section.Tires;
 const subsection: Subsection = Subsection.ByParams;
@@ -16,9 +18,16 @@ interface Props {
 }
 
 const FilterAlt: FC<Props> = ({ filterData }) => {
+	const [ element, setElement ] = useState<HTMLElement | null>(null);
+	const dispatch = useAppDispatch();
 	const { filter } = useAppSelector(state => state.filterReducer);
-	const onChange = () => {
-		console.log('onChange');
+
+	const onChange = (name: string, value: number | string | undefined | null, element: HTMLElement) => {
+		if(name === 'brand') {
+			dispatch(setParams({ model_id: null }));
+		}
+		setElement(element);
+		dispatch(setParams({ [name]: value }));
 	}
 
 	const renderSelect = (
@@ -60,10 +69,10 @@ const FilterAlt: FC<Props> = ({ filterData }) => {
 			<SwitchTabs />
 			</div>
 			<div className='relative h-[calc(100%-50px)] pb-32 lg:pb-4 px-4 pt-4 bg-white border border-gray-200 z-10 overflow-y-auto md:overflow-y-visible'>
+				<SubmitFloat element={element} btnTitle={'to apply'} setElement={setElement} offset={ 346 } />
 				<SwitchTabsByParams />
 				{ subsection === Subsection.ByParams && <>
 					{ section === Section.Tires && <>
-						123
 						{renderSelect(
 							'width',
 							'width',
@@ -73,8 +82,25 @@ const FilterAlt: FC<Props> = ({ filterData }) => {
 							filter?.width,
 							true,
 						)}
+						{section === Section.Tires && renderSelect(
+							'height',
+							'height',
+							'gray',
+							filterData?.tyre_height?.map(item => ({value: item.value, label: item.value, p: item.p})),
+							'45',
+							filter?.height,
+							true,
+						)}
+						{renderSelect(
+							'radius',
+							'diameter',
+							'gray',
+							filterData?.tyre_diameter?.map(item => ({value: item.value, label: `R${item.value}`, p: item.p})),
+							'R14',
+							filter?.radius,
+							true,
+						)}
 					</> }
-					<div>123</div>
 				</> }
 			</div>
 		</div>

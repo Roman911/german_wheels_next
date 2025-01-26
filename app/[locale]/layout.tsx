@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 };
 
 async function getSettings() {
-	const res = await fetch('https://admin.g-wheels.com.ua/baseData/settings', {
+	const res = await fetch(`${process.env.SERVER_URL}/baseData/settings`, {
 		method: 'GET',
 		headers: {
 			'Access-Control-Allow-Credentials': 'true',

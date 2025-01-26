@@ -5,7 +5,7 @@ import ProductComponent from '@/components/Product';
 import { Language } from '@/models/language';
 
 async function getProduct(id: string): Promise<ProductProps> {
-	const res = await fetch(`https://admin.g-wheels.com.ua/api/getProduct/${id}`, {
+	const res = await fetch(`${process.env.SERVER_URL}/api/getProduct/${id}`, {
 		method: 'GET',
 		headers: {
 			'Access-Control-Allow-Credentials': 'true',

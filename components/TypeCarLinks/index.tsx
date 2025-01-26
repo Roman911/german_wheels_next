@@ -1,16 +1,17 @@
+'use client'
 import { Dispatch, FC, SetStateAction } from 'react';
+import { usePathname } from 'next/navigation';
 import Link, { LinkProps } from 'next/link';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
-
 import { BusIcon, CargoIcon, CarIcon, MotorcyclesIcon, SpecialEquipmentIcon, SuvIcon } from '../Lib/Icons';
-
 import { typeCatLinks } from './links';
+import { Language } from '@/models/language';
 
 interface TypeCarLinksProps {
-	locale: string
+	locale: Language
 	section: 'header' | 'catalog'
-	setOpen: Dispatch<SetStateAction<boolean>>
+	setOpen?: Dispatch<SetStateAction<boolean>>
 }
 
 const Icons = {
@@ -42,9 +43,8 @@ const LinkComponent: FC<ILinkComponent> = (
 		iconStylesActive,
 		vehicleType
 	}) => {
-	// const params = useParams();
-	// const value = params?.['*'] ? params['*'].split("vt-")[1]?.split("/")[0] || null : null;
-	const value = undefined;
+	const pathname = usePathname();
+	const value = pathname.split("vt-")[1]?.split("/")[0] || null;
 	const active = value && vehicleType.includes(value);
 	const IconComponent = Icons[icon];
 
@@ -57,18 +57,19 @@ const LinkComponent: FC<ILinkComponent> = (
 	>
 		<IconComponent className={
 			twMerge(
-				'transition group-hover:fill-teal-300 fill-gray-500',
+				'transition group-hover:fill-teal-400 fill-gray-500',
 				!active && iconStyles,
 				active && iconStylesActive,
-				active && 'fill-teal-300 stroke-teal-300'
+				active && 'fill-teal-400',
+				active && value === '2' && 'stroke-teal-400',
 			)
 		}/>
 		<span className={
 			twMerge(
-				'transition group-hover:text-teal-300',
-				active && 'text-teal-300',
+				'transition group-hover:text-teal-400',
 				section === 'catalog' && 'text-sm font-bold text-gray-500',
-				section === 'header' && 'group-hover:underline text-white'
+				section === 'header' && 'group-hover:underline text-white',
+				active && 'text-teal-400',
 			)
 		}>
 			{ label }

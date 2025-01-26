@@ -5,9 +5,22 @@ import Title from '@/components/Lib/Title';
 import FilterAlt from '@/components/Catalog/FilterAlt';
 import { Section } from '@/models/filter';
 import { BaseDataProps } from '@/models/baseData';
+import ProductList from '@/components/ProductList';
+import NoResult from '@/components/Lib/NoResult';
+import FilterByCar from '@/components/Catalog/FilterByCar';
 
 async function getFilterData(id: string): Promise<BaseDataProps> {
-	const res = await fetch(`https://admin.g-wheels.com.ua/api/FildterData/${id}`, {
+	const res = await fetch(`${process.env.SERVER_URL}/api/FildterData/${id}`, {
+		method: 'GET',
+		headers: {
+			'Access-Control-Allow-Credentials': 'true',
+		}
+	});
+	return await res.json();
+}
+
+async function getProducts() {
+	const res = await fetch(`${process.env.SERVER_URL}/api/getProducts?vehicle_type=1&order[value]=popular&order[asc]=0`, {
 		method: 'GET',
 		headers: {
 			'Access-Control-Allow-Credentials': 'true',
@@ -19,10 +32,9 @@ async function getFilterData(id: string): Promise<BaseDataProps> {
 export default async function Catalog({ params }: { params: Promise<{ locale: Language, section: string, slug: string }> }) {
 	const { locale, section, slug } = await params;
 	const filterData = await getFilterData(`?typeproduct=${section === Section.Tires ? 1 : 3}`);
+	const products = await getProducts();
 
-	console.log(filterData);
-
-	console.log( locale, section, slug, section === Section.Tires ? 1 : 3 );
+	console.log( locale, section, slug, products);
 
 	const path = [
 		{
@@ -71,11 +83,15 @@ export default async function Catalog({ params }: { params: Promise<{ locale: La
 		<Layout>
 			<Breadcrumbs path={ path } />
 			<Title isMain={ true } title={ 'qqqq' } className='mt-3 text-lg font-medium px-0 md:px-3 mb-3 md:mb-1' />
-			<div className='py-5 lg:flex'>
+			<div className='py-5 lg:flex lg:gap-10'>
 				<FilterAlt filterData={ filterData } />
-				<div>
-					<div>123</div>
-					<div>123dsa</div>
+				<div className='flex-1 lg:-mt-12'>
+					<FilterByCar locale={ locale } />
+					{ products.result ? <ProductList
+						locale={ locale }
+						classnames='grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+						data={ products.data }
+					/> : <NoResult noResultText='no result' /> }
 				</div>
 			</div>
 		</Layout>

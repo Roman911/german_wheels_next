@@ -9,7 +9,7 @@ import BrandsList from '@/components/Brands/BrandsList';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Language }> }): Promise<Metadata> {
 	const { locale } = await params;
-	const response = await fetch('https://admin.g-wheels.com.ua/baseData/settings')
+	const response = await fetch(`${process.env.SERVER_URL}/baseData/settings`)
 		.then((res) => res.json());
 
 	return {
@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 }
 
 async function getBrands(id: string): Promise<BrandsObject | BrandsObjectItems> {
-	const res = await fetch(`https://admin.g-wheels.com.ua/api/catalog-map/${id}`, {
+	const res = await fetch(`${process.env.SERVER_URL}/api/catalog-map/${id}`, {
 		method: 'GET',
 		headers: {
 			'Access-Control-Allow-Credentials': 'true',
