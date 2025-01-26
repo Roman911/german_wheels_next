@@ -7,7 +7,7 @@ import { Section } from '@/models/filter';
 import { BaseDataProps } from '@/models/baseData';
 import ProductList from '@/components/ProductList';
 import NoResult from '@/components/Lib/NoResult';
-import FilterByCar from '@/components/Catalog/FilterByCar';
+// import FilterByCar from '@/components/Catalog/FilterByCar';
 import { transformUrl } from './transformUrl';
 import SelectionByCar from '@/components/Catalog/SelectionByCar';
 import FilterActive from '@/components/Catalog/FilterActive';
@@ -90,7 +90,7 @@ export default async function Catalog({ params }: { params: Promise<{ locale: La
 			<div className='py-5 lg:flex lg:gap-10'>
 				<FilterAlt filterData={ filterData } />
 				<div className='flex-1 lg:-mt-12'>
-					<FilterByCar locale={ locale } />
+					{/*<FilterByCar locale={ locale } />*/}
 					<SelectionByCar locale={ locale } />
 					<FilterActive locale={ locale } className='hidden lg:flex' slug={ slug } />
 					{ products.result ? <ProductList
