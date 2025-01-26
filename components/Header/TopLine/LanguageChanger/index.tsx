@@ -12,7 +12,7 @@ const params = [
 ];
 
 interface Props {
-	locale: string;
+	locale: Language
 }
 
 const LanguageChanger: FC<Props> = ({ locale }) => {

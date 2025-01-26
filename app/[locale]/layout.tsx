@@ -7,6 +7,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import '../colors.css';
 import '../globals.css';
+import { Language } from '@/models/language';
 
 const gilroy = localFont({
 	src: [
@@ -73,7 +74,7 @@ export default async function RootLayout(
 		params,
 	}: Readonly<{
 		children: React.ReactNode;
-		params: Promise<{ locale: string }>;
+		params: Promise<{ locale: Language }>;
 	}>) {
 	const { locale } = await params;
 	const messages = await getMessages();

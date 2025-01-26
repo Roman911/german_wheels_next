@@ -2,9 +2,10 @@ import { FC } from 'react';
 import TopLine from './TopLine';
 import HeaderMain from './HeaderMain';
 import { SettingsProps } from '@/models/settings';
+import { Language } from '@/models/language';
 
 interface Props {
-	locale: string
+	locale: Language
 	settings: SettingsProps
 }
 

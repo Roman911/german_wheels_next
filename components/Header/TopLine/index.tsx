@@ -2,9 +2,10 @@ import { FC } from 'react';
 import Contacts from './Contacts';
 import LanguageChanger from './LanguageChanger';
 import { SettingsProps } from '@/models/settings';
+import { Language } from '@/models/language';
 
 interface Props {
-	locale: string
+	locale: Language
 	settings: SettingsProps
 }
 
