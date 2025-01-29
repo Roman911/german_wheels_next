@@ -3,7 +3,6 @@ import LightboxComponent, {
 } from "yet-another-react-lightbox";
 
 import "yet-another-react-lightbox/styles.css";
-import Inline from 'yet-another-react-lightbox/plugins/inline';
 import * as React from 'react';
 
 /**

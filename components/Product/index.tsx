@@ -48,7 +48,7 @@ const ProductComponent: FC<Props> = ({ idProduct, locale, data, section, setting
 		const updatedStorage = storage.filter((item: { id: number, section: Section }) => item.id !== Number(idProduct));
 		const deleteElement = updatedStorage.length === 4 ? updatedStorage.slice(1, 3) : updatedStorage;
 		addToStorage('reducerRecentlyViewed', [ ...deleteElement, { id: idProduct, section: section } ]);
-	}, [ id, section ]);
+	}, [id, idProduct, section]);
 
 	useEffect(() => {
 		if(data) setOfferId(data.data.offers[0].offer_id);
