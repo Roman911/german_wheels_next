@@ -6,6 +6,7 @@
     "cardiscs": "Автодиски",
     "cartires": "Автошини",
     "cars": "Автомобілі",
+    "cart": "Кошик",
     "contacts": "Контакти",
     "delivery calculation": "Розрахунок доставки",
     "disks": "Диски",
@@ -15,7 +16,8 @@
     "manufacturers tyre": "Виробники шин",
     "selection by car": "Підбір за авто",
     "tire calculator": "Шинний калькулятор",
-    "tires": "Шини"
+    "tires": "Шини",
+    "placing an order": "Оформлення замовлення"
   },
   "HeaderFilter": {
     "all car brands": "Всі марки",
@@ -95,7 +97,8 @@
   },
   "Home": {
     "no result": "На жаль, по заданих параметрах товарів не знайдено",
-    "no comment": "До цього товару немає відгуків. Стати першим!"
+    "no comment": "До цього товару немає відгуків. Стати першим!",
+    "no product to cart": "Ви ще не додали до кошику жодного товару"
   },
   "Catalog": {
     "by car": "За авто",
@@ -104,6 +107,7 @@
   },
   "Select": {
     "city": "Місто",
+    "department": "Відділення",
     "delivery calculation": "Розрахунок доставки",
     "no options message": "Збігів не знайдено"
   },
@@ -122,7 +126,7 @@
     "rating": "Оцінка",
     "add comment": "Додати відгук"
   },
-  "CharacteristicsBlock": {
+  "Order": {
 
   },
 
@@ -145,7 +149,6 @@
   "car type": "тип автомобіля",
 
   "cargo tires": "вантажні шини",
-  "cart": "кошик",
 
   "cheap at first": "спочатку дешеві",
 
@@ -186,7 +189,7 @@
   "our advantages": "наші переваги",
   "payment": "оплата",
   "pick up": "підібрати",
-  "placing an order": "оформлення замовлення",
+
   "phones": "телефони",
   "polarity": "полярність",
   "price": "ціна",

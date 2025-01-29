@@ -3,21 +3,21 @@ import { FC } from 'react';
 import { baseDataAPI } from '@/services/baseDataService';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { setWirehouse } from '@/store/slices/orderSlice';
-// import { Language } from '@/models/language';
+import { Language } from '@/models/language';
 import MySelect from '@/components/Lib/Select';
 
 interface NpWarehousesSearchProps {
 	title: string
+	lang: string
 }
 
-export const NpWarehousesSearch: FC<NpWarehousesSearchProps> = ({ title }) => {
+export const NpWarehousesSearch: FC<NpWarehousesSearchProps> = ({ title, lang }) => {
 	const { city } = useAppSelector(state => state.orderReducer);
 	const dispatch = useAppDispatch();
 	const { data } = baseDataAPI.useFetchNpWarehousesQuery(city.value);
 
 	const warehousesOptions = data?.map((item: { Description: string, DescriptionRu: string, Ref: string }) => {
-		console.log(item)
-		// return { value: item.Ref, label: lang === Language.UA ? item.Description : item.DescriptionRu }
+		return { value: item.Ref, label: lang === Language.UA ? item.Description : item.DescriptionRu }
 	});
 
 	const onChange = (_: string, value?: number | string, label?: number | string) => {

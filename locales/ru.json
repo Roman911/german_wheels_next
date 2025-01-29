@@ -6,6 +6,7 @@
     "cardiscs": "Автодиски",
     "cartires": "Автошины",
     "cars": "Автомобили",
+    "cart": "Корзина",
     "contacts": "Контакты",
     "delivery calculation": "Расчет доставки",
     "disks": "Диски",
@@ -15,7 +16,8 @@
     "manufacturers tyre": "Производители шин",
     "selection by car": "Подбор за авто",
     "tire calculator": "Шинный калькулятор",
-    "tires": "Шины"
+    "tires": "Шины",
+    "placing an order": "Оформление заказа"
   },
   "HeaderFilter": {
     "all car brands": "Все марки",
@@ -95,7 +97,8 @@
   },
   "Home": {
     "no result": "К сожалению, по заданным параметрам товаров не найдено",
-    "no comment": "К этому товару нет отзывов. Станьте первым!"
+    "no comment": "К этому товару нет отзывов. Станьте первым!",
+    "no product to cart": "Вы еще не добавили в корзину ни одного товара"
   },
   "Catalog": {
     "by car": "По авто",
@@ -104,6 +107,7 @@
   },
   "Select": {
     "city": "Город",
+    "department": "Отделение",
     "delivery calculation": "Расчет доставки",
     "no options message": "ЗСовпадений не найдено"
   },
@@ -146,8 +150,6 @@
 
   "cargo tires": "грузовые шины",
 
-  "cart": "корзина",
-
   "cheap at first": "сначала дешевые",
 
   "color": "цвет",
@@ -156,7 +158,6 @@
   "country": "страна",
   "credit": "кредит",
 
-  "department": "отделение",
   "departure": "вылет",
 
   "disc": "дисков",
@@ -185,7 +186,7 @@
   "our advantages": "наши преимущества",
   "payment": "оплата",
   "pick up": "подобрать",
-  "placing an order": "оформление заказа",
+
   "phones": "телефоны",
   "polarity": "полярность",
   "price": "цена",

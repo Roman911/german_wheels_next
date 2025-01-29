@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import Link from 'next/link';
-// import { CountryInfo, Quantity } from '@/Lib';
-// import { Language } from '@/models/language';
-// import { countryCodeTransform, Link } from '@/lib';
+import { Language } from '@/models/language';
+import { countryCodeTransform } from '@/lib/countryCodetransform';
+import CountryInfo from '@/components/Lib/CountryInfo';
+import Quantity from '@/components/Lib/Quantity';
 
 interface CartItemProps {
 	id: number
@@ -15,35 +16,37 @@ interface CartItemProps {
 	country: string
 	country_ru: string
 	year: number
+	lang: string
 	offerQuantity: number,
 	removeProduct: (id: number) => void
 	setQuantity: (id: number, quantity: number) => void
 }
 
-export const CartItem: FC<CartItemProps> = (
+const CartItem: FC<CartItemProps> = (
 	{
 		id,
 		pageUrl,
-		// quantity,
+		quantity,
 		default_photo,
 		full_name,
 		price,
 		group,
-		// country,
-		// country_ru,
-		// year,
-		// offerQuantity,
-		// setQuantity,
-		removeProduct
+		country,
+		country_ru,
+		year,
+		offerQuantity,
+		setQuantity,
+		removeProduct,
+		lang
 	}) => {
 
-	// const onChange = (e: { target: HTMLInputElement }) => {
-	// 	const value = e.target.value;
-	// 	const onlyNumbers = value.replace(/\D/g, '');
-	// 	const numericValue = Number(onlyNumbers);
-	//
-	// 	setQuantity(id,numericValue < offerQuantity ? numericValue : offerQuantity);
-	// }
+	const onChange = (e: { target: HTMLInputElement }) => {
+		const value = e.target.value;
+		const onlyNumbers = value.replace(/\D/g, '');
+		const numericValue = Number(onlyNumbers);
+
+		setQuantity(id,numericValue < offerQuantity ? numericValue : offerQuantity);
+	}
 
 	return <div className='flex flex-col md:flex-row py-4 items-center relative'>
 		<Link href={`/${pageUrl}`}>
@@ -51,28 +54,28 @@ export const CartItem: FC<CartItemProps> = (
 		</Link>
 		<div className='flex flex-col md:flex-row justify-between items-center w-full ml-4 pr-4 mt-4 md:mt-0 md:pr-0'>
 			<div className='flex-1'>
-				<Link href={ `/${pageUrl}` } className='font-bold md:text-lg hover:text-blue-700 transition'>
+				<Link href={ `/${pageUrl}` } className='font-bold md:text-lg hover:text-teal-600 transition'>
 					{ full_name }
 				</Link>
 				<div className='font-bold text-xl mt-2'>{ price } ₴/шт.</div>
 				<div className='text-sm text-gray-500 mt-1'>Арт: { group }</div>
 				<div className='country mt-2 md:col-span-4'>
-					{/*{ (country || year) && <CountryInfo*/}
-					{/*	country={ country }*/}
-					{/*	countryCode={ countryCodeTransform( lang === Language.UA ? country : country_ru) }*/}
-					{/*	year={ year }*/}
-					{/*/> }*/}
+					{ (country || year) && <CountryInfo
+						country={ country }
+						countryCode={ countryCodeTransform( lang === Language.UA ? country : country_ru) }
+						year={ year }
+					/> }
 				</div>
 			</div>
 			<div className='flex flex-col items-end mt-6 md:mt-3 mr-4 gap-4'>
-				{/*<Quantity*/}
-				{/*	id={ id }*/}
-				{/*	price={ price }*/}
-				{/*	quantity={ quantity }*/}
-				{/*	offerQuantity={ offerQuantity }*/}
-				{/*	onChange={ onChange }*/}
-				{/*	setQuantity={ setQuantity }*/}
-				{/*/>*/}
+				<Quantity
+					id={ id }
+					price={ price }
+					quantity={ quantity }
+					offerQuantity={ offerQuantity }
+					onChange={ onChange }
+					setQuantity={ setQuantity }
+				/>
 			</div>
 		</div>
 		<button onClick={() => removeProduct(id)} className='absolute top-4 right-0 md:right-3 p-2'>
@@ -83,3 +86,5 @@ export const CartItem: FC<CartItemProps> = (
 		</button>
 	</div>
 };
+
+export default CartItem;

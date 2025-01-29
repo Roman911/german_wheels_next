@@ -1,5 +1,4 @@
 'use client'
-import { useEffect } from 'react';
 import { addToStorage, getFromStorage, removeFromStorage } from '@/lib/localeStorage';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useAppGetProducts } from '@/hooks/getProducts';
@@ -10,14 +9,6 @@ import NoResult from '@/components/Lib/NoResult';
 import Spinner from '@/components/Lib/Spinner';
 import Title from '@/components/Lib/Title';
 import CartComponent from '@/components/Cart';
-import { Language } from '@/models/language';
-
-const scrollToTop = () => {
-	window.scrollTo({
-		top: 0,
-		behavior: "smooth"
-	});
-};
 
 export default function Cart() {
 	const dispatch = useAppDispatch();
@@ -31,10 +22,6 @@ export default function Cart() {
 			products: [...tires,...cargo,...disks,...battery]
 		}
 	};
-
-	useEffect(() => {
-		scrollToTop();
-	}, []);
 
 	const removeProduct = (id: number) => {
 		removeFromStorage('reducerCart', id);
@@ -58,9 +45,7 @@ export default function Cart() {
 					removeProduct={ removeProduct }
 					setQuantity={ onSetQuantity }
 				/> :
-				<NoResult
-					noResultText={ Language.UA === Language.UA ? 'Ви ще не додали до кошику жодного товару' : 'Вы еще не добавили в корзину ни одного товара' }
-				/> }
+				<NoResult noResultText='no product to cart' /> }
 		</Spinner>
 	</Layout>
 };
