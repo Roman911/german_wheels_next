@@ -3,6 +3,17 @@ import { ProductProps } from '@/models/product';
 import Breadcrumbs from '@/components/UI/Breadcrumbs';
 import ProductComponent from '@/components/Product';
 import { Language } from '@/models/language';
+import Layout from '@/components/Layout';
+
+async function getSettings() {
+	const res = await fetch(`${process.env.SERVER_URL}/baseData/settings`, {
+		method: 'GET',
+		headers: {
+			'Access-Control-Allow-Credentials': 'true',
+		}
+	});
+	return await res.json();
+}
 
 async function getProduct(id: string): Promise<ProductProps> {
 	const res = await fetch(`${process.env.SERVER_URL}/api/getProduct/${id}`, {
@@ -16,10 +27,11 @@ async function getProduct(id: string): Promise<ProductProps> {
 
 export default async function Product({ params }: { params: Promise<{ locale: Language, product: string }> }) {
 	const { locale, product } = await params;
-	const productResponse = await getProduct('2964');
+	const match = product.match(/(\d+)$/); // match will be RegExpMatchArray | null
+	const idProduct = match ? match[1] : '';
+	const productResponse = await getProduct(idProduct);
+	const settings = await getSettings();
 	const section = /dia/.test(product) ? Section.Disks : Section.Tires;
-
-	console.log(locale, product, productResponse, section);
 
 	const path = [
 		{
@@ -35,9 +47,15 @@ export default async function Product({ params }: { params: Promise<{ locale: La
 	];
 
 	return (
-		<section className='product container mx-auto px-4 py-5 min-h-[70vh]'>
+		<Layout>
 			<Breadcrumbs path={ path } />
-			<ProductComponent />
-		</section>
+			<ProductComponent
+				idProduct={ idProduct }
+				locale={ locale }
+				data={ productResponse }
+				section={ section }
+				settings={ settings }
+			/>
+		</Layout>
 	)
 };

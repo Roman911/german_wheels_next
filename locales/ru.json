@@ -7,6 +7,7 @@
     "cartires": "Автошины",
     "cars": "Автомобили",
     "contacts": "Контакты",
+    "delivery calculation": "Расчет доставки",
     "disks": "Диски",
     "from": "От",
     "manufacturers car": "Производители автомобилей",
@@ -43,6 +44,7 @@
     "suvs": "Внедорожники"
   },
   "Filters": {
+    "all season": "Всесезонные",
     "brand": "Бренд",
     "car brand": "Марка авто",
     "choose disks": "Подобрать диски",
@@ -59,7 +61,22 @@
     "to apply": "Применить",
     "type": "Тип",
     "width": "Ширина",
-    "year": "Год"
+    "year": "Год",
+    "appointment": "Назначение",
+    "description": "Описание",
+    "load index": "Индекс нагрузки",
+    "main characteristics": "Основные характеристики",
+    "reviews": "Отзывы",
+    "speed index": "Индекс скорости",
+    "buses": "Бусы",
+    "cargo": "Грузовые",
+    "light": "Легковые",
+    "motorcycles": "Мотоциклы",
+    "special equipment": "Спецтехника",
+    "suvs": "Внедорожники",
+    "summer": "Летние",
+    "type size": "Типоразмер",
+    "winter": "Зимние"
   },
   "Footer": {
     "brands": "Бренды",
@@ -77,7 +94,8 @@
     "reputation": "репутацией"
   },
   "Home": {
-    "no result": "К сожалению, по заданным параметрам товаров не найдено"
+    "no result": "К сожалению, по заданным параметрам товаров не найдено",
+    "no comment": "К этому товару нет отзывов. Станьте первым!"
   },
   "Catalog": {
     "by car": "По авто",
@@ -85,13 +103,32 @@
     "search": "Поиск"
   },
   "Select": {
+    "city": "Город",
+    "delivery calculation": "Расчет доставки",
     "no options message": "ЗСовпадений не найдено"
+  },
+  "Delivery": {
+    "estimated shipping": "Расчетная стоимость доставки за",
+    "cost": "Стоимость",
+    "with cash": "С наложенным платежом"
+  },
+  "QuickOrder": {
+    "quick order": "Быстрый заказ"
+  },
+  "CreateComment": {
+    "leave review": "Оставить отзыв",
+    "name": "Имя",
+    "comment": "Комментарий",
+    "rating": "Оценка",
+    "add comment": "Добавить отзыв"
+  },
+  "CharacteristicsBlock": {
+
   },
 
   "add all": "добавить все",
   "accumulators": "аккумуляторы",
 
-  "appointment": "назначение",
   "auto goods": "автотовары",
   "battery": "аккумуляторы",
   "body type": "тип корпусу",
@@ -113,7 +150,6 @@
 
   "cheap at first": "сначала дешевые",
 
-  "city": "город",
   "color": "цвет",
 
   "comparison": "сравнение",
@@ -122,20 +158,16 @@
 
   "department": "отделение",
   "departure": "вылет",
-  "description": "описание",
 
   "disc": "дисков",
 
   "disks by parameters": "диски по параметрам",
-  "delivery calculation": "расчет доставки",
+
   "expensive at first": "сначала дорогие",
   "guarantee and refund": "гарантия и возврат",
 
   "installment plan": "онлайн рассрочка",
 
-  "load index": "индекс нагрузки",
-
-  "quick order": "быстрый заказ",
   "factory": "заводские",
 
   "favorites": "избранное",
@@ -145,7 +177,7 @@
 
   "high-voltage": "напряжение",
   "homologation": "омологация",
-  "main characteristics": "основные характеристики",
+
   "manufacturers": "производители",
 
   "motorcycle tires": "мотошины",
@@ -163,14 +195,13 @@
   "public offer agreement": "договор публичной оферты",
   "recently viewed": "похожие товары",
   "reset everything": "сбросить все",
-  "reviews": "отзывы",
+
   "similar products": "недавно просмотрены",
 
   "selection of tires and wheels": "подбор шин и дисков",
   "services": "услуги",
   "show all": "показать все",
   "sorting": "сортировка",
-  "speed index": "индекс скорости",
 
   "starting current": "пусковой ток",
 
@@ -182,7 +213,7 @@
   "tires by parameters": "шини за параметрами",
 
   "type of electrolyte": "тип электролита",
-  "type size": "типоразмер",
+
   "tyre": "шин",
   "warranty and returns": "гарантія та повернення"
 }

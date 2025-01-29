@@ -6,7 +6,7 @@ import type { SettingsProps } from '@/models/settings';
 import type { ProductsProps } from '@/models/products';
 // import type { ProductProps } from '../models/product';
 // import type { AkumProps } from '../models/akumData';
-// import type { OrdersParamProps } from '../models/ordersParam';
+import type { OrdersParamProps } from '@/models/ordersParam';
 // import type { Banner } from '../models/banners';
 // import { FeatureParamsProps } from '../models/featureParams';
 import type { AliasAll } from '@/models/alias';
@@ -118,33 +118,33 @@ export const baseDataAPI = createApi({
 		// 		url: `/api/catalog-map/${section}/${[section]}`,
 		// 	}),
 		// }),
-		// createComment: build.mutation({
-		// 	query: (comment) => ({
-		// 		url: '/api/addReview',
-		// 		method: 'POST',
-		// 		body: comment,
-		// 	}),
-		// 	invalidatesTags: ['Product'],
-		// }),
-		// fetchOrdersParam: build.query<OrdersParamProps, string>({
-		// 	query: () => ({
-		// 		url: `/api/getOrdersParam`,
-		// 	}),
-		// }),
-		// fetchNpSearch: build.query({
-		// 	query: (name) => ({
-		// 		url: `/api/np/search`,
-		// 		method: 'POST',
-		// 		body: {
-		// 			name: name
-		// 		}
-		// 	}),
-		// }),
-		// fetchNpWarehouses: build.query({
-		// 	query: (ref) => ({
-		// 		url: `/api/np/warehouses/${ref}`,
-		// 	}),
-		// }),
+		createComment: build.mutation({
+			query: (comment) => ({
+				url: '/api/addReview',
+				method: 'POST',
+				body: comment,
+			}),
+			invalidatesTags: ['Product'],
+		}),
+		fetchOrdersParam: build.query<OrdersParamProps, string>({
+			query: () => ({
+				url: `/api/getOrdersParam`,
+			}),
+		}),
+		fetchNpSearch: build.query({
+			query: (name) => ({
+				url: `/api/np/search`,
+				method: 'POST',
+				body: {
+					name: name
+				}
+			}),
+		}),
+		fetchNpWarehouses: build.query({
+			query: (ref) => ({
+				url: `/api/np/warehouses/${ref}`,
+			}),
+		}),
 		// fetchBanners: build.query<Banner[], string>({
 		// 	query: () => ({
 		// 		url: `https://admin.luxshina.ua/api/banner`,
@@ -155,24 +155,24 @@ export const baseDataAPI = createApi({
 		// 		url: `/api/getFeatureParams`,
 		// 	}),
 		// }),
-		// fetchNpDocumentPrice: build.query({
-		// 	query: (params) => ({
-		// 		url: `/api/np/getDocumentPrice`,
-		// 		method: 'POST',
-		// 		body: params,
-		// 	}),
-		// }),
-		// createOrder: build.mutation({
-		// 	query: (data) => ({
-		// 		url: '/api/addOrder',
-		// 		method: 'POST',
-		// 		body: data,
-		// 		header: {
-		// 			'Content-Type': 'application/x-www-form-urlencoded',
-		// 			'Accept': 'application/json',
-		// 		}
-		// 	}),
-		// }),
+		fetchNpDocumentPrice: build.query({
+			query: (params) => ({
+				url: `/api/np/getDocumentPrice`,
+				method: 'POST',
+				body: params,
+			}),
+		}),
+		createOrder: build.mutation({
+			query: (data) => ({
+				url: '/api/addOrder',
+				method: 'POST',
+				body: data,
+				header: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+					'Accept': 'application/json',
+				}
+			}),
+		}),
 		// createCallback: build.mutation({
 		// 	query: (data) => ({
 		// 		url: '/api/addCallback',

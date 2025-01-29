@@ -7,6 +7,7 @@
     "cartires": "Автошини",
     "cars": "Автомобілі",
     "contacts": "Контакти",
+    "delivery calculation": "Розрахунок доставки",
     "disks": "Диски",
     "from": "Від",
     "manufacturers car": "Виробники автомобілів",
@@ -43,6 +44,7 @@
     "suvs": "Позашляховики"
   },
   "Filters": {
+    "all season": "Всесезонні",
     "brand": "Бренд",
     "car brand": "Марка авто",
     "choose disks": "Підібрати диски",
@@ -59,7 +61,22 @@
     "to apply": "Застосувати",
     "type": "Тип",
     "width": "Ширина",
-    "year": "Рік"
+    "year": "Рік",
+    "appointment": "Призначення",
+    "description": "Опис",
+    "load index": "Індекс навантаження",
+    "main characteristics": "Основні характеристики",
+    "reviews": "Відгуки",
+    "speed index": "Індекс швидкості",
+    "buses": "Буси",
+    "cargo": "Вантажні",
+    "light": "Легкові",
+    "motorcycles": "Мотоцикли",
+    "special equipment": "Спецтехніка",
+    "suvs": "Позашляховики",
+    "summer": "Літні",
+    "type size": "Типорозмір",
+    "winter": "Зимові"
   },
   "Footer": {
     "brands": "Бренди",
@@ -77,7 +94,8 @@
     "reputation": "репутацією"
   },
   "Home": {
-    "no result": "На жаль, по заданих параметрах товарів не знайдено"
+    "no result": "На жаль, по заданих параметрах товарів не знайдено",
+    "no comment": "До цього товару немає відгуків. Стати першим!"
   },
   "Catalog": {
     "by car": "За авто",
@@ -85,13 +103,32 @@
     "search": "Пошук"
   },
   "Select": {
+    "city": "Місто",
+    "delivery calculation": "Розрахунок доставки",
     "no options message": "Збігів не знайдено"
+  },
+  "Delivery": {
+    "estimated shipping": "Розрахункова вартість доставки за",
+    "cost": "Вартість",
+    "with cash": "З післяплатою"
+  },
+  "QuickOrder": {
+    "quick order": "швидке замовлення"
+  },
+  "CreateComment": {
+    "leave review": "Залишити відгук",
+    "name": "Ім'я",
+    "comment": "Коментар",
+    "rating": "Оцінка",
+    "add comment": "Додати відгук"
+  },
+  "CharacteristicsBlock": {
+
   },
 
   "add all": "додати всі",
   "accumulators": "акумулятори",
 
-  "appointment": "призначення",
   "auto goods": "автотовари",
   "battery": "акумулятори",
   "body type": "тип корпусу",
@@ -112,7 +149,6 @@
 
   "cheap at first": "спочатку дешеві",
 
-  "city": "місто",
   "color": "колір",
 
   "comparison": "порівняння",
@@ -121,19 +157,17 @@
 
   "department": "відділення",
   "departure": "виліт",
-  "description": "опис",
 
   "disc": "дисків",
 
   "disks by parameters": "диски за параметрами",
-  "delivery calculation": "розрахунок доставки",
+
   "expensive at first": "спочатку дорогі",
 
   "guarantee and refund": "гарантія та повернення",
 
   "installment plan": "онлайн розстрочка",
 
-  "load index": "індекс навантаження",
   "quick order": "швидке замовлення",
   "factory": "заводські",
 
@@ -144,7 +178,7 @@
 
   "high-voltage": "напруга",
   "homologation": "омологація",
-  "main characteristics": "основні характеристики",
+
   "manufacturers": "виробники",
 
   "motorcycle tires": "мотошини",
@@ -162,15 +196,13 @@
   "public offer agreement": "договір публічної оферти",
   "recently viewed": "нещодавно переглянуті",
   "reset everything": "скинути все",
-  "reviews": "відгуки",
+
   "similar products": "схожі товари",
 
   "selection of tires and wheels": "підбір шин та дисків",
   "services": "послуги",
   "show all": "показати всі",
   "sorting": "сортування",
-  "speed index": "індекс швидкості",
-
 
   "starting current": "пусковий струм",
 
@@ -182,7 +214,7 @@
   "tires by parameters": "шини за параметрами",
 
   "type of electrolyte": "тип електроліту",
-  "type size": "типорозмір",
+
   "tyre": "шин",
   "warranty and returns": "гарантія та повернення"
 }

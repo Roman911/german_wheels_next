@@ -74,7 +74,7 @@ interface ModelDescription {
 	meta_description: null
 }
 
-interface Labels {
+export interface Labels {
 	product_id: number
 	label_id: number
 	label: {
@@ -103,7 +103,7 @@ export interface Review {
 	updated_at: string
 }
 
-interface Photo {
+export interface Photo {
 	big: string
 	small: string
 }

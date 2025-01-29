@@ -19,10 +19,11 @@ async function getSettings() {
 
 async function getProducts() {
   const res = await fetch(`${process.env.SERVER_URL}/api/getProducts?vehicle_type=1&order[value]=popular&order[asc]=0`, {
-    method: 'GET',
+    method: 'POST',
     headers: {
       'Access-Control-Allow-Credentials': 'true',
-    }
+    },
+    body: JSON.stringify({ start: 0, length: 8 }),
   });
   return await res.json();
 }

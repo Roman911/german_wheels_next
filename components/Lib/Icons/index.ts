@@ -14,6 +14,7 @@ export { default as GuaranteeIcon } from './GuaranteeIcon';
 export { default as HeartIcon } from './HeartIcon';
 export { default as HomeIcon } from './HomeIcon';
 export { default as InfoIcon } from './InfoIcon';
+export { default as InfoTooltipIcon } from './InfoTooltipIcon';
 export { default as LibraIcon } from './LibraIcon';
 export { default as MailIcon } from './MailIcon';
 export { default as MenuIcon } from './MenuIcon';

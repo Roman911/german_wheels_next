@@ -1,12 +1,6 @@
 import { FC, useCallback, useRef } from 'react';
-import dynamic from 'next/dynamic'
-import { GroupBase, SelectInstance, StylesConfig, SingleValue } from 'react-select';
+import Select, { GroupBase, SelectInstance, StylesConfig, SingleValue } from 'react-select';
 import type { Options } from '@/models/baseData';
-
-const DynamicSelect = dynamic(() => import('react-select'), {
-	loading: () => null,
-	ssr: false
-})
 
 interface SelectProps {
 	name: string
@@ -108,7 +102,7 @@ const MySelect: FC<SelectProps> = ({ name, label, options = [], focusValue, isDi
 		onChange(name, value?.value);
 	}
 
-	return <DynamicSelect
+	return <Select
 		options={ options }
 		ref={ ref as never }
 		onMenuOpen={ onMenuOpen }

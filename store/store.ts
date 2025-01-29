@@ -6,7 +6,7 @@ import comparisonReducer from './slices/comparisonSlice';
 import filterCarReducer from './slices/filterCarSlice';
 import filterReducer from './slices/filterSlice';
 // import langReducer from './reducers/langSlice';
-// import orderReducer from './reducers/orderSlice';
+import orderReducer from './slices/orderSlice';
 import settingsReducer from './slices/settingsSlice';
 // import searchReducer from './reducers/searchSlice';
 // import brandAliasReducer from './reducers/brandAliasSlice';
@@ -20,7 +20,7 @@ const rootReducer = combineReducers({
 	filterCarReducer,
 	filterReducer,
 	// langReducer,
-	// orderReducer,
+	orderReducer,
 	settingsReducer,
 	// searchReducer,
 	// brandAliasReducer,

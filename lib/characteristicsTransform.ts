@@ -6,9 +6,9 @@ type VehicleType = {
 
 export const SeasonTransform = (season: string) => {
 	const seasonMap: Record<string, { icon: string; name: string } | null> = {
-		'1': { icon: '/images/sun-icon.svg', name: 'summer' },
-		'2': { icon: '/images/snow-icon.svg', name: 'winter' },
-		'3': { icon: '/images/cloud-icon.svg', name: 'all season' },
+		'1': { icon: '/icons/sun.svg', name: 'summer' },
+		'2': { icon: '/icons/snow.svg', name: 'winter' },
+		'3': { icon: '/icons/cloud.svg', name: 'all season' },
 	};
 
 	return seasonMap[season] || null;

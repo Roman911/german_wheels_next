@@ -1,3 +1,4 @@
+'use client'
 import { Dispatch, FC, SetStateAction, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
