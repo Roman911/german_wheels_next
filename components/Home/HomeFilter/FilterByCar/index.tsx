@@ -12,12 +12,9 @@ const FilterByCar = ({ locale }: { locale: Language }) => {
 	const { filter } = useAppSelector((state) => state.filterCarReducer);
 	const dispatch = useAppDispatch();
 	const { data } = baseDataAPI.useFetchBaseDataQuery('');
-	const { data: model, refetch: modelRefetch } = baseDataAPI.useFetchAutoModelQuery(`${ filter.brand }`);
-	const { data: modelYear } = baseDataAPI.useFetchAutoYearQuery(`${ filter.model }`);
-	const {
-		data: modelKit,
-		refetch: modelKitRefetch
-	} = baseDataAPI.useFetchAutoModelKitQuery(`${ filter.model }/${ filter.year }`);
+	const { data: model, refetch: modelRefetch } = baseDataAPI.useFetchAutoModelQuery(`${filter.brand}`);
+	const { data: modelYear } = baseDataAPI.useFetchAutoYearQuery(`${filter.model}`);
+	const { data: modelKit, refetch: modelKitRefetch } = baseDataAPI.useFetchAutoModelKitQuery(`${filter.model}/${filter.year}`);
 
 	const filters = [
 		{

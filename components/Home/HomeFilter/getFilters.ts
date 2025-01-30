@@ -66,7 +66,7 @@ export const getFilters = ({ locale, section, data }: Props) => {
 	if(section === Section.Tires) {
 		filterConfigs.push({
 			label: 'type',
-			name: 'type',
+			name: 'vehicle_type',
 			focusValue: '',
 			options: typeOptions.map(item => ({ value: item.value, label: locale === Language.UA ? item.label : item.label_ru }))
 		});

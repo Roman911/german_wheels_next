@@ -11,7 +11,6 @@ import { Section, Subsection } from '@/models/filter';
 import type { BaseDataProps, Options } from '@/models/baseData';
 import { SubmitFloat } from '@/components/Catalog/FilterAlt/SubmitFloat';
 import { Language } from '@/models/language';
-// import MySelect from '@/components/Home/HomeFilter/Select';
 import { appointmentCargo, appointmentIndustrial, customTireSeason, others, typeDisc } from './customParamForSelector';
 import { baseDataAPI } from '@/services/baseDataService';
 // import { SelectFromTo } from '@/components/Catalog/FilterAlt/SelectFromTo';
@@ -85,7 +84,7 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 			<div
 				className='relative h-[calc(100%-50px)] pb-32 lg:pb-4 px-4 pt-4 bg-white border border-gray-200 z-10 overflow-y-auto md:overflow-y-visible'>
 				<SubmitFloat element={ element } btnTitle={ t('to apply') } setElement={ setElement } offset={ 300 }/>
-				<SwitchTabsByParams/>
+				<SwitchTabsByParams subsection={ subsection } />
 				{ subsection === Subsection.ByParams && <>
 					{ section === Section.Tires && <>
 						{ renderSelect(

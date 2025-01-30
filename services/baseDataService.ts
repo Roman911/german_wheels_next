@@ -32,29 +32,29 @@ export const baseDataAPI = createApi({
 				url: '/baseData',
 			}),
 		}),
-		// fildterData: build.query<BaseDataProps, string>({
-		// 	query: ([section]) => ({
-		// 		url: `/api/FildterData${[section]}`,
-		// 	}),
-		// }),
+		fildterData: build.query<BaseDataProps, string>({
+			query: (id) => ({
+				url: `/api/FildterData${id}`,
+			}),
+		}),
 		fetchAutoModel: build.query<CarModelProps[], string>({
-			query: ([section]) => ({
-				url: `/baseData/getAutoBrandModel/${[section]}`,
+			query: (id) => ({
+				url: `/baseData/getAutoBrandModel/${id}`,
 			}),
 		}),
 		fetchAutoYear: build.query<number[], string>({
-			query: ([section]) => ({
-				url: `/baseData/getAutoBrandModelYear/${[section]}`,
+			query: (id) => ({
+				url: `/baseData/getAutoBrandModelYear/${id}`,
 			}),
 		}),
 		fetchAutoModelKit: build.query<CarModelProps[], string>({
-			query: ([section]) => ({
-				url: `/baseData/getAutoBrandModelKit/${[section]}`,
+			query: (id) => ({
+				url: `/baseData/getAutoBrandModelKit/${id}`,
 			}),
 		}),
 		fetchKitTyreSize: build.query<KitTyreSize[], string>({
-			query: ([section]) => ({
-				url: `/baseData/getKitTyreSize/${[section]}`,
+			query: (id) => ({
+				url: `/baseData/getKitTyreSize/${id}`,
 			}),
 		}),
 		fetchKitDiskSize: build.query<KitDiskSize[], string>({

@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image';
 import { FC } from 'react';
 import classNames from 'classnames';
 import { useInView } from 'react-intersection-observer';
@@ -42,7 +43,7 @@ const Summary: FC<SummaryProps> = ({ data, isLoading, loadingBtn, cartItems, lan
 							const quantity = cartItems.find(i => i.id === item.best_offer.id)?.quantity;
 
 							return <div key={ item.group } className='flex items-center py-4'>
-								<img className='w-20 h-20' src={ item.default_photo } alt=""/>
+								<Image width={ 80 } height={ 80 } src={ item.default_photo } alt=""/>
 								<div className='ml-2 px-3 w-full'>
 									<div className='font-bold text-sm'>{ item.full_name }</div>
 									<div className='flex justify-between text-sm mt-3'>

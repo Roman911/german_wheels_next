@@ -57,6 +57,7 @@
     "height": "Висота",
     "et from": "Виліт від",
     "et to": "Виліт до",
+    "other": "Інше",
     "model": "Модель",
     "modification": "Модифікація",
     "season": "Сезон",
@@ -78,7 +79,8 @@
     "suvs": "Позашляховики",
     "summer": "Літні",
     "type size": "Типорозмір",
-    "winter": "Зимові"
+    "winter": "Зимові",
+    "homologation": "Омологація"
   },
   "Footer": {
     "brands": "Бренди",
@@ -180,12 +182,11 @@
   "free": "безкоштовний",
 
   "high-voltage": "напруга",
-  "homologation": "омологація",
 
   "manufacturers": "виробники",
 
   "motorcycle tires": "мотошини",
-  "other": "інше",
+
   "our advantages": "наші переваги",
   "payment": "оплата",
   "pick up": "підібрати",

@@ -57,6 +57,7 @@
     "height": "Высота",
     "et from": "Вылет от",
     "et to": "Вылет до",
+    "other": "Другое",
     "model": "Модель",
     "modification": "Модификация",
     "season": "Сезон",
@@ -78,7 +79,8 @@
     "suvs": "Внедорожники",
     "summer": "Летние",
     "type size": "Типоразмер",
-    "winter": "Зимние"
+    "winter": "Зимние",
+    "homologation": "Омологация"
   },
   "Footer": {
     "brands": "Бренды",
@@ -177,12 +179,11 @@
   "free": "бесплатный",
 
   "high-voltage": "напряжение",
-  "homologation": "омологация",
 
   "manufacturers": "производители",
 
   "motorcycle tires": "мотошины",
-  "other": "другое",
+
   "our advantages": "наши преимущества",
   "payment": "оплата",
   "pick up": "подобрать",
