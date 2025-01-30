@@ -10,6 +10,7 @@
     "contacts": "Контакти",
     "delivery calculation": "Розрахунок доставки",
     "disks": "Диски",
+    "factory": "Заводські",
     "from": "Від",
     "manufacturers car": "Виробники автомобілів",
     "manufacturers disc": "Виробники дисків",
@@ -65,6 +66,7 @@
     "type": "Тип",
     "width": "Ширина",
     "year": "Рік",
+    "from": "Від",
     "appointment": "Призначення",
     "description": "Опис",
     "load index": "Індекс навантаження",
@@ -80,7 +82,8 @@
     "summer": "Літні",
     "type size": "Типорозмір",
     "winter": "Зимові",
-    "homologation": "Омологація"
+    "homologation": "Омологація",
+    "price range": "Діапазон цін"
   },
   "Footer": {
     "brands": "Бренди",
@@ -174,7 +177,6 @@
   "installment plan": "онлайн розстрочка",
 
   "quick order": "швидке замовлення",
-  "factory": "заводські",
 
   "favorites": "обране",
   "filters": "фільтри",
@@ -194,7 +196,7 @@
   "phones": "телефони",
   "polarity": "полярність",
   "price": "ціна",
-  "price range": "діапазон цін",
+
   "profile": "профіль",
   "profile height": "висота профілю",
   "public offer agreement": "договір публічної оферти",

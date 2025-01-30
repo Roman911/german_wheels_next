@@ -21,7 +21,7 @@ interface FilterActiveProps {
 
 const FilterActive: FC<FilterActiveProps> = ({ locale, className, slug }) => {
 	const router = useRouter();
-	const t = useTranslations('Main');
+	const t = useTranslations('Filters');
 	const [searchParams, setSearchParams] = useState<IFilter | undefined>(undefined);
 	const { filter, section } = useAppSelector(state => state.filterReducer);
 	const dispatch = useAppDispatch();

@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { useAppDispatch } from '@/hooks/redux';
 import { useAppSubmit } from '@/hooks/submit';
 import { setParams } from '@/store/slices/filterSlice';
+import { Button } from '@/components/UI';
 
 interface SelectFromTo {
 	name: string
@@ -47,7 +48,7 @@ export const SelectFromTo: FC<SelectFromTo> = ({ nameMin, nameMax, from, to, tit
 		<div className='text-sm font-bold text-gray-500 uppercase'>{ title }</div>
 		<div className='flex gap-2 mt-3'>
 			<div
-				className='flex h-10 rounded-full mx-auto bg-white p-0.5 mt-4 lg:mt-0 border border-gray-300 w-full lg:max-w-[600px]'>
+				className='flex h-10 rounded-full mx-auto bg-white p-0.5 mt-4 lg:mt-0 border border-gray-300 w-full lg:max-w-[140px]'>
 				<input
 					type="text"
 					value={ minMax.min }
@@ -58,7 +59,7 @@ export const SelectFromTo: FC<SelectFromTo> = ({ nameMin, nameMax, from, to, tit
 				/>
 			</div>
 			<div
-				className='flex h-10 rounded-full mx-auto bg-white p-0.5 mt-4 lg:mt-0 border border-gray-300 w-full lg:max-w-[600px]'>
+				className='flex h-10 rounded-full mx-auto bg-white p-0.5 mt-4 lg:mt-0 border border-gray-300 w-full lg:max-w-[140px]'>
 				<input
 					type="text"
 					value={ minMax.max }
@@ -69,8 +70,8 @@ export const SelectFromTo: FC<SelectFromTo> = ({ nameMin, nameMax, from, to, tit
 				/>
 			</div>
 		</div>
-		<button onClick={ () => handleClick() } className='btn black max-w-full uppercase mt-4 mb-4'>
+		<Button onPress={ handleClick } className='btn bg-black text-white max-w-full uppercase mt-4 mb-4'>
 			{ btnTitle }
-		</button>
+		</Button>
 	</div>
 };

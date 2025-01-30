@@ -10,6 +10,7 @@ interface SelectProps {
 	setState?: Dispatch<SetStateAction<string | undefined>>
 	options: Options[] | undefined
 	onChange: (name: string, value: number | string | undefined, label?: number | string | undefined) => void
+	defaultValue?: Options | undefined
 }
 
 type IsMulti = false;
@@ -87,6 +88,7 @@ const MySelect: FC<SelectProps> = (
 		isDisabled = false,
 		onChange,
 		setState,
+		defaultValue
 	}) => {
 	const t = useTranslations('Select');
 
@@ -106,6 +108,7 @@ const MySelect: FC<SelectProps> = (
 		isClearable={ true }
 		isDisabled={ isDisabled }
 		onChange={ handleChange }
+		defaultValue={ defaultValue }
 		noOptionsMessage={ () => t('no options message') }
 		onInputChange={ handleInputChange }
 	/>
