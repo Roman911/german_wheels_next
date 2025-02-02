@@ -102,7 +102,7 @@ export const getFilters = ({ locale, section, data }: Props) => {
 			label: 'year',
 			name: 'year',
 			focusValue: '',
-			options: data?.tyre_year?.map(item => ({ value: item.value, label: item.label }))
+			options: data?.tyre_year?.map(item => ({ value: item.value, label: `${item.label}` }))
 		});
 
 		filterConfigs.push({
@@ -121,21 +121,21 @@ export const getFilters = ({ locale, section, data }: Props) => {
 
 		filterConfigs.push({
 			label: 'fasteners',
-			name: 'krip',
+			name: 'krepeg',
 			focusValue: '',
 			options: data?.krip?.map(item => ({ value: item.value, label: item.value, p: item.p }))
 		});
 
 		filterConfigs.push({
 			label: 'et from',
-			name: 'et_from',
+			name: 'etMin',
 			focusValue: '',
 			options: data?.et?.map(item => ({ value: item.value, label: item.value, p: item.p }))
 		});
 
 		filterConfigs.push({
 			label: 'et to',
-			name: 'et_to',
+			name: 'etMax',
 			focusValue: '',
 			options: data?.et?.map(item => ({ value: item.value, label: item.value, p: item.p }))
 		});
@@ -151,7 +151,7 @@ export const getFilters = ({ locale, section, data }: Props) => {
 			label: 'year',
 			name: 'year',
 			focusValue: '',
-			options: data?.tyre_year?.map(item => ({ value: item.value, label: item.label }))
+			options: data?.tyre_year?.map(item => ({ value: item.value, label: `${item.label}` }))
 		});
 	}
 

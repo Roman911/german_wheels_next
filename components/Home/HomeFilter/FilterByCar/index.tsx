@@ -42,7 +42,7 @@ const FilterByCar = ({ locale }: { locale: Language }) => {
 		}
 	];
 
-	const onChange = (name: string, value: number | string | undefined) => {
+	const onChange = (name: string, value: number | string | null) => {
 		dispatch(setCarFilter({ ...filter, [name]: value }));
 		if(name === 'model') {
 			modelRefetch();
