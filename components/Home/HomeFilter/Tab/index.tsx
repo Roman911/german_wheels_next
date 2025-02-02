@@ -13,7 +13,7 @@ interface TabProps {
 
 const Tab: FC<TabProps> = ({ name, section, handleClick, label }) => {
 	const buttonClassNames = twMerge(
-		'text-base xl:text-xl uppercase font-bold md:mr-1.5 xl:mr-2.5 px-4 py-2 w-full md:w-52 relative border-b-4 text-white',
+		'text-sm md:text-base xl:text-xl uppercase font-bold md:mr-1.5 xl:mr-2.5 px-4 py-2 w-full md:w-52 relative border-b-4 text-white',
 		section === name && 'md:pointer-events-none text-teal-300 border-teal-300'
 	);
 

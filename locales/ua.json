@@ -108,7 +108,8 @@
   "Catalog": {
     "by car": "За авто",
     "by parameters": "За параметрами",
-    "search": "Пошук"
+    "search": "Пошук",
+    "no result by search": "За вашим запитом нічого не знайдено."
   },
   "Select": {
     "city": "Місто",

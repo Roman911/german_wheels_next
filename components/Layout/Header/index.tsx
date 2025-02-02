@@ -11,10 +11,10 @@ interface Props {
 
 const Header: FC<Props> = ({ locale, settings }) => {
 	return (
-		<header className='header text-white'>
+		<div className='header text-white'>
 			<TopLine locale={ locale } settings={ settings } />
 			<HeaderMain locale={ locale } />
-		</header>
+		</div>
 	)
 };
 

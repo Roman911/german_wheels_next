@@ -22,6 +22,7 @@ async function getProducts() {
     method: 'POST',
     headers: {
       'Access-Control-Allow-Credentials': 'true',
+      'content-type': 'application/json',
     },
     body: JSON.stringify({ start: 0, length: 8 }),
   });
@@ -59,4 +60,4 @@ export default async function Home({ params }: { params: Promise<{ locale: Langu
       </div>
     </main>
   );
-}
+};

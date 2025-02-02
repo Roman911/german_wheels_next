@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import * as Icons from '../../Lib/Icons';
 import { Language } from '@/models/language';
-import Contacts from '@/components/Header/TopLine/Contacts';
+import Contacts from '@/components/Layout/Header/TopLine/Contacts';
 import { SettingsProps } from '@/models/settings';
 
 const InfoBlock = ({ locale, settings }: { locale: Language, settings: SettingsProps }) => {

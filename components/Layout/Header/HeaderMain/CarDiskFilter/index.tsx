@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction } from 'react';
+import { FC } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import LinkComponent from '../LinkComponent';
@@ -7,10 +7,10 @@ import { brandsLinks, carBrandsLinks, diameterLinks, typeDiskLinks } from './lin
 
 interface Props {
 	locale: string
-	setOpen: Dispatch<SetStateAction<boolean>>
+	closeFilter: () => void
 }
 
-export const CarDiskFilter: FC<Props> = ({ locale, setOpen }) => {
+export const CarDiskFilter: FC<Props> = ({ locale, closeFilter }) => {
 	const t = useTranslations('HeaderFilter');
 
 	return <>
@@ -23,7 +23,7 @@ export const CarDiskFilter: FC<Props> = ({ locale, setOpen }) => {
 					label={ t(item.label) }
 					mt={ item.mt }
 					border={ false }
-					onClick={ () => setOpen(false) }
+					onClick={ closeFilter }
 				/>
 			}) }
 		</div>
@@ -36,13 +36,13 @@ export const CarDiskFilter: FC<Props> = ({ locale, setOpen }) => {
 						href={ `/${ locale }/${ item.href }` }
 						label={ item.label }
 						border={ false }
-						onClick={ () => setOpen(false) }
+						onClick={ closeFilter }
 					/>
 				}) }
 			</div>
 			<Link
 				href={ `/${ locale }/catalog/disks` }
-				onClick={ () => setOpen(false) }
+				onClick={ closeFilter }
 				className='text-teal-300 font-bold hover:underline'
 			>
 				{ t('all brands') }
@@ -57,13 +57,13 @@ export const CarDiskFilter: FC<Props> = ({ locale, setOpen }) => {
 						href={ `/${ locale }/${ item.href }` }
 						label={ item.label }
 						border={ false }
-						onClick={ () => setOpen(false) }
+						onClick={ closeFilter }
 					/>
 				}) }
 			</div>
 			<Link
 				href={ `/${ locale }/catalog/disks` }
-				onClick={ () => setOpen(false) }
+				onClick={ closeFilter }
 				className='text-teal-300 font-bold hover:underline'
 			>
 				{ t('all car brands') }
@@ -72,14 +72,14 @@ export const CarDiskFilter: FC<Props> = ({ locale, setOpen }) => {
 		<div className='mt-6 lg:mt-0'>
 			<div>
 				<Title title={ t('by diameter') }/>
-				<div className='mt-6 mb-6 grid grid-cols-4 gap-1.5 max-w-64 pr-2.5'>
+				<div className='mt-6 mb-6 grid grid-cols-3 md:grid-cols-4 gap-1.5 max-w-64 pr-2.5'>
 					{ diameterLinks.map(item => {
 						return <LinkComponent
 							key={ item.label }
 							href={ `/${ locale }/${ item.href }` }
 							border={ item.border }
 							label={ item.label }
-							onClick={ () => setOpen(false) }
+							onClick={ closeFilter }
 						/>
 					}) }
 				</div>

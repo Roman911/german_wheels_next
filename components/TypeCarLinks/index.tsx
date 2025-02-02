@@ -68,7 +68,7 @@ const LinkComponent: FC<ILinkComponent> = (
 			twMerge(
 				'transition group-hover:text-teal-400',
 				section === 'catalog' && 'text-sm font-bold text-gray-500',
-				section === 'header' && 'group-hover:underline text-white',
+				section === 'header' && 'group-hover:underline md:text-white',
 				active && 'text-teal-400',
 			)
 		}>

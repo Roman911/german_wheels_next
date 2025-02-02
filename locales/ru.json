@@ -108,7 +108,8 @@
   "Catalog": {
     "by car": "По авто",
     "by parameters": "По параметрам",
-    "search": "Поиск"
+    "search": "Поиск",
+    "no result by search": "По вашему запросу ничего не найдено."
   },
   "Select": {
     "city": "Город",

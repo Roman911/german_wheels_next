@@ -8,7 +8,7 @@ interface Filters {
 }
 
 export interface OnChange {
-	(name: string, value: number | string | undefined): void
+	(name: string, value: number | string | null): void
 }
 
 export interface FilterProps {

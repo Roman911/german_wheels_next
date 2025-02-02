@@ -19,6 +19,10 @@ const Navbar: FC<Props> = ({ locale }) => {
 	const [ section, setSection ] = useState('tires');
 	const filterRef = useRef<HTMLDivElement>(null);
 
+	const closeFilter = () => {
+		setOpen(false);
+	}
+
 	const handleClick = (event: MouseEvent<HTMLButtonElement>, value: SetStateAction<string>) => {
 		event.stopPropagation();
 		setOpen(!(open && section === value));
@@ -52,15 +56,15 @@ const Navbar: FC<Props> = ({ locale }) => {
 	)
 
 	return (
-		<div className='hidden lg:block'>
-			<nav className='container text-lg mx-auto max-w-7xl flex justify-between items-center gap-8 p-5 pr-8'>
+		<>
+			<nav className='container text-lg mx-auto max-w-[680px] flex justify-between items-center gap-2 p-5 pr-8'>
 				{[{ section: 'tires', label: t('tires') }, { section: 'disks', label: t('disks') }]
 					.map((item, i) => {
 						return <ButtonMeu key={ i } sectionItem={ item.section } label={ item.label } />
 					})}
 				{ links.map((item, index) => {
 					return <Link key={ index } href={ `/${locale}/${item.url}` }
-											 className='font-semibold hover:text-blue-200'>
+											 className='font-semibold hover:text-teal-300'>
 						{ t(item.title) }
 					</Link>
 				}) }
@@ -71,12 +75,12 @@ const Navbar: FC<Props> = ({ locale }) => {
 				<div
 					className='w-full overflow-hidden bg-gray-900 shadow-lg pt-8 pb-6 font-normal'>
 					<div className='flex-auto max-w-7xl grid grid-cols-4 mx-auto px-4'>
-						{ section === 'tires' ? <CarTireFilter setOpen={ setOpen } locale={ locale } /> :
-							<CarDiskFilter setOpen={ setOpen } locale={ locale } /> }
+						{ section === 'tires' ? <CarTireFilter closeFilter={ closeFilter } locale={ locale } /> :
+							<CarDiskFilter closeFilter={ closeFilter } locale={ locale } /> }
 					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	)
 };
 

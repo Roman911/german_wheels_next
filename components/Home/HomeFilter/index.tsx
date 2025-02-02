@@ -23,7 +23,7 @@ const Filter = ({ locale }: { locale: Language }) => {
 	const t = useTranslations('Main');
 	const filters = getFilters({ locale, section, data });
 
-	const onChange = (name: string, value: number | string | undefined) => {
+	const onChange = (name: string, value: number | string | null) => {
 		if(value) {
 			setFilter(prev => ({ ...prev, [name]: value }));
 		}

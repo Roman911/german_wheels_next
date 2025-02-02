@@ -3,7 +3,7 @@ import localFont from 'next/font/local'
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import StoreProvider from '@/app/StoreProvider';
-import Header from '@/components/Header';
+import Header from '../../components/Layout/Header';
 import Footer from '@/components/Footer';
 import '../colors.css';
 import '../globals.css';
