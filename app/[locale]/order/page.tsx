@@ -113,7 +113,6 @@ export default function Order() {
 	];
 
 	const onSubmit: SubmitHandler<FormProps> = async(data) => {
-		const newWindow = window.open("", "_blank");
 		const { firstname, lastname, surname, email, telephone, comment, address } = data;
 		setLoadingBtn(true);
 		await createOrder({
@@ -139,9 +138,7 @@ export default function Order() {
 		}) => {
 			const data = response?.data;
 			if(data) {
-				if(data?.linkpay?.length > 0) {
-					if(newWindow) newWindow.location.href = data?.linkpay;
-				}
+				if(data?.linkpay?.length > 0) window.open(data?.linkpay, "_blank")
 				if(data?.result) {
 					methods.reset();
 					dispatch(reset());

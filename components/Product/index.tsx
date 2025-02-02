@@ -129,7 +129,7 @@ const ProductComponent: FC<Props> = ({ idProduct, locale, data, section, setting
 									return <div
 										key={ item.offer_id }
 										onClick={ () => handleClick(item.offer_id) }
-										className='offers__item cursor-pointer grid md:grid-cols-9 gap-1 md:gap-4 items-center mt-3 py-1.5 md:py-0 px-2 md:px-0 bg-white md:bg-transparent border md:border-0 rounded-full'
+										className='offers__item cursor-pointer grid-cols-3 grid md:grid-cols-7 gap-1 md:gap-4 items-center mt-3 py-2.5 md:py-0 px-2.5 md:px-0 bg-white md:bg-transparent border md:border-0 rounded-full'
 									>
 										<div className='input flex flex-row md:col-span-2 relative'>
 											<input

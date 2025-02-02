@@ -31,7 +31,7 @@ async function getProducts({ page, searchParams }: { page: number | null, search
 			'Access-Control-Allow-Credentials': 'true',
 			'content-type': 'application/json',
 		},
-		body: JSON.stringify({ start: page || 0, length: 12 }),
+		body: JSON.stringify({ start: page ? page * pageItem : 0, length: 12 }),
 	});
 	return await res.json();
 }
@@ -61,7 +61,7 @@ export default async function Catalog({ params }: { params: Promise<{ locale: La
 						data={ products.data }
 					/> : <NoResult noResultText='no result' /> }
 					{ products.result && products.data.total_count > pageItem && <div className='mt-10 flex justify-center'>
-						<Pagination initialPage={ page || 1 } total={ products.data.total_count/pageItem } />
+						<Pagination initialPage={ page || 1 } total={ Math.floor(products.data.total_count/pageItem) } />
 					</div> }
 				</div>
 			</div>

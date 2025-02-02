@@ -34,7 +34,7 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 	const appointmentCargoShow = filter.vehicle_type && cargoTypes.includes(filter.vehicle_type);
 	const appointmentIndustrialShow = filter.vehicle_type && industrialTypes.includes(filter.vehicle_type);
 	const { data } = baseDataAPI.useFetchBaseDataQuery('');
-	const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
+	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
 	const onChange = (name: string, value: number | string | undefined | null, element: HTMLElement) => {
 		if(name === 'brand') {
@@ -197,9 +197,9 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 							true,
 						) }
 						<SelectFromTo name='et' nameMin='etMin' nameMax='etMax' minus={ true } from={ -140 } to={ 500 }
-													title={ `ET(${ t('departure') })` } btnTitle={ t('to apply') } closeFilter={ onClose }/>
+													title={ `ET(${ t('departure') })` } btnTitle={ t('to apply') } />
 						<SelectFromTo name='dia' nameMin='diaMin' nameMax='diaMax' from={ 46 } to={ 500 } title='DIA'
-													btnTitle={ t('to apply') } closeFilter={ onClose }/>
+													btnTitle={ t('to apply') } />
 						{ renderSelect(
 							'typedisk',
 							'type',
@@ -274,7 +274,7 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 						) }
 					</> }
 					<SelectFromTo name='price' nameMin='minPrice' nameMax='maxPrice' from={ 200 } to={ 10000 }
-												title={ `${ t('price range') } (грн)` } btnTitle={ t('to apply') } closeFilter={ onClose }/>
+												title={ `${ t('price range') } (грн)` } btnTitle={ t('to apply') } />
 				</div>
 			</div>
 		)
