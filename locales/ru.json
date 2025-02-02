@@ -83,7 +83,12 @@
     "type size": "Типоразмер",
     "winter": "Зимние",
     "homologation": "Омологация",
-    "price range": "Диапазон цен"
+    "price range": "Диапазон цен",
+    "tires": "Шины",
+    "reset everything": "Сбросить все",
+    "disks": "Диски",
+    "filters": "Фильтры",
+    "color": "Цвет"
   },
   "Footer": {
     "brands": "Бренды",
@@ -158,8 +163,6 @@
 
   "cheap at first": "сначала дешевые",
 
-  "color": "цвет",
-
   "comparison": "сравнение",
   "country": "страна",
   "credit": "кредит",
@@ -176,7 +179,6 @@
   "installment plan": "онлайн рассрочка",
 
   "favorites": "избранное",
-  "filters": "фильтры",
 
   "free": "бесплатный",
 
@@ -198,7 +200,6 @@
   "profile height": "высота профиля",
   "public offer agreement": "договор публичной оферты",
   "recently viewed": "похожие товары",
-  "reset everything": "сбросить все",
 
   "similar products": "недавно просмотрены",
 

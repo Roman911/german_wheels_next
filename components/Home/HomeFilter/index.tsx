@@ -3,6 +3,9 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useTranslations } from 'next-intl';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { changeSection, reset as resetFilter } from '@/store/slices/filterSlice';
+import { reset as resetFilterCar } from '@/store/slices/filterCarSlice';
 import { baseDataAPI } from '@/services/baseDataService';
 import Tab from './Tab';
 import FilterByCar from './FilterByCar';
@@ -15,8 +18,9 @@ import { Language } from '@/models/language';
 import { generateUrl } from '@/lib/seo';
 
 const Filter = ({ locale }: { locale: Language }) => {
+	const { section } = useAppSelector(state => state.filterReducer);
+	const dispatch = useAppDispatch();
 	const router = useRouter();
-	const [ section, setSection ] = useState(Section.Tires);
 	const [ isOpen, setOpen ] = useState(false);
 	const [ filter, setFilter ] = useState({});
 	const { data } = baseDataAPI.useFetchBaseDataQuery('');
@@ -31,8 +35,10 @@ const Filter = ({ locale }: { locale: Language }) => {
 
 	const handleClick = (value: Section) => {
 		const newOpenState = !(section === value && isOpen);
-		setSection(value);
 		setOpen(newOpenState);
+		dispatch(resetFilter());
+		dispatch(resetFilterCar());
+		dispatch(changeSection(newOpenState ? value : Section.Tires));
 	};
 
 	const submit = () => {

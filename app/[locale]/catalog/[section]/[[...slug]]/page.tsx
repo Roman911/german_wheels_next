@@ -1,7 +1,5 @@
 import Layout from '@/components/Layout';
-import { Breadcrumbs } from '@/components/UI';
 import { Language } from '@/models/language';
-import Title from '@/components/Lib/Title';
 import FilterAlt from '@/components/Catalog/FilterAlt';
 import { Section } from '@/models/filter';
 import { BaseDataProps } from '@/models/baseData';
@@ -11,7 +9,10 @@ import FilterByCar from '@/components/Catalog/FilterByCar';
 import { transformUrl } from './transformUrl';
 import SelectionByCar from '@/components/Catalog/SelectionByCar';
 import FilterActive from '@/components/Catalog/FilterActive';
-// import { useAppGetProductsForCatalog } from '@/hooks/getProductsForCatalog';
+import HeaderCatalog from '@/components/Catalog/HeaderCatalog';
+import Pagination from '@/components/Catalog/Pagination';
+
+const pageItem = 12;
 
 async function getFilterData(id: string): Promise<BaseDataProps> {
 	const res = await fetch(`${process.env.SERVER_URL}/api/FildterData/${id}`, {
@@ -23,73 +24,35 @@ async function getFilterData(id: string): Promise<BaseDataProps> {
 	return await res.json();
 }
 
-async function getProducts(params: string) {
-	const res = await fetch(`${process.env.SERVER_URL}/api/getProducts?${params}`, {
-		method: 'GET',
+async function getProducts({ page, searchParams }: { page: number | null, searchParams: string }) {
+	const res = await fetch(`${process.env.SERVER_URL}/api/getProducts?${searchParams}`, {
+		method: 'POST',
 		headers: {
 			'Access-Control-Allow-Credentials': 'true',
-		}
+			'content-type': 'application/json',
+		},
+		body: JSON.stringify({ start: page || 0, length: 12 }),
 	});
 	return await res.json();
 }
 
 export default async function Catalog({ params }: { params: Promise<{ locale: Language, section: Section, slug: string[] }> }) {
 	const { locale, section, slug } = await params;
-	const filterData = await getFilterData(`?typeproduct=${section === Section.Tires ? 1 : 3}`);
+	const value = slug?.find(item => item.startsWith('p-'));
+	const page = value ? parseInt(value.split('-')[1], 10) : null;
+	const filterData = await getFilterData(
+		`?typeproduct=${section === Section.Tires ? 1 : 3}`,
+	);
 	const paramsUrl = transformUrl({ section, slug });
-	const products = await getProducts(paramsUrl);
-
-	const path = [
-		{
-			title: section || '',
-			translations: true,
-			href: `/catalog/${section}/`,
-		},
-		{
-			title: '',
-			translations: false,
-			href: `/catalog/`,
-		},
-		// {
-		// 	id: 2,
-		// 	title: `${t(SeasonTransform(urlParams.sezon ?? '')?.name || '', true)} ${t(section)}`,
-		// 	url: urlParams.sezon ? `/catalog/${section}/s-${urlParams.sezon}` : undefined,
-		// },
-		// {
-		// 	id: 3,
-		// 	title: `${typeof brandParam === 'object' && brandParam?.label ? brandParam.label : ''}`,
-		// 	url: urlParams.brand ? `/catalog/${section}/b-${urlParams.brand}` : undefined,
-		// },
-		// {
-		// 	id: 4,
-		// 	title: `${t('width')} ${urlParams.width}`,
-		// 	url: urlParams.width && `/catalog/${section}/w-${urlParams.width}`,
-		// },
-		// {
-		// 	id: 5,
-		// 	title: `${t('height', true)} ${urlParams.height}`,
-		// 	url: urlParams.height && `/catalog/${section}/h-${urlParams.height}`,
-		// },
-		// {
-		// 	id: 6,
-		// 	title: `R${urlParams.radius}`,
-		// 	url: urlParams.radius && `/catalog/${section}/d-${urlParams.radius}`,
-		// },
-		// {
-		// 	id: 7,
-		// 	title: `${title}`,
-		// 	url: Object.keys(urlParams).length > 1 && `/catalog/${section}/`,
-		// },
-	];
+	const products = await getProducts({ page, searchParams: paramsUrl });
 
 	return (
 		<Layout>
-			<Breadcrumbs path={ path } />
-			<Title isMain={ true } title={ section } translations={ true } className='mt-3 text-lg font-medium px-0 md:px-3 mb-3 md:mb-1' />
+			<HeaderCatalog locale={ locale } section={ section } slug={ slug } />
 			<div className='py-5 lg:flex lg:gap-10'>
 				<FilterAlt locale={ locale } filterData={ filterData } section={ section } />
-				<div className='flex-1 lg:-mt-12'>
-					<FilterByCar locale={ locale } />
+				<div className='flex-1 -mt-8 lg:-mt-12'>
+					<FilterByCar locale={ locale } section={ section } />
 					<SelectionByCar locale={ locale } />
 					<FilterActive locale={ locale } className='hidden lg:flex' slug={ slug } />
 					{ products.result ? <ProductList
@@ -97,6 +60,9 @@ export default async function Catalog({ params }: { params: Promise<{ locale: La
 						classnames='grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
 						data={ products.data }
 					/> : <NoResult noResultText='no result' /> }
+					{ products.result && products.data.total_count > pageItem && <div className='mt-10 flex justify-center'>
+						<Pagination initialPage={ page || 1 } total={ products.data.total_count/pageItem } />
+					</div> }
 				</div>
 			</div>
 		</Layout>

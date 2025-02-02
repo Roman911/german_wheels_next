@@ -4,8 +4,10 @@ import { twMerge } from 'tailwind-merge';
 import { baseDataAPI } from '@/services/baseDataService';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { setCarFilter, setSend } from '@/store/slices/filterCarSlice';
+import { changeSubsection } from '@/store/slices/filterSlice';
 import MySelect from '@/components/Home/HomeFilter/Select';
 import { Language } from '@/models/language';
+import { Subsection } from '@/models/section';
 
 const FilterByCar = ({ locale }: { locale: Language }) => {
 	const t = useTranslations('Filters');
@@ -52,6 +54,7 @@ const FilterByCar = ({ locale }: { locale: Language }) => {
 	}
 
 	const onClick = () => {
+		dispatch(changeSubsection(Subsection.ByCars));
 		dispatch(setSend());
 	}
 

@@ -16,6 +16,7 @@ import { addToStorage, getFromStorage, removeFromStorage } from '@/lib/localeSto
 import { Section } from '@/models/filter';
 import { addBookmarks, removeBookmarks } from '@/store/slices/bookmarksSlice';
 import { addComparison, removeComparison } from '@/store/slices/comparisonSlice';
+import Rating from '@/components/Lib/Rating';
 
 const icons = {
 	1: Icons.CarIcon,
@@ -92,7 +93,7 @@ const ProductCard: FC<Props> = ({ locale, item }) => {
 	}
 
 	return (
-		<Link href={ `/${ locale }/${ page_url }` } className='max-w-[360px] rounded-sm pt-7 px-4 pb-5 bg-white border-inherit p-7 hover:shadow-lg hover:cursor-pointer transition'>
+		<Link href={ `/${ locale }/${ page_url }` } className='max-w-full md:max-w-[360px] rounded-sm pt-7 px-4 pb-5 bg-white border-inherit p-7 hover:shadow-lg hover:cursor-pointer transition'>
 			<div className='relative min-h-72 sm:min-h-52 text-center'>
 				<div className='absolute left-0 top-0'>
 					{ seasonIcon && <Image
@@ -131,7 +132,9 @@ const ProductCard: FC<Props> = ({ locale, item }) => {
 				<div className='text-sm font-medium mb-0.5 mr-1'>{ t('from') }</div>
 				<div className='text-2xl font-bold'>{ min_price } ₴</div>
 			</div>
-			{/*<Rating commentsCount={ undefined } commentsAvgRate={ 0 }/>*/ }
+			<div className='pb-4'>
+				<Rating commentsCount={ undefined } commentsAvgRate={ 0 }/>
+			</div>
 			<button onClick={ (event) => handleClick(event) } className='btn primary w-full uppercase'>
 				{ t('buy') }
 			</button>

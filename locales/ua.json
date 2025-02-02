@@ -83,7 +83,12 @@
     "type size": "Типорозмір",
     "winter": "Зимові",
     "homologation": "Омологація",
-    "price range": "Діапазон цін"
+    "price range": "Діапазон цін",
+    "tires": "Шини",
+    "reset everything": "Скинути все",
+    "disks": "Диски",
+    "filters": "Фільтри",
+    "color": "Колір"
   },
   "Footer": {
     "brands": "Бренди",
@@ -158,8 +163,6 @@
 
   "cheap at first": "спочатку дешеві",
 
-  "color": "колір",
-
   "comparison": "порівняння",
   "country": "країна",
   "credit": "кредит",
@@ -180,7 +183,6 @@
   "quick order": "швидке замовлення",
 
   "favorites": "обране",
-  "filters": "фільтри",
 
   "free": "безкоштовний",
 
@@ -202,7 +204,6 @@
   "profile height": "висота профілю",
   "public offer agreement": "договір публічної оферти",
   "recently viewed": "нещодавно переглянуті",
-  "reset everything": "скинути все",
 
   "similar products": "схожі товари",
 

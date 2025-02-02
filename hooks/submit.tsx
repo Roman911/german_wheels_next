@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-
 import { useAppSelector } from './redux';
 import { IFilter } from '@/models/filter';
 import { OriginalType } from '@/models/seo';

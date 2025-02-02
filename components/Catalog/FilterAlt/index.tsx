@@ -1,6 +1,5 @@
 'use client'
 import { FC, useState } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { useTranslations } from 'next-intl';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { setParams } from '@/store/slices/filterSlice';
@@ -15,7 +14,8 @@ import { appointmentCargo, appointmentIndustrial, customTireSeason, others, type
 import { baseDataAPI } from '@/services/baseDataService';
 import ByCar from '@/components/Catalog/FilterAlt/ByCar';
 import { SelectFromTo } from '@/components/Catalog/FilterAlt/SelectFromTo';
-// import { SelectFromTo } from '@/components/Catalog/FilterAlt/SelectFromTo';
+import { Drawer, DrawerContent, useDisclosure, } from "@heroui/react";
+import FilterBtn from '@/components/Catalog/FilterByCar/FilterBtn';
 
 const cargoTypes = [ '3', '4', '5', '6' ];
 const industrialTypes = [ '9', '10', '11' ];
@@ -34,6 +34,7 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 	const appointmentCargoShow = filter.vehicle_type && cargoTypes.includes(filter.vehicle_type);
 	const appointmentIndustrialShow = filter.vehicle_type && industrialTypes.includes(filter.vehicle_type);
 	const { data } = baseDataAPI.useFetchBaseDataQuery('');
+	const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
 
 	const onChange = (name: string, value: number | string | undefined | null, element: HTMLElement) => {
 		if(name === 'brand') {
@@ -76,209 +77,220 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 		</div>
 	);
 
-	const closeFilter = () => {
-		console.log('close filter')
-	}
-
-	return (
-		<div
-			className={ twMerge('fixed lg:static top-0 left-0 right-0 bottom-0 bg-gray-800/60 lg:bg-transparent z-20 lg:block') }>
-			<div
-				className='filter h-screen lg:h-auto w-[calc(100%-70px)] lg:w-64 mr-6 pt-4 lg:pt-0 bg-white lg:bg-transparent'>
-				<SwitchTabs locale={ locale } section={ section }/>
-			</div>
-			<div
-				className='relative h-[calc(100%-50px)] pb-32 lg:pb-4 px-4 pt-4 bg-white border border-gray-200 z-10 overflow-y-auto md:overflow-y-visible'>
-				<SubmitFloat element={ element } btnTitle={ t('to apply') } setElement={ setElement } offset={ 300 }/>
-				<SwitchTabsByParams subsection={ subsection }/>
-				{ subsection === Subsection.ByParams && <>
+	const Filters = ({ isMobile }: { isMobile: boolean }) => {
+		return (
+			<div className={ isMobile ? '' : 'hidden md:block' }>
+				<div
+					className='filter lg:h-auto w-[calc(100%-70px)] lg:w-64 mr-6 pt-4 lg:pt-0 bg-white lg:bg-transparent'>
+					<SwitchTabs locale={ locale } section={ section }/>
+				</div>
+				<div
+					className='relative pb-32 lg:pb-4 px-4 pt-4 bg-white border border-gray-200 z-10 overflow-y-auto md:overflow-y-visible'>
+					<SubmitFloat element={ element } btnTitle={ t('to apply') } setElement={ setElement } offset={ 300 }/>
+					<SwitchTabsByParams subsection={ subsection }/>
+					{ subsection === Subsection.ByParams && <>
+						{ section === Section.Tires && <>
+							{ renderSelect(
+								'width',
+								'width',
+								'gray',
+								filterData?.tyre_width.map(item => ({ value: item.value, label: item.value, p: item.p })),
+								'175',
+								filter?.width,
+								true,
+							) }
+							{ section === Section.Tires && renderSelect(
+								'height',
+								'height',
+								'gray',
+								filterData?.tyre_height?.map(item => ({ value: item.value, label: item.value, p: item.p })),
+								'45',
+								filter?.height,
+								true,
+							) }
+							{ renderSelect(
+								'radius',
+								'diameter',
+								'gray',
+								filterData?.tyre_diameter?.map(item => ({ value: item.value, label: `R${ item.value }`, p: item.p })),
+								'R14',
+								filter?.radius,
+								true,
+							) }
+						</> }
+						{ section === Section.Disks && <>
+							{ renderSelect(
+								'width',
+								'width',
+								'gray',
+								filterData?.disc_width?.map(item => ({ value: item.value, label: item.value, p: item.p })),
+								false,
+								filter?.width,
+								true,
+							) }
+							{ renderSelect(
+								'radius',
+								'diameter',
+								'gray',
+								filterData?.disc_diameter?.map(item => ({ value: item.value, label: `R${ item.value }`, p: item.p })),
+								false,
+								filter?.radius,
+								true,
+							) }
+						</> }
+					</> }
+					{ subsection === 'byCars' && <ByCar data={ data }/> }
 					{ section === Section.Tires && <>
-						{ renderSelect(
-							'width',
-							'width',
-							'gray',
-							filterData?.tyre_width.map(item => ({ value: item.value, label: item.value, p: item.p })),
-							'175',
-							filter?.width,
-							true,
+						{ !appointmentCargoShow && !appointmentIndustrialShow && renderSelect(
+							'sezon',
+							'season',
+							'white',
+							customTireSeason.map(item => ({
+								value: item.value,
+								label: locale === Language.UA ? item.name_ua : item.name
+							})),
+							false,
+							filter?.sezon,
+							false,
+							filter?.only_studded
 						) }
-						{ section === Section.Tires && renderSelect(
-							'height',
-							'height',
-							'gray',
-							filterData?.tyre_height?.map(item => ({ value: item.value, label: item.value, p: item.p })),
-							'45',
-							filter?.height,
-							true,
+						{ appointmentCargoShow && renderSelect(
+							'vehicle_type',
+							'appointment',
+							'white',
+							appointmentCargo.map(item => ({
+								value: item.value,
+								label: locale === Language.UA ? item.name_ua : item.name
+							})),
+							false,
+							filter?.vehicle_type,
+						) }
+						{ appointmentIndustrialShow && renderSelect(
+							'vehicle_type',
+							'appointment',
+							'white',
+							appointmentIndustrial.map(item => ({
+								value: item.value,
+								label: locale === Language.UA ? item.name_ua : item.name
+							})),
+							false,
+							filter?.vehicle_type,
 						) }
 						{ renderSelect(
-							'radius',
-							'diameter',
-							'gray',
-							filterData?.tyre_diameter?.map(item => ({ value: item.value, label: `R${ item.value }`, p: item.p })),
-							'R14',
-							filter?.radius,
+							'brand',
+							'brand',
+							'white',
+							data?.brand?.map(item => ({ value: item.value, label: item.label })),
+							false,
+							filter?.brand && Number(filter.brand),
 							true,
 						) }
 					</> }
 					{ section === Section.Disks && <>
 						{ renderSelect(
-							'width',
-							'width',
-							'gray',
-							filterData?.disc_width?.map(item => ({ value: item.value, label: item.value, p: item.p })),
+							'krepeg',
+							'fasteners',
+							'white',
+							data?.krip?.map(item => ({ value: item.value, label: item.value, p: item.p })),
 							false,
-							filter?.width,
+							filter?.krepeg,
+							true,
+						) }
+						<SelectFromTo name='et' nameMin='etMin' nameMax='etMax' minus={ true } from={ -140 } to={ 500 }
+													title={ `ET(${ t('departure') })` } btnTitle={ t('to apply') } closeFilter={ onClose }/>
+						<SelectFromTo name='dia' nameMin='diaMin' nameMax='diaMax' from={ 46 } to={ 500 } title='DIA'
+													btnTitle={ t('to apply') } closeFilter={ onClose }/>
+						{ renderSelect(
+							'typedisk',
+							'type',
+							'gray',
+							typeDisc.map(item => ({ value: item.value, label: locale === Language.UA ? item.name_ua : item.name })),
+							false,
+							filter?.typedisk,
+						) }
+						{ renderSelect(
+							'colir',
+							'color',
+							'white',
+							data?.colir_abbr?.map(item => ({ value: item.value, label: item.value, p: item.p })),
+							false,
+							filter?.colir,
 							true,
 						) }
 						{ renderSelect(
-							'radius',
-							'diameter',
-							'gray',
-							filterData?.disc_diameter?.map(item => ({ value: item.value, label: `R${ item.value }`, p: item.p })),
+							'brand',
+							'brand',
+							'white',
+							data?.brand_disc?.map(item => ({ value: item.value, label: item.label })),
 							false,
-							filter?.radius,
+							filter?.brand && Number(filter.brand),
 							true,
 						) }
 					</> }
-				</> }
-				{ subsection === 'byCars' && <ByCar data={ data }/> }
-				{ section === Section.Tires && <>
-					{ !appointmentCargoShow && !appointmentIndustrialShow && renderSelect(
-						'sezon',
-						'season',
-						'white',
-						customTireSeason.map(item => ({
-							value: item.value,
-							label: locale === Language.UA ? item.name_ua : item.name
-						})),
-						false,
-						filter?.sezon,
-						false,
-						filter?.only_studded
-					) }
-					{ appointmentCargoShow && renderSelect(
-						'vehicle_type',
-						'appointment',
-						'white',
-						appointmentCargo.map(item => ({
-							value: item.value,
-							label: locale === Language.UA ? item.name_ua : item.name
-						})),
-						false,
-						filter?.vehicle_type,
-					) }
-					{ appointmentIndustrialShow && renderSelect(
-						'vehicle_type',
-						'appointment',
-						'white',
-						appointmentIndustrial.map(item => ({
-							value: item.value,
-							label: locale === Language.UA ? item.name_ua : item.name
-						})),
-						false,
-						filter?.vehicle_type,
-					) }
-					{ renderSelect(
-						'brand',
-						'brand',
-						'white',
-						data?.brand?.map(item => ({ value: item.value, label: item.label })),
-						false,
-						filter?.brand && Number(filter.brand),
-						true,
-					) }
-				</> }
-				{ section === Section.Disks && <>
-					{ renderSelect(
-						'krepeg',
-						'fasteners',
-						'white',
-						data?.krip?.map(item => ({ value: item.value, label: item.value, p: item.p })),
-						false,
-						filter?.krepeg,
-						true,
-					) }
-					<SelectFromTo name='et' nameMin='etMin' nameMax='etMax' minus={ true } from={ -140 } to={ 500 }
-												title={ `ET(${ t('departure') })` } btnTitle={ t('to apply') } closeFilter={ closeFilter }/>
-					<SelectFromTo name='dia' nameMin='diaMin' nameMax='diaMax' from={ 46 } to={ 500 } title='DIA'
-												btnTitle={ t('to apply') } closeFilter={ closeFilter }/>
-					{ renderSelect(
-						'typedisk',
-						'type',
-						'gray',
-						typeDisc.map(item => ({ value: item.value, label: locale === Language.UA ? item.name_ua : item.name })),
-						false,
-						filter?.typedisk,
-					) }
-					{ renderSelect(
-						'colir',
-						'color',
-						'white',
-						data?.colir_abbr?.map(item => ({ value: item.value, label: item.value, p: item.p })),
-						false,
-						filter?.colir,
-						true,
-					) }
-					{ renderSelect(
-						'brand',
-						'brand',
-						'white',
-						data?.brand_disc?.map(item => ({ value: item.value, label: item.label })),
-						false,
-						filter?.brand && Number(filter.brand),
-						true,
-					) }
-				</> }
-				{ section === Section.Tires && <>
-					{ renderSelect(
-						'li',
-						'load index',
-						'white',
-						data?.load.map(item => ({ value: item.value, label: item.value })),
-						false,
-						filter?.li,
-						true,
-					) }
-					{ renderSelect(
-						'si',
-						'speed index',
-						'white',
-						data?.speed.map(item => ({ value: item.value, label: item.value })),
-						false,
-						filter?.si,
-						true,
-					) }
-					{ renderSelect(
-						'omolog',
-						'homologation',
-						'white',
-						data?.omolog.map(item => ({ value: item.value, label: item.value })),
-						false,
-						filter?.omolog,
-						true,
-					) }
-					{ renderSelect(
-						'other',
-						'other',
-						'white',
-						others.map(item => ({ value: item.value, label: locale === Language.UA ? item.name_ua : item.name })),
-						false,
-						null,
-						false,
-						null,
-						{
-							only_c: filter?.only_c ?? null,
-							only_xl: filter?.only_xl ?? null,
-							only_owl: filter?.only_owl ?? null,
-							only_run_flat: filter?.only_run_flat ?? null,
-							only_off_road: filter?.only_off_road ?? null,
-						}
-					) }
-				</> }
-				<SelectFromTo name='price' nameMin='minPrice' nameMax='maxPrice' from={200} to={10000}
-											title={`${t('price range')} (грн)`} btnTitle={t('to apply')} closeFilter={ closeFilter } />
+					{ section === Section.Tires && <>
+						{ renderSelect(
+							'li',
+							'load index',
+							'white',
+							data?.load.map(item => ({ value: item.value, label: item.value })),
+							false,
+							filter?.li,
+							true,
+						) }
+						{ renderSelect(
+							'si',
+							'speed index',
+							'white',
+							data?.speed.map(item => ({ value: item.value, label: item.value })),
+							false,
+							filter?.si,
+							true,
+						) }
+						{ renderSelect(
+							'omolog',
+							'homologation',
+							'white',
+							data?.omolog.map(item => ({ value: item.value, label: item.value })),
+							false,
+							filter?.omolog,
+							true,
+						) }
+						{ renderSelect(
+							'other',
+							'other',
+							'white',
+							others.map(item => ({ value: item.value, label: locale === Language.UA ? item.name_ua : item.name })),
+							false,
+							null,
+							false,
+							null,
+							{
+								only_c: filter?.only_c ?? null,
+								only_xl: filter?.only_xl ?? null,
+								only_owl: filter?.only_owl ?? null,
+								only_run_flat: filter?.only_run_flat ?? null,
+								only_off_road: filter?.only_off_road ?? null,
+							}
+						) }
+					</> }
+					<SelectFromTo name='price' nameMin='minPrice' nameMax='maxPrice' from={ 200 } to={ 10000 }
+												title={ `${ t('price range') } (грн)` } btnTitle={ t('to apply') } closeFilter={ onClose }/>
+				</div>
 			</div>
+		)
+	}
+
+	return (
+		<div>
+			<FilterBtn openFilter={ onOpen } title={ t('filters') }/>
+			<Filters isMobile={ false }/>
+			<Drawer isOpen={ isOpen } placement='left' onOpenChange={ onOpenChange }>
+				<DrawerContent>
+					{ () => (
+						<Filters isMobile={ true }/>
+					) }
+				</DrawerContent>
+			</Drawer>
 		</div>
 	)
 };

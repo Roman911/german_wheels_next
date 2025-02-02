@@ -4,6 +4,8 @@ import { usePathname } from 'next/navigation';
 import Link, { LinkProps } from 'next/link';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
+import { useAppDispatch } from '@/hooks/redux';
+import { setParams, resetFilter } from '@/store/slices/filterSlice';
 import { BusIcon, CargoIcon, CarIcon, MotorcyclesIcon, SpecialEquipmentIcon, SuvIcon } from '../Lib/Icons';
 import { typeCatLinks } from './links';
 import { Language } from '@/models/language';
@@ -30,6 +32,7 @@ interface ILinkComponent extends LinkProps {
 	iconStyles?: string
 	iconStylesActive?: string
 	vehicleType: string[]
+	onClick?: () => void
 }
 
 const LinkComponent: FC<ILinkComponent> = (
@@ -47,10 +50,17 @@ const LinkComponent: FC<ILinkComponent> = (
 	const value = pathname.split("vt-")[1]?.split("/")[0] || null;
 	const active = value && vehicleType.includes(value);
 	const IconComponent = Icons[icon];
+	const dispatch = useAppDispatch();
+
+	const handleClick = () => {
+		if(onClick) onClick();
+		dispatch(resetFilter());
+		dispatch(setParams({ 'vehicle_type': null }));
+	}
 
 	return <Link
 		href={ href }
-		onClick={ onClick }
+		onClick={ handleClick }
 		className={ twMerge('flex items-center group',
 			section === 'catalog' && 'flex-col', section === 'header' && 'mt-3 gap-2.5'
 		) }
