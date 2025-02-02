@@ -93,11 +93,6 @@ export const baseDataAPI = createApi({
 		// 	}),
 		// 	providesTags: () => ['Product']
 		// }),
-		// fetchDataAkum: build.query<AkumProps, string>({
-		// 	query: () => ({
-		// 		url: `/api/baseDataAkum`,
-		// 	}),
-		// }),
 		// fetchBrand: build.query({
 		// 	query: ([section]) => ({
 		// 		url: `/api/brand/${[section]}`,
@@ -173,27 +168,27 @@ export const baseDataAPI = createApi({
 				}
 			}),
 		}),
-		// createCallback: build.mutation({
-		// 	query: (data) => ({
-		// 		url: '/api/addCallback',
-		// 		method: 'POST',
-		// 		body: data,
-		// 		header: {
-		// 			'Content-Type': 'application/x-www-form-urlencoded',
-		// 			'Accept': 'application/json',
-		// 		}
-		// 	}),
-		// }),
-		// createAddAsk: build.mutation({
-		// 	query: (data) => ({
-		// 		url: '/api/addAsk',
-		// 		method: 'POST',
-		// 		body: data,
-		// 		header: {
-		// 			'Content-Type': 'application/x-www-form-urlencoded',
-		// 			'Accept': 'application/json',
-		// 		}
-		// 	}),
-		// }),
+		createCallback: build.mutation({
+			query: (data) => ({
+				url: '/api/addCallback',
+				method: 'POST',
+				body: data,
+				header: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+					'Accept': 'application/json',
+				}
+			}),
+		}),
+		createAddAsk: build.mutation({
+			query: (data) => ({
+				url: '/api/addAsk',
+				method: 'POST',
+				body: data,
+				header: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+					'Accept': 'application/json',
+				}
+			}),
+		}),
 	}),
 });

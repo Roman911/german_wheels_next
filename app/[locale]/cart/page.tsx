@@ -37,7 +37,7 @@ export default function Cart() {
 
 	return <Layout>
 		<Breadcrumbs path={ path } />
-		<Title title='cart' />
+		<Title title='cart' translations={ true } />
 		<Spinner height='h-40' show={ isLoading }>
 			{ cartItems.length > 0 && data?.result ? <CartComponent
 					data={ data }

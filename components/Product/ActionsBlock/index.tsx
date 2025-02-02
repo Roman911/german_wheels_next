@@ -14,6 +14,8 @@ import { addToStorage, getFromStorage, removeFromStorage } from '@/lib/localeSto
 import { addBookmarks, removeBookmarks } from '@/store/slices/bookmarksSlice';
 import { addComparison, removeComparison } from '@/store/slices/comparisonSlice';
 import * as Icons from '../../Lib/Icons';
+import CallbackModal from '@/components/Product/ActionsBlock/CallbackModal';
+import AddAskModal from '@/components/Product/ActionsBlock/AddAskModal';
 
 // Helper function to update local storage
 const updateStorage = (storageKey: string, id: number, section: string, shouldRemove: boolean) => {
@@ -29,10 +31,12 @@ interface ActionsBlockProps {
 	id: number
 	className: string
 	section: string
-	// handleModalOpen: (type: 'QuickOrder' | 'OnlineInstallment' | 'DeliveryCalculation' | 'Callback' | 'AddAsk') => void
+	quantity: number
+	productName: string
+	// handleModalOpen: (type: 'QuickOrder' | 'OnlineInstallment' | 'DeliveryCalculation' | 'Callback' | 'AddAskModal') => void
 }
 
-const ActionsBlock: FC<ActionsBlockProps> = ({ id, className, section }) => {
+const ActionsBlock: FC<ActionsBlockProps> = ({ id, className, section, quantity, productName }) => {
 	const pathname = usePathname();
 	const url = process.env.ACCESS_ORIGIN + pathname;
 	const dispatch = useAppDispatch();
@@ -53,18 +57,10 @@ const ActionsBlock: FC<ActionsBlockProps> = ({ id, className, section }) => {
 		updateStorage('reducerComparison', id, section, isComparison);
 	};
 
-	const openModal = (type: 'QuickOrder' | 'OnlineInstallment' | 'DeliveryCalculation' | 'Callback' | 'AddAsk') => {
-		console.log('click', type)
-	}
-
 	return (
 		<div className={ twMerge('gap-1.5 xl:gap-2.5 h-full', className) }>
-			<button onClick={ () => openModal('Callback') } className='p-3 bg-[#E4E9F2] hover:bg-teal-300 rounded-full group'>
-				<Icons.PhoneCircuitIcon className='w-4 h-4 stroke-black group-hover:stroke-black'/>
-			</button>
-			<button onClick={ () => openModal('AddAsk') } className='p-3 bg-[#E4E9F2] hover:bg-teal-300 rounded-full group'>
-				<Icons.MailIcon className='w-4 h-4 stroke-black group-hover:stroke-black'/>
-			</button>
+			<CallbackModal id={ id } quantity={ quantity } />
+			<AddAskModal id={ id } productName={ productName } />
 			<div className='p-3 bg-[#E4E9F2] rounded-full hover:bg-teal-300 group cursor-pointer relative'>
 				<Icons.ShareIcon className='w-4 h-4 fill-black group-hover:fill-black'/>
 				<div className='absolute top-10 left-0 bg-white rounded shadow-md py-4 px-6 hidden group-hover:block'>

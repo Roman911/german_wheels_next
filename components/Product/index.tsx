@@ -100,7 +100,7 @@ const ProductComponent: FC<Props> = ({ idProduct, locale, data, section, setting
 							vehicle_type={ data.data.offer_group.vehicle_type }
 							season={ model.season }
 						/>
-						<ActionsBlock className='flex md:hidden' id={ id } section={ section }/>
+						<ActionsBlock className='flex md:hidden' id={ id } section={ section } quantity={ quantity } productName={ full_name } />
 						<div className='flex-1 md:ml-6 xl:ml-10'>
 							<h1 className='text-2xl font-bold mt-8 md:mt-0'>{ full_name }</h1>
 							<div className='flex mt-5 items-center'>
@@ -122,7 +122,7 @@ const ProductComponent: FC<Props> = ({ idProduct, locale, data, section, setting
 										{ t('from') } <span className='font-bold'>{ min_price * 4 } ₴ </span> за 4 шт.
 									</div>
 								</div>
-								<ActionsBlock className='hidden md:flex' id={ id } section={ section }/>
+								<ActionsBlock className='hidden md:flex' id={ id } section={ section } quantity={ quantity } productName={ full_name } />
 							</div>
 							<div className='offers mt-7 mb-5'>
 								{ offers.map(item => {
