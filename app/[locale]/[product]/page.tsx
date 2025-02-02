@@ -4,9 +4,10 @@ import Breadcrumbs from '@/components/UI/Breadcrumbs';
 import ProductComponent from '@/components/Product';
 import { Language } from '@/models/language';
 import Layout from '@/components/Layout';
+import TextSeo from '@/components/Home/TextSeo';
 
 async function getSettings() {
-	const res = await fetch(`${process.env.SERVER_URL}/baseData/settings`, {
+	const res = await fetch(`${ process.env.SERVER_URL }/baseData/settings`, {
 		method: 'GET',
 		headers: {
 			'Access-Control-Allow-Credentials': 'true',
@@ -16,7 +17,7 @@ async function getSettings() {
 }
 
 async function getProduct(id: string): Promise<ProductProps> {
-	const res = await fetch(`${process.env.SERVER_URL}/api/getProduct/${id}`, {
+	const res = await fetch(`${ process.env.SERVER_URL }/api/getProduct/${ id }`, {
 		method: 'GET',
 		headers: {
 			'Access-Control-Allow-Credentials': 'true',
@@ -37,18 +38,18 @@ export default async function Product({ params }: { params: Promise<{ locale: La
 		{
 			title: section,
 			translations: true,
-			href: `/catalog/${section}`
+			href: `/catalog/${ section }`
 		},
 		{
 			title: productResponse?.data.full_name || '',
 			translations: false,
-			href: `/${section}`
+			href: `/${ section }`
 		}
 	];
 
 	return (
 		<Layout>
-			<Breadcrumbs path={ path } />
+			<Breadcrumbs path={ path }/>
 			<ProductComponent
 				idProduct={ idProduct }
 				locale={ locale }
@@ -56,6 +57,7 @@ export default async function Product({ params }: { params: Promise<{ locale: La
 				section={ section }
 				settings={ settings }
 			/>
+			<TextSeo description={ settings[locale].description }/>
 		</Layout>
 	)
 };
