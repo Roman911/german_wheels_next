@@ -20,6 +20,7 @@ const MySelect: FC<SelectProps> = (
 		options = [],
 		isDisabled = false,
 		onChange,
+		setState
 	}) => {
 	const t = useTranslations('Select');
 
@@ -27,8 +28,14 @@ const MySelect: FC<SelectProps> = (
 		onChange(name, key, key);
 	}
 
+	const handleInputChange = (value: string) => {
+		const cleanedText = value.replace(/[^а-яА-ЯіїєґІЇЄҐ' ]/g, '');
+		if(setState) setState(cleanedText?.toString());
+	}
+
 	return <Autocomplete
-		className='max-w-full md:max-w-xs'
+		onInputChange={handleInputChange}
+		className='max-w-full md:max-w-full'
 		classNames={ {
 			listboxWrapper: 'rounded-xs'
 		} }

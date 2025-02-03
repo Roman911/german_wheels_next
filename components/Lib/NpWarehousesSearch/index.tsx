@@ -20,7 +20,7 @@ export const NpWarehousesSearch: FC<NpWarehousesSearchProps> = ({ title, lang })
 		return { value: item.Ref, label: lang === Language.UA ? item.Description : item.DescriptionRu }
 	});
 
-	const onChange = (_: string, value?: number | string, label?: number | string) => {
+	const onChange = (_: string, value?: number | string | null, label?: number | string | null) => {
 		const normalizedValue = value?.toString() ?? '';
 		const normalizedLabel = label?.toString() ?? '';
 		dispatch(setWirehouse({ value: normalizedValue, label: normalizedLabel }));

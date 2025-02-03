@@ -18,9 +18,9 @@ interface OrderProps {
 	isLoading: boolean
 	loadingBtn: boolean
 	showNpWarehouses: boolean | undefined
-	shippingMethod: string | number | undefined
+	shippingMethod: string | number | null
 	cartItems: { id: number; quantity: number }[]
-	onChange: (name: string, value: number | string | undefined) => void
+	onChange: (name: string, value: number | string | null) => void
 	dataOrdersParam: OrdersParamProps | undefined
 }
 
@@ -102,13 +102,13 @@ const OrderComponent: FC<OrderProps> = (
 						<MySelect name='shipping_method' label={ lang === Language.UA ? 'Спосіб доставки' : 'Способ доставки' }
 											options={ deliverysOptions } onChange={ onChange }/>
 					</div>
-					{ (shippingMethod === 2 || shippingMethod === 3) && <div className='mt-3'>
+					{ (shippingMethod === '2' || shippingMethod === '3') && <div className='mt-3'>
 						<NpCitySearch title={ t('city') }/>
 					</div> }
-					{ shippingMethod === 2 && showNpWarehouses && <div className='mt-3'>
+					{ shippingMethod === '2' && showNpWarehouses && <div className='mt-3'>
 						<NpWarehousesSearch title={ t('department') } lang={ lang } />
 					</div> }
-					{ shippingMethod === 3 && <Controller
+					{ shippingMethod === '3' && <Controller
 						name="address"
 						control={ control }
 						render={ ({ field }) => {

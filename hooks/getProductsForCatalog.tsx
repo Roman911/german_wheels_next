@@ -63,8 +63,6 @@ export const useAppGetProductsForCatalog = () => {
 	const [ params, setParams ] = useState<string[]>([]);
 	const [ filter, setFilter ] = useState<IFilter>(initialFilterState);
 
-	console.log(urlParams.slug)
-
 	useEffect(() => {
 		if(urlParams.slug) {
 			const url = parseUrl(urlParams.slug.join('/'));

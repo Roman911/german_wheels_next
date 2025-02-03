@@ -18,7 +18,7 @@ export const NpCitySearch: FC<NpCitySearchProps> = ({ title }) => {
 		label: item.MainDescription,
 	}));
 
-	const onChange = (_: string, value?: number | string, label?: number | string) => {
+	const onChange = (_: string, value?: number | string | null, label?: number | string | null) => {
 		const normalizedValue = value?.toString() ?? '';
 		const normalizedLabel = label?.toString() ?? '';
 		setCityState(normalizedLabel);

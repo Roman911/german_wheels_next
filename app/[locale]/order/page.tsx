@@ -54,8 +54,8 @@ const defaultValues = {
 export default function Order() {
 	const dispatch = useAppDispatch();
 	const [ loadingBtn, setLoadingBtn ] = useState(false);
-	const [ shippingMethod, setShippingMethod ] = useState<number | string | undefined>(1);
-	const [ paymentMethod, setPaymentMethod ] = useState<number | string | undefined>(1);
+	const [ shippingMethod, setShippingMethod ] = useState<number | string | null>(1);
+	const [ paymentMethod, setPaymentMethod ] = useState<number | string | null>(1);
 	const { cartItems } = useAppSelector(state => state.cartReducer);
 	const { city, wirehouse } = useAppSelector(state => state.orderReducer);
 	const { tires, cargo, disks, battery, isLoading } = useAppGetProducts(cartItems, 'reducerCart', true);
@@ -152,7 +152,7 @@ export default function Order() {
 		});
 	}
 
-	const onChange = (name: string, value: number | string | undefined) => {
+	const onChange = (name: string, value: number | string | null) => {
 		if(name === 'shipping_method') {
 			setShippingMethod(value);
 		} else if(name === 'payment_method') {
