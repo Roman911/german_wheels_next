@@ -24,7 +24,7 @@ const ByCar: FC<Props> = ( data ) => {
 	const { data: modelYear } = baseDataAPI.useFetchAutoYearQuery(`${filter.model}`);
 	const { data: modelKit, refetch: modelKitRefetch } = baseDataAPI.useFetchAutoModelKitQuery(`${filter.model}/${filter.year}`);
 
-	const onChangeByCar = (name: string, value: number | string | undefined) => {
+	const onChangeByCar = (name: string, value: number | string | null) => {
 		dispatch(setCarFilter({ ...filter, [name]: value }));
 		if(name === 'model') {
 			modelRefetch();
@@ -58,10 +58,10 @@ const ByCar: FC<Props> = ( data ) => {
 				<MySelect
 					name='year'
 					label={ t('graduation year') }
-					options={ modelYear?.map(item => ({ value: item, label: item })) }
+					options={ modelYear?.map(item => ({ value: item, label: `${item}` })) }
 					isDisabled={ modelYear?.length === 0 }
 					onChange={ onChangeByCar }
-					defaultValue={ filterCar?.year ? { value: filterCar?.year, label: filterCar?.year } : undefined }
+					defaultValue={ filterCar?.year ? { value: `${filterCar?.year}`, label: `${filterCar?.year}` } : undefined }
 				/>
 			</div>
 			<div className='mt-2'>
