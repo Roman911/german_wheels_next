@@ -11,6 +11,7 @@ import SelectionByCar from '@/components/Catalog/SelectionByCar';
 import FilterActive from '@/components/Catalog/FilterActive';
 import HeaderCatalog from '@/components/Catalog/HeaderCatalog';
 import Pagination from '@/components/Catalog/Pagination';
+import type { Metadata } from 'next';
 
 const pageItem = 12;
 
@@ -34,6 +35,17 @@ async function getProducts({ page, searchParams }: { page: number | null, search
 		body: JSON.stringify({ start: page ? page * pageItem : 0, length: 12 }),
 	});
 	return await res.json();
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: Language }> }): Promise<Metadata> {
+	const { locale } = await params;
+	const response = await fetch(`${process.env.SERVER_URL}/baseData/settings`)
+		.then((res) => res.json());
+
+	return {
+		title: response[locale].meta_title,
+		description: response[locale].meta_description,
+	}
 }
 
 export default async function Catalog({ params }: { params: Promise<{ locale: Language, section: Section, slug: string[] }> }) {

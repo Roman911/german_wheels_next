@@ -5,6 +5,7 @@ import ProductComponent from '@/components/Product';
 import { Language } from '@/models/language';
 import Layout from '@/components/Layout';
 import TextSeo from '@/components/Home/TextSeo';
+import type { Metadata } from 'next';
 
 async function getSettings() {
 	const res = await fetch(`${ process.env.SERVER_URL }/baseData/settings`, {
@@ -24,6 +25,17 @@ async function getProduct(id: string): Promise<ProductProps> {
 		}
 	});
 	return await res.json();
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: Language }> }): Promise<Metadata> {
+	const { locale } = await params;
+	const response = await fetch(`${process.env.SERVER_URL}/baseData/settings`)
+		.then((res) => res.json());
+
+	return {
+		title: response[locale].meta_title,
+		description: response[locale].meta_description,
+	}
 }
 
 export default async function Product({ params }: { params: Promise<{ locale: Language, product: string }> }) {
