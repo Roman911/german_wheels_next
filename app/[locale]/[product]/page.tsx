@@ -27,14 +27,16 @@ async function getProduct(id: string): Promise<ProductProps> {
 	return await res.json();
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: Language }> }): Promise<Metadata> {
-	const { locale } = await params;
-	const response = await fetch(`${process.env.SERVER_URL}/baseData/settings`)
+export async function generateMetadata({ params }: { params: Promise<{ product: string }> }): Promise<Metadata> {
+	const { product } = await params;
+	const match = product.match(/(\d+)$/); // match will be RegExpMatchArray | null
+	const id = match ? match[1] : '';
+	const response = await fetch(`${ process.env.SERVER_URL }/api/getProduct/${ id }`)
 		.then((res) => res.json());
 
 	return {
-		title: response[locale].meta_title,
-		description: response[locale].meta_description,
+		title: response.data.full_name || '',
+		description: response.data.full_name || '',
 	}
 }
 

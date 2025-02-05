@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Language } from '@/models/language';
 import { countryCodeTransform } from '@/lib/countryCodetransform';
@@ -12,7 +13,7 @@ interface CartItemProps {
 	default_photo: string
 	full_name: string
 	price: string
-	group: number
+	sku: number
 	country: string
 	country_ru: string
 	year: number
@@ -30,7 +31,7 @@ const CartItem: FC<CartItemProps> = (
 		default_photo,
 		full_name,
 		price,
-		group,
+		sku,
 		country,
 		country_ru,
 		year,
@@ -50,7 +51,7 @@ const CartItem: FC<CartItemProps> = (
 
 	return <div className='flex flex-col md:flex-row py-4 items-center relative'>
 		<Link href={`/${pageUrl}`}>
-			<img className='w-36' src={default_photo} alt=""/>
+			<Image src={ default_photo } height={ 122 } width={ 122 } alt={ full_name } />
 		</Link>
 		<div className='flex flex-col md:flex-row justify-between items-center w-full ml-4 pr-4 mt-4 md:mt-0 md:pr-0'>
 			<div className='flex-1'>
@@ -58,7 +59,7 @@ const CartItem: FC<CartItemProps> = (
 					{ full_name }
 				</Link>
 				<div className='font-bold text-xl mt-2'>{ price } ₴/шт.</div>
-				<div className='text-sm text-gray-500 mt-1'>Арт: { group }</div>
+				<div className='text-sm text-gray-500 mt-1'>Арт: { sku }</div>
 				<div className='country mt-2 md:col-span-4'>
 					{ (country || year) && <CountryInfo
 						country={ country }

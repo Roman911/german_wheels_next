@@ -1,7 +1,7 @@
 export const tiresParams = [
-	'сезон',
+	'season',
 	'car type',
-	'ширина',
+	'width',
 	'profile height',
 	'diameter',
 	'load index',
@@ -14,11 +14,11 @@ export const tiresParams = [
 
 export const disksParams = [
 	'type',
-	'ширина',
+	'width',
 	'diameter',
 	'fasteners',
-	'ET',
-	'DIA',
+	'et',
+	'dia',
 	'country',
 	'price'
 ];

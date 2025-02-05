@@ -56,6 +56,8 @@
     "fasteners": "Крепеж",
     "graduation year": "Год выпуска",
     "height": "Высота",
+    "dia": "DIA",
+    "et": "ET",
     "et from": "Вылет от",
     "et to": "Вылет до",
     "other": "Другое",
@@ -88,7 +90,15 @@
     "reset everything": "Сбросить все",
     "disks": "Диски",
     "filters": "Фильтры",
-    "color": "Цвет"
+    "color": "Цвет",
+    "car type": "Тип автомобиля",
+    "profile height": "Высота профиля",
+    "strengthening": "Усиление",
+    "country": "Страна",
+    "price": "Цена",
+    "capacity": "емкость",
+    "starting current": "пусковой ток",
+    "high-voltage": "напряжение"
   },
   "Footer": {
     "brands": "Бренды",
@@ -150,6 +160,16 @@
     "email": "Электронная почта",
     "your comment": "Ваш комментарий"
   },
+  "SuccessfulOrder": {
+    "thanks for your order": "Спасибо за заказ",
+    "manager will contact you shortly": "В ближайшее время с Вами свяжется менеджер",
+    "return to home page": "Вернуться на главную"
+  },
+  "Comparison": {
+    "cargo": "Грузовые",
+    "comparison": "Сравнение",
+    "tires": "Шины"
+  },
 
   "add all": "добавить все",
   "accumulators": "аккумуляторы",
@@ -164,17 +184,13 @@
   "by price": "по цене",
 
   "buy here": "купить здесь",
-  "capacity": "емкость",
-  "car": "автомобилей",
 
-  "car type": "тип автомобиля",
+  "car": "автомобилей",
 
   "cargo tires": "грузовые шины",
 
   "cheap at first": "сначала дешевые",
 
-  "comparison": "сравнение",
-  "country": "страна",
   "credit": "кредит",
 
   "departure": "вылет",
@@ -192,8 +208,6 @@
 
   "free": "бесплатный",
 
-  "high-voltage": "напряжение",
-
   "manufacturers": "производители",
 
   "motorcycle tires": "мотошины",
@@ -204,10 +218,9 @@
 
   "phones": "телефоны",
   "polarity": "полярность",
-  "price": "цена",
 
   "profile": "профиль",
-  "profile height": "высота профиля",
+
   "public offer agreement": "договор публичной оферты",
   "recently viewed": "похожие товары",
 
@@ -218,9 +231,6 @@
   "show all": "показать все",
   "sorting": "сортировка",
 
-  "starting current": "пусковой ток",
-
-  "strengthening": "усиление",
   "sun": "вс",
 
   "tire comparison": "сравнение шин",

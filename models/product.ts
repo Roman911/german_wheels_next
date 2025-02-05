@@ -30,6 +30,7 @@ export interface Offers {
 
 interface OfferGroup {
 	id: number
+	sku: number
 	model: number
 	width: string
 	height: string

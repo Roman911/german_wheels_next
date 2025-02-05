@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
 import CloseButton from '@/components/Lib/CloseButton';
 import { ItemWrapper } from './ItemWrapper';
@@ -28,19 +29,20 @@ const ComparisonComponent: FC<ComparisonProps> = (
 		handleClick,
 		onClick
 	}) => {
-	const [tab, setTab] = useState<string>('tires');
+	const t = useTranslations('Filters');
+	const [ tab, setTab ] = useState<string>('tires');
 
 	useEffect(() => {
 		setTab(defaultTab);
-	}, [defaultTab]);
+	}, [ defaultTab ]);
 
 	const tabRender = (name: string, length: number) => {
 		return <button
-			onClick={() => setTab(name)}
+			onClick={ () => setTab(name) }
 			className={
-			twMerge('font-semibold text-lg py-2 relative hover:text-[#575C66] group transition text-[#575C66]', tab !== name && 'text-teal-400')
-		}>
-			{ name } ({ length })
+				twMerge('font-semibold text-lg py-2 relative hover:text-[#575C66] group transition text-[#575C66]', tab !== name && 'text-teal-400')
+			}>
+			{ t(name) } ({ length })
 			<div className={
 				twMerge('w-full h-0.5 absolute bottom-0 group-hover:bg-[#575C66] bg-[#575C66]', tab !== name && 'bg-transparent')
 			}/>
@@ -50,11 +52,11 @@ const ComparisonComponent: FC<ComparisonProps> = (
 	const paramsRender = (params: string[]) => {
 		return (
 			<>
-				{params.map((item, index) => (
-					<div key={index} className='pr-2.5 h-11 md:leading-[44px] border-b border-transparent'>
-						{ item }:
+				{ params.map((item, index) => (
+					<div key={ index } className='pr-2.5 h-11 md:leading-[44px] border-b border-transparent'>
+						{ t(item) }:
 					</div>
-				))}
+				)) }
 			</>
 		);
 	};
@@ -69,8 +71,7 @@ const ComparisonComponent: FC<ComparisonProps> = (
 		<div className='flex relative'>
 			<div className='w-28 md:w-60 px-2'>
 				<div className='relative pt-9 md:pt-2 pb-2'>
-					{/*{lang === Language.UA ? 'Скинути все' : 'Сбросить все'}*/}
-					Скинути все
+					{ t('reset everything') }
 					<CloseButton handleClick={ resetEverything }/>
 				</div>
 				<div className='mt-48 md:mt-52 text-center md:text-end font-bold'>
@@ -82,10 +83,15 @@ const ComparisonComponent: FC<ComparisonProps> = (
 			</div>
 			<div className='flex-1 w-[calc(100%-15rem)]'>
 				<div className='flex overflow-x-auto overflow-y-hidden whitespace-nowrap max-w-full'>
-					{ tab === 'tires' && <ItemWrapper characteristics={ tires } name={ 'tires' } tab={ tab } onClick={ onClick } handleClick={ handleClick } /> }
-					{ tab === 'cargo' && <ItemWrapper characteristics={ cargo } name={ 'cargo' } tab={ tab } onClick={ onClick } handleClick={ handleClick } /> }
-					{ tab === 'disks' && <ItemWrapper characteristics={ disks } name={ 'disks' } tab={ tab } onClick={ onClick } handleClick={ handleClick } /> }
-					{ tab === 'battery' && <ItemWrapper characteristics={ battery } name={ 'battery' } tab={ tab } onClick={ onClick } handleClick={ handleClick } /> }
+					{ tab === 'tires' && <ItemWrapper characteristics={ tires } name={ 'tires' } tab={ tab } onClick={ onClick }
+																						handleClick={ handleClick }/> }
+					{ tab === 'cargo' && <ItemWrapper characteristics={ cargo } name={ 'cargo' } tab={ tab } onClick={ onClick }
+																						handleClick={ handleClick }/> }
+					{ tab === 'disks' && <ItemWrapper characteristics={ disks } name={ 'disks' } tab={ tab } onClick={ onClick }
+																						handleClick={ handleClick }/> }
+					{ tab === 'battery' &&
+						<ItemWrapper characteristics={ battery } name={ 'battery' } tab={ tab } onClick={ onClick }
+												 handleClick={ handleClick }/> }
 				</div>
 			</div>
 		</div>

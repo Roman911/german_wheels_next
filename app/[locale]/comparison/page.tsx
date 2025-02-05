@@ -1,4 +1,5 @@
 'use client'
+import { useTranslations } from 'next-intl';
 import { addToStorage, getFromStorage, removeFromStorage, resetStorage } from '@/lib/localeStorage';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useAppGetProducts } from '@/hooks/getProducts';
@@ -12,6 +13,7 @@ import NoResult from '@/components/Lib/NoResult';
 import ComparisonComponent from '@/components/Comparison';
 
 export default function Comparison() {
+	const t = useTranslations('Comparison');
 	const dispatch = useAppDispatch();
 	const noDataText = 'Ви ще не додали в обране жодного товару';
 	const { comparisonItems } = useAppSelector(state => state.comparisonReducer);
@@ -19,7 +21,7 @@ export default function Comparison() {
 
 	const path = [
 		{
-			title: 'comparison',
+			title: t('comparison'),
 			href: '/comparison',
 			translations: false
 		}
@@ -42,20 +44,22 @@ export default function Comparison() {
 		addToStorage('reducerCart', cart);
 	}
 
-	return <Layout >
-		<Breadcrumbs path={ path } />
-		<Title title='comparison' />
-		{comparisonItems.length > 0 ? <Spinner height='h-40' show={ isLoading } >
-			<ComparisonComponent
-				defaultTab={ tires.length > 0 ? 'tires' : cargo.length > 0 ? 'cargo' : disks.length > 0 ? 'disks' : 'battery' }
-				tires={ tires }
-				cargo={ cargo }
-				disks={ disks }
-				battery={ battery }
-				resetEverything={ resetEverything }
-				handleClick={ handleClick }
-				onClick={ onClick }
-			/>
-		</Spinner> : <NoResult noResultText={ noDataText } />}
-	</Layout>
+	return (
+		<Layout>
+			<Breadcrumbs path={ path } />
+			<Title title={ t('comparison') } />
+			{comparisonItems.length > 0 ? <Spinner height='h-40' show={ isLoading } >
+				<ComparisonComponent
+					defaultTab={ tires.length > 0 ? 'tires' : cargo.length > 0 ? 'cargo' : disks.length > 0 ? 'disks' : 'battery' }
+					tires={ tires }
+					cargo={ cargo }
+					disks={ disks }
+					battery={ battery }
+					resetEverything={ resetEverything }
+					handleClick={ handleClick }
+					onClick={ onClick }
+				/>
+			</Spinner> : <NoResult noResultText={ noDataText } />}
+		</Layout>
+	)
 };

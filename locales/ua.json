@@ -56,6 +56,8 @@
     "fasteners": "Кріплення",
     "graduation year": "Рік випуску",
     "height": "Висота",
+    "dia": "DIA",
+    "et": "ET",
     "et from": "Виліт від",
     "et to": "Виліт до",
     "other": "Інше",
@@ -88,7 +90,15 @@
     "reset everything": "Скинути все",
     "disks": "Диски",
     "filters": "Фільтри",
-    "color": "Колір"
+    "color": "Колір",
+    "car type": "Тип автомобіля",
+    "profile height": "Висота профілю",
+    "strengthening": "Посилення",
+    "country": "Країна",
+    "price": "Ціна",
+    "capacity": "ємність",
+    "starting current": "пусковий струм",
+    "high-voltage": "напруга"
   },
   "Footer": {
     "brands": "Бренди",
@@ -150,6 +160,16 @@
     "email": "Електронна пошта",
     "your comment": "Ваш коментар"
   },
+  "SuccessfulOrder": {
+    "thanks for your order": "Дякуємо за замовлення",
+    "manager will contact you shortly": "Найближчим часом з Вами зв'яжеться менеджер",
+    "return to home page": "Повернутися на головну"
+  },
+  "Comparison": {
+    "cargo": "Вантажні",
+    "comparison": "Порівняння",
+    "tires": "Шини"
+  },
 
   "add all": "додати всі",
   "accumulators": "акумулятори",
@@ -164,17 +184,13 @@
   "by price": "за ціною",
 
   "buy here": "купити тут",
-  "capacity": "ємність",
-  "car": "автомобілів",
 
-  "car type": "тип автомобіля",
+  "car": "автомобілів",
 
   "cargo tires": "вантажні шини",
 
   "cheap at first": "спочатку дешеві",
 
-  "comparison": "порівняння",
-  "country": "країна",
   "credit": "кредит",
 
   "department": "відділення",
@@ -196,8 +212,6 @@
 
   "free": "безкоштовний",
 
-  "high-voltage": "напруга",
-
   "manufacturers": "виробники",
 
   "motorcycle tires": "мотошини",
@@ -208,10 +222,9 @@
 
   "phones": "телефони",
   "polarity": "полярність",
-  "price": "ціна",
 
   "profile": "профіль",
-  "profile height": "висота профілю",
+
   "public offer agreement": "договір публічної оферти",
   "recently viewed": "нещодавно переглянуті",
 
@@ -222,9 +235,6 @@
   "show all": "показати всі",
   "sorting": "сортування",
 
-  "starting current": "пусковий струм",
-
-  "strengthening": "посилення",
   "sun": "нд",
 
   "tire comparison": "порівняння шин",

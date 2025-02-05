@@ -1,5 +1,7 @@
 'use client'
+import { FormEvent } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { ChangeEvent, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
@@ -13,6 +15,7 @@ import styles from '../index.module.scss';
 import { Language } from '@/models/language';
 
 const Search = ({ locale }: { locale: Language }) => {
+	const router = useRouter();
 	const t = useTranslations('Catalog');
 	const [ value, setValue ] = useState('');
 	const { data } = baseDataAPI.useFetchProductsQuery({ id: `?name=${ value }` })
@@ -31,10 +34,15 @@ const Search = ({ locale }: { locale: Language }) => {
 		handleClick();
 	}
 
+	const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		handleClickAllProduct();
+		router.push(`/${locale}/search`);
+	}
+
 	return (
 		<div className={ twMerge('relative w-full mx-auto mt-4 md:pr-6 lg:mt-0 lg:max-w-[500px]', styles.search) }>
-			<div
-				className='flex rounded-sm bg-natural-800 p-0.5 border border-natural-600 w-full'>
+			<form className='flex rounded-sm bg-natural-800 p-0.5 border border-natural-600 w-full' onSubmit={ onSubmit }>
 				<input
 					type="text"
 					value={ value }
@@ -45,7 +53,7 @@ const Search = ({ locale }: { locale: Language }) => {
 				<button type="submit" className="btn primary w-14 h-9">
 					<Icons.SearchIcon className='fill-black'/>
 				</button>
-			</div>
+			</form>
 			<div className={ twMerge(
 				'absolute top-12 right-0 z-20 py-6 px-8 md:px-10 bg-gray-800 text-white rounded-sm w-full lg:max-w-[460px]',
 				value.length < 2 && 'hidden'

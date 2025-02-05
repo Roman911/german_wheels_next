@@ -1,5 +1,6 @@
 'use client'
-import { useEffect, useMemo, useState } from 'react';
+import { useRouter, useParams } from 'next/navigation';
+import { useMemo, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -13,13 +14,7 @@ import Title from '@/components/Lib/Title';
 import Layout from '@/components/Layout';
 import { Breadcrumbs } from '@/components/UI';
 import OrderComponent from '@/components/Order';
-
-const scrollToTop = () => {
-	window.scrollTo({
-		top: 0,
-		behavior: "smooth"
-	});
-};
+import { resetStorage } from '@/lib/localeStorage';
 
 const schema = yup.object().shape({
 	firstname: yup.string().required('Це поле обовʼязкове.'),
@@ -52,6 +47,8 @@ const defaultValues = {
 }
 
 export default function Order() {
+	const router = useRouter();
+	const params = useParams();
 	const dispatch = useAppDispatch();
 	const [ loadingBtn, setLoadingBtn ] = useState(false);
 	const [ shippingMethod, setShippingMethod ] = useState<number | string | null>(1);
@@ -69,10 +66,6 @@ export default function Order() {
 			products: [ ...tires, ...cargo, ...disks, ...battery ],
 		},
 	}), [ battery, cargo, disks, tires ]);
-
-	useEffect(() => {
-		scrollToTop();
-	}, []);
 
 	const products = newData?.data.products?.map((item) => {
 		return {
@@ -142,7 +135,8 @@ export default function Order() {
 				if(data?.result) {
 					methods.reset();
 					dispatch(reset());
-					// navigate('/order/successful');
+					resetStorage('reducerCart');
+					router.push(`/${params.locale}/order/successful`);
 				}
 			} else if(response.error) {
 				console.error('An error occurred:', response.error);

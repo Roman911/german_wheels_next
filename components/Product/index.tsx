@@ -36,7 +36,7 @@ const ProductComponent: FC<Props> = ({ idProduct, locale, data, section, setting
 	const [ quantity, setQuantity ] = useState(1);
 	const { cartItems } = useAppSelector(state => state.cartReducer);
 	const t = useTranslations('Main');
-	const { id = 0, full_name = '', offers = [], min_price = 0, photo, model, labels } = data?.data || {};
+	const { id = 0, full_name = '', offers = [], min_price = 0, photo, model, labels, offer_group } = data?.data || {};
 	const offer = offers.find(item => item.offer_id === offerId);
 	const review = data?.data.review;
 	const commentsAvgRateSum = review && review.length > 0
@@ -105,7 +105,7 @@ const ProductComponent: FC<Props> = ({ idProduct, locale, data, section, setting
 							<h1 className='text-2xl font-bold mt-8 md:mt-0'>{ full_name }</h1>
 							<div className='flex mt-5 items-center'>
 								<div
-									className='text-[15px] text-gray-700 bg-gray-300 rounded-2 py-1 md:py-1 px-3 mr-5'>Артикул: { id }</div>
+									className='text-[15px] text-gray-700 bg-gray-300 rounded-2 py-1 md:py-1 px-3 mr-5'>Артикул: { offer_group.sku }</div>
 								<Rating
 									commentsCount={ review ? (review.length > 0 ? review.length : undefined) : undefined }
 									commentsAvgRate={ averageScore || 0 }
