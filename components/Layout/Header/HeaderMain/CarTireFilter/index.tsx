@@ -21,7 +21,7 @@ export const CarTireFilter: FC<Props> = ({ locale, closeFilter }) => {
 			{ seasonLinks.map(item => {
 				return <LinkComponent
 					key={ item.label }
-					href={ `/${ locale }/${ item.href }` }
+					href={ `/${ locale }${ item.href }` }
 					img={ item.img }
 					label={ t(item.label) }
 					mt={ item.mt }
@@ -40,7 +40,7 @@ export const CarTireFilter: FC<Props> = ({ locale, closeFilter }) => {
 				{ brandsLinks.map(item => {
 					return <LinkComponent
 						key={ item.label }
-						href={ `/${ locale }/${ item.href }` }
+						href={ `/${ locale }${ item.href }` }
 						label={ item.label }
 						border={ false }
 						onClick={ closeFilter }
@@ -61,7 +61,7 @@ export const CarTireFilter: FC<Props> = ({ locale, closeFilter }) => {
 				{ diameterLinks.map(item => {
 					return <LinkComponent
 						key={ item.label }
-						href={ `/${ locale }/${ item.href }` }
+						href={ `/${ locale }${ item.href }` }
 						border={ item.border }
 						label={ item.label }
 						onClick={ closeFilter }

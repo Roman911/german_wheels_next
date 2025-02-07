@@ -96,6 +96,9 @@
     "strengthening": "Усиление",
     "country": "Страна",
     "price": "Цена",
+    "departure": "Вылет",
+    "cast": "Литые",
+    "forged": "Кованые",
     "capacity": "емкость",
     "starting current": "пусковой ток",
     "high-voltage": "напряжение"
@@ -170,6 +173,9 @@
     "comparison": "Сравнение",
     "tires": "Шины"
   },
+  "Favorites": {
+    "favorites": "Избранное"
+  },
 
   "add all": "добавить все",
   "accumulators": "аккумуляторы",
@@ -193,8 +199,6 @@
 
   "credit": "кредит",
 
-  "departure": "вылет",
-
   "disc": "дисков",
 
   "disks by parameters": "диски по параметрам",
@@ -203,8 +207,6 @@
   "guarantee and refund": "гарантия и возврат",
 
   "installment plan": "онлайн рассрочка",
-
-  "favorites": "избранное",
 
   "free": "бесплатный",
 

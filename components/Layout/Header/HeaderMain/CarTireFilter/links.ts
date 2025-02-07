@@ -57,18 +57,6 @@ export const brandsLinks = [
 		href: '/catalog/tires/b-153',
 	},
 	{
-		label: 'Triangle',
-		href: '/catalog/tires/b-258',
-	},
-	{
-		label: 'Premiorri',
-		href: '/catalog/tires/b-194',
-	},
-	{
-		label: 'Powertrac',
-		href: '/catalog/tires/b-193',
-	},
-	{
 		label: 'Fulda',
 		href: '/catalog/tires/b-87',
 	},
@@ -83,26 +71,6 @@ export const brandsLinks = [
 ];
 
 export const diameterLinks = [
-	{
-		label: 'R12',
-		href: '/catalog/tires/d-12',
-		border: true
-	},
-	{
-		label: 'R13',
-		href: '/catalog/tires/d-13',
-		border: true
-	},
-	{
-		label: 'R14',
-		href: '/catalog/tires/d-14',
-		border: true
-	},
-	{
-		label: 'R15',
-		href: '/catalog/tires/d-15',
-		border: true
-	},
 	{
 		label: 'R16',
 		href: '/catalog/tires/d-16',
@@ -146,21 +114,6 @@ export const diameterLinks = [
 	{
 		label: 'R24',
 		href: '/catalog/tires/d-24',
-		border: true
-	},
-	{
-		label: 'R17.5',
-		href: '/catalog/tires/d-17,5',
-		border: true
-	},
-	{
-		label: 'R19.5',
-		href: '/catalog/tires/d-19,5',
-		border: true
-	},
-	{
-		label: 'R22.5',
-		href: '/catalog/tires/d-22,5',
 		border: true
 	},
 ];

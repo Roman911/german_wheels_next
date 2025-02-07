@@ -1,4 +1,5 @@
 'use client'
+import { useTranslations } from 'next-intl';
 import { useAppSelector } from '@/hooks/redux';
 import { useAppGetProducts } from '@/hooks/getProducts';
 import ProductList from '@/components/ProductList';
@@ -10,20 +11,21 @@ import Breadcrumbs from '@/components/UI/Breadcrumbs';
 import { Language } from '@/models/language';
 
 export default function Bookmarks() {
+	const t = useTranslations('Favorites');
 	const noDataText = 'ua' === Language.UA ? 'Ви ще не додали в обране жодного товару' : 'Вы еще не добавили в избранное ни одного товара';
 	const { bookmarksItems } = useAppSelector(state => state.bookmarksReducer);
 	const { products, isLoading} = useAppGetProducts(bookmarksItems, 'reducerBookmarks');
 
 	const path = [
 		{
-			title: 'favorites',
+			title: t('favorites'),
 			href: '/'
 		}
 	]
 
 	return <Layout>
 		<Breadcrumbs path={path}/>
-		<Title title='favorites'/>
+		<Title title={ t('favorites') }/>
 		{bookmarksItems.length > 0 ? <Spinner height='h-40' show={ isLoading } >
 			<ProductList
 				locale={ Language.UA }

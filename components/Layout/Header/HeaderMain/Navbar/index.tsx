@@ -3,6 +3,7 @@ import { FC, useRef, useState, MouseEvent, SetStateAction } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
+import { useClickOutside } from '@/hooks/clickOutside';
 import { CarTireFilter } from '../CarTireFilter';
 import { CarDiskFilter } from '../CarDiskFilter';
 import * as Icons from '@/components/Lib/Icons';
@@ -22,6 +23,8 @@ const Navbar: FC<Props> = ({ locale }) => {
 	const closeFilter = () => {
 		setOpen(false);
 	}
+
+	useClickOutside({ ref: filterRef, open, onClose: closeFilter });
 
 	const handleClick = (event: MouseEvent<HTMLButtonElement>, value: SetStateAction<string>) => {
 		event.stopPropagation();

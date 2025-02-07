@@ -96,9 +96,12 @@
     "strengthening": "Посилення",
     "country": "Країна",
     "price": "Ціна",
+    "departure": "Виліт",
     "capacity": "ємність",
     "starting current": "пусковий струм",
-    "high-voltage": "напруга"
+    "high-voltage": "напруга",
+    "cast": "Литі",
+    "forged": "Ковані"
   },
   "Footer": {
     "brands": "Бренди",
@@ -170,6 +173,9 @@
     "comparison": "Порівняння",
     "tires": "Шини"
   },
+  "Favorites": {
+    "favorites": "Обране"
+  },
 
   "add all": "додати всі",
   "accumulators": "акумулятори",
@@ -194,7 +200,6 @@
   "credit": "кредит",
 
   "department": "відділення",
-  "departure": "виліт",
 
   "disc": "дисків",
 
@@ -207,8 +212,6 @@
   "installment plan": "онлайн розстрочка",
 
   "quick order": "швидке замовлення",
-
-  "favorites": "обране",
 
   "free": "безкоштовний",
 

@@ -58,10 +58,6 @@ export const brandsLinks = [
 		href: '/catalog/disks/b-476',
 	},
 	{
-		label: 'Replica',
-		href: '/catalog/disks/b-476',
-	},
-	{
 		label: 'Ronal',
 		href: '/catalog/disks/b-476',
 	},
@@ -132,21 +128,6 @@ export const carBrandsLinks = [
 
 export const diameterLinks = [
 	{
-		label: 'R13',
-		href: '/catalog/disks/d-13',
-		border: true
-	},
-	{
-		label: 'R14',
-		href: '/catalog/disks/d-14',
-		border: true
-	},
-	{
-		label: 'R15',
-		href: '/catalog/disks/d-15',
-		border: true
-	},
-	{
 		label: 'R16',
 		href: '/catalog/disks/d-16',
 		border: true
@@ -189,21 +170,6 @@ export const diameterLinks = [
 	{
 		label: 'R24',
 		href: '/catalog/disks/d-24',
-		border: true
-	},
-	{
-		label: 'R17.5',
-		href: '/catalog/disks/d-17,5',
-		border: true
-	},
-	{
-		label: 'R19.5',
-		href: '/catalog/disks/d-19,5',
-		border: true
-	},
-	{
-		label: 'R22.5',
-		href: '/catalog/disks/d-22,5',
 		border: true
 	},
 ];

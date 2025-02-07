@@ -99,7 +99,7 @@ const TypeCarLinks: FC<TypeCarLinksProps> = ({ locale, setOpen, section }) => {
 			return <LinkComponent
 				key={ item.label }
 				section={ section }
-				href={ `/${locale}/${item.href}`}
+				href={ `/${locale}${item.href}`}
 				icon={ item.icon as keyof typeof Icons }
 				label={ t(item.label) }
 				onClick={ handleClick }

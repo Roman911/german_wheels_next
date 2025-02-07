@@ -1,5 +1,5 @@
+'use client'
 import { FC } from 'react';
-
 import { baseDataAPI } from '@/services/baseDataService';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { setWirehouse } from '@/store/slices/orderSlice';

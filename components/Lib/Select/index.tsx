@@ -25,7 +25,8 @@ const MySelect: FC<SelectProps> = (
 	const t = useTranslations('Select');
 
 	const handleChange = (key: number | string | null) => {
-		onChange(name, key, key);
+		const label = key ? options.find(i => i.value === key) : {label: ''};
+		onChange(name, key, label?.label);
 	}
 
 	const handleInputChange = (value: string) => {

@@ -30,7 +30,7 @@ export const orderSlice = createSlice({
 			state.city = actions.payload
 		},
 		setWirehouse: (state, actions: PayloadAction<{ value: string, label: string }>) => {
-			state.city = actions.payload
+			state.wirehouse = actions.payload
 		},
 		reset: () => initialState,
 	},
