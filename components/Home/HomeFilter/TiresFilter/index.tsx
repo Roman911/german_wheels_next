@@ -1,11 +1,18 @@
 'use client'
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import MySelect from '../Select';
+import { Button } from '@/components/UI';
 import type { FilterProps } from '../filterHomePage';
 
 const TiresFilter: FC<FilterProps> = ({ filters, onChange, onSubmit }) => {
+	const [ isLoading, setIsLoading ] = useState(false);
 	const t = useTranslations('Filters');
+
+	const submit = () => {
+		setIsLoading(true);
+		onSubmit();
+	}
 
 	return <>
 		<div className='grid grid-cols-1 md:grid-cols-4 gap-2.5 md:mt-7'>
@@ -21,9 +28,9 @@ const TiresFilter: FC<FilterProps> = ({ filters, onChange, onSubmit }) => {
 			}) }
 		</div>
 		<div className='mt-4 md:mt-10 flex justify-center'>
-			<button onClick={ () => onSubmit() } className='btn primary w-full md:w-72 uppercase'>
+			<Button isLoading={ isLoading } onPress={ submit } className='uppercase w-full md:w-72 hover:!opacity-100'>
 				{ t('choose tires') }
-			</button>
+			</Button>
 		</div>
 	</>
 };
