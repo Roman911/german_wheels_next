@@ -19,7 +19,7 @@ export const SubmitFloat: FC<SubmitFloatProps> = ({ element, btnTitle, setElemen
 
 	useEffect(() => {
 		if(element) {
-			const timer = setTimeout(() => setElement(null), 7000);
+			const timer = setTimeout(() => setElement(null), 70000);
 
 			return () => {
 				clearTimeout(timer);

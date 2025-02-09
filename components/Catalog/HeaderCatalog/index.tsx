@@ -94,8 +94,6 @@ const HeaderCatalog: FC<Props> = ({ section, slug }) => {
 		},
 	];
 
-	console.log(path)
-
 	return (
 		<>
 			<Breadcrumbs path={ path } />
