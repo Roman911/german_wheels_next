@@ -177,6 +177,13 @@
     "department": "Отделение",
     "no options message": "Совпадений не найдено"
   },
+  "Sort": {
+    "by number of offers": "По количеству предложений",
+    "by popularity": "По популярности",
+    "cheap at first": "Сначала дешевые",
+    "expensive at first": "Сначала дорогие",
+    "sorting": "Сортировка"
+  },
   "SuccessfulOrder": {
     "manager will contact you shortly": "В ближайшее время с Вами свяжется менеджер",
     "return to home page": "Вернуться на главную",
@@ -190,9 +197,6 @@
   "battery": "аккумуляторы",
   "body type": "тип корпусу",
 
-  "by number of offers": "по количеству предложений",
-
-  "by popularity": "по популярности",
   "by price": "по цене",
 
   "buy here": "купить здесь",
@@ -201,15 +205,12 @@
 
   "cargo tires": "грузовые шины",
 
-  "cheap at first": "сначала дешевые",
-
   "credit": "кредит",
 
   "disc": "дисков",
 
   "disks by parameters": "диски по параметрам",
 
-  "expensive at first": "сначала дорогие",
   "guarantee and refund": "гарантия и возврат",
 
   "installment plan": "онлайн рассрочка",
@@ -237,7 +238,6 @@
   "selection of tires and wheels": "подбор шин и дисков",
   "services": "услуги",
   "show all": "показать все",
-  "sorting": "сортировка",
 
   "sun": "вс",
 

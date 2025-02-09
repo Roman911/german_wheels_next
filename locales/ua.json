@@ -177,6 +177,13 @@
     "department": "Відділення",
     "no options message": "Збігів не знайдено"
   },
+  "Sort": {
+    "by number of offers": "За кількістю пропозицій",
+    "by popularity": "За популярністю",
+    "cheap at first": "Спочатку дешеві",
+    "expensive at first": "Спочатку дорогі",
+    "sorting": "Сортування"
+  },
   "SuccessfulOrder": {
     "manager will contact you shortly": "Найближчим часом з Вами зв'яжеться менеджер",
     "return to home page": "Повернутися на головну",
@@ -190,9 +197,6 @@
   "battery": "акумулятори",
   "body type": "тип корпусу",
 
-  "by number of offers": "за кількістю пропозицій",
-
-  "by popularity": "за популярністю",
   "by price": "за ціною",
 
   "buy here": "купити тут",
@@ -201,8 +205,6 @@
 
   "cargo tires": "вантажні шини",
 
-  "cheap at first": "спочатку дешеві",
-
   "credit": "кредит",
 
   "department": "відділення",
@@ -210,8 +212,6 @@
   "disc": "дисків",
 
   "disks by parameters": "диски за параметрами",
-
-  "expensive at first": "спочатку дорогі",
 
   "guarantee and refund": "гарантія та повернення",
 
@@ -242,7 +242,6 @@
   "selection of tires and wheels": "підбір шин та дисків",
   "services": "послуги",
   "show all": "показати всі",
-  "sorting": "сортування",
 
   "sun": "нд",
 

@@ -14,6 +14,12 @@ import Pagination from '@/components/Catalog/Pagination';
 import type { Metadata } from 'next';
 
 const pageItem = 12;
+const sort = {
+	ch: '&order[asc]=1',
+	ex: '&order[asc]=0',
+	pop: '&order[value]=popular&order[asc]=0',
+	off: '&order[value]=offers'
+}
 
 async function getFilterData(id: string): Promise<BaseDataProps> {
 	const res = await fetch(`${process.env.SERVER_URL}/api/FildterData/${id}`, {
@@ -56,7 +62,9 @@ export default async function Catalog({ params }: { params: Promise<{ locale: La
 		`?typeproduct=${section === Section.Tires ? 1 : 3}`,
 	);
 	const paramsUrl = transformUrl({ section, slug });
-	const products = await getProducts({ page, searchParams: paramsUrl });
+	const found = slug?.find(item => item.startsWith('order-'))?.split('-')[1] as keyof typeof sort;
+	const searchParams = `${paramsUrl || ''}${found && sort[found] ? sort[found] : ''}`;
+	const products = await getProducts({ page, searchParams });
 
 	return (
 		<Layout>
@@ -64,7 +72,7 @@ export default async function Catalog({ params }: { params: Promise<{ locale: La
 			<div className='py-5 lg:flex lg:gap-10'>
 				<FilterAlt locale={ locale } filterData={ filterData } section={ section } />
 				<div className='flex-1 -mt-8 lg:-mt-12'>
-					<FilterByCar locale={ locale } section={ section } />
+					<FilterByCar />
 					<SelectionByCar />
 					<FilterActive locale={ locale } className='hidden lg:flex' slug={ slug } />
 					{ products.result ? <ProductList
