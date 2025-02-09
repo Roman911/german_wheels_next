@@ -1,6 +1,7 @@
-import Link from 'next/link';
+'use client'
+import { Dispatch, SetStateAction, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { twMerge } from 'tailwind-merge';
 import { baseDataAPI } from '@/services/baseDataService';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { setCarFilter, setSend } from '@/store/slices/filterCarSlice';
@@ -8,15 +9,23 @@ import { changeSubsection } from '@/store/slices/filterSlice';
 import MySelect from '@/components/Home/HomeFilter/Select';
 import { Language } from '@/models/language';
 import { Subsection } from '@/models/section';
+import { Button } from '@/components/UI';
+import { Section } from '@/models/filter';
 
 const FilterByCar = ({ locale }: { locale: Language }) => {
+	const router = useRouter();
+	const [ isLoadingTires, setIsLoadingTires ] = useState(false);
+	const [ isLoadingDisks, setIsLoadingDisks ] = useState(false);
 	const t = useTranslations('Filters');
 	const { filter } = useAppSelector((state) => state.filterCarReducer);
 	const dispatch = useAppDispatch();
 	const { data } = baseDataAPI.useFetchBaseDataQuery('');
-	const { data: model, refetch: modelRefetch } = baseDataAPI.useFetchAutoModelQuery(`${filter.brand}`);
-	const { data: modelYear } = baseDataAPI.useFetchAutoYearQuery(`${filter.model}`);
-	const { data: modelKit, refetch: modelKitRefetch } = baseDataAPI.useFetchAutoModelKitQuery(`${filter.model}/${filter.year}`);
+	const { data: model, refetch: modelRefetch } = baseDataAPI.useFetchAutoModelQuery(`${ filter.brand }`);
+	const { data: modelYear } = baseDataAPI.useFetchAutoYearQuery(`${ filter.model }`);
+	const {
+		data: modelKit,
+		refetch: modelKitRefetch
+	} = baseDataAPI.useFetchAutoModelKitQuery(`${ filter.model }/${ filter.year }`);
 
 	const filters = [
 		{
@@ -33,7 +42,7 @@ const FilterByCar = ({ locale }: { locale: Language }) => {
 		{
 			label: t('graduation year'),
 			name: 'year',
-			options: modelYear?.map(item => ({ value: item, label: item })),
+			options: modelYear?.map(item => ({ value: item, label: `${ item }` })),
 			isDisabled: modelYear?.length === 0,
 		},
 		{
@@ -53,19 +62,11 @@ const FilterByCar = ({ locale }: { locale: Language }) => {
 		}
 	}
 
-	const onClick = () => {
+	const onClick = (type: Section, setIsLoading: Dispatch<SetStateAction<boolean>>) => {
+		setIsLoading(true)
 		dispatch(changeSubsection(Subsection.ByCars));
 		dispatch(setSend());
-	}
-
-	const renderLink = (type: 'tires' | 'disk', title: string) => {
-		return <Link
-			href={ `/${ locale }/catalog/${ type }` }
-			onClick={ onClick }
-			className={ twMerge('btn primary w-full md:w-56 uppercase', filter.modification === 0 && 'pointer-events-none') }
-		>
-			{ t(title) }
-		</Link>
+		router.push(`/${ locale }/catalog/${ type }`);
 	}
 
 	return (
@@ -83,8 +84,22 @@ const FilterByCar = ({ locale }: { locale: Language }) => {
 				}) }
 			</div>
 			<div className='mt-4 md:mt-10 flex gap-4 flex-col md:flex-row justify-center'>
-				{ renderLink('tires', 'choose tires') }
-				{ renderLink('disk', 'choose disks') }
+				<Button
+					isDisabled={ filter.modification === 0 }
+					isLoading={ isLoadingTires }
+					onPress={ () => onClick(Section.Tires, setIsLoadingTires) }
+					className='w-full md:w-56 uppercase'
+				>
+					{ t('choose tires') }
+				</Button>
+				<Button
+					isDisabled={ filter.modification === 0 }
+					isLoading={ isLoadingDisks }
+					onPress={ () => onClick(Section.Disks, setIsLoadingDisks) }
+					className='w-full md:w-56 uppercase'
+				>
+					{ t('choose disks') }
+				</Button>
 			</div>
 		</>
 	)

@@ -36,6 +36,7 @@ const Filter = ({ locale }: { locale: Language }) => {
 	const handleClick = (value: Section) => {
 		const newOpenState = !(section === value && isOpen);
 		setOpen(newOpenState);
+		setFilter({});
 		dispatch(resetFilter());
 		dispatch(resetFilterCar());
 		dispatch(changeSection(newOpenState ? value : Section.Tires));
