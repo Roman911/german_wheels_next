@@ -1,20 +1,15 @@
 'use client'
-import { FC, useRef, useState, MouseEvent, SetStateAction } from 'react';
-import Link from 'next/link';
+import { useRef, useState, MouseEvent, SetStateAction } from 'react';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
+import Link from '@/components/Lib/Link';
 import { useClickOutside } from '@/hooks/clickOutside';
 import { CarTireFilter } from '../CarTireFilter';
 import { CarDiskFilter } from '../CarDiskFilter';
 import * as Icons from '@/components/Lib/Icons';
-import { Language } from '@/models/language';
 import { links } from '../../links';
 
-interface Props {
-	locale: Language
-}
-
-const Navbar: FC<Props> = ({ locale }) => {
+const Navbar = () => {
 	const t = useTranslations('Main');
 	const [ open, setOpen ] = useState(false);
 	const [ section, setSection ] = useState('tires');
@@ -66,7 +61,7 @@ const Navbar: FC<Props> = ({ locale }) => {
 						return <ButtonMeu key={ i } sectionItem={ item.section } label={ item.label } />
 					})}
 				{ links.map((item, index) => {
-					return <Link key={ index } href={ `/${locale}/${item.url}` }
+					return <Link key={ index } href={ item.url }
 											 className='font-semibold hover:text-teal-300'>
 						{ t(item.title) }
 					</Link>
@@ -78,8 +73,8 @@ const Navbar: FC<Props> = ({ locale }) => {
 				<div
 					className='w-full overflow-hidden bg-gray-900 shadow-lg pt-8 pb-6 font-normal'>
 					<div className='flex-auto max-w-7xl grid grid-cols-4 mx-auto px-4'>
-						{ section === 'tires' ? <CarTireFilter closeFilter={ closeFilter } locale={ locale } /> :
-							<CarDiskFilter closeFilter={ closeFilter } locale={ locale } /> }
+						{ section === 'tires' ? <CarTireFilter closeFilter={ closeFilter } /> :
+							<CarDiskFilter closeFilter={ closeFilter } /> }
 					</div>
 				</div>
 			</div>

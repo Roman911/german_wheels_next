@@ -1,17 +1,16 @@
 'use client'
 import { Dispatch, FC, SetStateAction } from 'react';
 import { usePathname } from 'next/navigation';
-import Link, { LinkProps } from 'next/link';
+import { LinkProps } from 'next/link';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
+import Link from '@/components/Lib/Link';
 import { useAppDispatch } from '@/hooks/redux';
-import { setParams, resetFilter } from '@/store/slices/filterSlice';
+import { resetFilter, setParams } from '@/store/slices/filterSlice';
 import { BusIcon, CargoIcon, CarIcon, MotorcyclesIcon, SpecialEquipmentIcon, SuvIcon } from '../Lib/Icons';
 import { typeCatLinks } from './links';
-import { Language } from '@/models/language';
 
 interface TypeCarLinksProps {
-	locale: Language
 	section: 'header' | 'catalog'
 	setOpen?: Dispatch<SetStateAction<boolean>>
 }
@@ -87,7 +86,7 @@ const LinkComponent: FC<ILinkComponent> = (
 	</Link>
 }
 
-const TypeCarLinks: FC<TypeCarLinksProps> = ({ locale, setOpen, section }) => {
+const TypeCarLinks: FC<TypeCarLinksProps> = ({ setOpen, section }) => {
 	const t = useTranslations('CarType');
 
 	const handleClick = () => {
@@ -99,7 +98,7 @@ const TypeCarLinks: FC<TypeCarLinksProps> = ({ locale, setOpen, section }) => {
 			return <LinkComponent
 				key={ item.label }
 				section={ section }
-				href={ `/${locale}${item.href}`}
+				href={ item.href }
 				icon={ item.icon as keyof typeof Icons }
 				label={ t(item.label) }
 				onClick={ handleClick }

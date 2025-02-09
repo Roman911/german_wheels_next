@@ -1,18 +1,17 @@
 import { FC } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
+import Link from '@/components/Lib/Link';
 import logo from '@/public/logo.svg';
 import footerLogo from '@/public/logo-footer.svg';
 
 interface Props {
-	locale: string;
 	isFooter?: boolean;
 }
 
-const Logo: FC<Props> = ({ locale, isFooter }) => {
+const Logo: FC<Props> = ({ isFooter }) => {
 	return (
-		<Link href={`/${locale}/`} className='logo'>
+		<Link href='/' className='logo'>
 			<Image
 				className={ twMerge('hidden', !isFooter && 'md:block') }
 				src={ logo }

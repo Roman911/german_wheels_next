@@ -1,24 +1,120 @@
 {
-  "Main": {
-    "about us": "О нас",
-    "brands": "Бренды",
-    "buy": "Купить",
-    "cardiscs": "Автодиски",
-    "cartires": "Автошины",
-    "cars": "Автомобили",
-    "cart": "Корзина",
-    "contacts": "Контакты",
-    "delivery calculation": "Расчет доставки",
+  "Banner": {
+    "only with top": "только с топовой",
+    "reputation": "репутацией",
+    "tires and disks": "Шины и диски"
+  },
+  "CallbackModal": {
+    "ask": "Задать вопрос",
+    "ask send": "Ваш вопрос успешно отправлен",
+    "callback": "Обратный звонок",
+    "email": "Электронная почта",
+    "our manager": "Наш менеджер позвонит Вам",
+    "put phone": "Оставьте телефон и менеджер с Вами свяжется",
+    "send": "Отправить",
+    "your comment": "Ваш комментарий"
+  },
+  "CarType": {
+    "buses": "Бусы",
+    "cargo": "Грузовые",
+    "light": "Легковые",
+    "motorcycles": "Мотоциклы",
+    "special equipment": "Спецтехника",
+    "suvs": "Внедорожники"
+  },
+  "Catalog": {
+    "by car": "По авто",
+    "by parameters": "По параметрам",
+    "no result by search": "По вашему запросу ничего не найдено.",
+    "search": "Поиск"
+  },
+  "Comparison": {
+    "cargo": "Грузовые",
+    "comparison": "Сравнение",
+    "tires": "Шины"
+  },
+  "CreateComment": {
+    "add comment": "Добавить отзыв",
+    "comment": "Комментарий",
+    "leave review": "Оставить отзыв",
+    "name": "Имя",
+    "rating": "Оценка"
+  },
+  "Delivery": {
+    "cost": "Стоимость",
+    "estimated shipping": "Расчетная стоимость доставки за",
+    "with cash": "С наложенным платежом"
+  },
+  "Favorites": {
+    "favorites": "Избранное"
+  },
+  "Filters": {
+    "all season": "Всесезонные",
+    "appointment": "Назначение",
+    "brand": "Бренд",
+    "buses": "Бусы",
+    "capacity": "емкость",
+    "car brand": "Марка авто",
+    "car type": "Тип автомобиля",
+    "cargo": "Грузовые",
+    "cast": "Литые",
+    "choose disks": "Подобрать диски",
+    "choose tires": "Подобрать шины",
+    "color": "Цвет",
+    "country": "Страна",
+    "departure": "Вылет",
+    "description": "Описание",
+    "diameter": "Диаметр",
     "disks": "Диски",
-    "factory": "Заводские",
+    "dia": "DIA",
+    "et": "ET",
+    "et from": "Вылет от",
+    "et to": "Вылет до",
+    "fasteners": "Крепеж",
+    "filters": "Фильтры",
+    "forged": "Кованые",
     "from": "От",
-    "manufacturers car": "Производители автомобилей",
-    "manufacturers disc": "Производители дисков",
-    "manufacturers tyre": "Производители шин",
-    "selection by car": "Подбор за авто",
-    "tire calculator": "Шинный калькулятор",
+    "graduation year": "Год выпуска",
+    "height": "Высота",
+    "high-voltage": "напряжение",
+    "homologation": "Омологация",
+    "light": "Легковые",
+    "load index": "Индекс нагрузки",
+    "main characteristics": "Основные характеристики",
+    "model": "Модель",
+    "modification": "Модификация",
+    "motorcycles": "Мотоциклы",
+    "other": "Другое",
+    "price": "Цена",
+    "price range": "Диапазон цен",
+    "profile height": "Высота профиля",
+    "reset everything": "Сбросить все",
+    "reviews": "Отзывы",
+    "season": "Сезон",
+    "special equipment": "Спецтехника",
+    "speed index": "Индекс скорости",
+    "strengthening": "Усиление",
+    "summer": "Летние",
+    "suvs": "Внедорожники",
     "tires": "Шины",
-    "placing an order": "Оформление заказа"
+    "to apply": "Применить",
+    "type": "Тип",
+    "type size": "Типоразмер",
+    "width": "Ширина",
+    "winter": "Зимние",
+    "year": "Год",
+    "starting current": "пусковой ток"
+  },
+  "Footer": {
+    "all rights reserved": "Все права защищены",
+    "brands": "Бренды",
+    "contacts": "Контакты",
+    "delivery": "Доставка",
+    "delivery points": "Пункты выдачи",
+    "disks": "Диски",
+    "information": "Информация",
+    "tire calculator": "Шинный калькулятор",
+    "tires": "Шины"
   },
   "HeaderFilter": {
     "all car brands": "Все марки",
@@ -38,143 +134,48 @@
     "summer": "Летние",
     "winter": "Зимние"
   },
-  "CarType": {
-    "buses": "Бусы",
-    "cargo": "Грузовые",
-    "light": "Легковые",
-    "motorcycles": "Мотоциклы",
-    "special equipment": "Спецтехника",
-    "suvs": "Внедорожники"
+  "Home": {
+    "no comment": "К этому товару нет отзывов. Станьте первым!",
+    "no product to cart": "Вы еще не добавили в корзину ни одного товара",
+    "no result": "К сожалению, по заданным параметрам товаров не найдено"
   },
-  "Filters": {
-    "all season": "Всесезонные",
-    "brand": "Бренд",
-    "car brand": "Марка авто",
-    "choose disks": "Подобрать диски",
-    "choose tires": "Подобрать шины",
-    "diameter": "Диаметр",
-    "fasteners": "Крепеж",
-    "graduation year": "Год выпуска",
-    "height": "Высота",
-    "dia": "DIA",
-    "et": "ET",
-    "et from": "Вылет от",
-    "et to": "Вылет до",
-    "other": "Другое",
-    "model": "Модель",
-    "from": "От",
-    "modification": "Модификация",
-    "season": "Сезон",
-    "to apply": "Применить",
-    "type": "Тип",
-    "width": "Ширина",
-    "year": "Год",
-    "appointment": "Назначение",
-    "description": "Описание",
-    "load index": "Индекс нагрузки",
-    "main characteristics": "Основные характеристики",
-    "reviews": "Отзывы",
-    "speed index": "Индекс скорости",
-    "buses": "Бусы",
-    "cargo": "Грузовые",
-    "light": "Легковые",
-    "motorcycles": "Мотоциклы",
-    "special equipment": "Спецтехника",
-    "suvs": "Внедорожники",
-    "summer": "Летние",
-    "type size": "Типоразмер",
-    "winter": "Зимние",
-    "homologation": "Омологация",
-    "price range": "Диапазон цен",
-    "tires": "Шины",
-    "reset everything": "Сбросить все",
-    "disks": "Диски",
-    "filters": "Фильтры",
-    "color": "Цвет",
-    "car type": "Тип автомобиля",
-    "profile height": "Высота профиля",
-    "strengthening": "Усиление",
-    "country": "Страна",
-    "price": "Цена",
-    "departure": "Вылет",
-    "cast": "Литые",
-    "forged": "Кованые",
-    "capacity": "емкость",
-    "starting current": "пусковой ток",
-    "high-voltage": "напряжение"
-  },
-  "Footer": {
+  "Main": {
+    "about us": "О нас",
     "brands": "Бренды",
+    "buy": "Купить",
+    "cardiscs": "Автодиски",
+    "cart": "Корзина",
+    "cartires": "Автошины",
+    "cars": "Автомобили",
     "contacts": "Контакты",
-    "delivery": "Доставка",
-    "delivery points": "Пункты выдачи",
+    "delivery calculation": "Расчет доставки",
     "disks": "Диски",
-    "information": "Информация",
+    "factory": "Заводские",
+    "from": "От",
+    "manufacturers car": "Производители автомобилей",
+    "manufacturers disc": "Производители дисков",
+    "manufacturers tyre": "Производители шин",
+    "placing an order": "Оформление заказа",
+    "selection by car": "Подбор за авто",
     "tire calculator": "Шинный калькулятор",
     "tires": "Шины"
-  },
-  "Banner": {
-    "tires and disks": "Шины и диски",
-    "only with top": "только с топовой",
-    "reputation": "репутацией"
-  },
-  "Home": {
-    "no result": "К сожалению, по заданным параметрам товаров не найдено",
-    "no comment": "К этому товару нет отзывов. Станьте первым!",
-    "no product to cart": "Вы еще не добавили в корзину ни одного товара"
-  },
-  "Catalog": {
-    "by car": "По авто",
-    "by parameters": "По параметрам",
-    "search": "Поиск",
-    "no result by search": "По вашему запросу ничего не найдено."
-  },
-  "Select": {
-    "city": "Город",
-    "department": "Отделение",
-    "delivery calculation": "Расчет доставки",
-    "no options message": "ЗСовпадений не найдено"
-  },
-  "Delivery": {
-    "estimated shipping": "Расчетная стоимость доставки за",
-    "cost": "Стоимость",
-    "with cash": "С наложенным платежом"
   },
   "QuickOrder": {
     "quick order": "Быстрый заказ"
   },
-  "CreateComment": {
-    "leave review": "Оставить отзыв",
-    "name": "Имя",
-    "comment": "Комментарий",
-    "rating": "Оценка",
-    "add comment": "Добавить отзыв"
-  },
   "Search": {
     "search": "Поиск"
   },
-  "CallbackModal": {
-    "callback": "Обратный звонок",
-    "our manager": "Наш менеджер позвонит Вам",
-    "put phone": "Оставьте телефон и менеджер с Вами свяжется",
-    "send": "Отправить",
-    "ask": "Задать вопрос",
-    "ask send": "Ваш вопрос успешно отправлен",
-    "email": "Электронная почта",
-    "your comment": "Ваш комментарий"
+  "Select": {
+    "city": "Город",
+    "delivery calculation": "Расчет доставки",
+    "department": "Отделение",
+    "no options message": "Совпадений не найдено"
   },
   "SuccessfulOrder": {
-    "thanks for your order": "Спасибо за заказ",
     "manager will contact you shortly": "В ближайшее время с Вами свяжется менеджер",
-    "return to home page": "Вернуться на главную"
-  },
-  "Comparison": {
-    "cargo": "Грузовые",
-    "comparison": "Сравнение",
-    "tires": "Шины"
-  },
-  "Favorites": {
-    "favorites": "Избранное"
+    "return to home page": "Вернуться на главную",
+    "thanks for your order": "Спасибо за заказ"
   },
 
   "add all": "добавить все",

@@ -1,7 +1,7 @@
 'use client'
 import { FC, JSX } from 'react';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import Link from '@/components/Lib/Link';
 import { baseDataAPI } from '@/services/baseDataService';
 import { linksCatalog } from './linksCatalog';
 import { PhoneLogo } from '@/models/config';
@@ -48,8 +48,8 @@ const Footer: FC<Props> = ({ locale, settings }) => {
 	const link = (link: string, title: string, index: number) => {
 		return <Link
 			key={ index }
-			className='text-white block text-sm font-medium mt-4 transition hover:text-blue-300 hover:underline'
-			href={ `/${ locale }/${ link }` }
+			className='text-white block text-sm font-medium mt-4 transition hover:text-teal-400 hover:underline'
+			href={ link }
 		>
 			{ title }
 		</Link>
@@ -125,7 +125,7 @@ const Footer: FC<Props> = ({ locale, settings }) => {
 							key={ index }
 							target='_blank'
 							href={ item.link }
-							className='w-9 h-9 rounded-full cursor-pointer bg-white flex items-center justify-center transition group hover:bg-blue-500'
+							className='w-9 h-9 rounded-full cursor-pointer bg-white flex items-center justify-center transition group hover:bg-teal-400'
 						>
 							{ icons[item.logo as IconType] }
 						</a>
@@ -133,9 +133,9 @@ const Footer: FC<Props> = ({ locale, settings }) => {
 				</div>
 				<p className='text-gray-500 mt-7 mb-7 leading-6 text-sm'>
 					© { settings && settings[lang].config_name } { new Date().getFullYear() }.<br/>
-					{ lang === 'ua' ? 'Всі права захищені.' : 'Все права защищены.' }
+					{ t('all rights reserved') }.
 				</p>
-				<Logo isFooter={ true } locale={ locale }/>
+				<Logo isFooter={ true } />
 			</div>
 		</div>
 	</footer>

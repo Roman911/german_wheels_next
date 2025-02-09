@@ -1,18 +1,16 @@
 import { FC } from 'react';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import TypeCarLinks from '../../../../TypeCarLinks';
+import Link from '@/components/Lib/Link';
+import TypeCarLinks from '@/components/TypeCarLinks';
 import LinkComponent from '../LinkComponent';
 import Title from '../Title';
-import { Language } from '@/models/language';
 import { brandsLinks, diameterLinks, seasonLinks } from './links';
 
 interface Props {
-	locale: Language
 	closeFilter: () => void
 }
 
-export const CarTireFilter: FC<Props> = ({ locale, closeFilter }) => {
+export const CarTireFilter: FC<Props> = ({ closeFilter }) => {
 	const t = useTranslations('HeaderFilter');
 
 	return <>
@@ -21,7 +19,7 @@ export const CarTireFilter: FC<Props> = ({ locale, closeFilter }) => {
 			{ seasonLinks.map(item => {
 				return <LinkComponent
 					key={ item.label }
-					href={ `/${ locale }${ item.href }` }
+					href={ item.href }
 					img={ item.img }
 					label={ t(item.label) }
 					mt={ item.mt }
@@ -32,7 +30,7 @@ export const CarTireFilter: FC<Props> = ({ locale, closeFilter }) => {
 		</div>
 		<div>
 			<Title title={ t('by car type') }/>
-			<TypeCarLinks locale={ locale } setOpen={ closeFilter } section='header' />
+			<TypeCarLinks setOpen={ closeFilter } section='header' />
 		</div>
 		<div className='mt-6 lg:mt-0'>
 			<Title title={ t('by brands') }/>
@@ -40,7 +38,7 @@ export const CarTireFilter: FC<Props> = ({ locale, closeFilter }) => {
 				{ brandsLinks.map(item => {
 					return <LinkComponent
 						key={ item.label }
-						href={ `/${ locale }${ item.href }` }
+						href={ item.href }
 						label={ item.label }
 						border={ false }
 						onClick={ closeFilter }
@@ -48,7 +46,7 @@ export const CarTireFilter: FC<Props> = ({ locale, closeFilter }) => {
 				}) }
 			</div>
 			<Link
-				href={ `/${ locale }/catalog/tires` }
+				href='/catalog/tires'
 				onClick={ closeFilter }
 				className='text-teal-300 font-bold hover:underline'
 			>
@@ -61,7 +59,7 @@ export const CarTireFilter: FC<Props> = ({ locale, closeFilter }) => {
 				{ diameterLinks.map(item => {
 					return <LinkComponent
 						key={ item.label }
-						href={ `/${ locale }${ item.href }` }
+						href={ item.href }
 						border={ item.border }
 						label={ item.label }
 						onClick={ closeFilter }

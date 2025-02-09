@@ -1,10 +1,8 @@
 'use client'
 import { FC, useEffect, useState } from 'react';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
 import {
-	Badge,
 	Navbar,
 	NavbarBrand,
 	NavbarContent,
@@ -12,6 +10,7 @@ import {
 	NavbarMenuItem,
 	NavbarMenuToggle,
 } from "@heroui/react";
+import Link from '@/components/Lib/Link';
 import Logo from '@/components/Logo';
 import MyNavbar from '@/components/Layout/Header/HeaderMain/Navbar';
 import Search from '@/components/Layout/Header/HeaderMain/Search';
@@ -26,6 +25,7 @@ import styles from './index.module.scss';
 import { CarTireFilter } from '@/components/Layout/Header/HeaderMain/CarTireFilter';
 import { CarDiskFilter } from '@/components/Layout/Header/HeaderMain/CarDiskFilter';
 import { links } from '@/components/Layout/Header/links';
+import ButtonBlock from '@/components/Layout/Header/HeaderMain/ButtonBlock';
 
 interface Props {
 	locale: Language
@@ -35,9 +35,6 @@ const HeaderMain: FC<Props> = ({ locale }) => {
 	const t = useTranslations('Main');
 	const [ isMenuOpen, setIsMenuOpen ] = useState(false);
 	const [ filterIsOpen, setFilterOpen ] = useState<boolean | string>(false);
-	const [ bookmarks, setBookmarks ] = useState(0);
-	const [ comparison, setComparison ] = useState(0);
-	const [ cart, setCart ] = useState(0);
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -46,15 +43,12 @@ const HeaderMain: FC<Props> = ({ locale }) => {
 		const cartStorage = getFromStorage('reducerCart') || [];
 
 		if(bookmarksStorage.length !== 0) {
-			setComparison(comparisonStorage.length);
 			dispatch(addBookmarksFromStorage(bookmarksStorage));
 		}
 		if(comparisonStorage.length !== 0) {
-			setBookmarks(bookmarksStorage.length);
 			dispatch(addComparisonFromStorage(comparisonStorage));
 		}
 		if(cartStorage.length !== 0) {
-			setCart(cartStorage.length)
 			dispatch(addCartFromStorage(cartStorage));
 		}
 	}, [ dispatch ]);
@@ -82,46 +76,17 @@ const HeaderMain: FC<Props> = ({ locale }) => {
 		>
 			<NavbarContent className={ styles.logo }>
 				<NavbarBrand>
-					<Logo locale={ locale }/>
+					<Logo />
 				</NavbarBrand>
 			</NavbarContent>
 			<NavbarContent className='hidden sm:block'>
-				<MyNavbar locale={ locale }/>
+				<MyNavbar />
 			</NavbarContent>
 			<NavbarContent className={ styles.search }>
 				<Search locale={ locale }/>
 			</NavbarContent>
 			<NavbarContent justify='end'>
-				<Link href={ `/${ locale }/comparison` } className='relative'>
-					<Badge
-						color='primary'
-						content={ comparison }
-						isInvisible={ comparison === 0 }
-						className='text-black  border-zinc-800'
-					>
-						<Icons.LibraIcon className='fill-white'/>
-					</Badge>
-				</Link>
-				<Link href={ `/${ locale }/bookmarks` } className='relative'>
-					<Badge
-						color='primary'
-						content={ bookmarks }
-						isInvisible={ bookmarks === 0 }
-						className='text-black  border-zinc-800'
-					>
-						<Icons.HeartIcon className='stroke-white'/>
-					</Badge>
-				</Link>
-				<Link href={ `/${ locale }/cart` } className='relative'>
-					<Badge
-						color='primary'
-						content={ cart }
-						isInvisible={ cart === 0 }
-						className='text-black  border-zinc-800'
-					>
-						<Icons.CartIcon className='stroke-white'/>
-					</Badge>
-				</Link>
+				<ButtonBlock />
 				<NavbarMenuToggle className="sm:hidden" aria-label={ isMenuOpen ? "Close menu" : "Open menu" }/>
 			</NavbarContent>
 			<NavbarMenu className={ twMerge('mt-36 bg-white pt-4', styles.menu) }>
@@ -139,7 +104,7 @@ const HeaderMain: FC<Props> = ({ locale }) => {
 					</button>
 					{ filterIsOpen === 'tires' &&
 						<div className='mt-4 grid grid-cols-2 gap-2'>
-							<CarTireFilter closeFilter={ closeFilter } locale={ locale }/>
+							<CarTireFilter closeFilter={ closeFilter } />
 						</div>
 					}
 				</NavbarMenuItem>
@@ -157,14 +122,14 @@ const HeaderMain: FC<Props> = ({ locale }) => {
 					</button>
 					{ filterIsOpen === 'disks' &&
 						<div className='mt-5 grid grid-cols-2 gap-2'>
-							<CarDiskFilter closeFilter={ closeFilter } locale={ locale }/>
+							<CarDiskFilter closeFilter={ closeFilter } />
 						</div>
 					}
 				</NavbarMenuItem>
 				{ links.map((item, index) => {
 					return <NavbarMenuItem key={ index }>
 						<Link
-							href={ `/${ locale }/${ item.url }` }
+							href={ item.url }
 							onClick={ () => closeFilter() }
 							className='py-2 px-5 block uppercase font-bold'
 						>

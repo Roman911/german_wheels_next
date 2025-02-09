@@ -1,28 +1,124 @@
 {
-  "Main": {
-    "about us": "Про нас",
-    "brands": "Бренди",
-    "buy": "Купити",
-    "cardiscs": "Автодиски",
-    "cartires": "Автошини",
-    "cars": "Автомобілі",
-    "cart": "Кошик",
-    "contacts": "Контакти",
-    "delivery calculation": "Розрахунок доставки",
+  "Banner": {
+    "only with top": "тільки з топовою",
+    "reputation": "репутацією",
+    "tires and disks": "Шини та диски"
+  },
+  "CallbackModal": {
+    "ask": "Задати питання",
+    "ask send": "Ваше питання успішно надіслано",
+    "callback": "Зворотній дзвінок",
+    "email": "Електронна пошта",
+    "our manager": "Наш менеджер зателефонує Вам",
+    "put phone": "Залиште телефон і менеджер з Вами зв'яжеться",
+    "send": "Надіслати",
+    "your comment": "Ваш коментар"
+  },
+  "CarType": {
+    "buses": "Буси",
+    "cargo": "Вантажні",
+    "light": "Легкові",
+    "motorcycles": "Мотоцикли",
+    "special equipment": "Спецтехніка",
+    "suvs": "Позашляховики"
+  },
+  "Catalog": {
+    "by car": "За авто",
+    "by parameters": "За параметрами",
+    "no result by search": "За вашим запитом нічого не знайдено.",
+    "search": "Пошук"
+  },
+  "Comparison": {
+    "cargo": "Вантажні",
+    "comparison": "Порівняння",
+    "tires": "Шини"
+  },
+  "CreateComment": {
+    "add comment": "Додати відгук",
+    "comment": "Коментар",
+    "leave review": "Залишити відгук",
+    "name": "Ім'я",
+    "rating": "Оцінка"
+  },
+  "Delivery": {
+    "cost": "Вартість",
+    "estimated shipping": "Розрахункова вартість доставки за",
+    "with cash": "З післяплатою"
+  },
+  "Favorites": {
+    "favorites": "Обране"
+  },
+  "Filters": {
+    "all season": "Всесезонні",
+    "appointment": "Призначення",
+    "brand": "Бренд",
+    "buses": "Буси",
+    "capacity": "ємність",
+    "car brand": "Марка авто",
+    "car type": "Тип автомобіля",
+    "cargo": "Вантажні",
+    "cast": "Литі",
+    "choose disks": "Підібрати диски",
+    "choose tires": "Підібрати шини",
+    "color": "Колір",
+    "country": "Країна",
+    "departure": "Виліт",
+    "description": "Опис",
+    "diameter": "Діаметр",
+    "dia": "DIA",
     "disks": "Диски",
-    "factory": "Заводські",
+    "et": "ET",
+    "et from": "Виліт від",
+    "et to": "Виліт до",
+    "fasteners": "Кріплення",
+    "filters": "Фільтри",
+    "forged": "Ковані",
     "from": "Від",
-    "manufacturers car": "Виробники автомобілів",
-    "manufacturers disc": "Виробники дисків",
-    "manufacturers tyre": "Виробники шин",
-    "selection by car": "Підбір за авто",
-    "tire calculator": "Шинний калькулятор",
+    "graduation year": "Рік випуску",
+    "height": "Висота",
+    "high-voltage": "напруга",
+    "homologation": "Омологація",
+    "light": "Легкові",
+    "load index": "Індекс навантаження",
+    "main characteristics": "Основні характеристики",
+    "model": "Модель",
+    "modification": "Модифікація",
+    "motorcycles": "Мотоцикли",
+    "other": "Інше",
+    "price": "Ціна",
+    "price range": "Діапазон цін",
+    "profile height": "Висота профілю",
+    "reset everything": "Скинути все",
+    "reviews": "Відгуки",
+    "season": "Сезон",
+    "special equipment": "Спецтехніка",
+    "speed index": "Індекс швидкості",
+    "starting current": "пусковий струм",
+    "strengthening": "Посилення",
+    "summer": "Літні",
+    "suvs": "Позашляховики",
     "tires": "Шини",
-    "placing an order": "Оформлення замовлення"
+    "to apply": "Застосувати",
+    "type": "Тип",
+    "type size": "Типорозмір",
+    "width": "Ширина",
+    "winter": "Зимові",
+    "year": "Рік"
+  },
+  "Footer": {
+    "all rights reserved": "Всі права захищені",
+    "brands": "Бренди",
+    "contacts": "Контакти",
+    "delivery": "Доставка",
+    "delivery points": "Пункти видачі",
+    "disks": "Диски",
+    "information": "Інформація",
+    "tire calculator": "Шинний калькулятор",
+    "tires": "Шини"
   },
   "HeaderFilter": {
-    "all car brands": "Всі марки",
     "all brands": "Всі бренди",
+    "all car brands": "Всі марки",
     "all season": "Всесезонні",
     "by brands": "За брендами",
     "by car brands": "За марками авто",
@@ -38,143 +134,48 @@
     "summer": "Літні",
     "winter": "Зимові"
   },
-  "CarType": {
-    "buses": "Буси",
-    "cargo": "Вантажні",
-    "light": "Легкові",
-    "motorcycles": "Мотоцикли",
-    "special equipment": "Спецтехніка",
-    "suvs": "Позашляховики"
+  "Home": {
+    "no comment": "До цього товару немає відгуків. Стати першим!",
+    "no product to cart": "Ви ще не додали до кошику жодного товару",
+    "no result": "На жаль, по заданих параметрах товарів не знайдено"
   },
-  "Filters": {
-    "all season": "Всесезонні",
-    "brand": "Бренд",
-    "car brand": "Марка авто",
-    "choose disks": "Підібрати диски",
-    "choose tires": "Підібрати шини",
-    "diameter": "Діаметр",
-    "fasteners": "Кріплення",
-    "graduation year": "Рік випуску",
-    "height": "Висота",
-    "dia": "DIA",
-    "et": "ET",
-    "et from": "Виліт від",
-    "et to": "Виліт до",
-    "other": "Інше",
-    "model": "Модель",
-    "modification": "Модифікація",
-    "season": "Сезон",
-    "to apply": "Застосувати",
-    "type": "Тип",
-    "width": "Ширина",
-    "year": "Рік",
-    "from": "Від",
-    "appointment": "Призначення",
-    "description": "Опис",
-    "load index": "Індекс навантаження",
-    "main characteristics": "Основні характеристики",
-    "reviews": "Відгуки",
-    "speed index": "Індекс швидкості",
-    "buses": "Буси",
-    "cargo": "Вантажні",
-    "light": "Легкові",
-    "motorcycles": "Мотоцикли",
-    "special equipment": "Спецтехніка",
-    "suvs": "Позашляховики",
-    "summer": "Літні",
-    "type size": "Типорозмір",
-    "winter": "Зимові",
-    "homologation": "Омологація",
-    "price range": "Діапазон цін",
-    "tires": "Шини",
-    "reset everything": "Скинути все",
-    "disks": "Диски",
-    "filters": "Фільтри",
-    "color": "Колір",
-    "car type": "Тип автомобіля",
-    "profile height": "Висота профілю",
-    "strengthening": "Посилення",
-    "country": "Країна",
-    "price": "Ціна",
-    "departure": "Виліт",
-    "capacity": "ємність",
-    "starting current": "пусковий струм",
-    "high-voltage": "напруга",
-    "cast": "Литі",
-    "forged": "Ковані"
-  },
-  "Footer": {
+  "Main": {
+    "about us": "Про нас",
     "brands": "Бренди",
+    "buy": "Купити",
+    "cardiscs": "Автодиски",
+    "cart": "Кошик",
+    "cartires": "Автошини",
+    "cars": "Автомобілі",
     "contacts": "Контакти",
-    "delivery": "Доставка",
-    "delivery points": "Пункти видачі",
+    "delivery calculation": "Розрахунок доставки",
     "disks": "Диски",
-    "information": "Інформація",
+    "factory": "Заводські",
+    "from": "Від",
+    "manufacturers car": "Виробники автомобілів",
+    "manufacturers disc": "Виробники дисків",
+    "manufacturers tyre": "Виробники шин",
+    "placing an order": "Оформлення замовлення",
+    "selection by car": "Підбір за авто",
     "tire calculator": "Шинний калькулятор",
     "tires": "Шини"
-  },
-  "Banner": {
-    "tires and disks": "Шини та диски",
-    "only with top": "тільки з топовою",
-    "reputation": "репутацією"
-  },
-  "Home": {
-    "no result": "На жаль, по заданих параметрах товарів не знайдено",
-    "no comment": "До цього товару немає відгуків. Стати першим!",
-    "no product to cart": "Ви ще не додали до кошику жодного товару"
-  },
-  "Catalog": {
-    "by car": "За авто",
-    "by parameters": "За параметрами",
-    "search": "Пошук",
-    "no result by search": "За вашим запитом нічого не знайдено."
-  },
-  "Select": {
-    "city": "Місто",
-    "department": "Відділення",
-    "delivery calculation": "Розрахунок доставки",
-    "no options message": "Збігів не знайдено"
-  },
-  "Delivery": {
-    "estimated shipping": "Розрахункова вартість доставки за",
-    "cost": "Вартість",
-    "with cash": "З післяплатою"
   },
   "QuickOrder": {
     "quick order": "швидке замовлення"
   },
-  "CreateComment": {
-    "leave review": "Залишити відгук",
-    "name": "Ім'я",
-    "comment": "Коментар",
-    "rating": "Оцінка",
-    "add comment": "Додати відгук"
-  },
   "Search": {
     "search": "Пошук"
   },
-  "CallbackModal": {
-    "callback": "Зворотній дзвінок",
-    "our manager": "Наш менеджер зателефонує Вам",
-    "put phone": "Залиште телефон і менеджер з Вами зв'яжеться",
-    "send": "Надіслати",
-    "ask": "Задати питання",
-    "ask send": "Ваше питання успішно надіслано",
-    "email": "Електронна пошта",
-    "your comment": "Ваш коментар"
+  "Select": {
+    "city": "Місто",
+    "delivery calculation": "Розрахунок доставки",
+    "department": "Відділення",
+    "no options message": "Збігів не знайдено"
   },
   "SuccessfulOrder": {
-    "thanks for your order": "Дякуємо за замовлення",
     "manager will contact you shortly": "Найближчим часом з Вами зв'яжеться менеджер",
-    "return to home page": "Повернутися на головну"
-  },
-  "Comparison": {
-    "cargo": "Вантажні",
-    "comparison": "Порівняння",
-    "tires": "Шини"
-  },
-  "Favorites": {
-    "favorites": "Обране"
+    "return to home page": "Повернутися на головну",
+    "thanks for your order": "Дякуємо за замовлення"
   },
 
   "add all": "додати всі",

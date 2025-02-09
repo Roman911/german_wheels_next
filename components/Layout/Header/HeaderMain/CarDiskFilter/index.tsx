@@ -1,16 +1,15 @@
 import { FC } from 'react';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import Link from '@/components/Lib/Link';
 import LinkComponent from '../LinkComponent';
 import Title from '../Title';
 import { brandsLinks, carBrandsLinks, diameterLinks, typeDiskLinks } from './links';
 
 interface Props {
-	locale: string
 	closeFilter: () => void
 }
 
-export const CarDiskFilter: FC<Props> = ({ locale, closeFilter }) => {
+export const CarDiskFilter: FC<Props> = ({ closeFilter }) => {
 	const t = useTranslations('HeaderFilter');
 
 	return <>
@@ -19,7 +18,7 @@ export const CarDiskFilter: FC<Props> = ({ locale, closeFilter }) => {
 			{ typeDiskLinks.map(item => {
 				return <LinkComponent
 					key={ item.label }
-					href={ `/${ locale }/${ item.href }` }
+					href={ item.href }
 					label={ t(item.label) }
 					mt={ item.mt }
 					border={ false }
@@ -33,7 +32,7 @@ export const CarDiskFilter: FC<Props> = ({ locale, closeFilter }) => {
 				{ brandsLinks.map(item => {
 					return <LinkComponent
 						key={ item.label }
-						href={ `/${ locale }/${ item.href }` }
+						href={ item.href }
 						label={ item.label }
 						border={ false }
 						onClick={ closeFilter }
@@ -41,7 +40,7 @@ export const CarDiskFilter: FC<Props> = ({ locale, closeFilter }) => {
 				}) }
 			</div>
 			<Link
-				href={ `/${ locale }/catalog/disks` }
+				href='/catalog/disks'
 				onClick={ closeFilter }
 				className='text-teal-300 font-bold hover:underline'
 			>
@@ -54,7 +53,7 @@ export const CarDiskFilter: FC<Props> = ({ locale, closeFilter }) => {
 				{ carBrandsLinks.map(item => {
 					return <LinkComponent
 						key={ item.label }
-						href={ `/${ locale }/${ item.href }` }
+						href={ item.href }
 						label={ item.label }
 						border={ false }
 						onClick={ closeFilter }
@@ -62,7 +61,7 @@ export const CarDiskFilter: FC<Props> = ({ locale, closeFilter }) => {
 				}) }
 			</div>
 			<Link
-				href={ `/${ locale }/catalog/disks` }
+				href='/catalog/disks'
 				onClick={ closeFilter }
 				className='text-teal-300 font-bold hover:underline'
 			>
@@ -76,7 +75,7 @@ export const CarDiskFilter: FC<Props> = ({ locale, closeFilter }) => {
 					{ diameterLinks.map(item => {
 						return <LinkComponent
 							key={ item.label }
-							href={ `/${ locale }/${ item.href }` }
+							href={ item.href }
 							border={ item.border }
 							label={ item.label }
 							onClick={ closeFilter }
