@@ -24,7 +24,7 @@ export const ItemWrapper: FC<ItemWrapperProps> = (
 		handleClick,
 		onClick,
 	}) => {
-	const t = useTranslations('Main');
+	const t = useTranslations('Filters');
 
 	const removeClick = (event: MouseEvent<HTMLDivElement | HTMLButtonElement>, id: number) => {
 		event.preventDefault();

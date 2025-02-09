@@ -15,7 +15,6 @@ import ComparisonComponent from '@/components/Comparison';
 export default function Comparison() {
 	const t = useTranslations('Comparison');
 	const dispatch = useAppDispatch();
-	const noDataText = 'Ви ще не додали в обране жодного товару';
 	const { comparisonItems } = useAppSelector(state => state.comparisonReducer);
 	const { tires, cargo, disks, battery, isLoading} = useAppGetProducts(comparisonItems, 'reducerComparison');
 
@@ -59,7 +58,7 @@ export default function Comparison() {
 					handleClick={ handleClick }
 					onClick={ onClick }
 				/>
-			</Spinner> : <NoResult noResultText={ noDataText } />}
+			</Spinner> : <NoResult noResultText='any products to comparison yet' />}
 		</Layout>
 	)
 };

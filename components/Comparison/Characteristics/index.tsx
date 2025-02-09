@@ -26,7 +26,7 @@ const Item = ({ content }: { content: string }) => {
 }
 
 export const Characteristics: FC<CharacteristicsProps> = ({ name, item  }) => {
-	const t = useTranslations('Main');
+	const t = useTranslations('Filters');
 
 	return characteristics[name].map((i, index) => {
 		if(i === 'season') {

@@ -12,26 +12,25 @@ import { Language } from '@/models/language';
 
 export default function Bookmarks() {
 	const t = useTranslations('Favorites');
-	const noDataText = 'ua' === Language.UA ? 'Ви ще не додали в обране жодного товару' : 'Вы еще не добавили в избранное ни одного товара';
 	const { bookmarksItems } = useAppSelector(state => state.bookmarksReducer);
-	const { products, isLoading} = useAppGetProducts(bookmarksItems, 'reducerBookmarks');
+	const { products, isLoading } = useAppGetProducts(bookmarksItems, 'reducerBookmarks');
 
 	const path = [
 		{
 			title: t('favorites'),
 			href: '/'
 		}
-	]
+	];
 
 	return <Layout>
-		<Breadcrumbs path={path}/>
+		<Breadcrumbs path={ path }/>
 		<Title title={ t('favorites') }/>
-		{bookmarksItems.length > 0 ? <Spinner height='h-40' show={ isLoading } >
+		{ bookmarksItems.length > 0 ? <Spinner height='h-40' show={ isLoading }>
 			<ProductList
 				locale={ Language.UA }
 				classnames='grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
-				data={{ products, total_count: products.length }}
+				data={ { products, total_count: products.length } }
 			/>
-		</Spinner> : <NoResult noResultText={ noDataText } />}
+		</Spinner> : <NoResult noResultText='any products to favorites yet' /> }
 	</Layout>
 };
