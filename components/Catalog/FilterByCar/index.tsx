@@ -22,7 +22,7 @@ interface Props {
 	// handleClick: (param1: string, param2: string) => void
 }
 
-const FilterByCar: FC<Props> = ({ locale, section }) => {
+const FilterByCar: FC<Props> = ({ section }) => {
 	const t = useTranslations();
 	const { subsection } = useAppSelector(state => state.filterReducer);
 	const [ openSort, setOpenSort ] = useState(false);
@@ -38,7 +38,7 @@ const FilterByCar: FC<Props> = ({ locale, section }) => {
 		<div className='flex justify-end items-center lg:items-start mb-3'>
 			{ subsection === Subsection.ByParams && section === Section.Tires &&
 				<div className='hidden lg:flex gap-x-3 xl:gap-x-6 mr-3 xl:mr-8'>
-					<TypeCarLinks section='catalog' locale={ locale }/>
+					<TypeCarLinks section='catalog' />
 				</div> }
 			<div className="relative inline-block text-left">
 				<button type="button" onClick={() => setOpenSort(prev => !prev)}
