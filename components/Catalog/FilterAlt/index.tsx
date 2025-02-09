@@ -82,7 +82,7 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 			<div className={ isMobile ? '' : 'hidden md:block' }>
 				<div
 					className='filter lg:h-auto w-[calc(100%-70px)] lg:w-64 mr-6 pt-4 lg:pt-0 bg-white lg:bg-transparent'>
-					<SwitchTabs locale={ locale } section={ section }/>
+					<SwitchTabs section={ section }/>
 				</div>
 				<div
 					className='relative pb-32 lg:pb-4 px-4 pt-4 bg-white border border-gray-200 z-10 overflow-y-auto md:overflow-y-visible'>

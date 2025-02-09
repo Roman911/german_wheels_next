@@ -1,9 +1,9 @@
 'use client';
 import { FC } from 'react';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
 import { BreadcrumbItem, Breadcrumbs } from '@heroui/breadcrumbs';
+import Link from '@/components/Lib/Link';
 import * as Icons from '@/components/Lib/Icons';
 
 interface Props {
@@ -24,7 +24,7 @@ const MyBreadcrumbs: FC<Props> = ({ path }) => {
 					<Icons.HomeIcon className='w-4 h-4 fill-gray-400'/>
 				</Link>
 			</BreadcrumbItem>
-			{ path.map((item, index) => {
+			{ path.filter(item => item.href !== '').map((item, index) => {
 				return (
 					<BreadcrumbItem key={ index + 1 } className={ twMerge(index === path.length - 1 ? 'text-black font-bold' : 'underline') }>
 						<Link href={ item.href }>

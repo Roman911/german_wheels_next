@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation';
 
 interface Props extends LinkProps {
 	children: ReactNode
-	className: string
+	className?: string
 }
 
 const MyLink: FC<Props> = ({ href, children, ...rest }) => {

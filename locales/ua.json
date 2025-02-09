@@ -45,6 +45,11 @@
     "estimated shipping": "Розрахункова вартість доставки за",
     "with cash": "З післяплатою"
   },
+  "InfoBlock": {
+    "delivery": "Доставка",
+    "payment": "Оплата",
+    "warranty and returns": "Гарантія та повернення"
+  },
   "Favorites": {
     "favorites": "Обране"
   },
@@ -221,7 +226,7 @@
   "motorcycle tires": "мотошини",
 
   "our advantages": "наші переваги",
-  "payment": "оплата",
+
   "pick up": "підібрати",
 
   "phones": "телефони",
@@ -247,6 +252,5 @@
 
   "type of electrolyte": "тип електроліту",
 
-  "tyre": "шин",
-  "warranty and returns": "гарантія та повернення"
+  "tyre": "шин"
 }

@@ -1,7 +1,7 @@
 'use client'
 import { usePathname } from 'next/navigation';
 import { FC } from 'react';
-import Link from 'next/link';
+import Link from '@/components/Lib/Link';
 import CartItem from './CartItem';
 import type { ProductsProps } from '@/models/products';
 import { Language } from '@/models/language';
@@ -85,7 +85,7 @@ const CartComponent: FC<CarProps> = ({ data, cartItems, removeProduct, setQuanti
 				<div>{ lang === Language.UA ? 'Разом до сплати:' : 'Итого к оплате:' }</div>
 				<div>{ totalQuantityPrice } ₴</div>
 			</div>
-			<Link className='btn primary w-full mt-6' href={ `/${lang}/order` }>
+			<Link className='btn primary w-full mt-6' href='/order'>
 				{ lang === Language.UA ? 'Оформити замовлення' : 'Оформить заказ' }
 			</Link>
 		</div>

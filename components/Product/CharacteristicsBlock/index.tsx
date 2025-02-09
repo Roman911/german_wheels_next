@@ -1,5 +1,5 @@
 'use client'
-import Link from 'next/link';
+import Link from '@/components/Lib/Link';
 import { FC, useEffect, useState } from 'react';
 import DOMPurify from 'isomorphic-dompurify';
 import { useTranslations } from 'next-intl';
@@ -40,11 +40,11 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 
 	const link = (to: string) => {
 		if(section === 'tires') {
-			return `/${locale}/catalog/tires${ to }`
+			return `/catalog/tires${ to }`
 		} else if(section === 'disks') {
-			return `/${locale}/catalog/disks${ to }`
+			return `/catalog/disks${ to }`
 		} else {
-			return `/${locale}/catalog/battery${ to }`
+			return `/catalog/battery${ to }`
 		}
 	};
 

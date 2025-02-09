@@ -1,12 +1,11 @@
 'use client'
-import Link from 'next/link';
+import Link from '@/components/Lib/Link';
 import { useTranslations } from 'next-intl';
 import { useAppSelector } from '@/hooks/redux';
 import { baseDataAPI } from '@/services/baseDataService';
 import { Section, Subsection } from '@/models/filter';
-import { Language } from '@/models/language';
 
-const SelectionByCar = ({ locale }: { locale: Language }) => {
+const SelectionByCar = () => {
 	const t = useTranslations('Main');
 	const { section, subsection } = useAppSelector(state => state.filterReducer);
 	const { filter } = useAppSelector(state => state.filterCarReducer);
@@ -25,22 +24,22 @@ const SelectionByCar = ({ locale }: { locale: Language }) => {
 		</h6>
 		<div className='flex gap-2 text-sm font-bold mt-2'>
 			{section === Section.Tires ? data?.filter(i => i.type === 1).map(item => {
-				return <Link className='text-blue-500' key={ item.value } href={ `/${locale}/catalog/${section}/w-${ item.width }/h-${ item.height }/d-${ item.diameter }` } >
+				return <Link className='text-teal-400' key={ item.value } href={ `/catalog/${section}/w-${ item.width }/h-${ item.height }/d-${ item.diameter }` } >
 					{ `${ item.width }/${ item.height } R${ item.diameter }` }
 				</Link>
 			}) : diskSize?.filter(i => i.type === 1).map(item => {
-				return <Link className='text-blue-500' key={ item.value } href={ `/${locale}/catalog/${section}/w-${ item.width }/d-${ item.diameter }/kr-${ item.kits.bolt_count }x${ item.kits.pcd }/et-${ item.et }/dia-${ item.kits.dia }` } >
+				return <Link className='text-teal-400' key={ item.value } href={ `/catalog/${section}/w-${ item.width }/d-${ item.diameter }/kr-${ item.kits.bolt_count }x${ item.kits.pcd }/et-${ item.et }/dia-${ item.kits.dia }` } >
 					{ `${ item.width }x${ item.diameter } ${ item.kits.bolt_count }x${ item.kits.pcd } ET${ item.et } DIA${ item.kits.dia }` }
 				</Link>})}
 		</div>
 		<h6 className='text-gray-500 mt-4'>Альтернатива</h6>
 		<div className='flex flex-wrap gap-2 text-sm font-bold mt-2'>
 			{section === Section.Tires ? data?.filter(i => i.type === 2).map(item => {
-				return <Link className='text-blue-500' key={ item.value } href={ `/${locale}/catalog/${section}/w-${ item.width }/h-${ item.height }/d-${ item.diameter }` } >
+				return <Link className='text-teal-400' key={ item.value } href={ `/catalog/${section}/w-${ item.width }/h-${ item.height }/d-${ item.diameter }` } >
 					{ `${ item.width }/${ item.height } R${ item.diameter }` }
 				</Link>
 			}) : diskSize?.filter(i => i.type === 2).map(item => {
-				return <Link className='text-blue-500' key={ item.value } href={ `/${locale}/catalog/${section}/w-${ item.width }/d-${ item.diameter }/kr-${ item.kits.bolt_count }x${ item.kits.pcd }/et-${ item.et }/dia-${ item.kits.dia }` } >
+				return <Link className='text-teal-400' key={ item.value } href={ `/catalog/${section}/w-${ item.width }/d-${ item.diameter }/kr-${ item.kits.bolt_count }x${ item.kits.pcd }/et-${ item.et }/dia-${ item.kits.dia }` } >
 					{ `${ item.width }x${ item.diameter } ${ item.kits.bolt_count }x${ item.kits.pcd } ET${ item.et } DIA${ item.kits.dia }` }
 				</Link>})}
 		</div>

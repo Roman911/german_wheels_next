@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/Lib/Link';
 import { useTranslations } from 'next-intl';
 
 export default function SuccessfulOrder() {
@@ -20,7 +20,7 @@ export default function SuccessfulOrder() {
 			<p className='mb-8 mt-4 font-bold text-xl'>
 				{ t('manager will contact you shortly') }
 			</p>
-			<Link href={`/`} className='pl-2 pr-2 text-blue-500 hover:underline '>
+			<Link href={`/`} className='pl-2 pr-2 text-teal-600 hover:underline '>
 				{ t('return to home page') }
 			</Link>
 		</div>

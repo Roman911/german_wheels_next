@@ -1,14 +1,13 @@
-import Link from 'next/link';
+import Link from '@/components/Lib/Link';
 import { twMerge } from 'tailwind-merge';
 import { Section } from '@/models/filter';
 import { useTranslations } from 'next-intl';
-import { Language } from '@/models/language';
 
-const SwitchTabs = ({ locale, section }: { locale: Language, section: Section }) => {
+const SwitchTabs = ({ section }: { section: Section }) => {
 	const t = useTranslations('Main');
 
 	const renderTab = (value: Section) => {
-		const url = `/${ locale }/catalog/${ value }`;
+		const url = `/catalog/${ value }`;
 
 		return (
 			<Link

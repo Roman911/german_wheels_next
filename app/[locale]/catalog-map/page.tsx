@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import Link from '@/components/Lib/Link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import Layout from '@/components/Layout';
@@ -32,7 +32,7 @@ export default function CatalogMap() {
 			<Breadcrumbs path={ path } />
 			<div className='mt-2.5 grid grid-cols-1 md:grid-cols-3 gap-5'>
 				{ links.map((item, index) => (
-					<Link key={ index } href={ item.href } className='relative rounded-md group transition duration-300 overflow-hidden'>
+					<Link key={ index } href={ `/${item.href}` } className='relative rounded-md group transition duration-300 overflow-hidden'>
 						<Image
 							src={ `/images/catalog-map/${item.img}.jpg` }
 							alt={ t('tires') }

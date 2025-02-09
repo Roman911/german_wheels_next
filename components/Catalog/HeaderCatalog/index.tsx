@@ -8,7 +8,6 @@ import { SeasonTransform } from '@/lib/characteristicsTransform';
 import { Section } from '@/models/filter';
 import { parseUrl } from '@/lib/seo';
 import { resetFilter, setParams } from '@/store/slices/filterSlice';
-import { Language } from '@/models/language';
 import { baseDataAPI } from '@/services/baseDataService';
 
 interface Brand {
@@ -25,12 +24,11 @@ interface UrlParams {
 }
 
 interface Props {
-	locale: Language
 	section: Section
 	slug: string[]
 }
 
-const HeaderCatalog: FC<Props> = ({ locale, section, slug }) => {
+const HeaderCatalog: FC<Props> = ({ section, slug }) => {
 	const t = useTranslations('Filters');
 	const dispatch = useAppDispatch();
 	const [ urlParams, setUrlParams ] = useState<UrlParams>({});
@@ -60,41 +58,43 @@ const HeaderCatalog: FC<Props> = ({ locale, section, slug }) => {
 
 	const path = [
 		{
-			title: section || '',
+			title: t(section) || '',
 			translations: false,
-			href: `/${locale}/catalog/${section}/`,
+			href: `/catalog/${section}/`,
 		},
 		{
 			translations: false,
 			title: `${SeasonTransform(urlParams.sezon ?? '')?.name ? t(SeasonTransform(urlParams.sezon ?? '')?.name) : ''} ${t(section)}`,
-			href: urlParams.sezon ? `/${locale}/catalog/${section}/s-${urlParams.sezon}` : '',
+			href: urlParams.sezon ? `/catalog/${section}/s-${urlParams.sezon}` : '',
 		},
 		{
 			translations: false,
 			title: `${typeof brandParam === 'object' && brandParam?.label ? brandParam.label : ''}`,
-			href: urlParams.brand ? `/${locale}/catalog/${section}/b-${urlParams.brand}` : '',
+			href: urlParams.brand ? `/catalog/${section}/b-${urlParams.brand}` : '',
 		},
 		{
 			translations: false,
 			title: `${t('width')} ${urlParams.width}`,
-			href: urlParams.width ? `/${locale}/catalog/${section}/w-${urlParams.width}` : '',
+			href: urlParams.width ? `/catalog/${section}/w-${urlParams.width}` : '',
 		},
 		{
 			translations: false,
 			title: `${t('height')} ${urlParams.height}`,
-			href: urlParams.height ? `/${locale}/catalog/${section}/h-${urlParams.height}` : '',
+			href: urlParams.height ? `/catalog/${section}/h-${urlParams.height}` : '',
 		},
 		{
 			translations: false,
 			title: `R${urlParams.radius}`,
-			href: urlParams.radius ? `/${locale}/catalog/${section}/d-${urlParams.radius}` : '',
+			href: urlParams.radius ? `/catalog/${section}/d-${urlParams.radius}` : '',
 		},
 		{
 			translations: false,
 			title: `${title}`,
-			href: Object.keys(urlParams).length > 1 ? `/${locale}/catalog/${section}/` : '',
+			href: Object.keys(urlParams).length > 1 ? `/catalog/${section}/` : '',
 		},
 	];
+
+	console.log(path)
 
 	return (
 		<>
