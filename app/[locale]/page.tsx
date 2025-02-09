@@ -6,6 +6,7 @@ import Title from '@/components/Lib/Title';
 import ProductList from '@/components/ProductList';
 import NoResult from '@/components/Lib/NoResult';
 import { Language } from '@/models/language';
+import Layout from '@/components/Layout';
 
 async function getSettings() {
   const res = await fetch(`${process.env.SERVER_URL}/baseData/settings`, {
@@ -48,7 +49,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Langu
   return (
     <main>
       <Filter locale={ locale } />
-      <div className="container mx-auto px-4 py-5 min-h-[70vh]">
+      <Layout>
         <Title title={ response[locale].h2_top }/>
         { products.result ? <ProductList
           locale={ locale }
@@ -57,7 +58,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Langu
         /> : <NoResult noResultText='no result' /> }
         <Banner />
         <TextSeo description={response[locale].description} />
-      </div>
+      </Layout>
     </main>
   );
 };

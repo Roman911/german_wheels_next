@@ -10,7 +10,7 @@ const TextSeo: FC<Props> = ({ description })=> {
 		const sanitizedHtml = DOMPurify.sanitize(htmlString);
 		return (
 			<div
-				className="container mx-auto max-w-7xl mt-20 mb-24 px-2"
+				className="container mt-20 mb-24 md:py-16 md:px-24 md:bg-white"
 				dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
 			/>
 		);
