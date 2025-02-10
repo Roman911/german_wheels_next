@@ -1,5 +1,5 @@
 'use client'
-import { usePathname } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { FC } from 'react';
 import Link from '@/components/Lib/Link';
 import CartItem from './CartItem';
@@ -8,15 +8,15 @@ import { Language } from '@/models/language';
 
 const totalQuantityLabel = {
 	1: {
-		ua: 'товар на суму:',
+		uk: 'товар на суму:',
 		ru: 'товар на сумму',
 	},
 	2: {
-		ua: 'товара на суму:',
+		uk: 'товара на суму:',
 		ru: 'товара на сумму',
 	},
 	3: {
-		ua: 'товарів на суму:',
+		uk: 'товарів на суму:',
 		ru: 'товаров на сумму:',
 	},
 };
@@ -29,8 +29,7 @@ interface CarProps {
 }
 
 const CartComponent: FC<CarProps> = ({ data, cartItems, removeProduct, setQuantity }) => {
-	const pathname = usePathname();
-	const lang = pathname.split('/')[1] === 'ua' ? 'ua' : 'ru';
+	const { locale } = useParams<{ locale: Language.UK | Language.RU }>();
 	const items = data?.data.products.map(item => {
 		const id = item.best_offer.id;
 		const price = item.best_offer.price;
@@ -62,7 +61,7 @@ const CartComponent: FC<CarProps> = ({ data, cartItems, removeProduct, setQuanti
 					offerQuantity={ item.offers[0]?.quantity }
 					removeProduct={ removeProduct }
 					setQuantity={ setQuantity }
-					lang={ lang }
+					locale={ locale }
 				/>
 			})}
 		</div>
@@ -73,20 +72,20 @@ const CartComponent: FC<CarProps> = ({ data, cartItems, removeProduct, setQuanti
 					{ ' ' }
 					{
 						totalQuantity === 1
-							? totalQuantityLabel[1][lang]
+							? totalQuantityLabel[1][locale]
 							: (totalQuantity && totalQuantity > 1 && totalQuantity < 5)
-								? totalQuantityLabel[2][lang]
-								: totalQuantityLabel[3][lang]
+								? totalQuantityLabel[2][locale]
+								: totalQuantityLabel[3][locale]
 					}
 				</div>
 				<div>{ totalQuantityPrice } ₴</div>
 			</div>
 			<div className='font-bold mt-4 flex justify-between'>
-				<div>{ lang === Language.UK ? 'Разом до сплати:' : 'Итого к оплате:' }</div>
+				<div>{ locale === Language.UK ? 'Разом до сплати:' : 'Итого к оплате:' }</div>
 				<div>{ totalQuantityPrice } ₴</div>
 			</div>
 			<Link className='btn primary w-full mt-6' href='/order'>
-				{ lang === Language.UK ? 'Оформити замовлення' : 'Оформить заказ' }
+				{ locale === Language.UK ? 'Оформити замовлення' : 'Оформить заказ' }
 			</Link>
 		</div>
 	</div>

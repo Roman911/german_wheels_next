@@ -18,7 +18,7 @@ interface CartItemProps {
 	country: string
 	country_ru: string
 	year: number
-	lang: string
+	locale: string
 	offerQuantity: number,
 	removeProduct: (id: number) => void
 	setQuantity: (id: number, quantity: number) => void
@@ -39,7 +39,7 @@ const CartItem: FC<CartItemProps> = (
 		offerQuantity,
 		setQuantity,
 		removeProduct,
-		lang
+		locale
 	}) => {
 
 	const onChange = (e: { target: HTMLInputElement }) => {
@@ -64,7 +64,7 @@ const CartItem: FC<CartItemProps> = (
 				<div className='country mt-2 md:col-span-4'>
 					{ (country || year) && <CountryInfo
 						country={ country }
-						countryCode={ countryCodeTransform( lang === Language.UK ? country : country_ru) }
+						countryCode={ countryCodeTransform( locale === Language.UK ? country : country_ru) }
 						year={ year }
 					/> }
 				</div>
