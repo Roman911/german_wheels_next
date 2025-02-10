@@ -82,11 +82,11 @@ const CartComponent: FC<CarProps> = ({ data, cartItems, removeProduct, setQuanti
 				<div>{ totalQuantityPrice } ₴</div>
 			</div>
 			<div className='font-bold mt-4 flex justify-between'>
-				<div>{ lang === Language.UA ? 'Разом до сплати:' : 'Итого к оплате:' }</div>
+				<div>{ lang === Language.UK ? 'Разом до сплати:' : 'Итого к оплате:' }</div>
 				<div>{ totalQuantityPrice } ₴</div>
 			</div>
 			<Link className='btn primary w-full mt-6' href='/order'>
-				{ lang === Language.UA ? 'Оформити замовлення' : 'Оформить заказ' }
+				{ lang === Language.UK ? 'Оформити замовлення' : 'Оформить заказ' }
 			</Link>
 		</div>
 	</div>

@@ -36,7 +36,7 @@ const Summary: FC<SummaryProps> = ({ data, isLoading, loadingBtn, cartItems, lan
 		<div ref={ ref }></div>
 		<div className={classNames('bg-white w-full lg:w-96', { 'lg:fixed top-4': !inView })}>
 			<div className='pt-5 pb-2 px-6'>
-				<h3 className='font-bold'>{ lang === Language.UA ? 'Ваше замовлення' : 'Ваш заказ' }</h3>
+				<h3 className='font-bold'>{ lang === Language.UK ? 'Ваше замовлення' : 'Ваш заказ' }</h3>
 				<Spinner height='h-40' show={isLoading}>
 					<div className='divide-y'>
 						{data?.data.products.map(item => {
@@ -58,12 +58,12 @@ const Summary: FC<SummaryProps> = ({ data, isLoading, loadingBtn, cartItems, lan
 			</div>
 			<div className='bg-blue-50 py-5 px-6'>
 				<div className='flex justify-between font-bold'>
-					<div>{ lang === Language.UA ? 'Всього до сплати' : 'Всего к оплате' }</div>
+					<div>{ lang === Language.UK ? 'Всього до сплати' : 'Всего к оплате' }</div>
 					<div>{ totalQuantityPrice } грн</div>
 				</div>
 				<button type='submit' className='btn primary w-full mt-5' disabled={ loadingBtn } >
 					<Spinner height='h10' show={ loadingBtn }>
-						{ lang === Language.UA ? 'Оформити замовлення' : 'Оформить заказ' }
+						{ lang === Language.UK ? 'Оформити замовлення' : 'Оформить заказ' }
 					</Spinner>
 				</button>
 			</div>

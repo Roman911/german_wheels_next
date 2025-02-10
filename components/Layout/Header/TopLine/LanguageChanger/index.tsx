@@ -7,7 +7,7 @@ import { twMerge } from 'tailwind-merge';
 import { Language } from '@/models/language';
 
 const params = [
-	{ title: 'UA', language: Language.UA },
+	{ title: 'UA', language: Language.UK },
 	{ title: 'RU', language: Language.RU },
 ];
 
@@ -17,14 +17,14 @@ interface Props {
 
 const LanguageChanger: FC<Props> = ({ locale }) => {
 	const pathname = usePathname();
-	const path = pathname.replace(/^\/ru|^\/ua/, '');
+	const path = pathname.replace(/^\/ru|^\/uk/, '');
 
 	return (
 		<div className='divide-x text-gray-500 divide-gray-500 font-semibold text-sm 2xl:text-base'>
 			{ params.map((item, index) => {
 				return <Link
 					key={ index }
-					href={ item.language === Language.UA ? `/ua${ path }` : `/ru${ path }` }
+					href={ item.language === Language.UK ? `/uk${ path }` : `/ru${ path }` }
 					className={
 						twMerge(
 							'leading-8 pr-1.5 2xl:pr-3 active:text-white',

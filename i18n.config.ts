@@ -1,13 +1,13 @@
 import { Language } from './models/language';
 
 const i18nConfig = {
-	locales: [Language.UA, Language.RU],
-	defaultLocale: Language.UA,
+	locales: [Language.UK, Language.RU],
+	defaultLocale: Language.UK,
 	localeDetection: false,
 	domains: [
 		{
 			domain: 'http://shop.g-wheels.com.ua',
-			defaultLocale: Language.UA,
+			defaultLocale: Language.UK,
 		},
 	]
 };

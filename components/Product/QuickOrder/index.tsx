@@ -121,17 +121,17 @@ const QuickOrder: FC<Props> = (
 									<ModalHeader className="flex items-center gap-2">
 										<Image width={ 18 } height={ 18 } src='/images/nova-poshta-logo-white-bg.png' alt=""/>
 										<h3 className="text-base font-semibold leading-6 text-gray-900">
-											{ locale === Language.UA ? 'Розрахунок доставки' : 'Расчет доставки' }
+											{ locale === Language.UK ? 'Розрахунок доставки' : 'Расчет доставки' }
 										</h3>
 									</ModalHeader>
 									<ModalBody>
 										<div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
 											<div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
 												<h3 className="text-base font-semibold leading-6 text-gray-900"
-														id="modal-title">{ locale === Language.UA ? 'ШВИДКЕ ЗАМОВЛЕННЯ' : 'БЫСТРЫЙ ЗАКАЗ' }</h3>
+														id="modal-title">{ locale === Language.UK ? 'ШВИДКЕ ЗАМОВЛЕННЯ' : 'БЫСТРЫЙ ЗАКАЗ' }</h3>
 												<div className="mt-3">
 													<p className="text-sm text-gray-500">
-														{ locale === Language.UA ?
+														{ locale === Language.UK ?
 															'Економте Ваш час, просто залиште телефон і менеджер з Вами зв\'яжеться для уточнення всіх деталей' :
 															'Экономьте Ваше время, просто оставьте телефон и менеджер с Вами свяжется для уточнения всех деталей' }
 													</p>
@@ -145,7 +145,7 @@ const QuickOrder: FC<Props> = (
 									<ModalFooter>
 										<Button type="submit" className='btn primary w-max px-5 uppercase' disabled={ loading }>
 											<Spinner size='small' height='h-10' show={ loading }>
-												{ locale === Language.UA ? 'Надіслати' : 'Отправить' }
+												{ locale === Language.UK ? 'Надіслати' : 'Отправить' }
 											</Spinner>
 										</Button>
 									</ModalFooter>

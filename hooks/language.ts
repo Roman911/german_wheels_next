@@ -5,5 +5,5 @@ import { Language } from '@/models/language';
 export const useLanguages = () => {
 	const pathname = usePathname();
 
-	return /ua/.test(pathname) ? Language.UA : Language.RU;
+	return /ua/.test(pathname) ? Language.UK : Language.RU;
 };

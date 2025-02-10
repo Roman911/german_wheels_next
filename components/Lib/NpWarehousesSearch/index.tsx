@@ -17,7 +17,7 @@ export const NpWarehousesSearch: FC<NpWarehousesSearchProps> = ({ title, lang })
 	const { data } = baseDataAPI.useFetchNpWarehousesQuery(city.value);
 
 	const warehousesOptions = data?.map((item: { Description: string, DescriptionRu: string, Ref: string }) => {
-		return { value: item.Ref, label: lang === Language.UA ? item.Description : item.DescriptionRu }
+		return { value: item.Ref, label: lang === Language.UK ? item.Description : item.DescriptionRu }
 	});
 
 	const onChange = (_: string, value?: number | string | null, label?: number | string | null) => {

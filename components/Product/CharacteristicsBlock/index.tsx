@@ -105,7 +105,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 				{ data?.data.offer_group.width && <div className='flex md:my-4 text-sm font-medium'>
 					<div
 						className='w-full flex items-center text-[#575C66] after:flex-1 after:min-w-6 after:border-b after:border-dashed after:border-[#AEB6C2] after:h-px after:mt-3 after:mx-2'>
-						<Tooltip content={ locale === Language.UA ? `Ширина ${ section === 'tires' ? 'шини в міліметрах' : 'диска в дюймах' }` :
+						<Tooltip content={ locale === Language.UK ? `Ширина ${ section === 'tires' ? 'шини в міліметрах' : 'диска в дюймах' }` :
 							`Ширина ${ section === 'tires' ? 'шины в миллиметрах' : 'диска в дюймах' }` }>
 							<div className='flex gap-x-0.5'>
 								<Icons.InfoTooltipIcon className='fill-[#AEB6C2]' />{ t('width') }
@@ -120,7 +120,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 				{ data?.data.offer_group.height && <div className='flex my-4 text-sm font-medium'>
 					<div
 						className='w-full flex items-center text-[#575C66] after:flex-1 after:min-w-6 after:border-b after:border-dashed after:border-[#AEB6C2] after:h-px after:mt-3 after:mx-2'>
-						<Tooltip content={ locale === Language.UA ?
+						<Tooltip content={ locale === Language.UK ?
 							'Висота шини у відсотках від ширини, якщо висота зазначена, вважається рівною 82' :
 							'Высота шины в процентах от ширины, если высота указана, считается равной 82' }>
 							<div className='flex gap-x-0.5'>
@@ -136,7 +136,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 				{ data?.data.offer_group.diameter && <div className='flex my-4 text-sm font-medium'>
 					<div
 						className='w-full flex items-center text-[#575C66] after:flex-1 after:min-w-6 after:border-b after:border-dashed after:border-[#AEB6C2] after:h-px after:mt-3 after:mx-2'>
-						<Tooltip content={ locale === Language.UA ?
+						<Tooltip content={ locale === Language.UK ?
 							`${ section === 'tires' ? 'Внутрішній діаметр шини' : 'Діаметр диска' } в дюймах` :
 							`${ section === 'tires' ? 'Внутренний диаметр шины' : 'Диаметр диска' } в дюймах` }>
 							<div className='flex gap-x-0.5'>
@@ -152,7 +152,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 				{ data?.data.offer_group.krep_pcd1 && <div className='flex my-4 text-sm font-medium'>
 					<div
 						className='w-full flex items-center text-[#575C66] after:flex-1 after:min-w-6 after:border-b after:border-dashed after:border-[#AEB6C2] after:h-px after:mt-3 after:mx-2'>
-						<Tooltip content={ locale === Language.UA ?
+						<Tooltip content={ locale === Language.UK ?
 							'Кількість кріпильних отворів' :
 							'Количество крепежных отверстий' }>
 							<div className='flex gap-x-0.5'>
@@ -172,7 +172,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 					</div>
 					<Link href={ link(`/si-${ data?.data.offer_group.speed_index }`) }
 								className='text-black max-w-max w-full hover:underline'>
-						{ locale === Language.UA ? data?.data.offer_group.speed_index : data?.data.offer_group.speed_index_ru }
+						{ locale === Language.UK ? data?.data.offer_group.speed_index : data?.data.offer_group.speed_index_ru }
 					</Link>
 				</div> }
 				{ data?.data.offer_group.load_index && <div className='flex my-4 text-sm font-medium'>
@@ -182,7 +182,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 					</div>
 					<Link href={ link(`/li-${ data?.data.offer_group.load_index }`) }
 								className='text-black max-w-max w-full hover:underline'>
-						{ locale === Language.UA ? data?.data.offer_group.load_index : data?.data.offer_group.load_index_ru }
+						{ locale === Language.UK ? data?.data.offer_group.load_index : data?.data.offer_group.load_index_ru }
 					</Link>
 				</div> }
 			</div>

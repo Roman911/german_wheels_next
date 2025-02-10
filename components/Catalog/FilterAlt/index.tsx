@@ -148,7 +148,7 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 							'white',
 							customTireSeason.map(item => ({
 								value: item.value,
-								label: locale === Language.UA ? item.name_ua : item.name
+								label: locale === Language.UK ? item.name_ua : item.name
 							})),
 							false,
 							filter?.sezon,
@@ -161,7 +161,7 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 							'white',
 							appointmentCargo.map(item => ({
 								value: item.value,
-								label: locale === Language.UA ? item.name_ua : item.name
+								label: locale === Language.UK ? item.name_ua : item.name
 							})),
 							false,
 							filter?.vehicle_type,
@@ -172,7 +172,7 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 							'white',
 							appointmentIndustrial.map(item => ({
 								value: item.value,
-								label: locale === Language.UA ? item.name_ua : item.name
+								label: locale === Language.UK ? item.name_ua : item.name
 							})),
 							false,
 							filter?.vehicle_type,
@@ -205,7 +205,7 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 							'typedisk',
 							'type',
 							'gray',
-							typeDisc.map(item => ({ value: item.value, label: locale === Language.UA ? item.name_ua : item.name })),
+							typeDisc.map(item => ({ value: item.value, label: locale === Language.UK ? item.name_ua : item.name })),
 							false,
 							filter?.typedisk,
 						) }
@@ -260,7 +260,7 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 							'other',
 							'other',
 							'white',
-							others.map(item => ({ value: item.value, label: locale === Language.UA ? item.name_ua : item.name })),
+							others.map(item => ({ value: item.value, label: locale === Language.UK ? item.name_ua : item.name })),
 							false,
 							null,
 							false,
@@ -356,7 +356,7 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 										'white',
 										customTireSeason.map(item => ({
 											value: item.value,
-											label: locale === Language.UA ? item.name_ua : item.name
+											label: locale === Language.UK ? item.name_ua : item.name
 										})),
 										false,
 										filter?.sezon,
@@ -369,7 +369,7 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 										'white',
 										appointmentCargo.map(item => ({
 											value: item.value,
-											label: locale === Language.UA ? item.name_ua : item.name
+											label: locale === Language.UK ? item.name_ua : item.name
 										})),
 										false,
 										filter?.vehicle_type,
@@ -380,7 +380,7 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 										'white',
 										appointmentIndustrial.map(item => ({
 											value: item.value,
-											label: locale === Language.UA ? item.name_ua : item.name
+											label: locale === Language.UK ? item.name_ua : item.name
 										})),
 										false,
 										filter?.vehicle_type,
@@ -415,7 +415,7 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 										'gray',
 										typeDisc.map(item => ({
 											value: item.value,
-											label: locale === Language.UA ? item.name_ua : item.name
+											label: locale === Language.UK ? item.name_ua : item.name
 										})),
 										false,
 										filter?.typedisk,
@@ -473,7 +473,7 @@ const FilterAlt: FC<Props> = ({ locale, filterData, section }) => {
 										'white',
 										others.map(item => ({
 											value: item.value,
-											label: locale === Language.UA ? item.name_ua : item.name
+											label: locale === Language.UK ? item.name_ua : item.name
 										})),
 										false,
 										null,

@@ -147,7 +147,7 @@ const ProductComponent: FC<Props> = ({ idProduct, locale, data, section, setting
 										</div>
 										<div className='country md:col-span-3'>
 											<CountryInfo
-												country={ locale === Language.UA ? item.country : item.country_ru }
+												country={ locale === Language.UK ? item.country : item.country_ru }
 												countryCode={ countryCodeTransform(item.country) } year={ item.year }
 												mobileHidden={ true }
 											/>
@@ -167,7 +167,7 @@ const ProductComponent: FC<Props> = ({ idProduct, locale, data, section, setting
 					<div className='buttons-buy md:justify-self-end mt-8 md:0'>
 						{ cartItems.find(item => item.id === offerId) ?
 							<Link href={ `/cart` } className='btn bg-success uppercase text-white w-full md:w-72'>
-								<span className='ml-2.5'>{ locale === Language.UA ? 'Перейти до кошика' : 'Перейти в корзину' }</span>
+								<span className='ml-2.5'>{ locale === Language.UK ? 'Перейти до кошика' : 'Перейти в корзину' }</span>
 							</Link> :
 							<Button onPress={ onSubmit } className='uppercase w-full md:w-72 flex'>
 								<span className='ml-2.5'>{ t('buy') }</span>

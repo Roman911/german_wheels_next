@@ -124,7 +124,7 @@ const ProductCard: FC<Props> = ({ locale, item }) => {
 					</div>
 					<Image
 						className='mx-auto'
-						src={ default_photo || (locale === Language.UA ? noPhoto : noPhotoRu) }
+						src={ default_photo || (locale === Language.UK ? noPhoto : noPhotoRu) }
 						alt={ full_name }
 						width={ 220 }
 						height={ 220 }

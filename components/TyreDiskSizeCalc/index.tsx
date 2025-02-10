@@ -38,7 +38,7 @@ const TyreDiskSizeCalcComponent: FC<Props> = ({ locale }) => {
 
 	return (
 		<Iframe
-			url={ `/calc/kalkulator${ locale === Language.UA ? '_ua' : '' }.htm?background=2772E2` }
+			url={ `/calc/kalkulator${ locale === Language.UK ? '_ua' : '' }.htm?background=2772E2` }
 			width="100%"
 			height={ height }
 			id="tireCalculator"

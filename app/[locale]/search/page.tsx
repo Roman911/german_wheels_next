@@ -45,7 +45,7 @@ export default function Search() {
 		<Spinner height='h-40' show={ isLoading }>
 			{ data?.result ?
 				<ProductList
-					locale={ Language.UA }
+					locale={ Language.UK }
 					classnames='grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
 					data={ data.data }
 				/> :

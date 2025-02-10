@@ -64,7 +64,7 @@ const CartItem: FC<CartItemProps> = (
 				<div className='country mt-2 md:col-span-4'>
 					{ (country || year) && <CountryInfo
 						country={ country }
-						countryCode={ countryCodeTransform( lang === Language.UA ? country : country_ru) }
+						countryCode={ countryCodeTransform( lang === Language.UK ? country : country_ru) }
 						year={ year }
 					/> }
 				</div>

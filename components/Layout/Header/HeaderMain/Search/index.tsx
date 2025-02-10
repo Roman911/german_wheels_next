@@ -80,7 +80,7 @@ const Search = ({ locale }: { locale: Language }) => {
 					</Spinner>
 				</ul>
 				{ data?.result && <Link className='btn primary mx-auto' onClick={ handleClickAllProduct } href='/search'>
-					{ locale === Language.UA ? 'Усі результати пошуку ' : 'Все результаты поиска ' }
+					{ locale === Language.UK ? 'Усі результати пошуку ' : 'Все результаты поиска ' }
 					({ data?.data.total_count })
 				</Link> }
 			</div>

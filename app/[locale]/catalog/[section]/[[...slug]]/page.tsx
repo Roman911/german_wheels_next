@@ -49,8 +49,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 		.then((res) => res.json());
 
 	return {
-		title: response[locale].meta_title,
-		description: response[locale].meta_description,
+		title: response[locale === Language.UK ? Language.UA : Language.RU].meta_title,
+		description: response[locale === Language.UK ? Language.UA : Language.RU].meta_description,
 	}
 }
 

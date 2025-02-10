@@ -37,7 +37,7 @@ interface Props {
 const Footer: FC<Props> = ({ locale, settings }) => {
 	const t = useTranslations('Footer');
 	const { data } = baseDataAPI.useFetchStatiAliasAllQuery('');
-	const lang = locale === Language.UA ? Language.UA : Language.RU;
+	const lang = locale === Language.UK ? Language.UA : Language.RU;
 
 	const icons: Record<IconType, JSX.Element> = {
 		telegram: <Icons.TelegramIcon className='fill-black group-hover:fill-white'/>,

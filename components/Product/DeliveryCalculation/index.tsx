@@ -54,7 +54,7 @@ const DeliveryCalculation: FC<Props> = ({ locale, offer_id }) => {
 							<ModalHeader className="flex items-center gap-2">
 								<Image width={ 18 } height={ 18 } src='/images/nova-poshta-logo-white-bg.png' alt=""/>
 								<h3 className="text-base font-semibold leading-6 text-gray-900">
-									{ locale === Language.UA ? 'Розрахунок доставки' : 'Расчет доставки' }
+									{ locale === Language.UK ? 'Розрахунок доставки' : 'Расчет доставки' }
 								</h3>
 							</ModalHeader>
 							<ModalBody>
@@ -62,11 +62,11 @@ const DeliveryCalculation: FC<Props> = ({ locale, offer_id }) => {
 									<div className='mt-6 mb-4'>
 										{ !showDescription && <>
 											<p className='mt-4'>
-												{ locale === Language.UA ? 'Вкажіть місто' : 'Укажите город' }
+												{ locale === Language.UK ? 'Вкажіть місто' : 'Укажите город' }
 											</p>
 											<NpCitySearch title={ t('city') }/>
 											<p className='mt-4 mb-2'>
-												{ locale === Language.UA ? 'Вкажіть кількість' : 'Укажите количество' }
+												{ locale === Language.UK ? 'Вкажіть кількість' : 'Укажите количество' }
 											</p>
 											<Quantity
 												id={ 0 }
@@ -82,9 +82,9 @@ const DeliveryCalculation: FC<Props> = ({ locale, offer_id }) => {
 							</ModalBody>
 							<ModalFooter>
 								{ showDescription ? <Button onPress={ onClose } type="button" className='w-max px-5'>
-									{ locale === Language.UA ? 'Закрити' : 'Закрыть' }
+									{ locale === Language.UK ? 'Закрити' : 'Закрыть' }
 								</Button> : <Button onPress={ handleClick } type="button" className='btn primary w-max px-5'>
-									{ locale === Language.UA ? 'Розрахувати' : 'Рассчитать' }
+									{ locale === Language.UK ? 'Розрахувати' : 'Рассчитать' }
 								</Button> }
 							</ModalFooter>
 						</>

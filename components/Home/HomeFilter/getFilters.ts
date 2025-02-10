@@ -68,7 +68,7 @@ export const getFilters = ({ locale, section, data }: Props) => {
 			label: 'type',
 			name: 'vehicle_type',
 			focusValue: '',
-			options: typeOptions.map(item => ({ value: item.value, label: locale === Language.UA ? item.label : item.label_ru }))
+			options: typeOptions.map(item => ({ value: item.value, label: locale === Language.UK ? item.label : item.label_ru }))
 		});
 
 		filterConfigs.push({
@@ -95,7 +95,7 @@ export const getFilters = ({ locale, section, data }: Props) => {
 			label: 'season',
 			name: 'sezon',
 			focusValue: '',
-			options: customTireSeason.map(item => ({ value: item.value, label: locale === Language.UA ? item.name_ua : item.name }))
+			options: customTireSeason.map(item => ({ value: item.value, label: locale === Language.UK ? item.name_ua : item.name }))
 		});
 
 		filterConfigs.push({

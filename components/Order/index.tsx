@@ -41,18 +41,18 @@ const OrderComponent: FC<OrderProps> = (
 	const lang = pathname.split('/')[1] === 'ua' ? 'ua' : 'ru';
 
 	const deliverysOptions = dataOrdersParam?.Deliverys.map(item => {
-		return { value: item.deliverys_id, label: lang === Language.UA ? item.name : item.name_ru }
+		return { value: item.deliverys_id, label: lang === Language.UK ? item.name : item.name_ru }
 	});
 
 	const paymentsOptions = dataOrdersParam?.Payments.map(item => {
-		return { value: item.payments_id, label: lang === Language.UA ? item.name : item.name_ru }
+		return { value: item.payments_id, label: lang === Language.UK ? item.name : item.name_ru }
 	});
 
 	return <div className='flex flex-col lg:flex-row gap-6'>
 		<div className='flex-1'>
 			<div className='bg-white pt-5 pb-8 px-6'>
 				<h3 className='font-bold text-xl'>
-					{ lang === Language.UA ? 'Контактні дані' : 'Контактные данные' }
+					{ lang === Language.UK ? 'Контактні дані' : 'Контактные данные' }
 				</h3>
 				<input
 					type={ 'text' }
@@ -62,7 +62,7 @@ const OrderComponent: FC<OrderProps> = (
 					name="firstname"
 					control={ control }
 					render={ ({ field }) => {
-						return <TextFile field={ field } label={ lang === Language.UA ? 'Ім\'я' : 'Имя' }
+						return <TextFile field={ field } label={ lang === Language.UK ? 'Ім\'я' : 'Имя' }
 														 error={ typeof errors?.['firstname']?.message === 'string' ? errors['firstname'].message : null }/>
 					} }
 				/>
@@ -70,7 +70,7 @@ const OrderComponent: FC<OrderProps> = (
 					name="lastname"
 					control={ control }
 					render={ ({ field }) => {
-						return <TextFile field={ field } label={ lang === Language.UA ? 'Прізвище' : 'Фамилия' }
+						return <TextFile field={ field } label={ lang === Language.UK ? 'Прізвище' : 'Фамилия' }
 														 error={ typeof errors?.['lastname']?.message === 'string' ? errors['lastname'].message : null }/>
 					} }
 				/>
@@ -78,7 +78,7 @@ const OrderComponent: FC<OrderProps> = (
 					name="surname"
 					control={ control }
 					render={ ({ field }) => {
-						return <TextFile field={ field } label={ lang === Language.UA ? 'По батькові' : 'Отчество' }
+						return <TextFile field={ field } label={ lang === Language.UK ? 'По батькові' : 'Отчество' }
 														 error={ typeof errors?.['surname']?.message === 'string' ? errors['surname'].message : null }/>
 					} }
 				/>
@@ -87,19 +87,19 @@ const OrderComponent: FC<OrderProps> = (
 					name="email"
 					control={ control }
 					render={ ({ field }) => {
-						return <TextFile field={ field } label={ lang === Language.UA ? 'Електронна пошта' : 'Электронная почта' }
+						return <TextFile field={ field } label={ lang === Language.UK ? 'Електронна пошта' : 'Электронная почта' }
 														 error={ typeof errors?.['email']?.message === 'string' ? errors['email'].message : null }/>
 					} }
 				/>
 			</div>
 			<div className='bg-white pt-5 pb-8 px-6 mt-4'>
-				<h3 className='font-bold text-xl'>{ lang === Language.UA ? 'Доставка та оплата' : 'Доставка и оплата' }</h3>
+				<h3 className='font-bold text-xl'>{ lang === Language.UK ? 'Доставка та оплата' : 'Доставка и оплата' }</h3>
 				<div className="relative mt-6 w-full min-w-[200px]">
 					<h4 className='font-semibold'>
-						{ lang === Language.UA ? 'Виберіть спосіб доставки' : 'Выберите способ доставки' }
+						{ lang === Language.UK ? 'Виберіть спосіб доставки' : 'Выберите способ доставки' }
 					</h4>
 					<div className='mt-3'>
-						<MySelect name='shipping_method' label={ lang === Language.UA ? 'Спосіб доставки' : 'Способ доставки' }
+						<MySelect name='shipping_method' label={ lang === Language.UK ? 'Спосіб доставки' : 'Способ доставки' }
 											options={ deliverysOptions } onChange={ onChange }/>
 					</div>
 					{ (shippingMethod === '2' || shippingMethod === '3') && <div className='mt-3'>
@@ -113,25 +113,25 @@ const OrderComponent: FC<OrderProps> = (
 						control={ control }
 						render={ ({ field }) => {
 							return <TextFile field={ field }
-															 label={ lang === Language.UA ? 'Адреса (Вулиця, будинок)' : 'Адрес (Улица, дом)' }
+															 label={ lang === Language.UK ? 'Адреса (Вулиця, будинок)' : 'Адрес (Улица, дом)' }
 															 error={ typeof errors?.['address']?.message === 'string' ? errors['address'].message : null }/>
 						} }
 					/> }
 					<h4 className='font-semibold mt-6'>
-						{ lang === Language.UA ? 'Виберіть спосіб оплати' : 'Выберите способ оплаты' }
+						{ lang === Language.UK ? 'Виберіть спосіб оплати' : 'Выберите способ оплаты' }
 					</h4>
 					<MySelect name='payment_method' label='Способ оплаты' options={ paymentsOptions } onChange={ onChange }/>
 				</div>
 			</div>
 			<div className='bg-white pt-5 pb-8 px-6 mt-4 md:mb-20'>
 				<h4 className='font-semibold'>
-					{ lang === Language.UA ? 'Додати коментар' : 'Додати коментар' }
+					{ lang === Language.UK ? 'Додати коментар' : 'Додати коментар' }
 				</h4>
 				<Controller
 					name="comment"
 					control={ control }
 					render={ ({ field }) => <TextFile field={ field }
-																						label={ lang === Language.UA ? 'Ваш коментар' : 'Ваш комментарий' }
+																						label={ lang === Language.UK ? 'Ваш коментар' : 'Ваш комментарий' }
 																						error={ typeof errors?.['text']?.message === 'string' ? errors['text'].message : null }
 																						isTextarea={ true }/> }
 				/>

@@ -44,7 +44,7 @@ const ImagesBlock: FC<Props> = ({ locale, labels, images, photo, full_name, vehi
 							className='text-center text-xs font-semibold text-white uppercase py-1.5 px-2.5 max-w-max rounded-sm my-1'
 							style={ { backgroundColor: item.label.color } }
 						>
-							{ locale === Language.UA ? item.label.name : item.label.name_ru }
+							{ locale === Language.UK ? item.label.name : item.label.name_ru }
 						</div>
 					}) }
 					<div className='flex gap-x-2'>
@@ -56,7 +56,7 @@ const ImagesBlock: FC<Props> = ({ locale, labels, images, photo, full_name, vehi
 			</div>
 			{ photo?.url_part === '' ?
 				<Image
-					src={ locale === Language.UA ? '/images/no-photo.jpg' : '/images/no-photo-ru.jpg' }
+					src={ locale === Language.UK ? '/images/no-photo.jpg' : '/images/no-photo-ru.jpg' }
 					width={ 288 }
 					height={ 288 }
 					alt={ full_name }

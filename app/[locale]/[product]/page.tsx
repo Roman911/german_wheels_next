@@ -42,6 +42,7 @@ export async function generateMetadata({ params }: { params: Promise<{ product: 
 
 export default async function Product({ params }: { params: Promise<{ locale: Language, product: string }> }) {
 	const { locale, product } = await params;
+	const lang = locale === Language.UK ? Language.UA : Language.RU;
 	const match = product.match(/(\d+)$/); // match will be RegExpMatchArray | null
 	const idProduct = match ? match[1] : '';
 	const productResponse = await getProduct(idProduct);
@@ -71,7 +72,7 @@ export default async function Product({ params }: { params: Promise<{ locale: La
 				section={ section }
 				settings={ settings }
 			/>
-			<TextSeo description={ settings[locale].description }/>
+			<TextSeo description={ settings[lang].description }/>
 		</Layout>
 	)
 };

@@ -18,22 +18,24 @@ async function getAlias(id: string): Promise<Pages> {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Language, id: string }> }): Promise<Metadata> {
 	const { locale, id } = await params;
+	const lang = locale === Language.UK ? Language.UA : Language.RU;
 	const alias = await fetch(`${process.env.SERVER_URL}/baseData/StatiAlias/${id}`)
 		.then((res) => res.json());
 
 	return {
-		title: alias[id].description[locale].meta_title,
-		description: alias[id].description[locale].meta_description,
+		title: alias[id].description[lang].meta_title,
+		description: alias[id].description[lang].meta_description,
 	}
 }
 
 export default async function Pages({ params }: { params: Promise<{ locale: Language, id: string }> }) {
 	const { locale, id } = await params;
+	const lang = locale === Language.UK ? Language.UA : Language.RU;
 	const alias = await getAlias(id);
 
 	const path = [
 		{
-			title: alias?.[id].description[locale].title,
+			title: alias?.[id].description[lang].title,
 			href: alias?.[id].alias || '/',
 		}
 	];
@@ -54,8 +56,8 @@ export default async function Pages({ params }: { params: Promise<{ locale: Lang
 	return (
 		<Layout>
 			<Breadcrumbs path={ path } />
-			<Title title={ alias[id].description[locale].meta_h1 && '' } />
-			<HtmlContent htmlString={ alias[id].description?.[locale].content && '' } />
+			<Title title={ alias[id].description[lang].meta_h1 && '' } />
+			<HtmlContent htmlString={ alias[id].description?.[lang].content && '' } />
 		</Layout>
 	)
 };

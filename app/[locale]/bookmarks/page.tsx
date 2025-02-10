@@ -27,7 +27,7 @@ export default function Bookmarks() {
 		<Title title={ t('favorites') }/>
 		{ bookmarksItems.length > 0 ? <Spinner height='h-40' show={ isLoading }>
 			<ProductList
-				locale={ Language.UA }
+				locale={ Language.UK }
 				classnames='grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
 				data={ { products, total_count: products.length } }
 			/>
