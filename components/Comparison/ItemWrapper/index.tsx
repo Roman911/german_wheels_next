@@ -46,7 +46,7 @@ export const ItemWrapper: FC<ItemWrapperProps> = (
 				</Link>
 			</div>
 			<div className='divide-y divide-[#D0D4D9] text-center'>
-				<Characteristics name={ name } item={ item }/>
+				<Characteristics name={ name } item={ item } />
 				<div className='pt-8 pb-14'>
 					<Link href='/cart' onClick={ () => onClick(item.best_offer.id, tab) }
 								className='btn primary uppercase w-full md:w-52 mx-auto'>

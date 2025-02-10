@@ -6,7 +6,6 @@ import { ItemWrapper } from './ItemWrapper';
 import { batteryParams, disksParams, tiresParams } from './params';
 import type { Product } from '@/models/products';
 
-
 interface ComparisonProps {
 	defaultTab: string
 	tires: Product[]
