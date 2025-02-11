@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import Layout from '@/components/Layout';

@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image';
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import { FC, MouseEvent } from 'react';
 import { useTranslations } from 'next-intl';
 import type { Product } from '@/models/products';

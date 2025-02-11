@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useTranslations } from 'next-intl';
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import LinkComponent from '../LinkComponent';
 import Title from '../Title';
 import { brandsLinks, carBrandsLinks, diameterLinks, typeDiskLinks } from './links';

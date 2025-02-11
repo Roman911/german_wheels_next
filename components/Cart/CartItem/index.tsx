@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import Image from 'next/image';
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import { Language } from '@/models/language';
 import { countryCodeTransform } from '@/lib/countryCodetransform';
 import CountryInfo from '@/components/Lib/CountryInfo';

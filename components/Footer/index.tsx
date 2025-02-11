@@ -1,7 +1,7 @@
 'use client'
 import { FC, JSX } from 'react';
 import { useTranslations } from 'next-intl';
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import { baseDataAPI } from '@/services/baseDataService';
 import { linksCatalog } from './linksCatalog';
 import { PhoneLogo } from '@/models/config';

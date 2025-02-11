@@ -1,4 +1,4 @@
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
 export default function SuccessfulOrder() {

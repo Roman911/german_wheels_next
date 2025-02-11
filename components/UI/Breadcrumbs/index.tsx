@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
 import { BreadcrumbItem, Breadcrumbs } from '@heroui/breadcrumbs';
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import * as Icons from '@/components/Lib/Icons';
 
 interface Props {

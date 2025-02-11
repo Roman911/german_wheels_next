@@ -1,4 +1,4 @@
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import { Badge } from '@heroui/react';
 import { useAppSelector } from '@/hooks/redux';
 import * as Icons from '@/components/Lib/Icons';

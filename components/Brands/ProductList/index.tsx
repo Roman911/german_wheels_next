@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import { BrandsObject, BrandsObjectItems } from '@/models/brends';
 
 interface Props {

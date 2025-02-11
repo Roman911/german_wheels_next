@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import { LinkProps } from 'next/link';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import { useAppDispatch } from '@/hooks/redux';
 import { resetFilter, setParams } from '@/store/slices/filterSlice';
 import { BusIcon, CargoIcon, CarIcon, MotorcyclesIcon, SpecialEquipmentIcon, SuvIcon } from '../Lib/Icons';

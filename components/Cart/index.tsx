@@ -1,7 +1,7 @@
 'use client'
 import { useParams } from 'next/navigation';
 import { FC } from 'react';
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import CartItem from './CartItem';
 import type { ProductsProps } from '@/models/products';
 import { Language } from '@/models/language';

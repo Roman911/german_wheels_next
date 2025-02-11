@@ -1,9 +1,7 @@
 'use client';
 import { FC } from 'react';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
-
+import { Link, usePathname } from '@/i18n/routing';
 import { Language } from '@/models/language';
 
 const params = [
@@ -17,14 +15,14 @@ interface Props {
 
 const LanguageChanger: FC<Props> = ({ locale }) => {
 	const pathname = usePathname();
-	const path = pathname.replace(/^\/ru|^\/uk/, '');
 
 	return (
 		<div className='divide-x text-gray-500 divide-gray-500 font-semibold text-sm 2xl:text-base'>
 			{ params.map((item, index) => {
 				return <Link
+					locale={ item.language }
 					key={ index }
-					href={ item.language === Language.UK ? `/uk${ path }` : `/ru${ path }` }
+					href={ pathname }
 					className={
 						twMerge(
 							'leading-8 pr-1.5 2xl:pr-3 active:text-white',

@@ -1,4 +1,4 @@
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import { twMerge } from 'tailwind-merge';
 import { Section } from '@/models/filter';
 import { useTranslations } from 'next-intl';

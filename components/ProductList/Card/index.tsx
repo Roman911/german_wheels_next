@@ -4,7 +4,7 @@ import { FC, useMemo } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { addCart } from '@/store/slices/cartSlice';
 import * as Icons from '@/components/Lib/Icons';

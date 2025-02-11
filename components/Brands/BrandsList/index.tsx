@@ -1,5 +1,5 @@
 import { FC, Fragment } from 'react';
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import { Brand, BrandsObject, BrandsObjectItems } from '@/models/brends';
 import { Section } from '@/models/filter';
 

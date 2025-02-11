@@ -1,4 +1,4 @@
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import * as Icons from '../../Lib/Icons';
 import { Language, LanguageCode } from '@/models/language';

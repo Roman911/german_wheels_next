@@ -2,7 +2,7 @@
 import { useRef, useState, MouseEvent, SetStateAction } from 'react';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import { useClickOutside } from '@/hooks/clickOutside';
 import { CarTireFilter } from '../CarTireFilter';
 import { CarDiskFilter } from '../CarDiskFilter';
@@ -62,7 +62,7 @@ const Navbar = () => {
 					})}
 				{ links.map((item, index) => {
 					return <Link key={ index } href={ item.url }
-											 className='font-semibold hover:text-teal-300'>
+											 className='font-semibold hover:text-teal-300 23'>
 						{ t(item.title) }
 					</Link>
 				}) }

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import Image from 'next/image';
 import { LinkProps } from 'next/link';
 import { twMerge } from 'tailwind-merge';
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 
 interface Props extends LinkProps {
 	img?: string

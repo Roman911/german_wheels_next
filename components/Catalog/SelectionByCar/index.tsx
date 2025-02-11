@@ -1,5 +1,5 @@
 'use client'
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { useAppSelector } from '@/hooks/redux';
 import { baseDataAPI } from '@/services/baseDataService';

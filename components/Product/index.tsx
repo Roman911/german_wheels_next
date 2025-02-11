@@ -1,5 +1,5 @@
 'use client'
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import { FC, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import ImagesBlock from './ImagesBlock';

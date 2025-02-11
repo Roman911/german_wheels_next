@@ -3,7 +3,7 @@ import { ChangeEvent, FormEvent, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import { Button, Input } from '@heroui/react';
 import { baseDataAPI } from '@/services/baseDataService';
 import { useAppDispatch } from '@/hooks/redux';

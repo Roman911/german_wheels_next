@@ -10,7 +10,7 @@ import {
 	NavbarMenuItem,
 	NavbarMenuToggle,
 } from "@heroui/react";
-import Link from '@/components/Lib/Link';
+import { Link } from '@/i18n/routing';
 import Logo from '@/components/Logo';
 import MyNavbar from '@/components/Layout/Header/HeaderMain/Navbar';
 import Search from '@/components/Layout/Header/HeaderMain/Search';
