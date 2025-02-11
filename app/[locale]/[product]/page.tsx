@@ -6,6 +6,7 @@ import { Language, LanguageCode } from '@/models/language';
 import Layout from '@/components/Layout';
 import TextSeo from '@/components/Home/TextSeo';
 import type { Metadata } from 'next';
+import SimilarProducts from '@/components/SimilarProducts';
 
 async function getSettings() {
 	const res = await fetch(`${ process.env.SERVER_URL }/baseData/settings`, {
@@ -72,6 +73,7 @@ export default async function Product({ params }: { params: Promise<{ locale: La
 				section={ section }
 				settings={ settings }
 			/>
+			<SimilarProducts offerGroup={ productResponse.data.offer_group } locale={ locale } />
 			<TextSeo description={ settings[lang].description }/>
 		</Layout>
 	)

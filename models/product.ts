@@ -28,7 +28,7 @@ export interface Offers {
 	posts: Posts
 }
 
-interface OfferGroup {
+export interface OfferGroup {
 	id: number
 	sku: number
 	model: number
