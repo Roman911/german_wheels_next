@@ -12,8 +12,8 @@ interface ItemWrapperProps {
 	characteristics: Product[]
 	tab: string
 	name: 'tires' | 'cargo' | 'disks' | 'battery'
-	handleClick: (id: number) => void
-	onClick: (offerId: number, section: string) => void
+	handleClickAction: (id: number) => void
+	onClickAction: (offerId: number, section: string) => void
 }
 
 export const ItemWrapper: FC<ItemWrapperProps> = (
@@ -21,14 +21,14 @@ export const ItemWrapper: FC<ItemWrapperProps> = (
 		characteristics,
 		name,
 		tab,
-		handleClick,
-		onClick,
+		handleClickAction,
+		onClickAction,
 	}) => {
 	const t = useTranslations('Filters');
 
 	const removeClick = (event: MouseEvent<HTMLDivElement | HTMLButtonElement>, id: number) => {
 		event.preventDefault();
-		handleClick(id);
+		handleClickAction(id);
 	}
 
 	return characteristics.map(item => {
@@ -48,7 +48,7 @@ export const ItemWrapper: FC<ItemWrapperProps> = (
 			<div className='divide-y divide-[#D0D4D9] text-center'>
 				<Characteristics name={ name } item={ item } />
 				<div className='pt-8 pb-14'>
-					<Link href='/cart' onClick={ () => onClick(item.best_offer.id, tab) }
+					<Link href='/cart' onClick={ () => onClickAction(item.best_offer.id, tab) }
 								className='btn primary uppercase w-full md:w-52 mx-auto'>
 						<Icons.CartIcon className='stroke-black'/>
 						<span className='ml-2.5'>{ t('buy') }</span>

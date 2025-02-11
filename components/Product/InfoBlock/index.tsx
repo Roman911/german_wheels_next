@@ -1,7 +1,7 @@
 import Link from '@/components/Lib/Link';
 import { useTranslations } from 'next-intl';
 import * as Icons from '../../Lib/Icons';
-import { Language } from '@/models/language';
+import { Language, LanguageCode } from '@/models/language';
 import Contacts from '@/components/Layout/Header/TopLine/Contacts';
 import { SettingsProps } from '@/models/settings';
 
@@ -18,7 +18,7 @@ const InfoBlock = ({ locale, settings }: { locale: Language, settings: SettingsP
 				</a>
 			</div>
 			<div className='mt-5 text-sm pb-4 border-b border-[#D8D8D9] leading-9 whitespace-pre-wrap'>
-				{ settings[locale === Language.UK ? Language.UA : Language.RU].config_address }
+				{ settings[locale === Language.UK ? LanguageCode.UA : Language.RU].config_address }
 			</div>
 			<Link href='/page/shipment'
 						className='mt-4 flex items-center gap-x-2.5 font-medium text-black hover:text-teal-600 hover:underline'>

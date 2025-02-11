@@ -2,7 +2,7 @@ import { Section } from '@/models/filter';
 import { ProductProps } from '@/models/product';
 import Breadcrumbs from '@/components/UI/Breadcrumbs';
 import ProductComponent from '@/components/Product';
-import { Language } from '@/models/language';
+import { Language, LanguageCode } from '@/models/language';
 import Layout from '@/components/Layout';
 import TextSeo from '@/components/Home/TextSeo';
 import type { Metadata } from 'next';
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: { params: Promise<{ product: 
 
 export default async function Product({ params }: { params: Promise<{ locale: Language, product: string }> }) {
 	const { locale, product } = await params;
-	const lang = locale === Language.UK ? Language.UA : Language.RU;
+	const lang = locale === Language.UK ? LanguageCode.UA : Language.RU;
 	const match = product.match(/(\d+)$/); // match will be RegExpMatchArray | null
 	const idProduct = match ? match[1] : '';
 	const productResponse = await getProduct(idProduct);

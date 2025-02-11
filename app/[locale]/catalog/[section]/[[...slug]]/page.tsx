@@ -1,5 +1,5 @@
 import Layout from '@/components/Layout';
-import { Language } from '@/models/language';
+import { Language, LanguageCode } from '@/models/language';
 import FilterAlt from '@/components/Catalog/FilterAlt';
 import { Section } from '@/models/filter';
 import { BaseDataProps } from '@/models/baseData';
@@ -49,8 +49,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 		.then((res) => res.json());
 
 	return {
-		title: response[locale === Language.UK ? Language.UA : Language.RU].meta_title,
-		description: response[locale === Language.UK ? Language.UA : Language.RU].meta_description,
+		title: response[locale === Language.UK ? LanguageCode.UA : Language.RU].meta_title,
+		description: response[locale === Language.UK ? LanguageCode.UA : Language.RU].meta_description,
 	}
 }
 

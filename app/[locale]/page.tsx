@@ -5,7 +5,7 @@ import TextSeo from '@/components/Home/TextSeo';
 import Title from '@/components/Lib/Title';
 import ProductList from '@/components/ProductList';
 import NoResult from '@/components/Lib/NoResult';
-import { Language } from '@/models/language';
+import { Language, LanguageCode } from '@/models/language';
 import Layout from '@/components/Layout';
 
 async function getSettings() {
@@ -32,7 +32,7 @@ async function getProducts() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Language }> }): Promise<Metadata> {
 	const { locale } = await params;
-	const lang = locale === Language.UK ? Language.UA : Language.RU;
+	const lang = locale === Language.UK ? LanguageCode.UA : Language.RU;
 	const response = await fetch(`${ process.env.SERVER_URL }/baseData/settings`)
 		.then((res) => res.json());
 
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 
 export default async function Home({ params }: { params: Promise<{ locale: Language }> }) {
 	const locale = (await params).locale;
-	const lang = locale === Language.UK ? Language.UA : Language.RU;
+	const lang = locale === Language.UK ? LanguageCode.UA : Language.RU;
 	const response = await getSettings();
 	const products = await getProducts();
 

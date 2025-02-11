@@ -4,7 +4,7 @@ import Layout from '@/components/Layout';
 import { Breadcrumbs } from '@/components/UI';
 import Title from '@/components/Lib/Title';
 import type { Pages } from '@/models/alias';
-import { Language } from '@/models/language';
+import { Language, LanguageCode } from '@/models/language';
 
 async function getAlias(id: string): Promise<Pages> {
 	const res = await fetch(`${process.env.SERVER_URL}/baseData/StatiAlias/${id}`, {
@@ -18,7 +18,7 @@ async function getAlias(id: string): Promise<Pages> {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Language, id: string }> }): Promise<Metadata> {
 	const { locale, id } = await params;
-	const lang = locale === Language.UK ? Language.UA : Language.RU;
+	const lang = locale === Language.UK ? LanguageCode.UA : Language.RU;
 	const alias = await fetch(`${process.env.SERVER_URL}/baseData/StatiAlias/${id}`)
 		.then((res) => res.json());
 
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 
 export default async function Pages({ params }: { params: Promise<{ locale: Language, id: string }> }) {
 	const { locale, id } = await params;
-	const lang = locale === Language.UK ? Language.UA : Language.RU;
+	const lang = locale === Language.UK ? LanguageCode.UA : Language.RU;
 	const alias = await getAlias(id);
 
 	const path = [

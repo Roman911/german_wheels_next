@@ -82,15 +82,15 @@ const ComparisonComponent: FC<ComparisonProps> = (
 			</div>
 			<div className='flex-1 w-[calc(100%-15rem)]'>
 				<div className='flex overflow-x-auto overflow-y-hidden whitespace-nowrap max-w-full'>
-					{ tab === 'tires' && <ItemWrapper characteristics={ tires } name={ 'tires' } tab={ tab } onClick={ onClick }
-																						handleClick={ handleClick }/> }
-					{ tab === 'cargo' && <ItemWrapper characteristics={ cargo } name={ 'cargo' } tab={ tab } onClick={ onClick }
-																						handleClick={ handleClick }/> }
-					{ tab === 'disks' && <ItemWrapper characteristics={ disks } name={ 'disks' } tab={ tab } onClick={ onClick }
-																						handleClick={ handleClick }/> }
+					{ tab === 'tires' && <ItemWrapper characteristics={ tires } name={ 'tires' } tab={ tab } onClickAction={ onClick }
+																						handleClickAction={ handleClick }/> }
+					{ tab === 'cargo' && <ItemWrapper characteristics={ cargo } name={ 'cargo' } tab={ tab } onClickAction={ onClick }
+																						handleClickAction={ handleClick }/> }
+					{ tab === 'disks' && <ItemWrapper characteristics={ disks } name={ 'disks' } tab={ tab } onClickAction={ onClick }
+																						handleClickAction={ handleClick }/> }
 					{ tab === 'battery' &&
-						<ItemWrapper characteristics={ battery } name={ 'battery' } tab={ tab } onClick={ onClick }
-												 handleClick={ handleClick }/> }
+						<ItemWrapper characteristics={ battery } name={ 'battery' } tab={ tab } onClickAction={ onClick }
+												 handleClickAction={ handleClick }/> }
 				</div>
 			</div>
 		</div>

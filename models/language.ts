@@ -1,5 +1,8 @@
 export enum Language {
-	UA = 'ua',
 	UK = 'uk',
 	RU = 'ru',
+}
+
+export enum LanguageCode {
+	UA = 'ua',
 }

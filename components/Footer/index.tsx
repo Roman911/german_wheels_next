@@ -7,7 +7,7 @@ import { linksCatalog } from './linksCatalog';
 import { PhoneLogo } from '@/models/config';
 import * as Icons from '@/components/Lib/Icons';
 import { AliasItem } from '@/models/alias';
-import { Language } from '@/models/language';
+import { Language, LanguageCode } from '@/models/language';
 import kievstarLogo from '@/public/icons/kievstar-logo.svg';
 import lifecellLogo from '@/public/icons/life-logo.svg';
 import Logo from '@/components/Logo';
@@ -37,7 +37,7 @@ interface Props {
 const Footer: FC<Props> = ({ locale, settings }) => {
 	const t = useTranslations('Footer');
 	const { data } = baseDataAPI.useFetchStatiAliasAllQuery('');
-	const lang = locale === Language.UK ? Language.UA : Language.RU;
+	const lang = locale === Language.UK ? LanguageCode.UA : Language.RU;
 
 	const icons: Record<IconType, JSX.Element> = {
 		telegram: <Icons.TelegramIcon className='fill-black group-hover:fill-white'/>,
