@@ -11,7 +11,7 @@ import * as Icons from '../../Lib/Icons';
 import { SeasonTransform, VehicleTypeTransform } from '@/lib/characteristicsTransform';
 import Comments from '../Comments';
 import type { ProductProps } from '@/models/product';
-import { Language } from '@/models/language';
+import { Language, LanguageCode } from '@/models/language';
 
 const tabs = [
 	{ label: 'main characteristics' },
@@ -29,7 +29,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 	const [ tab, setTab ] = useState('main characteristics');
 	const [ showOptions, setShowOptions ] = useState(false);
 	const { section } = useAppSelector(state => state.filterReducer);
-	const description = data?.data.descr[locale]?.description;
+	const description = data?.data.descr[locale === Language.UK ? LanguageCode.UA : Language.RU]?.description;
 	const vehicleType = data?.data.offer_group.vehicle_type;
 	const vehicleTransform = vehicleType ? VehicleTypeTransform(vehicleType) : undefined;
 	const dispatch = useAppDispatch();
