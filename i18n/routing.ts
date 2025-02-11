@@ -5,6 +5,7 @@ import { Language } from '@/models/language';
 export const routing = defineRouting({
 	locales: [ Language.UK, Language.RU ],
 	defaultLocale: Language.UK,
+	localeDetection: false,
 	pathnames: {
 		'/': '/',
 	}
