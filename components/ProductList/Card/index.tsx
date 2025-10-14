@@ -17,7 +17,7 @@ import { Section } from '@/models/filter';
 import { addBookmarks, removeBookmarks } from '@/store/slices/bookmarksSlice';
 import { addComparison, removeComparison } from '@/store/slices/comparisonSlice';
 import Rating from '@/components/Lib/Rating';
-import { Card, CardBody, CardFooter } from '@heroui/card';
+import { Card, CardBody, CardFooter } from '@heroui/react';
 import { Button } from '@/components/UI';
 
 const icons = {

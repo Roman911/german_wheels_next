@@ -1,24 +1,24 @@
 :root {
-    --g-color-fill-light: #ffffff;
-    --g-color-dark: #181818;
-    --g-color-primary: var(--g-color-teal-300);
+    --color-fill-light: #ffffff;
+    --color-black: #181818;
+    --color-primary: var(--color-teal-300);
 
-    --g-color-grey-100: #F6F8FB;
-    --g-color-grey-200: #DEE2EB;
-    --g-color-grey-300: #EBECF0;
-    --g-color-grey-400: #868D9A;
-    --g-color-grey-500: #707680;
-    --g-color-grey-600: #424242;
-    --g-color-grey-700: #303233;
-    --g-color-grey-800: #232323;
-    --g-color-grey-900: #1E2121;
+    --color-gray-100: #F6F8FB;
+    --color-gray-200: #DEE2EB;
+    --color-gray-300: #EBECF0;
+    --color-gray-400: #868D9A;
+    --color-gray-500: #707680;
+    --color-gray-600: #424242;
+    --color-gray-700: #303233;
+    --color-gray-800: #232323;
+    --color-gray-900: #1E2121;
 
-    --g-color-teal-300: #6EECD7;
-    --g-color-teal-400: #26DEBF;
-    --g-color-teal-600: #02967D;
+    --color-teal-300: #6EECD7;
+    --color-teal-400: #26DEBF;
+    --color-teal-600: #02967D;
 
-    --g-color-background: #F6F8FB;
+    --color-background: #F6F8FB;
 
-    --foreground: var(--g-color-dark);
-    --background: var(--g-color-grey-100);
+    --foreground: var(--color-dark);
+    --background: var(--color-grey-100);
 }

@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import localFont from 'next/font/local'
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
@@ -28,35 +27,6 @@ const gilroy = localFont({
 		},
 	],
 })
-
-export const metadata: Metadata = {
-	icons: [
-		{
-			rel: 'icon',
-			type: 'image/png',
-			url: '/favicon-48x48.png',
-			sizes: '48x48',
-		},
-		{
-			rel: 'icon',
-			type: 'image/svg+xml',
-			url: '/favicon.svg',
-		},
-		{
-			rel: 'shortcut icon',
-			url: '/favicon.ico',
-		},
-		{
-			rel: 'apple-touch-icon',
-			sizes: '180x180',
-			url: '/apple-touch-icon.png'
-		},
-		{
-			rel: 'manifest',
-			url: '/site.webmanifest',
-		}
-	]
-};
 
 async function getSettings() {
 	const res = await fetch(`${process.env.SERVER_URL}/baseData/settings`, {

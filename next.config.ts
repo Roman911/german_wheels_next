@@ -5,18 +5,24 @@ const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
 	env: {
-		SERVER_URL: process.env.SERVER_URL,
-		ACCESS_ORIGIN: process.env.ACCESS_ORIGIN,
+		SERVER_URL: process.env.NEXT_PUBLIC_API_URL,
+		NEXT_PUBLIC_ACCESS_ORIGIN: process.env.ACCESS_ORIGIN,
 	},
 	sassOptions: {
 		additionalData: `$var: red;`,
 	},
 	images: {
+		formats: ['image/webp'],
 		remotePatterns: [
 			{
 				protocol: 'https',
 				hostname: 'opt.tyreclub.com.ua',
 				pathname: '/api/public/img/user/**',
+			},
+			{
+				protocol: 'https',
+				hostname: 'admin.g-wheels.com.ua',
+				pathname: '**',
 			},
 		],
 	},
