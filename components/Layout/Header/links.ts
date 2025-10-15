@@ -11,4 +11,8 @@ export const links = [
 		title: 'contacts',
 		url: '/page/contacts',
 	},
+	{
+		title: 'tire service',
+		url: '/tire-service',
+	},
 ];

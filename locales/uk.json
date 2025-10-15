@@ -167,7 +167,9 @@
     "selection by car": "Підбір за авто",
     "similar products": "Схожі товари",
     "tire calculator": "Шинний калькулятор",
-    "tires": "Шини"
+    "tires": "Шини",
+    "tire service": "Шиномонтаж",
+    "sign up for tire fitting": "Запис на шиномонтаж"
   },
   "QuickOrder": {
     "quick order": "швидке замовлення"
@@ -193,65 +195,54 @@
     "return to home page": "Повернутися на головну",
     "thanks for your order": "Дякуємо за замовлення"
   },
-
+  "TireService": {
+    "for tire fitting appointments": "З приводу запису на шиномонтаж, зберігання шин та іншим питанням, звертайтесь по вказаним телефонам, в зручних для Вас шинних центрах.",
+    "choose a location": "Оберіть локацію",
+    "choose services": "Оберіть сервіси",
+    "choose a time": "Оберіть час",
+    "confirm time": "Підтвердити час",
+    "with_customer": "Шини з собою",
+    "storage": "Шини на зберіганні",
+    "new_internet": "Нові шини, інтернет замовлення",
+    "attention": "Увага! Зберігання переміщується протягом 2 днів",
+    "services": "Послуги",
+    "seasonal tire replacement": "Сезонна заміна шин",
+    "wheel balancing": "Балансування коліс",
+    "next step": "Наступний крок",
+    "tire fitting date": "Дата шиномонтажа"
+  },
   "add all": "додати всі",
   "accumulators": "акумулятори",
-
   "auto goods": "автотовари",
   "battery": "акумулятори",
   "body type": "тип корпусу",
-
   "by price": "за ціною",
-
   "buy here": "купити тут",
-
   "car": "автомобілів",
-
   "cargo tires": "вантажні шини",
-
   "credit": "кредит",
-
   "department": "відділення",
-
   "disc": "дисків",
-
   "disks by parameters": "диски за параметрами",
-
   "guarantee and refund": "гарантія та повернення",
-
   "installment plan": "онлайн розстрочка",
-
   "quick order": "швидке замовлення",
-
   "free": "безкоштовний",
-
   "manufacturers": "виробники",
-
   "motorcycle tires": "мотошини",
-
   "our advantages": "наші переваги",
-
   "pick up": "підібрати",
-
   "phones": "телефони",
   "polarity": "полярність",
-
   "profile": "профіль",
-
   "public offer agreement": "договір публічної оферти",
   "recently viewed": "нещодавно переглянуті",
-
   "selection of tires and wheels": "підбір шин та дисків",
   "services": "послуги",
   "show all": "показати всі",
-
   "sun": "нд",
-
   "tire comparison": "порівняння шин",
-
   "tires by parameters": "шини за параметрами",
-
   "type of electrolyte": "тип електроліту",
-
   "tyre": "шин"
 }

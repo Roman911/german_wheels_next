@@ -55,7 +55,7 @@ const Navbar = () => {
 
 	return (
 		<>
-			<nav className='container text-lg mx-auto max-w-[680px] flex justify-between items-center gap-2 p-5 pr-8'>
+			<nav className='container text-lg mx-auto max-w-[680px] flex justify-between items-center gap-2 py-5 px-4'>
 				{[{ section: 'tires', label: t('tires') }, { section: 'disks', label: t('disks') }]
 					.map((item, i) => {
 						return <ButtonMeu key={ i } sectionItem={ item.section } label={ item.label } />

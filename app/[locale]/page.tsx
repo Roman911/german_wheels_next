@@ -7,38 +7,37 @@ import ProductList from '@/components/ProductList';
 import NoResult from '@/components/Lib/NoResult';
 import { Language, LanguageCode } from '@/models/language';
 import Layout from '@/components/Layout';
-
-async function getSettings() {
-	const res = await fetch(`${ process.env.SERVER_URL }/baseData/settings`, {
-		method: 'GET',
-		headers: {
-			'Access-Control-Allow-Credentials': 'true',
-		}
-	});
-	return await res.json();
-}
-
-async function getProducts() {
-	const res = await fetch(`${ process.env.SERVER_URL }/api/getProducts?vehicle_type=1&order[value]=popular&order[asc]=0`, {
-		method: 'POST',
-		headers: {
-			'Access-Control-Allow-Credentials': 'true',
-			'content-type': 'application/json',
-		},
-		body: JSON.stringify({ start: 0, length: 8 }),
-	});
-	return await res.json();
-}
+import { getProducts, getSettings } from '@/app/api/api';
+import { language } from '@/lib/language';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Language }> }): Promise<Metadata> {
 	const { locale } = await params;
-	const lang = locale === Language.UK ? LanguageCode.UA : Language.RU;
-	const response = await fetch(`${ process.env.SERVER_URL }/baseData/settings`)
-		.then((res) => res.json());
+	const lang = language(locale);
+	const settings = await getSettings();
 
 	return {
-		title: response[lang].meta_title,
-		description: response[lang].meta_description,
+		title: settings[lang].meta_title,
+		description: settings[lang].meta_description,
+		openGraph: {
+			type: 'website',
+			title: settings[lang].meta_title,
+			description: settings[lang].meta_description,
+			url: process.env.NEXT_PUBLIC_ACCESS_ORIGIN,
+			images: [
+				{
+					url: `${process.env.NEXT_PUBLIC_ACCESS_ORIGIN}/logo.svg`,
+					width: 1200,
+					height: 630,
+					alt: settings[lang].meta_title,
+				},
+			],
+		},
+		twitter: {
+			card: settings[lang].meta_title,
+			title: settings[lang].meta_title,
+			description: settings[lang].meta_description,
+		},
+		generator: process.env.NEXT_PUBLIC_ACCESS_ORIGIN,
 	}
 }
 
@@ -46,7 +45,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Langu
 	const locale = (await params).locale;
 	const lang = locale === Language.UK ? LanguageCode.UA : Language.RU;
 	const response = await getSettings();
-	const products = await getProducts();
+	const products = await getProducts('?vehicle_type=1&order[value]=popular&order[asc]=0', 0, 8);
 
 	return (
 		<main>

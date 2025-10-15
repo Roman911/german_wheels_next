@@ -167,7 +167,9 @@
     "selection by car": "Подбор за авто",
     "similar products": "Недавно просмотрены",
     "tire calculator": "Шинный калькулятор",
-    "tires": "Шины"
+    "tires": "Шины",
+    "tire service": "Шиномонтаж",
+    "sign up for tire fitting": "Запись на шиномонтаж"
   },
   "QuickOrder": {
     "quick order": "Быстрый заказ"
@@ -193,61 +195,52 @@
     "return to home page": "Вернуться на главную",
     "thanks for your order": "Спасибо за заказ"
   },
-
+  "TireService": {
+    "for tire fitting appointments": "По поводу записи на шиномонтаж, хранение шин и другим вопросам обращайтесь по указанным телефонам, в удобных для Вас шинных центрах.",
+    "choose a location": "Выберите локацию",
+    "choose services": "Выберите сервисы",
+    "choose a time": "Выберите время",
+    "confirm time": "Подтвердить время",
+    "with_customer": "Шины с собой",
+    "storage": "Шины на хранении",
+    "new_internet": "Новые шины, интернет заказ",
+    "attention": "Внимание! Хранение перемещается в течение 2 дней",
+    "services": "Услуги",
+    "seasonal tire replacement": "Сезонная замена шин",
+    "wheel balancing": "Балансировка колес",
+    "next step": "Следующий шаг",
+    "tire fitting date": "Дата шиномонтажа"
+  },
   "add all": "добавить все",
   "accumulators": "аккумуляторы",
-
   "auto goods": "автотовары",
   "battery": "аккумуляторы",
   "body type": "тип корпусу",
-
   "by price": "по цене",
-
   "buy here": "купить здесь",
-
   "car": "автомобилей",
-
   "cargo tires": "грузовые шины",
-
   "credit": "кредит",
-
   "disc": "дисков",
-
   "disks by parameters": "диски по параметрам",
-
   "guarantee and refund": "гарантия и возврат",
-
   "installment plan": "онлайн рассрочка",
-
   "free": "бесплатный",
-
   "manufacturers": "производители",
-
   "motorcycle tires": "мотошины",
-
   "our advantages": "наши преимущества",
-
   "pick up": "подобрать",
-
   "phones": "телефоны",
   "polarity": "полярность",
-
   "profile": "профиль",
-
   "public offer agreement": "договор публичной оферты",
   "recently viewed": "похожие товары",
-
   "selection of tires and wheels": "подбор шин и дисков",
   "services": "услуги",
   "show all": "показать все",
-
   "sun": "вс",
-
   "tire comparison": "сравнение шин",
-
   "tires by parameters": "шини за параметрами",
-
   "type of electrolyte": "тип электролита",
-
   "tyre": "шин"
 }
