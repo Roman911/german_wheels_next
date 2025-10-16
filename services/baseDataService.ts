@@ -1,35 +1,36 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
-// import type { BaseDataProps, CarModelProps, KitTyreSize, KitDiskSize, ManufModels } from '@/models/baseData';
+import {
+	API_CONSTANTS,
+	DEFAULT_HEADERS,
+	FORM_HEADERS,
+	baseEndpoints,
+	orderEndpoints,
+	formEndpoints,
+	tyreServiceEndpoints
+} from '@/config/api';
 import type { BaseDataProps, CarModelProps, KitDiskSize, KitTyreSize, ManufModels } from '@/models/baseData';
 import type { SettingsProps } from '@/models/settings';
 import type { ProductsProps } from '@/models/products';
-// import type { ProductProps } from '../models/product';
-// import type { AkumProps } from '../models/akumData';
 import type { OrdersParamProps } from '@/models/ordersParam';
-// import type { Banner } from '../models/banners';
-// import { FeatureParamsProps } from '../models/featureParams';
 import type { AliasAll } from '@/models/alias';
+import { TimeSlots } from '@/models/tireService';
 
 export const baseDataAPI = createApi({
 	reducerPath: 'dataAPI',
 	baseQuery: fetchBaseQuery({
-		baseUrl: process.env.SERVER_URL,
-		headers: {
-			'Access-Control-Allow-Credentials': 'true',
-			'Access-Control-Allow-Origin': process.env.ACCESS_ORIGIN || '',
-		},
+		baseUrl: API_CONSTANTS.BASE_URL,
+		headers: DEFAULT_HEADERS,
 	}),
 	tagTypes: ['baseDataAPI', 'Product'],
 	endpoints: (build) => ({
 		fetchSettings: build.query<SettingsProps, string>({
 			query: () => ({
-				url: `/baseData/settings`,
+				url: baseEndpoints.settings,
 			}),
 		}),
 		fetchBaseData: build.query<BaseDataProps, string>({
 			query: () => ({
-				url: '/baseData',
+				url: baseEndpoints.baseData,
 			}),
 		}),
 		fildterData: build.query<BaseDataProps, string>({
@@ -39,22 +40,22 @@ export const baseDataAPI = createApi({
 		}),
 		fetchAutoModel: build.query<CarModelProps[], string>({
 			query: (id) => ({
-				url: `/baseData/getAutoBrandModel/${id}`,
+				url: baseEndpoints.autoBrandModel(id),
 			}),
 		}),
 		fetchAutoYear: build.query<number[], string>({
 			query: (id) => ({
-				url: `/baseData/getAutoBrandModelYear/${id}`,
+				url: baseEndpoints.autoBrandModelYear(id),
 			}),
 		}),
 		fetchAutoModelKit: build.query<CarModelProps[], string>({
 			query: (id) => ({
-				url: `/baseData/getAutoBrandModelKit/${id}`,
+				url: baseEndpoints.autoBrandModelKit(id),
 			}),
 		}),
 		fetchKitTyreSize: build.query<KitTyreSize[], string>({
 			query: (id) => ({
-				url: `/baseData/getKitTyreSize/${id}`,
+				url: baseEndpoints.kitTyreSize(id),
 			}),
 		}),
 		fetchKitDiskSize: build.query<KitDiskSize[], string>({
@@ -87,32 +88,6 @@ export const baseDataAPI = createApi({
 				}
 			}),
 		}),
-		// fetchProduct: build.query<ProductProps, string>({
-		// 	query: ([section]) => ({
-		// 		url: `/api/getProduct/${[section]}`,
-		// 	}),
-		// 	providesTags: () => ['Product']
-		// }),
-		// fetchBrand: build.query({
-		// 	query: ([section]) => ({
-		// 		url: `/api/brand/${[section]}`,
-		// 	}),
-		// }),
-		// fetchModel: build.query({
-		// 	query: ([section]) => ({
-		// 		url: `/api/model/${[section]}`,
-		// 	}),
-		// }),
-		// fetchBrands: build.query({
-		// 	query: (section) => ({
-		// 		url: `/api/catalog-map/${section}`,
-		// 	}),
-		// }),
-		// fetchBrandItems: build.query({
-		// 	query: ({ section, [section] }) => ({
-		// 		url: `/api/catalog-map/${section}/${[section]}`,
-		// 	}),
-		// }),
 		createComment: build.mutation({
 			query: (comment) => ({
 				url: '/api/addReview',
@@ -140,16 +115,6 @@ export const baseDataAPI = createApi({
 				url: `/api/np/warehouses/${ref}`,
 			}),
 		}),
-		// fetchBanners: build.query<Banner[], string>({
-		// 	query: () => ({
-		// 		url: `https://admin.luxshina.ua/api/banner`,
-		// 	}),
-		// }),
-		// fetchFeatureParams: build.query<FeatureParamsProps, string>({
-		// 	query: () => ({
-		// 		url: `/api/getFeatureParams`,
-		// 	}),
-		// }),
 		fetchNpDocumentPrice: build.query({
 			query: (params) => ({
 				url: `/api/np/getDocumentPrice`,
@@ -157,37 +122,41 @@ export const baseDataAPI = createApi({
 				body: params,
 			}),
 		}),
+		fetchSlotsQuery: build.query<TimeSlots, string>({
+			query: (id) => ({
+				url: tyreServiceEndpoints.slots(id),
+			}),
+		}),
 		createOrder: build.mutation({
 			query: (data) => ({
-				url: '/api/addOrder',
-				method: 'POST',
-				body: data,
-				header: {
-					'Content-Type': 'application/x-www-form-urlencoded',
-					'Accept': 'application/json',
-				}
+				url: orderEndpoints.create,
+				method: API_CONSTANTS.METHODS.POST,
+				body: JSON.stringify(data),
+				headers: FORM_HEADERS
 			}),
 		}),
 		createCallback: build.mutation({
 			query: (data) => ({
-				url: '/api/addCallback',
-				method: 'POST',
-				body: data,
-				header: {
-					'Content-Type': 'application/x-www-form-urlencoded',
-					'Accept': 'application/json',
-				}
+				url: formEndpoints.callback,
+				method: API_CONSTANTS.METHODS.POST,
+				body: JSON.stringify(data),
+				headers: FORM_HEADERS
 			}),
 		}),
 		createAddAsk: build.mutation({
 			query: (data) => ({
-				url: '/api/addAsk',
-				method: 'POST',
-				body: data,
-				header: {
-					'Content-Type': 'application/x-www-form-urlencoded',
-					'Accept': 'application/json',
-				}
+				url: formEndpoints.ask,
+				method: API_CONSTANTS.METHODS.POST,
+				body: JSON.stringify(data),
+				headers: FORM_HEADERS
+			}),
+		}),
+		createTyreService: build.mutation({
+			query: (data) => ({
+				url: tyreServiceEndpoints.book,
+				method: API_CONSTANTS.METHODS.POST,
+				body: JSON.stringify(data),
+				headers: FORM_HEADERS
 			}),
 		}),
 	}),

@@ -6,7 +6,7 @@ import { useAppDispatch } from '@/hooks/redux';
 import { MarkerIcon, PhoneCircuitIcon } from '@/components/Lib/Icons';
 import { Location } from '@/models/tireService';
 import { Language, LanguageCode } from '@/models/language';
-import { setSelectedKey, setLocation } from '@/store/slices/tireService';
+import { setSelectedKey, setLocation, reset } from '@/store/slices/tireService';
 
 const CardTireService = ({ item }: { item: Location }) => {
 	const dispatch = useAppDispatch();
@@ -15,6 +15,7 @@ const CardTireService = ({ item }: { item: Location }) => {
 	const descriptions = item && item.descriptions[lang];
 
 	const handleClick = (id: number) => {
+		dispatch(reset());
 		dispatch(setLocation(id));
 		dispatch(setSelectedKey('service'));
 	}

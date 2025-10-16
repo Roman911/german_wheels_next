@@ -14,3 +14,11 @@ export interface Location {
 }
 
 export type Locations = Location[];
+
+export interface TimeSlot {
+	available: number;
+	is_full: boolean;
+	time: string;
+}
+
+export type TimeSlots = TimeSlot[];

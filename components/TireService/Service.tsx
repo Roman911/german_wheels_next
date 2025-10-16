@@ -2,23 +2,22 @@ import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
 import { Alert, Button, Switch } from "@heroui/react";
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { ArrowLeftLongIcon, CarIcon, SuvIcon } from "@/components/Lib/Icons";
+import { CarIcon, SuvIcon } from "@/components/Lib/Icons";
 import {
 	setDiameter,
 	setTypeCar,
 	setTyreSource,
 	setSeasonChange,
-	setWheelBalancing,
-	setSelectedKey
+	setWheelBalancing
 } from '@/store/slices/tireService';
-import { Button as MyButton} from '@/components/UI';
+import ControlButtons from '@/components/TireService/ControlButtons';
 
 const diameters = ['13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'];
 const tyreSources = ['with_customer', 'storage', 'new_internet'];
 
 const Service = () => {
 	const dispatch = useAppDispatch();
-	const { diameter, typeCar, tyreSource, seasonChange, wheelBalancing } = useAppSelector((state) => state.tireService);
+	const { diameter, typeCar, tyreSource, seasonChange, wheelBalancing } = useAppSelector((state) => state.tireServiceReducer);
 	const t = useTranslations('TireService');
 
 	// Reusable styles
@@ -36,8 +35,8 @@ const Service = () => {
 					color='default'
 					size='lg'
 					radius='lg'
-					onPress={ () => dispatch(setTypeCar('light')) }
-					className={ twMerge(baseButton, typeCar === 'light' && activeButton) }
+					onPress={ () => dispatch(setTypeCar('car')) }
+					className={ twMerge('w-16 h-16', baseButton, typeCar === 'car' && activeButton) }
 				>
 					<CarIcon width={ 44 } height={ 44 } />
 				</Button>
@@ -48,8 +47,8 @@ const Service = () => {
 					color='default'
 					size='lg'
 					radius='lg'
-					onPress={ () => dispatch(setTypeCar('suvs')) }
-					className={ twMerge(baseButton, typeCar === 'suvs' && activeButton) }
+					onPress={ () => dispatch(setTypeCar('suv')) }
+					className={ twMerge('w-16 h-16', baseButton, typeCar === 'suv' && activeButton) }
 				>
 					<SuvIcon width={ 44 } height={ 44 } />
 				</Button>
@@ -102,20 +101,7 @@ const Service = () => {
 					onChange={ () => dispatch(setWheelBalancing(!wheelBalancing)) }
 				>{ t('wheel balancing') }</Switch>
 			</div>
-			<div className='flex gap-4 mt-6 mb-6'>
-				<Button
-					variant='light'
-					color='default'
-					radius='lg'
-					size='lg'
-					onPress={ () => dispatch(setSelectedKey('location')) }
-					startContent={ <ArrowLeftLongIcon /> }
-				>Назад</Button>
-				<MyButton
-					color='primary'
-					onPress={ () => dispatch(setSelectedKey('time')) }
-				>{ t('next step') }</MyButton>
-			</div>
+			<ControlButtons prev='location' next='time' />
 		</>
 	)
 };

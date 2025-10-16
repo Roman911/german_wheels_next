@@ -13,7 +13,7 @@ import { Key } from '@react-types/shared';
 
 export default function TireServiceTabs() {
 	const dispatch = useAppDispatch();
-	const { selectedKey } = useAppSelector((state) => state.tireService);
+	const { selectedKey } = useAppSelector((state) => state.tireServiceReducer);
 	const t = useTranslations('TireService');
 
 	const handleSelectionChange = (key: Key) => {

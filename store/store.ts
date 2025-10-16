@@ -5,13 +5,11 @@ import cartReducer from './slices/cartSlice';
 import comparisonReducer from './slices/comparisonSlice';
 import filterCarReducer from './slices/filterCarSlice';
 import filterReducer from './slices/filterSlice';
-// import langReducer from './reducers/langSlice';
 import orderReducer from './slices/orderSlice';
+import phoneReducer from './slices/phoneSlice';
 import settingsReducer from './slices/settingsSlice';
 import searchReducer from './slices/searchSlice';
-import tireService from './slices/tireService';
-// import brandAliasReducer from './reducers/brandAliasSlice';
-//
+import tireServiceReducer from './slices/tireService';
 import { baseDataAPI } from '@/services/baseDataService';
 
 const rootReducer = combineReducers({
@@ -20,12 +18,11 @@ const rootReducer = combineReducers({
 	comparisonReducer,
 	filterCarReducer,
 	filterReducer,
-	// langReducer,
 	orderReducer,
+	phoneReducer,
 	settingsReducer,
 	searchReducer,
-	tireService,
-	// brandAliasReducer,
+	tireServiceReducer,
 	[baseDataAPI.reducerPath]: baseDataAPI.reducer
 })
 

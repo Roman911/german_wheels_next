@@ -145,7 +145,8 @@
     "any products to favorites yet": "Ви ще не додали в обране жодного товару",
     "no comment": "До цього товару немає відгуків. Стати першим!",
     "no product to cart": "Ви ще не додали до кошику жодного товару",
-    "no result": "На жаль, по заданих параметрах товарів не знайдено"
+    "no result": "На жаль, по заданих параметрах товарів не знайдено",
+    "no free time found": "Вільний час не знайдено"
   },
   "Main": {
     "about us": "Про нас",
@@ -209,7 +210,22 @@
     "seasonal tire replacement": "Сезонна заміна шин",
     "wheel balancing": "Балансування коліс",
     "next step": "Наступний крок",
-    "tire fitting date": "Дата шиномонтажа"
+    "tire fitting date": "Дата шиномонтажа",
+    "choose a tire fitting date": "Оберіть дату шиномонтажа",
+    "name": "Ім'я",
+    "auto": "Авто",
+    "model": "Марка",
+    "num": "Номер ТЗ",
+    "comment": "Коментарь",
+    "confirm your tire fitting appointment": "Підтвердити запис на шиномонтаж",
+    "phone number": "Номер телефону",
+    "enter name": "Введіть ім'я",
+    "car": "Легкові",
+    "suv": "Позашляховики",
+    "confirm": "Підтвердити"
+  },
+  "PhoneMask": {
+    "phone number": "Номер телефону"
   },
   "add all": "додати всі",
   "accumulators": "акумулятори",

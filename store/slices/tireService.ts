@@ -1,6 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
+export interface FormFields {
+	name: string;
+	email: string;
+	auto: string;
+	model: string;
+	num: string;
+	comment: string;
+}
+
 export interface TireServiceState {
 	location: number
 	selectedKey: string
@@ -9,6 +18,9 @@ export interface TireServiceState {
 	tyreSource: string | null
 	seasonChange: boolean
 	wheelBalancing: boolean
+	date: string | null
+	time: string | null
+	form: FormFields
 }
 
 const initialState: TireServiceState = {
@@ -19,6 +31,16 @@ const initialState: TireServiceState = {
 	tyreSource: null,
 	seasonChange: false,
 	wheelBalancing: false,
+	date: null,
+	time: null,
+	form: {
+		name: '',
+		email: '',
+		auto: '',
+		model: '',
+		num: '',
+		comment: '',
+	},
 }
 
 export const tireServiceSlice = createSlice({
@@ -46,10 +68,19 @@ export const tireServiceSlice = createSlice({
 		setWheelBalancing: (state, actions: PayloadAction<boolean>) => {
 			state.wheelBalancing = actions.payload
 		},
+		setDate: (state, actions: PayloadAction<string | null>) => {
+			state.date = actions.payload
+		},
+		setTime: (state, actions: PayloadAction<string | null>) => {
+			state.time = actions.payload
+		},
+		setChange: (state, actions: PayloadAction<{ name: 'name' | 'email' | 'auto' | 'model' | 'num' | 'comment'; value: string }>) => {
+			state.form[actions.payload.name] = actions.payload.value;
+		},
 		reset: () => initialState,
 	},
 })
 
-export const { setDiameter, setLocation, setSelectedKey, setTypeCar, setTyreSource, setSeasonChange, setWheelBalancing, reset } = tireServiceSlice.actions
+export const { setDate, setDiameter, setLocation, setSelectedKey, setTypeCar, setTyreSource, setSeasonChange, setWheelBalancing, setTime, setChange, reset } = tireServiceSlice.actions
 
 export default tireServiceSlice.reducer
