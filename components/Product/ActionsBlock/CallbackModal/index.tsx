@@ -1,29 +1,16 @@
 'use client'
-import { FC, useState } from 'react';
+import { FC, FormEvent, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import * as Icons from '@/components/Lib/Icons';
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@heroui/react';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { PhoneMaskInput } from '@/components/Lib/PhoneMaskInput';
+import { PhoneCircuitIcon } from '@/components/Lib/Icons';
 import { Button } from '@/components/UI';
-import Spinner from '@/components/Lib/Spinner';
+import { Form } from '@heroui/form';
+import { addToast } from '@heroui/toast';
+import { Modal, ModalBody, ModalContent, ModalHeader, useDisclosure } from '@heroui/modal';
+import PhoneMaskInput from '@/components/Lib/NewPhoneMaskInput';
 import { baseDataAPI } from '@/services/baseDataService';
-import * as yup from "yup";
-import { yupResolver } from '@hookform/resolvers/yup';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { SerializedError } from '@reduxjs/toolkit';
-
-const schema = yup.object().shape({
-	telephone: yup.string().min(13, 'Це поле обовʼязкове.').max(13).required('Це поле обовʼязкове.'),
-});
-
-interface FormProps {
-	telephone: string
-}
-
-const defaultValues = {
-	telephone: '',
-}
+import { formatPhoneNumber } from '@/lib/formatPhoneNumber';
 
 interface Props {
 	id: number | undefined
@@ -31,75 +18,65 @@ interface Props {
 }
 
 const CallbackModal: FC<Props> = ({ id, quantity }) => {
+	const [ phoneErrorMessage, setPhoneErrorMessage ] = useState<string | null>(null);
 	const t = useTranslations('CallbackModal');
-	const { isOpen, onOpen, onOpenChange } = useDisclosure();
-	const [ loading, setLoading ] = useState(false);
-	const [ isSending, setSending ] = useState(false);
-	const [ createCallback ] = baseDataAPI.useCreateCallbackMutation();
+	const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+	const [ createCallback, { isLoading } ] = baseDataAPI.useCreateCallbackMutation();
 
-	const methods = useForm<FormProps>({
-		mode: 'all',
-		defaultValues,
-		resolver: yupResolver(schema),
-	})
+	const onSubmit = async(event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		const formData = new FormData(event.currentTarget);
+		const phone = formData.get('phone') as string;
+		const phoneTransform = formatPhoneNumber(phone);
 
-	const onSubmit: SubmitHandler<FormProps> = async({ telephone }) => {
-		setLoading(true);
-		await createCallback({
-			phone: telephone,
-			product_id: id?.toString(),
-			quantity,
-		}).then((response: { data?: { result: boolean }; error?: FetchBaseQueryError | SerializedError }) => {
-			if(response?.data?.result) {
-				methods.reset();
-				setSending(true);
-			} else if(response.error) {
-				console.error('An error occurred:', response.error);
-			}
-		}).finally(() => {
-			setLoading(false);
-		});
+		if(phoneTransform.length < 13) {
+			setPhoneErrorMessage('enter your phone number');
+		} else {
+			await createCallback({
+				phone: formatPhoneNumber(phone),
+				product_id: id?.toString(),
+				quantity,
+			}).then((response: { data?: { result: boolean }; error?: FetchBaseQueryError | SerializedError }) => {
+				if(response?.data?.result) {
+					addToast({
+						title: t('our manager'),
+					});
+					onClose();
+				} else if(response.error) {
+					console.error('An error occurred:', response.error);
+				}
+			});
+		}
 	}
 
 	return (
 		<>
-			<button onClick={ onOpen } className='p-3 bg-[#E4E9F2] hover:bg-teal-300 rounded-full group'>
-				<Icons.PhoneCircuitIcon className='w-4 h-4 stroke-black group-hover:stroke-black'/>
-			</button>
-			<Modal isOpen={ isOpen } onOpenChange={ onOpenChange }>
+			<Button onPress={ onOpen } isIconOnly aria-label='mail' className='bg-gray-300 rounded-full group'>
+				<PhoneCircuitIcon className='w-4 h-4 stroke-black group-hover:stroke-primary'/>
+			</Button>
+			<Modal isOpen={ isOpen } onOpenChange={ onOpenChange } placement='top-center'>
 				<ModalContent>
 					{ () => (
 						<>
-							<FormProvider { ...methods }>
-								<form onSubmit={ methods.handleSubmit(onSubmit) }>
-									<ModalHeader className="flex items-center gap-2">
-										<h3 className="text-base font-semibold leading-6 text-gray-900 uppercase" id="modal-title">
-											{ t('callback') }
-										</h3>
-									</ModalHeader>
-									<ModalBody>
-										{ isSending ? <div className="mt-3">
-											<p className="text-sm text-gray-500">
-												{ t('our manager') }
-											</p>
-										</div> : <div className="mt-3">
-											<p className="text-sm text-gray-500">
-												{ t('put phone') }
-											</p>
-											<div className="relative mt-6 h-11 w-full min-w-[200px]">
-												<PhoneMaskInput/>
-											</div>
-										</div> }
-									</ModalBody>
-									<ModalFooter>
-										<Button type="submit" className='btn primary w-max px-5 uppercase' disabled={ loading }>
-											<Spinner size='small' height='h-10' show={ loading }>
-												{ t('send') }
-											</Spinner>
-										</Button>
-									</ModalFooter>
-								</form>
-							</FormProvider>
+							<ModalHeader className="flex items-center gap-2">
+								<h3 className="text-base font-semibold leading-6 text-gray-900 uppercase" id="modal-title">
+									{ t('callback') }
+								</h3>
+							</ModalHeader>
+							<ModalBody>
+								<Form
+									className='mt-2 mb-8 flex flex-col gap-4'
+									onSubmit={ onSubmit }
+								>
+									<p className="text-sm text-gray-500">
+										{ t('put phone') }
+									</p>
+									<PhoneMaskInput phoneErrorMessage={ phoneErrorMessage } />
+									<Button type='submit' isLoading={ isLoading } className='uppercase font-bold ml-auto'>
+										{ t('send') }
+									</Button>
+								</Form>
+							</ModalBody>
 						</>
 					) }
 				</ModalContent>

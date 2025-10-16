@@ -21,6 +21,7 @@ import CharacteristicsBlock from '@/components/Product/CharacteristicsBlock';
 import InfoBlock from '@/components/Product/InfoBlock';
 import { SettingsProps } from '@/models/settings';
 import { Button } from '@/components/UI';
+import './index.scss';
 
 interface Props {
 	idProduct: string
@@ -161,19 +162,21 @@ const ProductComponent: FC<Props> = ({ idProduct, locale, data, section, setting
 						</div>
 					</div> }
 				<div className='purchase-information grid justify-self-stretch mt-5 md:mt-10'>
-					<Quantity id={ 0 } quantity={ quantity } offerQuantity={ (Number(offer?.quantity) || 0) }
-										price={ offer?.price } onChange={ onChange } setQuantity={ onSetQuantity }/>
-					<DeliveryCalculation locale={ locale } offer_id={ offerId }/>
-					<div className='buttons-buy md:justify-self-end mt-8 md:0'>
+					<div className='mb-4 md:mb-0'>
+						<Quantity id={ 0 } quantity={ quantity } offerQuantity={ (Number(offer?.quantity) || 0) }
+											price={ offer?.price } onChange={ onChange } setQuantity={ onSetQuantity }/>
+						<DeliveryCalculation offer_id={ +offerId } quantity={ quantity } setQuantity={ setQuantity } price={ offer ? +offer?.price : 0 } />
+					</div>
+					<div className='relative buttons-buy flex flex-col items-end gap-2'>
 						{ cartItems.find(item => item.id === offerId) ?
-							<Link href={ `/cart` } className='btn bg-success uppercase text-white w-full md:w-72'>
+							<Button as={ Link } href={ `/cart` } color='success' className='uppercase text-white w-full md:w-72'>
 								<span className='ml-2.5'>{ locale === Language.UK ? 'Перейти до кошика' : 'Перейти в корзину' }</span>
-							</Link> :
+							</Button> :
 							<Button onPress={ onSubmit } className='uppercase w-full md:w-72 flex'>
 								<span className='ml-2.5'>{ t('buy') }</span>
 							</Button>
 						}
-						<QuickOrder locale={ locale } offerId={ offerId } quantity={ quantity } section={ section }
+						<QuickOrder offerId={ offerId } quantity={ quantity } section={ section }
 												offerItem={ data?.data?.offers?.find(item => item.offer_id === offerId) }
 						/>
 					</div>

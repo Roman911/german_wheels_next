@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { useParams, useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@heroui/react";
+import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Alert } from "@heroui/react";
 import { useAppSelector } from '@/hooks/redux';
 import { Location } from '@/models/tireService';
 import { Language, LanguageCode } from '@/models/language';
@@ -11,6 +12,9 @@ import { Button } from '@/components/UI';
 
 const Confirm = ({ location }: { location: Location | undefined }) => {
 	const [ loading, setLoading ] = useState(false);
+	const [ error, setError ] = useState<null | string>(null);
+	const router = useRouter();
+	const params = useParams();
 	const locale = useLocale();
 	const t = useTranslations('TireService');
 	const { date, diameter, typeCar, form, time, tyreSource, seasonChange, wheelBalancing } = useAppSelector((state) => state.tireServiceReducer);
@@ -21,32 +25,49 @@ const Confirm = ({ location }: { location: Location | undefined }) => {
 
 	const handleSubmit = async () => {
 		setLoading(true);
-		await createTyreService({
-			location_id: location?.id,
-			date,
-			time,
-			vehicle_type: typeCar,
-			tyre_source: tyreSource,
-			customer_name: form.name,
-			customer_phone: `+38${ phone }`,
-			customer_email: form.email,
-			wheel_size: diameter,
-			services: [seasonChange, wheelBalancing],
-			comment: form.comment,
-		}).then((response: { data?: { result: boolean }; error?: FetchBaseQueryError | SerializedError }) => {
-			if(response?.data?.result) {
-				console.log('Success:', response.data.result);
-			} else if(response.error) {
-				console.error('An error occurred:', response.error);
-			}
-		}).finally(() => {
+		setError(null);
+		if(!typeCar || !date || !time || form.name.length < 3 || phone.length < 10) {
 			setLoading(false);
-		});
+			if(!typeCar) {
+				setError('you have not selected a car type');
+			} else if(!date) {
+				setError('you have not selected a date');
+			} else if(!time) {
+				setError('you have not selected a time');
+			} else if(form.name.length < 3) {
+				setError('incorrect name');
+			} else if(phone.length < 10) {
+				setError('incorrect phone');
+			}
+		} else {
+			await createTyreService({
+				location_id: location?.id,
+				date,
+				time,
+				vehicle_type: typeCar,
+				tyre_source: tyreSource,
+				customer_name: form.name,
+				customer_phone: `+38${ phone }`,
+				customer_email: form.email,
+				wheel_size: diameter,
+				services: [seasonChange, wheelBalancing],
+				comment: form.comment,
+			}).then((response: { data?: { result: boolean }; error?: FetchBaseQueryError | SerializedError }) => {
+				if(response?.data) {
+					router.push(`/${params.locale}/tire-service/successful`);
+				} else if(response.error) {
+					console.error('An error occurred:', response.error);
+				}
+			}).finally(() => {
+				setLoading(false);
+			});
+		}
 	}
 
 	return (
 		<>
 			<h3 className='text-2xl font-bold mb-6'>{ t('confirm your tire fitting appointment') }</h3>
+			{ error && <Alert color='danger' className='mb-6' title={ t(error) } /> }
 			<Table hideHeader aria-label="Example static collection table">
 				<TableHeader>
 					<TableColumn>NAME</TableColumn>
@@ -96,8 +117,8 @@ const Confirm = ({ location }: { location: Location | undefined }) => {
 				</TableBody>
 			</Table>
 			<div className='flex justify-end mt-6'>
-				<Button isLoading={ loading } onPress={ handleSubmit }>
-					{ loading ? t('loading') : t('confirm') }
+				<Button isLoading={ loading } onPress={ handleSubmit } isDisabled={ loading } >
+					{ t('confirm') }
 				</Button>
 			</div>
 		</>

@@ -1,14 +1,12 @@
-import { FC, useState } from 'react';
+import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { baseDataAPI } from '@/services/baseDataService';
 import { useAppDispatch } from '@/hooks/redux';
 import { setCity } from '@/store/slices/orderSlice';
 import MySelect from '@/components/Lib/Select';
 
-interface NpCitySearchProps {
-	title: string
-}
-
-export const NpCitySearch: FC<NpCitySearchProps> = ({ title }) => {
+export const NpCitySearch = () => {
+	const t = useTranslations('Select');
 	const [city, setCityState] = useState<string | undefined>('');
 	const dispatch = useAppDispatch();
 	const { data } = baseDataAPI.useFetchNpSearchQuery(city);
@@ -27,7 +25,7 @@ export const NpCitySearch: FC<NpCitySearchProps> = ({ title }) => {
 
 	return <MySelect
 		name='city'
-		label={ title }
+		label={ t('city') }
 		options={ cityOptions }
 		onChange={ onChange }
 		setState={ setCityState }

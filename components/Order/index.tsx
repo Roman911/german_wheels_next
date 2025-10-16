@@ -1,17 +1,15 @@
 'use client'
 import { FC } from 'react';
-import { usePathname, useParams } from 'next/navigation';
-import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { Input, Textarea } from '@heroui/react';
 import Summary from './Summary';
 import { Language } from '@/models/language';
-import type { ProductsProps } from '@/models/products';
-import type { OrdersParamProps } from '@/models/ordersParam';
-import { TextFile } from '@/components/Lib/TextFile';
-import { PhoneMaskInput } from '@/components/Lib/PhoneMaskInput';
+import PhoneMaskInput from '@/components/Lib/NewPhoneMaskInput';
 import { NpCitySearch } from '@/components/Lib/NpCitySearch';
 import { NpWarehousesSearch } from '@/components/Lib/NpWarehousesSearch';
 import MySelect from '@/components/Lib/Select';
+import type { ProductsProps } from '@/models/products';
+import type { OrdersParamProps } from '@/models/ordersParam';
 
 interface OrderProps {
 	data: ProductsProps | undefined
@@ -22,6 +20,7 @@ interface OrderProps {
 	cartItems: { id: number; quantity: number }[]
 	onChange: (name: string, value: number | string | null) => void
 	dataOrdersParam: OrdersParamProps | undefined
+	phoneErrorMessage: string | null
 }
 
 const OrderComponent: FC<OrderProps> = (
@@ -34,12 +33,10 @@ const OrderComponent: FC<OrderProps> = (
 		shippingMethod,
 		dataOrdersParam,
 		showNpWarehouses,
+		phoneErrorMessage
 	}) => {
-	const { control, formState: { errors } } = useFormContext();
-	const pathname = usePathname();
-	const { locale } = useParams<{ locale: Language }>();
-	const t = useTranslations('Select');
-	const lang = pathname.split('/')[1] === 'ua' ? 'ua' : 'ru';
+	const locale = useLocale();
+	const t = useTranslations('Order');
 
 	const deliverysOptions = dataOrdersParam?.Deliverys.map(item => {
 		return { value: item.deliverys_id, label: locale === Language.UK ? item.name : item.name_ru }
@@ -49,96 +46,75 @@ const OrderComponent: FC<OrderProps> = (
 		return { value: item.payments_id, label: locale === Language.UK ? item.name : item.name_ru }
 	});
 
-	return <div className='flex flex-col lg:flex-row gap-6'>
+	return <div className='flex flex-col lg:flex-row gap-6 w-full'>
 		<div className='flex-1'>
-			<div className='bg-white pt-5 pb-8 px-6'>
-				<h3 className='font-bold text-xl'>
-					{ locale === Language.UK ? 'Контактні дані' : 'Контактные данные' }
+			<div className='bg-white pt-5 pb-8 px-6 flex flex-col gap-4 dark:bg-[#333333]'>
+				<h3 className='font-bold text-xl mb-4'>
+					{ t('contact details') }
 				</h3>
-				<input
-					type={ 'text' }
-					placeholder=' '
+				<Input
+					isRequired
+					errorMessage={ t('error text') }
+					label={ t('firstname') }
+					name='firstname'
+					type='text'
+					variant='bordered'
 				/>
-				<Controller
-					name="firstname"
-					control={ control }
-					render={ ({ field }) => {
-						return <TextFile field={ field } label={ locale === Language.UK ? 'Ім\'я' : 'Имя' }
-														 error={ typeof errors?.['firstname']?.message === 'string' ? errors['firstname'].message : null }/>
-					} }
+				<Input
+					isRequired
+					errorMessage={ t('error text') }
+					label={ t('lastname') }
+					name='lastname'
+					type='text'
+					variant='bordered'
 				/>
-				<Controller
-					name="lastname"
-					control={ control }
-					render={ ({ field }) => {
-						return <TextFile field={ field } label={ locale === Language.UK ? 'Прізвище' : 'Фамилия' }
-														 error={ typeof errors?.['lastname']?.message === 'string' ? errors['lastname'].message : null }/>
-					} }
+				<Input
+					label={ t('surname') }
+					name='surname'
+					type='text'
+					variant='bordered'
 				/>
-				<Controller
-					name="surname"
-					control={ control }
-					render={ ({ field }) => {
-						return <TextFile field={ field } label={ locale === Language.UK ? 'По батькові' : 'Отчество' }
-														 error={ typeof errors?.['surname']?.message === 'string' ? errors['surname'].message : null }/>
-					} }
-				/>
-				<PhoneMaskInput/>
-				<Controller
-					name="email"
-					control={ control }
-					render={ ({ field }) => {
-						return <TextFile field={ field } label={ locale === Language.UK ? 'Електронна пошта' : 'Электронная почта' }
-														 error={ typeof errors?.['email']?.message === 'string' ? errors['email'].message : null }/>
-					} }
+				<PhoneMaskInput phoneErrorMessage={ phoneErrorMessage } />
+				<Input
+					errorMessage={ t('enter valid email') }
+					label={ t('email') }
+					name='email'
+					type='email'
+					variant='bordered'
 				/>
 			</div>
-			<div className='bg-white pt-5 pb-8 px-6 mt-4'>
-				<h3 className='font-bold text-xl'>{ locale === Language.UK ? 'Доставка та оплата' : 'Доставка и оплата' }</h3>
-				<div className="relative mt-6 w-full min-w-[200px]">
+			<div className='bg-white pt-5 pb-8 px-6 mt-4 dark:bg-[#333333]'>
+				<h3 className='font-bold text-xl'>{ t('delivery and payment') }</h3>
+				<div className='relative mt-6 w-full min-w-[200px] flex flex-col gap-3'>
 					<h4 className='font-semibold'>
-						{ locale === Language.UK ? 'Виберіть спосіб доставки' : 'Выберите способ доставки' }
+						{ t('choose a delivery method') }
 					</h4>
-					<div className='mt-3'>
-						<MySelect name='shipping_method' label={ locale === Language.UK ? 'Спосіб доставки' : 'Способ доставки' }
-											options={ deliverysOptions } onChange={ onChange }/>
-					</div>
-					{ (shippingMethod === '2' || shippingMethod === '3') && <div className='mt-3'>
-						<NpCitySearch title={ t('city') }/>
-					</div> }
-					{ shippingMethod === '2' && showNpWarehouses && <div className='mt-3'>
-						<NpWarehousesSearch title={ t('department') } locale={ locale } />
-					</div> }
-					{ shippingMethod === '3' && <Controller
-						name="address"
-						control={ control }
-						render={ ({ field }) => {
-							return <TextFile field={ field }
-															 label={ locale === Language.UK ? 'Адреса (Вулиця, будинок)' : 'Адрес (Улица, дом)' }
-															 error={ typeof errors?.['address']?.message === 'string' ? errors['address'].message : null }/>
-						} }
+					<MySelect name='shipping_method' label={ t('delivery method') } options={ deliverysOptions } onChange={ onChange }/>
+					{ (shippingMethod === '2' || shippingMethod === '3' || shippingMethod === '4') && <NpCitySearch/> }
+					{ shippingMethod === '2' && showNpWarehouses && <NpWarehousesSearch/> }
+					{ shippingMethod === '3' && <Input
+						label={ t('address') }
+						name='address'
+						type='text'
 					/> }
 					<h4 className='font-semibold mt-6'>
-						{ locale === Language.UK ? 'Виберіть спосіб оплати' : 'Выберите способ оплаты' }
+						{ t('choose a payment method') }
 					</h4>
 					<MySelect name='payment_method' label='Способ оплаты' options={ paymentsOptions } onChange={ onChange }/>
 				</div>
 			</div>
-			<div className='bg-white pt-5 pb-8 px-6 mt-4 md:mb-20'>
+			<div className='bg-white pt-5 pb-8 px-6 mt-4 lg:mb-20 dark:bg-[#333333]'>
 				<h4 className='font-semibold'>
-					{ locale === Language.UK ? 'Додати коментар' : 'Додати коментар' }
+					{ t('add comment') }
 				</h4>
-				<Controller
-					name="comment"
-					control={ control }
-					render={ ({ field }) => <TextFile field={ field }
-																						label={ locale === Language.UK ? 'Ваш коментар' : 'Ваш комментарий' }
-																						error={ typeof errors?.['text']?.message === 'string' ? errors['text'].message : null }
-																						isTextarea={ true }/> }
+				<Textarea
+					name='comment'
+					label={ t('your comment') }
+					variant='bordered'
 				/>
 			</div>
 		</div>
-		<Summary data={ data } isLoading={ isLoading } cartItems={ cartItems } loadingBtn={ loadingBtn } lang={ lang } />
+		<Summary data={ data } isLoading={ isLoading } cartItems={ cartItems } loadingBtn={ loadingBtn }/>
 	</div>
 };
 

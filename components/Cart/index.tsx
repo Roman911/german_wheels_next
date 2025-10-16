@@ -5,6 +5,7 @@ import { Link } from '@/i18n/routing';
 import CartItem from './CartItem';
 import type { ProductsProps } from '@/models/products';
 import { Language } from '@/models/language';
+import { Button } from '@/components/UI';
 
 const totalQuantityLabel = {
 	1: {
@@ -42,7 +43,7 @@ const CartComponent: FC<CarProps> = ({ data, cartItems, removeProduct, setQuanti
 	const totalQuantityPrice = items?.reduce((sum, item) => sum + (item.quantity ?? 0) * parseFloat(item.price), 0);
 
 	return <div className='flex flex-col lg:flex-row bg-white p-5 rounded-sm shadow-sm gap-10'>
-		<div className='flex-1 divide-y'>
+		<div className='flex-1 divide-y divide-gray-300'>
 			{data?.data.products.map(item => {
 				const quantity = cartItems?.find(i => i.id === item.best_offer.id)?.quantity || 1;
 
@@ -84,9 +85,9 @@ const CartComponent: FC<CarProps> = ({ data, cartItems, removeProduct, setQuanti
 				<div>{ locale === Language.UK ? 'Разом до сплати:' : 'Итого к оплате:' }</div>
 				<div>{ totalQuantityPrice } ₴</div>
 			</div>
-			<Link className='btn primary w-full mt-6' href='/order'>
+			<Button as={ Link } href='/order' className='w-full mt-6' >
 				{ locale === Language.UK ? 'Оформити замовлення' : 'Оформить заказ' }
-			</Link>
+			</Button>
 		</div>
 	</div>
 };

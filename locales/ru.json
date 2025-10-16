@@ -173,7 +173,11 @@
     "sign up for tire fitting": "Запись на шиномонтаж"
   },
   "QuickOrder": {
-    "quick order": "Быстрый заказ"
+    "quick order": "Быстрый заказ",
+    "quick order text": "Экономьте Ваше время, просто оставьте телефон и менеджер с Вами свяжется для уточнения всех деталей",
+    "send": "Отправить",
+    "sent order": "Заказ отправлен",
+    "our manager": "Наш менеджер позвонит Вам"
   },
   "Search": {
     "search": "Поиск"
@@ -194,7 +198,8 @@
   "SuccessfulOrder": {
     "manager will contact you shortly": "В ближайшее время с Вами свяжется менеджер",
     "return to home page": "Вернуться на главную",
-    "thanks for your order": "Спасибо за заказ"
+    "thanks for your order": "Спасибо за заказ",
+    "thank you for your inquiry": "Спасибо за обращение"
   },
   "TireService": {
     "for tire fitting appointments": "По поводу записи на шиномонтаж, хранение шин и другим вопросам обращайтесь по указанным телефонам, в удобных для Вас шинных центрах.",
@@ -222,41 +227,48 @@
     "enter name": "Введите имя",
     "car": "Легковые",
     "suv": "Внедорожники",
-    "confirm": "Подтвердить"
+    "confirm": "Подтвердить",
+    "you have not selected a car type": "Вы не выбрали тип авто",
+    "you have not selected a date": "Вы не выбрали дату",
+    "you have not selected a time": "Вы не выбрали время",
+    "incorrect name": "Некорректное имя",
+    "incorrect phone": "Некорректный номер телефона"
   },
   "PhoneMask": {
     "phone number": "Номер телефона"
   },
-  "add all": "добавить все",
-  "accumulators": "аккумуляторы",
-  "auto goods": "автотовары",
-  "battery": "аккумуляторы",
-  "body type": "тип корпусу",
-  "by price": "по цене",
-  "buy here": "купить здесь",
-  "car": "автомобилей",
-  "cargo tires": "грузовые шины",
-  "credit": "кредит",
-  "disc": "дисков",
-  "disks by parameters": "диски по параметрам",
-  "guarantee and refund": "гарантия и возврат",
-  "installment plan": "онлайн рассрочка",
-  "free": "бесплатный",
-  "manufacturers": "производители",
-  "motorcycle tires": "мотошины",
-  "our advantages": "наши преимущества",
-  "pick up": "подобрать",
-  "phones": "телефоны",
-  "polarity": "полярность",
-  "profile": "профиль",
-  "public offer agreement": "договор публичной оферты",
-  "recently viewed": "похожие товары",
-  "selection of tires and wheels": "подбор шин и дисков",
-  "services": "услуги",
-  "show all": "показать все",
-  "sun": "вс",
-  "tire comparison": "сравнение шин",
-  "tires by parameters": "шини за параметрами",
-  "type of electrolyte": "тип электролита",
-  "tyre": "шин"
+  "Order": {
+    "address": "Адрес (Улица, дом)",
+    "firstname": "Имя",
+    "lastname": "Фамилия",
+    "surname": "Отчество",
+    "email": "Электронная почта",
+    "error text": "Это поле обязательно",
+    "delivery and payment": "Доставка и оплата",
+    "choose a delivery method": "Выберите способ доставки",
+    "delivery method": "Способ доставки",
+    "enter valid email": "Введите правильный email",
+    "choose a payment method": "Выберите способ оплаты",
+    "add comment": "Додати коментар",
+    "your comment": "Ваш комментарий",
+    "contact details": "Контактные данные"
+  },
+  "Summary": {
+    "your order": "Ваш заказ",
+    "total sum": "Всего к оплате",
+    "place an order": "Оформить заказ"
+  },
+  "ActionBlock": {
+    "mail": "По почте",
+    "copy": "Скопировать",
+    "copy link": "Ссылка скопирована"
+  },
+  "Delivery calculation": {
+    "delivery calculation": "Расчет доставки",
+    "specify city": "Укажите город",
+    "specify quantity": "Укажите количество",
+    "close": "Закрыть",
+    "calculate": "Рассчитать",
+    "change": "Изменить"
+  }
 }

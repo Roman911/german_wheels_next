@@ -1,17 +1,14 @@
 'use client'
-import { FC } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 import { baseDataAPI } from '@/services/baseDataService';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { setWirehouse } from '@/store/slices/orderSlice';
 import { Language } from '@/models/language';
 import MySelect from '@/components/Lib/Select';
 
-interface NpWarehousesSearchProps {
-	title: string
-	locale: Language
-}
-
-export const NpWarehousesSearch: FC<NpWarehousesSearchProps> = ({ title, locale }) => {
+export const NpWarehousesSearch = () => {
+	const t = useTranslations('Select');
+	const locale = useLocale();
 	const { city } = useAppSelector(state => state.orderReducer);
 	const dispatch = useAppDispatch();
 	const { data } = baseDataAPI.useFetchNpWarehousesQuery(city.value);
@@ -28,7 +25,7 @@ export const NpWarehousesSearch: FC<NpWarehousesSearchProps> = ({ title, locale 
 
 	return <MySelect
 		name='department'
-		label={ title }
+		label={ t('department') }
 		options={ warehousesOptions }
 		onChange={ onChange }
 	/>

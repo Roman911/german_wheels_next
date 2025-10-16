@@ -35,6 +35,7 @@ const MySelect: FC<SelectProps> = (
 	}
 
 	return <Autocomplete
+		variant='bordered'
 		onInputChange={handleInputChange}
 		className='max-w-full md:max-w-full'
 		classNames={ {

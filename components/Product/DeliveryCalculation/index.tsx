@@ -1,26 +1,26 @@
 'use client'
-import { FC, useState } from 'react';
+import { FC, useState, Dispatch, SetStateAction } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure, } from "@heroui/react";
-import { useAppSelector } from '@/hooks/redux';
 import { Button } from '@/components/UI';
-import { Language } from '@/models/language';
+import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@heroui/modal';
+import { useAppSelector } from '@/hooks/redux';
 import { NpCitySearch } from '@/components/Lib/NpCitySearch';
 import Quantity from '@/components/Lib/Quantity';
 import NpDocumentPrice from '@/components/Lib/NpDocumentPrice';
 
 interface Props {
-	locale: Language
 	offer_id?: number
+	quantity: number
+	price: number
+	setQuantity: Dispatch<SetStateAction<number>>
 }
 
-const DeliveryCalculation: FC<Props> = ({ locale, offer_id }) => {
+const DeliveryCalculation: FC<Props> = ({ offer_id, quantity, price, setQuantity }) => {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
-	const [ quantity, setQuantity ] = useState(1);
 	const { city } = useAppSelector(state => state.orderReducer);
 	const [ showDescription, setShowDescription ] = useState<boolean>(false);
-	const t = useTranslations('Select');
+	const t = useTranslations('Delivery calculation');
 
 	const onSetQuantity = (_: number, quan: number) => {
 		setQuantity(quan);
@@ -38,35 +38,39 @@ const DeliveryCalculation: FC<Props> = ({ locale, offer_id }) => {
 		setQuantity(numericValue < 99 ? numericValue : 99);
 	}
 
+	const onReset = () => {
+		setShowDescription(false);
+	}
+
 	return (
 		<>
 			<Button
 				onPress={ onOpen }
-				className='delivery-calculation bg-white mt-6 text-sm font-medium border border-black w-full md:w-72 hover:bg-white hover:shadow'
+				className='delivery-calculation bg-white mt-6 text-sm font-medium border rounded-full border-black w-full hover:bg-white hover:shadow'
 			>
 				<Image width={ 48 } height={ 32 } className='mr-2.5' src='/icons/truck.svg' alt=""/>
 				{ t('delivery calculation') }
 			</Button>
-			<Modal isOpen={ isOpen } onOpenChange={ onOpenChange }>
+			<Modal isOpen={ isOpen } onOpenChange={ onOpenChange } placement='top'>
 				<ModalContent>
 					{ (onClose) => (
 						<>
 							<ModalHeader className="flex items-center gap-2">
 								<Image width={ 18 } height={ 18 } src='/images/nova-poshta-logo-white-bg.png' alt=""/>
 								<h3 className="text-base font-semibold leading-6 text-gray-900">
-									{ locale === Language.UK ? 'Розрахунок доставки' : 'Расчет доставки' }
+									{ t('delivery calculation') }
 								</h3>
 							</ModalHeader>
 							<ModalBody>
 								<div className="mt-3 sm:ml-4 sm:mt-0 sm:text-left">
 									<div className='mt-6 mb-4'>
 										{ !showDescription && <>
-											<p className='mt-4'>
-												{ locale === Language.UK ? 'Вкажіть місто' : 'Укажите город' }
-											</p>
-											<NpCitySearch title={ t('city') }/>
 											<p className='mt-4 mb-2'>
-												{ locale === Language.UK ? 'Вкажіть кількість' : 'Укажите количество' }
+												{ t('specify city') }
+											</p>
+											<NpCitySearch />
+											<p className='mt-4 mb-2'>
+												{ t('specify quantity') }
 											</p>
 											<Quantity
 												id={ 0 }
@@ -76,15 +80,18 @@ const DeliveryCalculation: FC<Props> = ({ locale, offer_id }) => {
 												setQuantity={ onSetQuantity }
 											/>
 										</> }
-										{ showDescription && city.value.length > 0 && <NpDocumentPrice offer_id={ offer_id } quantity={ quantity } /> }
+										{ showDescription && city.value.length > 0 && <NpDocumentPrice offer_id={ offer_id } quantity={ quantity } price={ price } /> }
 									</div>
 								</div>
 							</ModalBody>
 							<ModalFooter>
-								{ showDescription ? <Button onPress={ onClose } type="button" className='w-max px-5'>
-									{ locale === Language.UK ? 'Закрити' : 'Закрыть' }
-								</Button> : <Button onPress={ handleClick } type="button" className='btn primary w-max px-5'>
-									{ locale === Language.UK ? 'Розрахувати' : 'Рассчитать' }
+								{ showDescription && <Button variant='light' className='w-max px-5 uppercase font-bold' onPress={ onReset }>
+									{ t('change') }
+								</Button> }
+								{ showDescription ? <Button onPress={ onClose } className='w-max px-5 uppercase font-bold'>
+									{ t('close') }
+								</Button> : <Button onPress={ handleClick } className='w-max px-5 uppercase font-bold'>
+									{ t('calculate') }
 								</Button> }
 							</ModalFooter>
 						</>

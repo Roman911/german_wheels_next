@@ -1,9 +1,8 @@
 'use client'
 import { ChangeEvent, FormEvent, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
-import { Link } from '@/i18n/routing';
+import { Link, useRouter } from '@/i18n/routing';
 import { Button, Input } from '@heroui/react';
 import { baseDataAPI } from '@/services/baseDataService';
 import { useAppDispatch } from '@/hooks/redux';
@@ -12,10 +11,9 @@ import Spinner from '@/components/Lib/Spinner';
 import CloseButton from '@/components/Lib/CloseButton';
 import * as Icons from '@/components/Lib/Icons';
 import styles from '../index.module.scss';
-import { Language } from '@/models/language';
 import { useClickOutside } from '@/hooks/clickOutside';
 
-const Search = ({ locale }: { locale: Language }) => {
+const Search = () => {
 	const router = useRouter();
 	const t = useTranslations('Catalog');
 	const [ value, setValue ] = useState('');
@@ -39,7 +37,7 @@ const Search = ({ locale }: { locale: Language }) => {
 	const onSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		handleClickAllProduct();
-		router.push(`/${ locale }/search`);
+		router.push(`/search`);
 	}
 
 	return (
@@ -80,7 +78,7 @@ const Search = ({ locale }: { locale: Language }) => {
 					</Spinner>
 				</ul>
 				{ data?.result && <Link className='btn primary mx-auto' onClick={ handleClickAllProduct } href='/search'>
-					{ locale === Language.UK ? 'Усі результати пошуку ' : 'Все результаты поиска ' }
+					{ t('all search result') + ' ' }
 					({ data?.data.total_count })
 				</Link> }
 			</div>

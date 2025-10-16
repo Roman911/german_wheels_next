@@ -1,12 +1,11 @@
 'use client'
 import { FC, JSX } from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { baseDataAPI } from '@/services/baseDataService';
 import { linksCatalog } from './linksCatalog';
 import { PhoneLogo } from '@/models/config';
 import * as Icons from '@/components/Lib/Icons';
-import { AliasItem } from '@/models/alias';
+import { AliasAll, AliasItem } from '@/models/alias';
 import { Language, LanguageCode } from '@/models/language';
 import kievstarLogo from '@/public/icons/kievstar-logo.svg';
 import lifecellLogo from '@/public/icons/life-logo.svg';
@@ -30,13 +29,13 @@ const phoneLogos: Record<PhoneLogo, string> = {
 };
 
 interface Props {
-	locale: string
+	alias: AliasAll
 	settings: SettingsProps
 }
 
-const Footer: FC<Props> = ({ locale, settings }) => {
+const Footer: FC<Props> = ({ alias, settings }) => {
 	const t = useTranslations('Footer');
-	const { data } = baseDataAPI.useFetchStatiAliasAllQuery('');
+	const locale = useLocale();
 	const lang = locale === Language.UK ? LanguageCode.UA : Language.RU;
 
 	const icons: Record<IconType, JSX.Element> = {
@@ -114,7 +113,7 @@ const Footer: FC<Props> = ({ locale, settings }) => {
 				<h6 className='text-gray-500 text-sm font-bold mb-7'>
 					{ t('information') }
 				</h6>
-				{ data?.footer.map((item: AliasItem, index: number) => {
+				{ alias?.footer.map((item: AliasItem, index: number) => {
 					return link(`/page/${ item.slug }`, item.descriptions[lang].title, index)
 				}) }
 			</div>

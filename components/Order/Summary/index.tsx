@@ -1,21 +1,22 @@
-'use client'
-import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { FC } from 'react';
-import classNames from 'classnames';
+import { twMerge } from 'tailwind-merge';
+import { Button } from '@/components/UI';
 import { useInView } from 'react-intersection-observer';
 import Spinner from '@/components/Lib/Spinner';
+import Item from '@/components/Order/Summary/Item';
 import type { ProductsProps } from '@/models/products';
-import { Language } from '@/models/language';
 
 interface SummaryProps {
 	data: ProductsProps | undefined
 	isLoading: boolean
 	loadingBtn: boolean
 	cartItems: { id: number; quantity: number }[]
-	lang: string
 }
 
-const Summary: FC<SummaryProps> = ({ data, isLoading, loadingBtn, cartItems, lang }) => {
+const Summary: FC<SummaryProps> = ({ data, isLoading, loadingBtn, cartItems }) => {
+	const t = useTranslations('Summary');
+
 	const { ref, inView } = useInView(
 		{
 			trackVisibility: true, delay: 100, threshold: 1, rootMargin: '-20px'
@@ -34,38 +35,34 @@ const Summary: FC<SummaryProps> = ({ data, isLoading, loadingBtn, cartItems, lan
 
 	return <div className='w-full lg:w-96'>
 		<div ref={ ref }></div>
-		<div className={classNames('bg-white w-full lg:w-96', { 'lg:fixed top-4': !inView })}>
+		<div className={ twMerge('bg-white w-full lg:w-96 dark:bg-[#333333]', !inView && 'lg:fixed top-4') }>
 			<div className='pt-5 pb-2 px-6'>
-				<h3 className='font-bold'>{ lang === Language.UK ? 'Ваше замовлення' : 'Ваш заказ' }</h3>
-				<Spinner height='h-40' show={isLoading}>
+				<h3 className='font-bold'>{ t('your order') }</h3>
+				<Spinner height='h-40' show={ isLoading }>
 					<div className='divide-y'>
-						{data?.data.products.map(item => {
-							const quantity = cartItems.find(i => i.id === item.best_offer.id)?.quantity;
-
-							return <div key={ item.group } className='flex items-center py-4'>
-								<Image width={ 80 } height={ 80 } src={ item.default_photo } alt=""/>
-								<div className='ml-2 px-3 w-full'>
-									<div className='font-bold text-sm'>{ item.full_name }</div>
-									<div className='flex justify-between text-sm mt-3'>
-										<div>{ quantity } шт</div>
-										<div>{ +item.best_offer.price * (quantity || 1) } грн</div>
-									</div>
-								</div>
-							</div>
-						})}
+						{ data?.data.products.map(item => {
+							const quantity = cartItems.find(i => i.id === item.best_offer.id)?.quantity || 0;
+							return <Item
+								key={ item.group }
+								quantity={ quantity }
+								group={ item.group }
+								default_photo={ item.default_photo }
+								full_name={ item.full_name }
+								price={ +item.best_offer.price }
+							/>
+						}) }
 					</div>
 				</Spinner>
 			</div>
 			<div className='bg-blue-50 py-5 px-6'>
-				<div className='flex justify-between font-bold'>
-					<div>{ lang === Language.UK ? 'Всього до сплати' : 'Всего к оплате' }</div>
+				<div className='flex justify-between font-bold mb-5 text-black'>
+					<div>{ t('total sum') }</div>
 					<div>{ totalQuantityPrice } грн</div>
 				</div>
-				<button type='submit' className='btn primary w-full mt-5' disabled={ loadingBtn } >
-					<Spinner height='h10' show={ loadingBtn }>
-						{ lang === Language.UK ? 'Оформити замовлення' : 'Оформить заказ' }
-					</Spinner>
-				</button>
+				<Button type='submit'
+								className='w-full uppercase font-bold' isLoading={ loadingBtn } disabled={ loadingBtn }>
+					{ t('place an order') }
+				</Button>
 			</div>
 		</div>
 	</div>

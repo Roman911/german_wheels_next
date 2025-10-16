@@ -1,5 +1,5 @@
 'use client'
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
 import {
@@ -19,7 +19,6 @@ import { useAppDispatch } from '@/hooks/redux';
 import { addBookmarksFromStorage } from '@/store/slices/bookmarksSlice';
 import { addComparisonFromStorage } from '@/store/slices/comparisonSlice';
 import { addCartFromStorage } from '@/store/slices/cartSlice';
-import { Language } from '@/models/language';
 import * as Icons from '@/components/Lib/Icons';
 import styles from './index.module.scss';
 import { CarTireFilter } from '@/components/Layout/Header/HeaderMain/CarTireFilter';
@@ -27,11 +26,7 @@ import { CarDiskFilter } from '@/components/Layout/Header/HeaderMain/CarDiskFilt
 import { links } from '@/components/Layout/Header/links';
 import ButtonBlock from '@/components/Layout/Header/HeaderMain/ButtonBlock';
 
-interface Props {
-	locale: Language
-}
-
-const HeaderMain: FC<Props> = ({ locale }) => {
+const HeaderMain = () => {
 	const t = useTranslations('Main');
 	const [ isMenuOpen, setIsMenuOpen ] = useState(false);
 	const [ filterIsOpen, setFilterOpen ] = useState<boolean | string>(false);
@@ -83,7 +78,7 @@ const HeaderMain: FC<Props> = ({ locale }) => {
 				<MyNavbar />
 			</NavbarContent>
 			<NavbarContent className={ styles.search }>
-				<Search locale={ locale }/>
+				<Search />
 			</NavbarContent>
 			<NavbarContent justify='end'>
 				<ButtonBlock />
