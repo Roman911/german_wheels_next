@@ -80,7 +80,7 @@ const Select: FC<SelectProps> = (
 		setEventSearch(value.toLowerCase());
 	}
 
-	return <div className={ twMerge('relative mt-2 rounded-sm bg-white', variant === 'gray' && 'bg-gray-300') }>
+	return <div className={ twMerge('relative mt-2 rounded-sm bg-white w-full', variant === 'gray' && 'bg-gray-300') }>
 		<button
 			type='button'
 			onClick={ () => handleClickOpen() }
