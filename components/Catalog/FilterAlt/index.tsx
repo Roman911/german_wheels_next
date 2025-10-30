@@ -1,10 +1,10 @@
 'use client'
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useDisclosure } from '@heroui/modal';
 import { Drawer, DrawerContent } from '@heroui/drawer';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { setParams } from '@/store/slices/filterSlice';
+import { changeMixedWidth, setParams } from '@/store/slices/filterSlice';
 import SwitchTabs from './SwitchTabs';
 import SwitchTabsByParams from './SwitchTabsByParams';
 import { Section } from '@/models/filter';
@@ -20,15 +20,22 @@ import SectionDisks from '@/components/Catalog/FilterAlt/SectionDisks';
 interface Props {
 	filterData: BaseDataProps | undefined
 	section: Section
+	hasAllParams: boolean
 }
 
-const FilterAlt: FC<Props> = ({ filterData, section }) => {
+const FilterAlt: FC<Props> = ({ filterData, section, hasAllParams }) => {
 	const t = useTranslations('Filters')
 	const [ element, setElement ] = useState<HTMLElement | null>(null);
 	const dispatch = useAppDispatch();
-	const { subsection, filter } = useAppSelector(state => state.filterReducer);
+	const { subsection } = useAppSelector(state => state.filterReducer);
 	const { data } = baseDataAPI.useFetchBaseDataQuery('');
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
+	useEffect(() => {
+		if(hasAllParams) {
+			dispatch(changeMixedWidth(hasAllParams));
+		}
+	}, [dispatch, hasAllParams]);
 
 	const onChange = (name: string, value: number | string | undefined | null, element: HTMLElement) => {
 		if(name === 'brand') {

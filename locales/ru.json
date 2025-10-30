@@ -110,7 +110,8 @@
     "width": "Ширина",
     "winter": "Зимние",
     "year": "Год",
-    "starting current": "пусковой ток"
+    "starting current": "пусковой ток",
+    "tires of different widths": "Разноширокие шины"
   },
   "Footer": {
     "all rights reserved": "Все права защищены",
@@ -271,5 +272,16 @@
     "close": "Закрыть",
     "calculate": "Рассчитать",
     "change": "Изменить"
+  },
+  "PairedCard": {
+    "all season": "Всесезонные",
+    "buy": "Купить",
+    "country": "Страна",
+    "front axle": "Передняя ось",
+    "from": "От",
+    "rear axle": "Задняя ось",
+    "season": "Сезон",
+    "summer": "Летние",
+    "winter": "Зимние"
   }
 }

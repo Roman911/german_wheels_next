@@ -16,6 +16,7 @@ interface BestOffer {
 }
 
 export interface Product {
+	country: string
 	full_name: string
 	default_photo: string
 	group: number
@@ -53,12 +54,32 @@ export interface Product {
 	labels: []
 }
 
+export interface ProductPaired {
+	brand: number;
+	brand_id: number;
+	brand_name: string;
+	brand_alias: string;
+	brand_image: string;
+	front: Product[];
+	rear: Product[];
+}
+
 export interface Data {
 	total_count: number
 	products: Product[]
 }
 
+export interface DataPaired {
+	total_count: number
+	products: ProductPaired[]
+}
+
 export interface ProductsProps {
 	result: boolean
 	data: Data
+}
+
+export interface ProductsPairedProps {
+	result: boolean;
+	data: DataPaired;
 }

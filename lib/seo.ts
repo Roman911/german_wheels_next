@@ -2,8 +2,11 @@ import { IFilter, OriginalType } from '@/models/seo';
 
 const paramTrans: OriginalType = {
 	w: 'width',
+	mw: 'mwidth',
 	h: 'height',
+	mh: 'mheight',
 	d: 'radius',
+	md: 'mradius',
 	b: 'brand',
 	s: 'sezon',
 	stud: 'only_studded',

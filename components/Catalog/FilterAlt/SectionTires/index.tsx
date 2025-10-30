@@ -1,8 +1,10 @@
-import { FC, useState } from 'react';
-import { useLocale } from 'next-intl';
+import { FC } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
+import { usePathname, useRouter } from '@/i18n/routing';
 import { Subsection } from '@/models/filter';
 import Select from '@/components/Catalog/FilterAlt/Select';
-import { useAppSelector } from '@/hooks/redux';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { changeMixedWidth } from '@/store/slices/filterSlice';
 import { baseDataAPI } from '@/services/baseDataService';
 import type { BaseDataProps } from '@/models/baseData';
 import {
@@ -22,12 +24,23 @@ interface Props {
 }
 
 const SectionTires: FC<Props> = ({ filterData, onChange }) => {
-	const [ isSelected, setIsSelected ] = useState(false);
+	const path = usePathname();
+	const router = useRouter();
+	const t = useTranslations('Filters');
+	const dispatch = useAppDispatch();
 	const locale = useLocale();
 	const { data } = baseDataAPI.useFetchBaseDataQuery('');
-	const { filter, subsection } = useAppSelector(state => state.filterReducer);
+	const { filter, subsection, mixedWidth } = useAppSelector(state => state.filterReducer);
 	const appointmentCargoShow = filter.vehicle_type && cargoTypes.includes(filter.vehicle_type);
 	const appointmentIndustrialShow = filter.vehicle_type && industrialTypes.includes(filter.vehicle_type);
+	const parts = path.split('/');
+	const filtered = parts.filter(part => !/^(mw|mh|md)-/.test(part));
+	const result = filtered.join('/');
+
+	const handleClick = () => {
+		if(mixedWidth) router.push(result);
+		dispatch(changeMixedWidth(!mixedWidth));
+	}
 
 	return (
 		<>
@@ -42,16 +55,18 @@ const SectionTires: FC<Props> = ({ filterData, onChange }) => {
 						onChange={ onChange }
 						filterValue={ filter?.width }
 						search={ true }
+						mixed={ mixedWidth }
 					/>
-					{ isSelected && <Select
-						name='width'
+					{ mixedWidth && <Select
+						name='mwidth'
 						label='width'
 						focusValue='175'
 						options={ filterData?.tyre_width.map(item => ({ value: item.value, label: item.value, p: item.p })) || []}
 						variant='gray'
 						onChange={ onChange }
-						filterValue={ filter?.width }
+						filterValue={ filter?.mwidth }
 						search={ true }
+						mixed={ true }
 					/> }
 				</div>
 				<div className='flex gap-2'>
@@ -64,16 +79,18 @@ const SectionTires: FC<Props> = ({ filterData, onChange }) => {
 						onChange={ onChange }
 						filterValue={ filter?.height }
 						search={ true }
+						mixed={ mixedWidth }
 					/>
-					{ isSelected && <Select
-						name='height'
+					{ mixedWidth && <Select
+						name='mheight'
 						label='height'
 						focusValue='45'
 						options={ filterData?.tyre_height?.map(item => ({ value: item.value, label: item.value, p: item.p })) || []}
 						variant='gray'
 						onChange={ onChange }
-						filterValue={ filter?.height }
+						filterValue={ filter?.mheight }
 						search={ true }
+						mixed={ true }
 					/> }
 				</div>
 				<div className='flex gap-2'>
@@ -86,22 +103,24 @@ const SectionTires: FC<Props> = ({ filterData, onChange }) => {
 						onChange={ onChange }
 						filterValue={ filter?.radius }
 						search={ true }
+						mixed={ mixedWidth }
 					/>
-					{ isSelected && <Select
-						name='radius'
+					{ mixedWidth && <Select
+						name='mradius'
 						label='diameter'
 						focusValue='R14'
 						options={ filterData?.tyre_diameter?.map(item => ({ value: item.value, label: `R${ item.value }`, p: item.p })) || []}
 						variant='gray'
 						onChange={ onChange }
-						filterValue={ filter?.radius }
+						filterValue={ filter?.mradius }
 						search={ true }
+						mixed={ true }
 					/> }
 				</div>
 			</> }
 			{ !appointmentCargoShow && !appointmentIndustrialShow &&
-				<Switch className='mt-6' isSelected={ isSelected } onValueChange={ setIsSelected }>
-					Airplane mode
+				<Switch className='mt-6' isSelected={ mixedWidth } onValueChange={ handleClick }>
+					{ t('tires of different widths') }
 				</Switch> }
 			{ !appointmentCargoShow && !appointmentIndustrialShow && <Select
 				name='sezon'

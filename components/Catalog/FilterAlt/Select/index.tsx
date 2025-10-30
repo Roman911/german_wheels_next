@@ -2,7 +2,7 @@
 import { ChangeEvent, FC, MouseEvent, useCallback, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
-
+import { Badge } from '@heroui/react';
 import './index.scss';
 import * as Icons from '../../../Lib/Icons';
 import SearchInput from './SearchInput';
@@ -18,6 +18,7 @@ interface SelectProps {
 	onChange: (name: string, value: number | string | undefined | null, element: HTMLElement) => void
 	filterValue?: null | number | string
 	valueStudded?: null | number | string
+	mixed?: boolean
 	filterOther?: {
 		only_c: string | null | undefined
 		only_xl: string | null | undefined
@@ -38,7 +39,8 @@ const Select: FC<SelectProps> = (
 		focusValue,
 		filterValue,
 		valueStudded,
-		filterOther
+		filterOther,
+		mixed
 	}) => {
 	const [ open, setOpen ] = useState(false);
 	const [ eventSearch, setEventSearch ] = useState('');
@@ -80,7 +82,10 @@ const Select: FC<SelectProps> = (
 		setEventSearch(value.toLowerCase());
 	}
 
-	return <div className={ twMerge('relative mt-2 rounded-sm bg-white w-full', variant === 'gray' && 'bg-gray-300') }>
+	return <div className={ twMerge('relative mt-2 rounded-sm bg-white w-full h-max', variant === 'gray' && 'bg-gray-300') }>
+		<Badge isInvisible={ !filterValue } className='border-white text-black'
+					 classNames={ { base: 'w-full', badge: 'left-[1%]' } } color='primary' content={ 1 }
+					 placement='top-left'>
 		<button
 			type='button'
 			onClick={ () => handleClickOpen() }
@@ -95,7 +100,8 @@ const Select: FC<SelectProps> = (
         <Icons.ChevronDownIcon className={ twMerge('w-3.5 h-3.5 stroke-black', variant === 'gray' && 'stroke-gray-500') }/>
       </span>
 		</button>
-		{ search && open && <SearchInput value={ eventSearch } handleChange={ handleChange }/> }
+		</Badge>
+		{ search && open && <SearchInput value={ eventSearch } handleChange={ handleChange } mixed={ mixed } /> }
 		<ul ref={ ref } className={
 			twMerge(
 				'relative item-list max-h-[480px] w-full overflow-auto pb-1 pt-1 text-base ring-black ring-opacity-5 focus:outline-none sm:text-sm',
