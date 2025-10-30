@@ -7,6 +7,7 @@ import {
 	tyreServiceEndpoints,
 } from '@/config/api';
 import { ProductProps } from '@/models/product';
+import { ProductsPairedProps } from '@/models/products';
 import { BaseDataProps } from '@/models/baseData';
 import { BrandsObject, BrandsObjectItems } from '@/models/brends';
 import { AliasAll, Pages } from '@/models/alias';
@@ -30,6 +31,17 @@ export async function getProducts(id: string, start: number, length: number) {
 		method: API_CONSTANTS.METHODS.POST,
 		headers: DEFAULT_HEADERS,
 		body: JSON.stringify({ start, length }),
+	});
+
+	if (!res.ok) throw new Error('Failed to fetch products');
+
+	return await res.json();
+}
+
+export async function getProductsPaired(id: string): Promise<ProductsPairedProps> {
+	const res = await fetch(`${ API_URL }${ productEndpoints.productsPaired(id) }`, {
+		method: API_CONSTANTS.METHODS.GET,
+		headers: DEFAULT_HEADERS
 	});
 
 	if (!res.ok) throw new Error('Failed to fetch products');

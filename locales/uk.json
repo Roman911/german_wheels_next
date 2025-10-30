@@ -23,6 +23,7 @@
     "suvs": "Позашляховики"
   },
   "Catalog": {
+    "all search result": "Усі результати пошуку",
     "by car": "За авто",
     "by parameters": "За параметрами",
     "no result by search": "За вашим запитом нічого не знайдено.",
@@ -109,7 +110,8 @@
     "type size": "Типорозмір",
     "width": "Ширина",
     "winter": "Зимові",
-    "year": "Рік"
+    "year": "Рік",
+    "tires of different widths": "Різноширокі шини"
   },
   "Footer": {
     "all rights reserved": "Всі права захищені",
@@ -270,5 +272,16 @@
     "close": "Закрити",
     "calculate": "Розрахувати",
     "change": "Змінити"
+  },
+  "PairedCard": {
+    "all season": "Всесезонні",
+    "buy": "Купити",
+    "country": "Країна",
+    "front axle": "Передня вісь",
+    "from": "Від",
+    "rear axle": "Задня вісь",
+    "season": "Сезон",
+    "summer": "Літні",
+    "winter": "Зимові"
   }
 }

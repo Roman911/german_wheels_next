@@ -11,8 +11,11 @@ export enum Subsection {
 
 export interface IFilter {
 	width?: null | string
+	mwidth?: null | string
 	height?: null | string
+	mheight?: null | string
 	radius?: null | string
+	mradius?: null | string
 	sezon?: null | string
 	brand?: null | string
 	model_id?: null | string

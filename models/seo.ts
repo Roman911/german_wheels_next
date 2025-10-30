@@ -1,7 +1,10 @@
 export interface IFilter {
 	width?: string
+	mwidth?: string
 	height?: string
+	mheight?: string
 	radius?: string
+	mradius?: string
 	brand?: string
 	sezon?: string
 	only_studded?: string
@@ -42,8 +45,11 @@ export interface IFilter {
 
 export type OriginalType = {
 	w: 'width',
+	mw: 'mwidth',
 	h: 'height',
+	mh: 'mheight',
 	d: 'radius',
+	md: 'mradius',
 	b: 'brand',
 	s: 'sezon',
 	stud: 'only_studded',

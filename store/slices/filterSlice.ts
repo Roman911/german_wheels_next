@@ -7,12 +7,16 @@ export interface FilterState {
 	section: Section
 	subsection: Subsection
 	filter: IFilter
+	mixedWidth: boolean
 }
 
 const initialFilterState: IFilter = {
 	width: null,
+	mwidth: null,
 	height: null,
+	mheight: null,
 	radius: null,
+	mradius: null,
 	sezon: null,
 	brand: null,
 	model_id: null,
@@ -54,6 +58,7 @@ const initialFilterState: IFilter = {
 const initialState: FilterState = {
 	section: Section.Tires,
 	subsection: Subsection.ByParams,
+	mixedWidth: false,
 	filter: initialFilterState,
 }
 
@@ -68,18 +73,21 @@ export const filterSlice = createSlice({
 			state.section = actions.payload;
 		},
 		setParams: (state, actions: PayloadAction<IFilter>) => {
-			state.filter = {...state.filter, ...actions.payload}
+			state.filter = {...state.filter, ...actions.payload};
 		},
 		removeParam: (state, actions: PayloadAction<IFilter>) => {
-			state.filter = {...state.filter, ...actions.payload}
+			state.filter = {...state.filter, ...actions.payload};
 		},
 		resetFilter: (state) => {
 			state.filter = initialFilterState;
+		},
+		changeMixedWidth: (state, actions: PayloadAction<boolean>) => {
+			state.mixedWidth = actions.payload;
 		},
 		reset: () => initialState,
 	},
 });
 
-export const { changeSubsection, changeSection, setParams, removeParam, reset, resetFilter } = filterSlice.actions;
+export const { changeSubsection, changeSection, setParams, removeParam, changeMixedWidth, reset, resetFilter } = filterSlice.actions;
 
 export default filterSlice.reducer;
