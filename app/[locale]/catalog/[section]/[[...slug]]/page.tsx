@@ -54,7 +54,7 @@ export default async function Catalog({ params }: { params: Promise<{ locale: La
 	const searchParams = `?${paramsUrl || ''}${found && sort[found] ? sort[found] : ''}`;
 	const oldParams = new URLSearchParams(searchParams);
 	const newParams = new URLSearchParams();
-	const hasAllParams = required.every(prefix =>
+	const hasAllParams = slug && required.every(prefix =>
 		slug.some(item => item.startsWith(`${prefix}-`))
 	);
 
