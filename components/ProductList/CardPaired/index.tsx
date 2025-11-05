@@ -22,7 +22,7 @@ const ProductPairedCard: FC<Props> = ({ locale, item, onOpen, setGroup }) => {
 	const t = useTranslations('PairedCard');
 
 	const Item = ({ product }: { product: Product }) => {
-		const { group, full_name, page_url, country, sku, season, min_price } = product;
+		const { group, page_url, country, sku, season, min_price, size } = product;
 		const seasonTransform = season && SeasonTransform(season)?.name;
 
 		const onClick = () => {
@@ -33,9 +33,12 @@ const ProductPairedCard: FC<Props> = ({ locale, item, onOpen, setGroup }) => {
 		return (
 			<div className="mb-2 flex justify-between items-start flex-col md:flex-row">
 				<div className="flex flex-col gap-2">
-					<Link href={ `/${ page_url }` } className='font-medium text-blue-800 hover:underline'>
-						{ full_name }
-					</Link>
+					<div className='text-sm text-gray-500'>
+						<span>{ t('size') }: </span>
+						<Link href={ `/${ page_url }` } className='font-medium text-blue-800 hover:underline'>
+							{ size }
+						</Link>
+					</div>
 					<div className='text-sm text-gray-500'>
 						<span>Артикул: </span><span>{ sku }</span>
 					</div>
@@ -66,12 +69,12 @@ const ProductPairedCard: FC<Props> = ({ locale, item, onOpen, setGroup }) => {
 					<div className="relative col-span-3 md:col-span-3">
 						<Image
 							className='mx-auto'
-							src={ item.front[0].default_photo || (locale === Language.UK ? noPhoto : noPhotoRu) }
-							alt={ item.front[0].full_name }
+							src={ item.brand_image || (locale === Language.UK ? noPhoto : noPhotoRu) }
+							alt={ `${ item.brand_name } ${ item.model.name }` }
 							width={ 160 }
 							height={ 160 }
 						/>
-						<div className='mt-2 text-center text-lg font-semibold'>{ item.brand_name }</div>
+						<div className='mt-2 text-center text-lg font-semibold'>{ `${ item.brand_name } ${ item.model.name }` }</div>
 					</div>
 					<div className="flex flex-col col-span-6 md:col-span-9">
 						<div className='mb-2 text-lg font-semibold'>

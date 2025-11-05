@@ -52,6 +52,7 @@ export interface Product {
 	model: Model
 	best_offer: BestOffer
 	labels: []
+	size: string
 }
 
 export interface ProductPaired {
@@ -60,6 +61,11 @@ export interface ProductPaired {
 	brand_name: string;
 	brand_alias: string;
 	brand_image: string;
+	model_id: number;
+	model: {
+		name: string;
+		alias: string;
+	},
 	front: Product[];
 	rear: Product[];
 }

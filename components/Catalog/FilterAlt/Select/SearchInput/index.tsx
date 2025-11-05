@@ -16,6 +16,7 @@ const SearchInput: FC<SearchInputProps> = ({ value, mixed, handleChange }) => {
 		<label className='relative group' htmlFor="">
 			<Icons.SearchIcon className='fill-gray-500 absolute left-2 top-1/2 -translate-y-1/2'/>
 			<input
+				autoFocus={ true }
 				type='text'
 				value={ value }
 				onChange={ event => handleChange(event.target.value) }
